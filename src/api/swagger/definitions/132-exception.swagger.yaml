@@ -1,0 +1,19 @@
+definitions:
+  Exception:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 12 
+      exception:
+        type: object 
+      request:
+        type: object 
+      user_id:
+        type: integer
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        type: string
+        format: date-time 

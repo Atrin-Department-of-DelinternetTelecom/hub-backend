@@ -1,0 +1,64 @@
+/gf-contracts/{id}/data-fix:
+  get:
+    tags:
+      - "gf-contracts"
+    summary: "Your GET endpoint"
+    description: "get a single contract"
+    operationId: "getDataFix"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of table contract"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/GfContractDataFix"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                username: "thisisusername"
+                email: "mostafaebrahimi.me@gmail.com"
+                first_name: "Mostafa"
+                role: "admin"
+                last_name: "Ebrahimi"
+                password: "mostafa$$1"
+              meta:
+                code: 0
+                status: "string"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfContract" 

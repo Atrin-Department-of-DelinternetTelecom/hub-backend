@@ -1,0 +1,43 @@
+{
+  "extends": "@tsconfig/node18/tsconfig.json",
+  "compilerOptions": {
+    "typeRoots": ["./types"],
+    "jsx": "react",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+    "strict": true,
+    "baseUrl": ".",
+    "lib": ["es2022"],
+    "target": "es2022",
+    "noImplicitAny": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "inlineSourceMap": true,
+    "module": "commonjs",
+    "allowJs": true,
+    "checkJs": false,
+    "paths": {
+      "@api/*": ["src/api/*"],
+      "@utils/*": ["src/api/utils/*"],
+      "@lib/*": ["src/lib/*"],
+      "@config": ["src/config/index"],
+      "@config/*": ["src/config/*"],
+      "@service/*": ["src/api/service/*"],
+      "@models": ["src/api/models/index"],
+      "@models/*": ["src/api/models/*"],
+      "@namespaces/*": ["src/api/namespaces/*"],
+      "@constants/*": ["src/api/constants/*"],
+      "@resources/*": ["src/api/resources/*"],
+      "@crud/*": ["src/lib/crud/types/index"],
+      "@middlewares/*": ["src/api/middlewares/*"]
+    }
+  },
+  "ts-node": {
+    // It is faster to skip typechecking.
+    // Remove if you want ts-node to do typechecking.
+    "transpileOnly": true,
+    "files": true,
+    "swc": true
+  }
+}

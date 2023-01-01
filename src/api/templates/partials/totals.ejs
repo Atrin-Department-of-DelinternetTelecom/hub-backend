@@ -1,0 +1,49 @@
+<div class="resum-box">
+  <div class="payment-box">
+    <% var formatter=new Intl.NumberFormat('es-ES', { style: 'currency' , currency: 'EUR' }); %>
+      <p>Mètode de pagament</p>
+      <ul class="bic">
+        <li>
+          <p>BIC</p>
+          <p>BIC Name</p>
+          <p>IBAN</p>
+        </li>
+        <li>
+          <p>
+            <%= invoice.client.bic %>
+          </p>
+          <p>
+            <%= invoice.client.bicName %>
+          </p>
+          <p>
+            <%= iban %>
+          </p>
+        </li>
+
+      </ul>
+  </div>
+  <div class="total-box">
+    <div class="resum-row resum-head">
+      <span>Resum</span>
+    </div>
+    <div class="resum-row">
+      <span>Base imposable</span> <span>
+        <%= formatter.format(invoice.baseTotal) %>
+      </span>
+    </div>
+    <div class="resum-row">
+      <span>Impostos</span>
+      <div>
+        <span class="margin-right">+ I.V.A 21%</span>
+        <span>
+          <%= formatter.format(invoice.taxesTotal) %>
+        </span>
+      </div>
+    </div>
+    <div class="resum-row total">
+      <span>Total a pagar</span> <span>
+        <%= formatter.format(invoice.total) %>
+      </span>
+    </div>
+  </div>
+</div>

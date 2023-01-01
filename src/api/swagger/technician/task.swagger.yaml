@@ -1,0 +1,357 @@
+/technician/tasks/{id}/installation-report:
+  get:
+    tags:
+      - 'installation report'
+    description: 'get installation report for a task'
+    operationId: 'getReportByTaskId'
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: string
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+    x-swagger-router-controller: 'InstallationReport'
+
+/technician/tasks/{id}:
+  get:
+    tags:
+      - 'technician'
+    summary: 'Your GET endpoint'
+    description: 'get technician task'
+    operationId: 'getTask'
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: number
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+    x-swagger-router-controller: 'Technician'
+
+/technician/tasks/{id}/finish:
+  post:
+    tags:
+      - 'technician'
+    description: 'finish technician task'
+    operationId: 'finishTask'
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: number
+
+      - name: body
+        in: body
+        schema:
+          type: object
+          properties:
+            coordinates:
+              type: object
+              properties:
+                lat:
+                  type: number
+                lng:
+                  type: number
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+    x-swagger-router-controller: 'Technician'
+
+/technician/tasks/{id}/cancel:
+  post:
+    tags:
+      - 'technician'
+    description: 'cancel technician task'
+    operationId: 'cancelTask'
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: number
+      - name: body
+        in: body
+        schema:
+          type: object
+          properties:
+            reasonId:
+              type: number
+            description:
+              type: string
+            by:
+              type: string
+              enum: ['technician', 'operator']
+            coordinates:
+              type: object
+              properties:
+                lat:
+                  type: number
+                lng:
+                  type: number
+
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+    x-swagger-router-controller: 'Technician'
+
+/technician/tasks/{id}/set-in-progress-step:
+  post:
+    tags:
+      - 'technician'
+    summary: 'Your GET endpoint'
+    description: 'get current in-progress step'
+    operationId: 'setTaskInProgressStep'
+    parameters:
+      - in: path
+        name: id
+        required: true
+        type: number
+
+      - in: body
+        name: body
+        required: true
+        schema:
+          type: object
+          properties:
+            step:
+              type: string
+          required:
+            - step
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+    x-swagger-router-controller: 'Technician'
+
+/technician/tasks/{type}/{typeId}/start:
+  post:
+    tags:
+      - 'technician'
+    summary: 'Your GET endpoint'
+    description: 'start technician task'
+    operationId: 'startTaskByTypeId'
+    parameters:
+      - name: type
+        in: path
+        required: true
+        type: string
+
+      - name: typeId
+        in: path
+        required: true
+        type: number
+
+      - name: body
+        in: body
+        required: false
+        schema:
+          type: object
+          properties:
+            coordinates:
+              type: object
+              properties:
+                lat:
+                  type: number
+                lng:
+                  type: number
+
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+    x-swagger-router-controller: 'Technician'
+
+/technician/tasks/{id}/save-cpe-sn:
+  post:
+    tags:
+      - 'technician'
+    summary: 'Your GET endpoint'
+    description: 'save router cpe sn'
+    operationId: 'saveCpeSn'
+    parameters:
+      - in: path
+        name: id
+        required: true
+        type: number
+      - in: body
+        name: body
+        required: true
+        schema:
+          type: object
+          properties:
+            cpeSn:
+              type: string
+          required:
+            - cpeSn
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+    x-swagger-router-controller: 'Technician'
+
+/technician/tasks/{id}/cpe-status:
+  get:
+    tags:
+      - 'technician'
+    summary: 'Your GET endpoint'
+    description: 'get cpe status'
+    operationId: 'cpeStatus'
+    parameters:
+      - in: path
+        name: id
+        required: true
+        type: number
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: object
+          properties:
+            connected:
+              type: boolean
+            reason:
+              type: string
+    x-swagger-router-controller: 'Technician'
+
+/technician/tasks/{id}/cpe-coa:
+  post:
+    tags:
+      - 'technician'
+    summary: 'Your GET endpoint'
+    description: 'coa the router'
+    operationId: 'cpeCoa'
+    parameters:
+      - in: path
+        name: id
+        required: true
+        type: number
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+
+    x-swagger-router-controller: 'Technician'
+
+/technician/tasks/{id}/material-presets:
+  get:
+    tags:
+      - 'technician'
+    summary: 'Your GET endpoint'
+    description: 'get material presets'
+    operationId: 'getTaskPresets'
+    parameters:
+      - in: path
+        name: id
+        required: true
+        type: number
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: OK
+        schema:
+          type: object
+          properties:
+            code:
+              type: integer
+            data:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  materials:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        materialId:
+                          type: integer
+                        title:
+                          type: string
+                        amount:
+                          type: integer
+                        unit:
+                          type: string
+            meta:
+              type: object
+    x-swagger-router-controller: 'Technician'
+
+/technician/tasks/{id}/must-sign-docs:
+  get:
+    tags:
+      - 'technician'
+    summary: 'Your GET endpoint'
+    description: 'get material presets'
+    operationId: 'getMustSignDocs'
+    parameters:
+      - in: path
+        name: id
+        required: true
+        type: number
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: OK
+        schema:
+          type: object
+    x-swagger-router-controller: 'Technician'
+/technician/tasks/fill-cancelled-at:
+  put:
+    tags:
+      - 'technician'
+    summary: 'Your GET endpoint'
+    description: 'fill cancelled at column with update date'
+    operationId: 'putFillCancelledAt'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: OK
+        schema:
+          type: object
+    x-swagger-router-controller: 'Technician'

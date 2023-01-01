@@ -1,0 +1,89 @@
+definitions:
+  InvoiceClient:
+    type: "object"
+    required:    
+      - "name"       
+    properties:
+      id:
+        type: "number"
+        example: 12
+      active:
+        type: "number"
+        example: 1
+      moozaicUserId:
+        type: "number"
+        example: null
+      alias:
+        type: "string"
+        example: "Mirza Ghasemi"
+      name:
+        type: "string"
+        example: "Mirza"
+      surname1:
+        type: "string"
+        example: "Ghasem"
+      surname2:
+        type: "string"
+        example: "MG"
+      gender:
+        type: "string"
+        example: "male"
+      businessName:
+        type: "string"
+        example: "Kale pazi"
+      isBusiness:
+        type: "number"
+        example: 0
+      logo:
+        type: "string"
+      phone:
+        type: "string"
+        example: "888888888"
+      address:
+        type: "string"
+        example: "Iran. Fars. Shiraz. Moaliabad"
+      number:
+        type: "string"
+        example: "110"
+      email:
+        type: "string"
+        example: "email@oonja.com"
+      countryCode:
+        type: "string"
+        example: "IRR"
+      city:
+        type: "string"
+        example: "Shiraz"
+      state:
+        type: "string"
+        example: "Fars"
+      postalCode:
+        type: "string"
+        example: "012345"
+      nif:
+        type: "string"
+        example: "78582263A"
+      defaultCurrencyCode:
+        type: "string" 
+      defaultPaymentPeriodType:
+        type: "number"
+      defaultPaymentType:
+        type: "number"
+      uid:
+        type: "number"
+        example: 90
+      comments:
+        type: "string"
+      excludeFromMailings:
+        type: "number"
+      status:
+        type: "number"
+        example: 0
+      creationDate:
+        type: "string"
+        example: "2021-11-11T06:25:39.026Z"
+      updateDate:
+        type: "string"    
+        example: "2021-11-11T06:25:39.026Z"
+    description: ""
+    title: "gf-document-type"

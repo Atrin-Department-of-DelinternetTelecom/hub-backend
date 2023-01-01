@@ -1,0 +1,49 @@
+/templates/renderEntity:
+  get:
+    tags:
+      - "templates"
+    summary: "render template with data and entity"
+    description: "render template with data and entity"
+    operationId: "getRenderTemplateByEntity"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "template_id"
+        in: "query"
+        description: "id of template"
+        required: true
+        type: "string"
+      - name: "context"
+        in: "query"
+        default: "{}"
+        description: "json value of context"
+        required: false
+        type: "string"
+      - name: "entity"
+        in: "query"
+        description: "name of entity => User or TimeRecord for example"
+        required: true
+        type: "string"
+      - name: "entity_id"
+        in: "query"
+        description: "id of entity that u want"
+        required: true
+        type: "string"    
+    responses:
+      "200":
+        description: "OK"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Template"

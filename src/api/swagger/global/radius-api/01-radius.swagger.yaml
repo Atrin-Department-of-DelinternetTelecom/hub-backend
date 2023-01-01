@@ -1,0 +1,40 @@
+/radius-api/usernames/{username}:
+  get:
+    tags:
+      - 'radius-api'
+    summary: ''
+    description: Get the radius username corresponding password value
+    operationId: 'password'
+    security:
+      - Bearer: []
+    parameters:
+      - name: username
+        in: 'path'
+        description: 'The radius username'
+        required: true
+        type: string
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          properties:
+            success:
+              type: boolean
+              default: true
+            password:
+              type: string
+              default: password
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'RadiusApi'

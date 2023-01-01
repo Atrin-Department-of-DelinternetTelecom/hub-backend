@@ -1,0 +1,51 @@
+/locations/user:
+  get:
+    tags:
+      - "location"
+    summary: "Your GET endpoint"
+    description: "get last location of users"
+    operationId: "getLocationsUser"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters: []
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              type: "array"
+              uniqueItems: true
+              items:
+                type: "object"
+                properties:
+                  id:
+                    type: "number"
+                  lat:
+                    type: "number"
+                  lng:
+                    type: "number"
+                required:
+                  - "id"
+                  - "lat"
+                  - "lng"
+              minItems: 1
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+    x-swagger-router-controller: "Location"

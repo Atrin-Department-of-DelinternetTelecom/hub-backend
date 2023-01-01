@@ -1,0 +1,215 @@
+/invoice-clients-extra-fields/{id}:
+  get:
+    tags:
+      - 'invoice-clients-extra-fields'
+    summary: 'Your GET endpoint'
+    description: 'get a single contract'
+    operationId: 'getInvoiceClientsExtraFieldsId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table contract'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/InvoiceClientsExtraField'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'status'
+          description: ''
+          x-examples:
+            example-1:
+              data:
+                username: 'thisisusername'
+                email: 'mostafaebrahimi.me@gmail.com'
+                first_name: 'Mostafa'
+                role: 'admin'
+                last_name: 'Ebrahimi'
+                password: 'mostafa$$1'
+              meta:
+                code: 0
+                status: 'string'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'InvoiceClientsExtraField'
+  put:
+    tags:
+      - 'invoice-clients-extra-fields'
+    summary: ''
+    description: 'update a invoice-clients-extra-fields by id'
+    operationId: 'putInvoiceClientsExtraFieldsId'
+    security:
+      - Bearer: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+        description: Id of invoice-clients-extra-fields table
+      - in: body
+        name: body
+        schema:
+          type: object
+          required:
+            - name
+            - categoryId
+          properties:
+            uid:
+              type: integer
+              example: -1
+            name:
+              type: string
+              example: 'extra field one'
+            explain:
+              type: string
+              example: 'extra field one'
+            active:
+              type: boolean
+            label:
+              type: object
+              properties:
+                en:
+                  type: string
+                es:
+                  type: string
+                ca:
+                  type: string
+            categoryId:
+              type: integer
+              example: 1
+            comment_required:
+              type: integer
+              example: 1
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/InvoiceClientsExtraField'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'InvoiceClientsExtraField'
+  delete:
+    tags:
+      - 'invoice-clients-extra-fields'
+    summary: ''
+    description: 'delete a invoice-clients-extra-fields by id'
+    operationId: 'deleteInvoiceClientsExtraFieldsId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of invoice-clients-extra-fields table'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'Example response'
+        schema:
+          type: 'object'
+          required:
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: 'Deleted'
+                status: 'success'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'InvoiceClientsExtraField'

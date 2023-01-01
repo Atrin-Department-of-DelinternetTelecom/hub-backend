@@ -1,0 +1,116 @@
+<% 
+    type = 'SEPA';
+    contract_type = "Ordre de domiciiació directe SEPA";
+    footer_plus = false;
+    info_extra = '';
+ %>
+
+<div class="d-flex flex-column page"> 
+    <%- include('../components/header');%>
+    
+    <div class="d-flex flex-column px-2">
+        <h2 class="pb-1">A complimentar pel creditor</h2>
+        <div class="d-flex flex-wrap">
+            <div class="d-flex flex-column mb-1 w-50"> 
+                <label class="text-gray uppercase">Referència de l’orde de domiciliació</label>
+                <p><%= sepa_reference %></p>
+            </div>
+            <div class="d-flex flex-column mb-1 w-50"> 
+                <label class="text-gray uppercase">Identificador del creditor</label>
+                <p>ESB55606446</p>
+            </div>
+            <div class="d-flex flex-column mb-1 w-100"> 
+                <label class="text-gray uppercase">Nom del creditor</label>
+                <p>DEL-INTERNET TELECOM S.L.U</p>
+            </div> 
+            <div class="d-flex flex-column mb-1 w-75"> 
+                <label class="text-gray uppercase">Adreça</label>
+                <p>Plaça Mercat La Cava 1 Local Delinternet</p>
+            </div> 
+            <div class="d-flex flex-column mb-1 w-25"> 
+                <label class="text-gray uppercase">Codi Postal</label>
+                <p>43580</p>
+            </div>
+            <div class="d-flex flex-column mb-1/2 w-50"> 
+                <label class="text-gray uppercase">Localitat</label>
+                <p>Deltebre</p>
+            </div>
+            <div class="d-flex flex-column mb-1/2 w-25"> 
+                <label class="text-gray uppercase">Provincia</label>
+                <p>Tarragona</p>
+            </div>
+            <div class="d-flex flex-column mb-1/2 w-25"> 
+                <label class="text-gray uppercase">País</label>
+                <p>Espanya</p>
+            </div>
+        </div>
+        
+        <small class="text-gray">Mitjançant la signatura d’aquesta ordre de domiciliació el deutor autoritza (A) al creditor a enviar instruccions a l’entitat del deutor per a carregar en el seu
+            compte, i (B) a l’entitat per a efectuar càrrecs en el seu compte seguint les instruccions del creditor. Com a part dels seus drets, el deutor està legitimitat al
+            reemborsament per la seva entitat en els termes i condicions de contracte subscrit per la mateixa. La sol·licitud de reemborsament s’haurà d’efectuar dins
+            de les vuit setmanes que segueixen a la data del càrrec en compte. Pot obtenir informació addicional sobre els seus drets a la seva entitat financera.</small>
+        <div class="d-flex flex-column"> 
+            <h2 class="pb-1">A complimentar pel deutor</h2>
+            <div class="d-flex flex-wrap"> 
+                <div class="d-flex flex-column mb-1 w-75">
+                    <label class="text-gray uppercase">Nom del deutor/es</label>
+                    <p><%= sepa_user_name %></p>
+                </div>
+                <div class="d-flex flex-column mb-1 w-25">
+                    <label class="text-gray uppercase">DNI/NIE/NIF</label>
+                    <p><%= user_DNI %></p>
+                </div>
+                <div class="d-flex flex-column mb-1 w-75">
+                    <label class="text-gray uppercase">Adreça del deutor</label>
+                    <p><%= user_address %></p>
+                </div>
+                <div class="d-flex flex-column mb-1 w-25">
+                    <label class="text-gray uppercase">Codi Postal</label>
+                    <p><%= user_CP %></p>
+                </div>
+                <div class="d-flex flex-column mb-1 w-50">
+                    <label class="text-gray uppercase">Localitat</label>
+                    <p><%= user_city %></p>
+                </div>
+                <div class="d-flex flex-column mb-1 w-25">
+                    <label class="text-gray uppercase">Provincia</label>
+                    <p><%= user_region %></p>
+                </div>
+                <div class="d-flex flex-column mb-1 w-25">
+                    <label class="text-gray uppercase">País</label>
+                    <p>Espanya</p>
+                </div>  
+                <div class="d-flex flex-column mb-1 w-50">
+                    <label class="text-gray uppercase">Swift BIC (pot contenir 8 o 11 caràcters)</label>
+                    <p><%= swift %></p>
+                </div>
+                <div class="d-flex flex-column mb-1 w-50">
+                    <label class="text-gray uppercase">Número de compte - IBAN</label>
+                    <p><%= user_current_account %></p>
+                </div> 
+                
+                <div class="d-flex w-50">
+                    <div class="d-flex flex-column">
+                        <label class="text-gray uppercase">Pagament Recurrent</label>
+                        <div class="d-flex align-center">
+                            <%- include(`../components/${one_payment ? 'tick' : 'close'}`) %> 
+                            <p class="px-1/2">Tipus de pagament</p>
+                        </div>
+                    </div>  
+                </div> 
+                <div class="d-flex flex-column w-50">
+                    <div class="d-flex flex-column">
+                        <label class="text-gray uppercase">Pagament Únic</label>
+                        <div class="d-flex align-center">
+                            <%- include(`../components/${one_payment ? 'tick' : 'close'}`) %> 
+                            <p class="px-1/2">Tipus de pagament</p>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div> 
+    
+    <%- include('../components/footer', { observation: true }) %>
+</div>

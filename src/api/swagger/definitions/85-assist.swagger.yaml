@@ -1,0 +1,146 @@
+definitions:
+  GfAssist:
+    type: "object"
+    required:
+      - id
+      - uid
+      - contractId
+      - contactPhone
+      - clientId
+      - gfUserId
+      - description
+      - incidenceId
+      - closed
+      - duration
+      - sectionCode
+      - materialText
+      - signed
+      - willShipImage
+      - useWillShipImage
+      - executedDate       
+      - createdByUserId       
+      - image1       
+      - image2     
+      - image3      
+      - image4      
+      - image5      
+      - image6      
+      - image7      
+      - image8      
+      - image9      
+      - image10      
+      - image11      
+      - image12      
+      - motherEventId       
+      - status
+      - creationDate
+      - updateDate
+    properties:
+      id:
+        type: number
+        example: 12
+      uid:
+        type: number
+        example: 0
+      contractId:
+        type: "number"
+        example: 12
+      clientId:
+        type: "number"
+        example: 12 
+      incidenceId:
+        type: "number"
+        example: 12
+      motherEventId:
+        type: "number"
+        example: 3   
+      duration:
+        type: "number"
+        example: 60   
+      description:
+        type: "string"
+        example: "some description" 
+      closed:
+        type: "boolean"
+        example: false 
+      gfUserId:
+        type: "number"
+        example: 12 
+      createdByUserId:
+        type: "number"
+        example: 12 
+      useWillShipImage:
+        type: "boolean"
+        example: false 
+      willShipImage:
+        type: "string"
+        example: 'image.png' 
+      sectionCode:
+        type: "string"
+        example: 'INTERNET' 
+      contactPhone:
+        type: "string"
+        example: 'image.png' 
+      signed:
+        type: "string"
+        example: 'image.png' 
+      image1:
+        type: "string"
+        example: 'image.png' 
+      image2:
+        type: "string"
+        example: 'image.png' 
+      image3:
+        type: "string"
+        example: 'image.png' 
+      image4:
+        type: "string"
+        example: 'image.png' 
+      image5:
+        type: "string"
+        example: 'image.png' 
+      image6:
+        type: "string"
+        example: 'image.png' 
+      image7:
+        type: "string"
+        example: 'image.png' 
+      image8:
+        type: "string"
+        example: 'image.png' 
+      image9:
+        type: "string"
+        example: 'image.png' 
+      image10:
+        type: "string"
+        example: 'image.png' 
+      image11:
+        type: "string"
+        example: 'image.png' 
+      image12:
+        type: "string"
+        example: 'image.png' 
+      materialText:
+        type: "string"
+        example: "hey I'm using AChar" 
+      executedDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      previsionDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      status:
+        type: number
+        example: 1
+      updateDate:
+        type: string
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1  
+      creationDate:
+        type: string
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "gf-assist"

@@ -1,0 +1,51 @@
+/messages/seen/{id}:
+  get:
+    tags:
+      - "message"
+    summary: "Your GET endpoint"
+    description: "seen the unseen messages after click on sepesific chat"
+    operationId: "setSeenUserId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of the sender message"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Message"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                created_at: "2021-04-27T17:20:30.000000Z"
+                id: 2
+                name: "this is another name of skill 2"
+                updated_at: "2021-04-27T17:21:36.000000Z"
+              meta:
+                code: 200
+                status: "success"
+    x-swagger-router-controller: "Message"

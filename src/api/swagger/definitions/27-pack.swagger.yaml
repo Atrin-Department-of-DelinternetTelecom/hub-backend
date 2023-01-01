@@ -1,0 +1,39 @@
+definitions:
+  Pack:
+    type: "object"
+    required:
+      - "id"
+      - "alias"
+      - "type"
+      - "creator_id"
+      - "deleted_at"
+      - "created_at"
+      - "updated_at"
+    properties:
+      id:
+        type: "number"
+        example: 12
+      alias:
+        type: "string"
+        example: "some alias name"
+        minLength: 1
+      type:
+        type: "string"
+        example: "pack"
+      creator_id:
+        type: "number"
+        example: 23
+      created_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      deleted_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1      
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "pack"    

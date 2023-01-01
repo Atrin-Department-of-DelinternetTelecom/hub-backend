@@ -1,0 +1,97 @@
+definitions:
+  GfContractDataFix:
+    type: object
+    required:
+      - id
+      - uid
+      - contractId
+    properties:
+      id:
+        type: integer
+        example: 12
+      uid:
+        type: integer
+        example: -1
+      contractId:
+        type: integer
+        example: 1
+      internetSectionId:
+        type: integer
+        default: 1
+      technician_id:
+        type: integer
+        default: 1
+      directIp:
+        type: string
+        example: '192.168.1.1'
+      type:
+        type: string
+        example: 'particular'
+      idTpv:
+        type: string
+        example: ''
+      trustedId:
+        type: integer
+        example: ''
+      trustedDescription:
+        type: string
+        example: ''
+      portability:
+        type: integer
+        example: '0'
+      potId:
+        type: string
+        example: ''
+      number:
+        type: string
+        example: '977451209'
+      nat:
+        type: integer
+        example: ''
+      giverOperator:
+        type: string
+        example: ''
+      kamailioDone:
+        type: integer
+        example: ''
+      extension:
+        type: string
+        example: ''
+      password:
+        type: string
+        example: ''
+      description:
+        type: string
+        example: ''
+      autoExecuteDate:
+        type: string
+        example: '2021-04-29 01:47:27.0'
+      aireExecuteDate:
+        type: string
+        example: '2021-04-29 01:47:27.0'
+      airePortaId:
+        type: string
+        example: ''
+      aireStatus:
+        type: string
+        example: ''
+      invoiced:
+        type: integer
+        example: ''
+      haveTeleassistance:
+        type: integer
+        example: ''
+      status:
+        type: integer
+        example: 1
+        minLength: 1
+      creationDate:
+        type: string
+        example: '2021-04-29 01:47:27.0'
+        minLength: 1
+      updateDate:
+        type: string
+        example: '2021-04-29 01:47:27.0'
+        minLength: 1
+    description: ''
+    title: 'gf-contract-data-fix'

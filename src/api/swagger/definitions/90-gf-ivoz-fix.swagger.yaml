@@ -1,0 +1,99 @@
+definitions:
+  GfIvozFix:
+    type: object
+    required:     
+      - id
+      - uid                     
+      - contractId                 
+      - extension                 
+      - password                 
+      - email                 
+      - maxInboundCalls                 
+      - maxCalls                 
+      - ratingGroup                 
+      - ring_time                 
+      - language                 
+    properties:
+      id:
+        type: integer
+        example: 12
+      uid:
+        type: integer
+        example: -1    
+      contractId:
+        type: integer
+        example: 1  
+      extension:
+        type: string
+        example: ""
+      password:
+        type: string
+        example: ""
+      email:
+        type: string
+        example: ""
+      giverOperator:
+        type: string
+        example: ""
+      useAta:
+        type: integer
+        example: 0
+      sync:
+        type: integer
+        example: 0
+      nif:
+        type: string
+        example: ""
+      language:
+        type: string
+        example: "en,ca,es,fr"
+      ring_time:
+        type: integer
+        example: 0
+      type:
+        type: string
+        example: "residential,home"
+      maxInboundCalls:
+        type: integer
+        example: 0
+      maxCalls:
+        type: integer
+        example: 0
+      cf:
+        type: integer
+        example: 0
+      cfb:
+        type: integer
+        example: 0
+      cfu:
+        type: integer
+        example: 0
+      voicemail:
+        type: integer
+        example: 0
+      description:
+        type: string
+        example: ""
+      error:
+        type: string
+        example: ""
+      autoExecuteDate:
+        type: string
+        example: "2022-01-02 00:00:00"
+      state:
+        type: string
+        example: "pending,in_progress,done,error,preparing,prepared"
+      status:
+        type: integer
+        example: 0
+      creationDate:
+        type: string
+        example: "2022-01-02 00:00:00"
+      updateDate:
+        type: string
+        example: "2022-01-02 00:00:00"
+      ratingGroup:
+        type: integer
+        example: 0
+    description: ""
+    title: "gf-ivoz-fix"

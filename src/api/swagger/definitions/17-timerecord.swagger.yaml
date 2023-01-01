@@ -1,0 +1,56 @@
+definitions:
+  TimeRecord:
+    type: "object"
+    required:
+      - "anviz_id"
+      - "creator_id"
+      - "enter"
+      - "exit"
+      - "id"
+      - "user_id"
+    properties:
+      anviz_id:
+        type: "number"
+        example: 4
+        description: "this record setted by witch device"
+      created_at:
+        type: "string"
+        minLength: 1
+      creator_id:
+        type: "number"
+        example: 9
+        description: "this record saved by witch user"
+      deleted_at:
+        type: "string"
+        minLength: 1
+      enter:
+        type: "string"
+        example: "2021-04-12 17:49:26"
+        minLength: 1
+      exit:
+        type: "string"
+        example: "2021-04-12 18:49:26"
+        minLength: 1
+      id:
+        type: "number"
+        example: 5
+      updated_at:
+        type: "string"
+        minLength: 1
+      user_id:
+        type: "number"
+        example: 7
+        description: "this record belongs to witch user"
+    description: ""
+    title: "Timerecord"
+    x-examples:
+      example-1:
+        anviz_id: 5
+        created_at: "2021-04-27T11:02:27"
+        creator_id: 5
+        deleted_at: "2021-04-27T11:02:27"
+        enter: "2021-04-12 17:49:26"
+        exit: "2021-04-12 18:49:26"
+        id: 11
+        updated_at: "2021-04-27T11:02:27"
+        user_id: 7

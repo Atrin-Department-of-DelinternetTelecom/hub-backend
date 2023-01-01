@@ -1,0 +1,34 @@
+<b><%= option.subject %></b><br>
+<br>
+<button class="btn btn-xs <%= (option.dev.invoice.id ? 'invoicePreview':'')%> pull-left" data-invoiceId="<%= option.dev.invoice.id %>">
+    <%= option.dev.invoiceCode %>&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
+</button>
+<br>
+<br>
+<%= option.text %><br><br>
+<table class='table table-bordered'>
+    <tr>
+        <td>code:</td><td><%= option.dev.code %></td>
+    </tr>
+    <tr>
+        <td>type:</td><td><%= option.dev.type %></td>
+    </tr>
+    <tr>
+        <td>desc:</td><td><%= option.dev.typeDesc %></td>
+    </tr>
+    <tr>
+        <td>total:</td><td><%= parseFloat(option.dev.totalDebt)  + parseFloat(option.dev.comission) %></td>
+    </tr>
+    <tr>
+        <td>total invoice:</td><td><%= option.dev.totalDebt %></td>
+    </tr>  
+    <tr>
+        <td>comission:</td><td><%= option.dev.comission %></td>
+    </tr>  
+    <tr>
+        <td>iban:</td><td><%= option.dev.iban %></td>
+    </tr>
+    <tr>
+        <td>date:</td><td><%= option.dev.date %></td>
+    </tr>
+</table>

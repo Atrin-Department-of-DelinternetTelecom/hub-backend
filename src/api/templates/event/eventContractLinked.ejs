@@ -1,0 +1,136 @@
+<b>
+    <%= option.subject %>
+</b><br>
+
+<h5>From</h5>
+<button class='btn btn-xs editContract pull-left' data-contractId="<%= option.contract2.id %>">
+    <%= option.contract2.reference %>
+</button>
+<button class='btn btn-xs btn-info editSection' data-section="<%= option.section2.type %>"
+    data-contractId="<%= option.contract2.id %>">
+    Secció
+</button>
+
+<h5>To</h5>
+<button class='btn btn-xs editContract pull-left' data-contractId='<%= contract.id %>'>
+    <%= contract.reference %>
+</button>
+<button class='btn btn-xs btn-info editSection' data-section="<%= section.type %>" data-contractId='<%= contract.id %>'>
+    Secció
+</button>
+
+<br>
+<%= option.text %>
+    <table class='table table-bordered'>
+        <% if (option.section2.type==="FIX" ) { %>
+            <tr>
+                <td>Num:</td>
+                <td>
+                    <%= option.section2.section.row.number %>
+                </td>
+            <tr>
+            </tr>
+            <td>Usuari:</td>
+            <td>
+                <%= client.name %>
+            </td>
+            </tr>
+            <% } %>
+                <% if (option.section2.type==="INTERNET" ) { %>
+                    <tr>
+                        <td>IP:</td>
+                        <td>
+                            <%= option.section2.section.row.ip %>
+                        </td>
+                    <tr>
+                    </tr>
+                    <td>Usuari:</td>
+                    <td>
+                        <%= client.name %>
+                    </td>
+                    </tr>
+                    <% } %>
+                        <% if(option.section2.type==="CELL" ) { %>
+                            <tr>
+                                <td>Num:</td>
+                                <td>
+                                    <%= option.section2.section.row.number %>
+                                </td>
+                            <tr>
+                            </tr>
+                            <td>Usuari:</td>
+                            <td>
+                                <%= client.name %>
+                            </td>
+                            </tr>
+                            <% } %>
+                                <% if(option.aditionalInfo2) { %>
+                                    <% for(const [k,val] of Object.entries()){ %>
+                                        </tr>
+                                        <td>
+                                            <%= k %>
+                                        </td>
+                                        <td>
+                                            <%= val%>
+                                        </td>
+                                        </tr>
+                                        <% } %>
+                                            <% } %>
+    </table>
+
+    <table class='table table-bordered'>
+        <% if (section.type==="FIX" ) { %>
+            <tr>
+                <td>Num:</td>
+                <td>
+                    <%= section.section.row.number %>
+                </td>
+            <tr>
+            </tr>
+            <td>Usuari:</td>
+            <td>
+                <%= client.name %>
+            </td>
+            </tr>
+            <% } %>
+                <% if (section.type==="INTERNET" ) { %>
+                    <tr>
+                        <td>IP:</td>
+                        <td>
+                            <%= section.section.row.ip %>
+                        </td>
+                    <tr>
+                    </tr>
+                    <td>Usuari:</td>
+                    <td>
+                        <%= client.name %>
+                    </td>
+                    </tr>
+                    <% } %>
+                        <% if (section.type==="CELL" ) { %>
+                            <tr>
+                                <td>Num:</td>
+                                <td>
+                                    <%= section.section.row.number %>
+                                </td>
+                            <tr>
+                            </tr>
+                            <td>Usuari:</td>
+                            <td>
+                                <%= client.name %>
+                            </td>
+                            </tr>
+                            <% } %>
+                                <% if(option.aditionalInfo) { %>
+                                    <% for(const [k,val] of Object.entries(option.aditionalInfo)){ %>
+                                        </tr>
+                                        <td>
+                                            <%= k %>
+                                        </td>
+                                        <td>
+                                            <%= val %>
+                                        </td>
+                                        </tr>
+                                        <% } %>
+                                            <% } %>
+    </table>

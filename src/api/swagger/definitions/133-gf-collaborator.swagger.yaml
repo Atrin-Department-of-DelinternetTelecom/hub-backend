@@ -1,0 +1,31 @@
+definitions:
+  GfCollaborator:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 12 
+      uid:
+        type: integer
+        example: 90 
+      name:
+        type: string
+        example: 'ali' 
+      master:
+        type: integer
+        example: 0
+      comisionista:
+        type: string
+        example: 'test'   
+      comissionPercentage:
+        type: integer
+        example: 12.2
+      status:
+        type: integer
+        example: 1
+      creationDate:
+        type: string
+        format: date-time
+      updateDate:
+        type: string
+        format: date-time 

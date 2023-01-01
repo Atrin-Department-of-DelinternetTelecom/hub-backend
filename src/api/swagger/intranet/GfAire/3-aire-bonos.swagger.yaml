@@ -1,0 +1,77 @@
+/aire/{id}/bonos:
+  get:
+    tags:
+      - "aire"
+    summary: "Get bonos from aire for given fee"
+    description: "Get bonos from aire for given fee"
+    operationId: "getBonos"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: id
+        in: path
+        description: id of provider fee
+        required: true
+        type: string
+    responses:
+      "200":
+        description: "OK"
+        headers: {}
+        schema:
+          type: "object"
+          required: 
+            - meta
+          properties:  
+            data:
+              $ref: "#/definitions/AireBonos"
+            meta:
+              type: object
+              properties:
+                code:
+                  type: number
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                - createDate: "2019-08-24"
+                  dateOfBirth: "1997-10-31"
+                  email: "user@example.com"
+                  emailVerified: true
+                  firstName: "string"
+                  id: 0
+                  lastName: "string"
+              links:
+                first: "string"
+                last: "string"
+                next: "string"
+                prev: "string"
+                self: "string"
+              meta:
+                code: 0
+                current_page: 0
+                from: 0
+                last_page: 0
+                links:
+                  - active: true
+                    label: "string"
+                    url: "string"
+                path: "string"
+                per_page: 0
+                status: "string"
+                to: 0
+                total: 0
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Aire"

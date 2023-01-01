@@ -1,0 +1,49 @@
+definitions:
+  IntranetMessage:
+    type: "object"
+    required:
+      - id
+      - uid
+      - "fromUserId"
+      - "toUserId"
+      - "text"
+      - "read"
+      - "filter"
+      - status
+      - creationDate
+      - updateDate
+    properties:
+      id:
+        type: number
+        example: 12
+      uid:
+        type: number
+        example: 90
+      fromUserId:
+        type: "number"
+        example: 12
+      toUserId:
+        type: "number"
+        example: 14          
+      text:
+        type: "string"
+        example: 'hi man, how are u???'          
+      read:
+        type: "boolean"
+        example: false          
+      filter:
+        type: "string"
+        example: "crmTask:1223"
+      status:
+        type: number
+        example: 1
+      updateDate:
+        type: string
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1  
+      creationDate:
+        type: string
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1            
+    description: ""
+    title: "intranet-message"

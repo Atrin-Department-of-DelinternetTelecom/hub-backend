@@ -1,0 +1,67 @@
+/intranetMessages/setAsRead:
+  post:
+      tags:
+        - "intranet-messages"
+      summary: ""
+      description: "set messages as read"
+      operationId: "postIntranetMessagesSetAsRead"
+      security:
+        - Bearer: []
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          required: true
+          schema:
+            type: "object"
+            properties:    
+              filter:
+                type: "string"
+                example: 'crmTask:77917'
+              limit:
+                type: "number"
+                example: 12    
+            description: ""
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            type: "object"
+            required:
+              - "data"
+              - "meta"
+            properties:
+              data:
+                $ref: "#/definitions/IntranetMessage"
+              meta:
+                type: "object"
+                properties:
+                  code:
+                    type: "number"
+                  message:
+                    type: "string"
+                    minLength: 1
+                  status:
+                    type: "string"
+                    minLength: 1
+                required:
+                  - "code"
+                  - "message"
+                  - "status"
+            description: ""
+        "401":
+          description: "Unauthorized"
+          schema:
+            $ref: "#/definitions/Response_401"
+        "403":
+          description: "Forbidden"
+          schema:
+            $ref: "#/definitions/Response_403"
+        "500":
+          description: "InternalServerError"
+          schema:
+            $ref: "#/definitions/Response_500"
+      x-swagger-router-controller: "IntranetMessage"

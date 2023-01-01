@@ -1,0 +1,93 @@
+definitions:
+  GfDiscountsScheduled:
+    type: "object"
+    required:
+      - id
+      - uid
+      - contractId
+      - matrixId
+      - executedId
+      - permanentParentId
+      - date
+      - description
+      - permanent
+      - discount
+      - discountType
+      - type
+      - state
+      - fromScheduleId
+      - tpvCode
+      - trace
+      - keyGroup
+      - compensatedById       
+      - status
+      - creationDate
+      - updateDate
+    properties:
+      id:
+        type: number
+        example: 12
+      uid:
+        type: number
+        example: 0
+      contractId:
+        type: number
+        example: 0
+      matrixId:
+        type: number
+        example: 0
+      executedId:
+        type: number
+        example: 0
+      permanentParentId:
+        type: number
+        example: 0
+      date:
+        type: string
+        example: "2021-04-29 01:47:27.0"
+      description:
+        type: string
+        example: ""
+      permanent:
+        type: number
+        example: 0
+      discount:
+        type: number
+        example: "1.2"
+      discountType:
+        type: string
+        example: "percentage,fix"
+      type:
+        type: string
+        example: "discount,charge"
+      state:
+        type: string
+        example: "pending,applied,canceled,partialApplied"
+      fromScheduleId:
+        type: number
+        example: 0
+      tpvCode:
+        type: string
+        example: ""
+      trace:
+        type: string
+        example: ""
+      keyGroup:
+        type: string
+        example: ""
+      compensatedById:
+        type: number
+        example: 0
+      status:
+        type: number
+        example: 1
+      updateDate:
+        type: string
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1  
+      creationDate:
+        type: string
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "gf-discounts-scheduled"

@@ -1,0 +1,56 @@
+/gf-client-documents/file:
+  post:
+    tags:
+      - "gf-client-documents"
+    summary: "Your POST endpoint"
+    description: "Upload gf-client-documents file number"
+    operationId: "uploadFile"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - in: formData
+        name: file
+        type: file
+        description: GfClientDocument file pdf
+      - in: formData
+        name: resourceId
+        type: number 
+        description: The GfClientDocument id
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/SingleFileUpload"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfClientOldDocument" 

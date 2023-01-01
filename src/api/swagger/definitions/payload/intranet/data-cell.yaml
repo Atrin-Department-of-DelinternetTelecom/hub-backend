@@ -1,0 +1,102 @@
+definitions:
+  DesvioConfig:
+    type: object
+    properties:
+      estado:
+        type: integer
+        enum: [0, 1]
+        description: Allow (1) or not (0) call forwarding
+      numero:
+        type: string
+        description: Phone number for call forwarding
+  DesvioSiNoResponde:
+    type: object
+    properties:
+      estado:
+        type: integer
+        enum: [0, 1]
+        description: Allow (1) or not (0) call forwarding
+      numero:
+        type: string
+        description: Phone number for call forwarding
+      tiempo:
+        type: string
+        enum: ['0s', 5s', '10s', '15s', '20s', '25s', '30s', '45s', '']
+        description: Optional, only present in DesvioSiNoResponde (e.g., '5s')
+  DataOption:
+    type: object
+    properties:
+      estado:
+        type: integer
+        enum: [0, 1]
+        description: Enable (1) or disable (0) the option
+      valorActual:
+        type: string
+        description: Current value setting
+
+  LineConfiguration:
+    type: object
+    properties:
+      BloqueoLlamadasEntrantes:
+        type: integer
+        description: Block incoming calls (1) or not (0)
+      BloqueoLlamadasSalientes:
+        type: integer
+        description: Block outgoing calls (1) or not (0)
+      BloqueoLlamadasInternacionales:
+        type: integer
+        description: Block international calls (1) or not (0)
+      AvisoLlamadaEntrante:
+        type: integer
+        description: Incoming call alert (1) or not (0)
+      PermitirSMSEntrantes:
+        type: integer
+        description: Allow incoming SMS (1) or not (0)
+      PermitirSMSSalientes:
+        type: integer
+        description: Allow outgoing SMS (1) or not (0)
+      IdentificacionNumeroLlamante:
+        type: integer
+        description: Caller ID (1) or not (0)
+      ConferenciaTripartida:
+        type: integer
+        description: Three-way conference calls (1) or not (0)
+      AvisoDeLlamadaPerdida:
+        type: integer
+        description: Missed call alert (1) or not (0)
+      'Datos2G-3G-4G':
+        type: integer
+        description: Enable 2G/3G/4G data (1) or not (0)
+      DesviarSiempre:
+        $ref: '#/definitions/DesvioConfig'
+      DesvioSiOcupado:
+        $ref: '#/definitions/DesvioConfig'
+      DesvioSiNoHayConexion:
+        $ref: '#/definitions/DesvioConfig'
+      DesvioSiNoResponde:
+        $ref: '#/definitions/DesvioSiNoResponde'
+      BloqueoRoamingLlamadasSalientes:
+        type: integer
+        description: Block outgoing roaming calls (1) or not (0)
+      BloqueoRoamingLlamadasEntrantes:
+        type: integer
+        description: Block incoming roaming calls (1) or not (0)
+      RoamingBloqueoDatos:
+        type: integer
+        description: Block roaming data (1) or not (0)
+      InformacionDeRegistroMSC:
+        type: string
+        description: MSC registration information number
+      InformacionDeRegistroFecha:
+        type: string
+        description: Registration information date in ISO 8601 format
+      TransferenciaDeLlamadas:
+        type: integer
+        description: Call transfer (1) or not (0)
+      Internet:
+        $ref: '#/definitions/DataOption'
+      4G:
+        $ref: '#/definitions/DataOption'
+      ServicioRoamingZona2yZona3:
+        type: integer
+        description: Roaming service in Zone 2 and Zone 3 (1) or not (0)

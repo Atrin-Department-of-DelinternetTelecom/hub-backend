@@ -1,0 +1,48 @@
+/signature-pads/{id}/reply-sign:
+  post:
+    tags:
+      - "signature-pads"
+    summary: ""
+    description: "response to signature"
+    operationId: "replySign"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of signature pad"
+        required: true
+        type: "integer"
+      - name: "param"
+        in: formData
+        description: "metadata for value"
+        default: "{}"
+        type: "string"
+      - in: formData
+        type: file
+        name: signature
+        required: true
+        description: signature
+      - in: formData
+        type: "integer"
+        required: true
+        name: sender_id
+        description: requester of this signature
+    responses:
+      "200":
+        description: "Ok"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "SignaturePads"

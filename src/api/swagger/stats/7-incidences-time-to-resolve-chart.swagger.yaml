@@ -1,0 +1,51 @@
+/stats/incidences/time-to-resolve-chart:
+  get:
+    tags:
+      - 'stats'
+    description: 'incidences time to resolve chart'
+    operationId: 'getTimeToResolveChart'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: step
+        in: 'query'
+        description: 'type'
+        required: true
+        type: string
+        enum:
+          - day
+          - week
+          - month
+          - year
+        default: month
+
+      - name: startDate
+        in: 'query'
+        required: true
+        type: string
+        default: '2022-01-01'
+
+      - name: endDate
+        in: 'query'
+        type: string
+
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'StatsIncidences'

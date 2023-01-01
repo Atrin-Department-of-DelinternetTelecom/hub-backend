@@ -1,0 +1,57 @@
+/callMe/{id}/visited:
+  post:
+    tags:
+      - 'call-me'
+    summary: ''
+    description: 'visit a call-me record by id'
+    operationId: 'visitCallMesId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of category table'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/CallMe'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'CallMe'

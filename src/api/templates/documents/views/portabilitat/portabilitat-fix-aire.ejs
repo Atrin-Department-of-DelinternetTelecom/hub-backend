@@ -1,0 +1,256 @@
+<%
+    type = 'Portabilitat';
+    contract_type = "Sol·licitud de portabilitat<br> de la telefonia fixa";
+    footer_plus = false;
+    info_extra = "El tràmit de de canvi de titular es realitzarà un cop s’hagi rebut correctament el present formulari, signat pel nou titular i l'antic titular del servei.";
+%>
+
+<div class="d-flex flex-column page"> 
+    <%- include('header') %> 
+    <div class="d-flex flex-column px-2 pb-2"> 
+        <h6 class="my-1">DADES DEL CLIENT</h6>
+        <div class="d-flex flex-wrap">
+            <div class="d-flex flex-column mb-1/3 w-50">
+                <label class="text-gray uppercase small">Nom del client</label>
+                <span class="small"><%= user_name ?? '-' %></span>
+            </div> 
+            <div class="d-flex flex-column mb-1/3 w-50">
+                <label class="text-gray uppercase small">NIF / CIF</label>
+                <span class="small"><%= user_DNI ?? '-' %></span>
+            </div>  
+            <div class="d-flex flex-column mb-1/3 w-50">
+                <label class="text-gray uppercase small">C.P.</label>
+                <span class="small"><%= user_CP ?? '-' %></span>
+            </div>
+            <div class="d-flex flex-column mb-1/3 w-50">
+                <label class="text-gray uppercase small">Direcció</label>
+                <span class="small"><%= user_address ?? '-' %></span>
+            </div> 
+            <div class="d-flex flex-column mb-1/3 w-50">
+                <label class="text-gray uppercase small">Localitat</label>
+                <span class="small"><%= user_city ?? '-' %></span>
+            </div>
+            <div class="d-flex flex-column mb-1/3 w-50">
+                <label class="text-gray uppercase small">Província</label>
+                <span class="small"><%= user_region ?? '-' %></span>
+            </div>
+            <div class="d-flex flex-column w-50">
+                <label class="text-gray uppercase small">Telèfon</label>
+                <span class="small"><%= user_phone1 ?? '-' %></span>
+            </div>
+            <div class="d-flex flex-column w-50">
+                <label class="text-gray uppercase small">E-mail</label>
+                <span class="small"><%= user_email ?? '-' %></span>
+            </div> 
+        </div> 
+
+        <hr class="my-1/2" />
+
+        <h6 class="my-1">DADES DEL TITULAR DE LA LÍNIA TELEFÒNICA</h6>
+        <div class="d-flex flex-wrap"> 
+            <div class="d-flex flex-column mb-1/3 w-25">
+                <label class="text-gray uppercase small">Nom del client</label>
+                <span class="small"><%= user_name ?? '-' %></span>
+            </div> 
+            
+            <div class="d-flex flex-column mb-1/3 w-25">
+                <label class="text-gray uppercase small">NIF / CIF</label>
+                <span class="small"><%= user_DNI ?? '-' %></span>
+            </div> 
+            
+            <div class="d-flex flex-column mb-1/3 w-25">
+                <label class="text-gray uppercase small">Persona apoderada</label>
+                <span class="small"><%= user_name ?? '-' %></span>
+            </div> 
+            
+            <div class="d-flex flex-column mb-1/3 w-25">
+                <label class="text-gray uppercase small">NIF / CIF</label>
+                <span class="small"><%= user_DNI ?? '-' %></span>
+            </div> 
+            
+            <div class="d-flex flex-column mb-1/3 w-50">
+                <label class="text-gray uppercase small">Direcció</label>
+                <span class="small"><%= user_address ?? '-' %></span>
+            </div> 
+            
+            <div class="d-flex flex-column mb-1/3 w-50">
+                <label class="text-gray uppercase small">Població</label>
+                <span class="small"><%= user_city ?? '-' %></span>
+            </div> 
+            
+            <div class="d-flex flex-column mb-1/3 w-50">
+                <label class="text-gray uppercase small">C.P.</label>
+                <span class="small"><%= user_CP ?? '-' %></span>
+            </div> 
+            
+            <div class="d-flex flex-column mb-1/3 w-50">
+                <label class="text-gray uppercase small">Província</label>
+                <span class="small"><%= user_region ?? '-' %></span>
+            </div>  
+            
+            <small class="text-gray smaller"><b>*</b>Només si són diferents de les dades del client</small>
+        </div>  
+
+        <hr class="my-1/2" />
+
+        <div class="d-flex">
+            <div class="d-flex flex-wrap w-75">
+                <div class="d-flex flex-column w-50"> 
+                    <h6 class="my-1">NUMERACIÓ A PORTAR</h6>
+                    
+                    <div class="d-flex flex-column">
+                        <label class="text-gray uppercase small">Núm. telèfon des de</label>
+                        <span class="small"><%= portabilitat_desde ?? '-' %></span>
+                    </div> 
+                    
+                    <div class="d-flex flex-column">
+                        <label class="text-gray uppercase small">Fins a</label>
+                        <span class="small"><%= portabilitat_fins ?? '-' %></span>
+                    </div> 
+                </div>
+                
+                <div class="d-flex flex-column w-50">
+                    <h6 class="my-1">DADES DE L'OPERADOR</h6>
+                    
+                    <div class="d-flex flex-column">
+                        <label class="text-gray uppercase small">Operador donant</label>
+                        <span class="small"><%= operador_donant ?? '-' %></span>
+                    </div>   
+                    <div class="d-flex flex-column">
+                        <label class="text-gray uppercase small">Operador receptor</label>
+                        <p>NRN 843</p>
+                    </div>
+                </div> 
+
+                
+                <div class="d-flex flex-column">
+                    <h6 class="my-1">HORARI PREFERIT PEL CANVI<small class="text-gray lowercase smaller">&nbsp;NOMÉS PER TELEFONIA FIXA, SOTA DISPONIBILITAT DE L'OPERADOR DONANT</small></h6>
+                    <div class="d-flex flex-wrap"> 
+                    
+                        <div class="d-flex flex-column mb-1/3 w-50">
+                            <label class="text-gray uppercase small">Hora d'inici</label>
+                            <span class="small"><%= portability_time ?? '-' %></span>
+                        </div>  
+                        <small class="text-gray smaller">de dilluns de divendres de 9:00 hores a les 14:00 hores i de 17:00 hores a 19:00 hores</small>   
+                    </div>
+                </div> 
+            </div>
+            <div class="d-flex flex-column w-25"> 
+                <h6 class="my-1">TIPUS D'ACCES</h6> 
+                <div class="d-flex align-center mb-1/2"> 
+                    <%- include(`../components/${individual_acces ? 'tick' : 'close'}`) %> 
+                    <small class="text-gray uppercase px-1/2 smaller">Individual Analògic</small> 
+                </div> 
+                
+                <div class="d-flex align-center mb-1/2"> 
+                    <%- include(`../components/${basic_acces ? 'tick' : 'close'}`) %> 
+                    <small class="text-gray uppercase px-1/2 smaller">Accés bàsic RDSI</small> 
+                </div> 
+                
+                
+                <div class="d-flex align-center mb-1/2"> 
+                    <%- include(`../components/${num_intelligent_net ? 'tick' : 'close'}`) %> 
+                    <small class="text-gray uppercase px-1/2 smaller">Numeració xarxa intel·ligent</small> 
+                </div> 
+                
+                
+                <div class="d-flex align-center mb-1/2"> 
+                    <%- include(`../components/${en_analogic ? 'tick' : 'close'}`) %> 
+                    <small class="text-gray uppercase px-1/2 smaller">Enllaç anaògic</small> 
+                </div> 
+                
+                <div class="d-flex align-center mb-1/2"> 
+                    <%- include(`../components/${primary_acces ? 'tick' : 'close'}`) %> 
+                    <small class="text-gray uppercase px-1/2 smaller">Accés primari RDSI</small> 
+                </div> 
+                
+                <div class="d-flex align-center mb-1/2"> 
+                    <%- include(`../components/${ispbx ? 'tick' : 'close'}`) %> 
+                    <small class="text-gray uppercase px-1/2 smaller">ISPBX</small> 
+                </div>  
+            </div>
+        </div>   
+
+
+        <hr class="my-1/2" />
+
+        <small class="text-gray tiny">Els comunico que desitjo donar-me de baixa en els serveis que actualment en tinc contractats amb Vos. (operador donant) corresponent
+        als números de telèfon que es detallen en aquest escrit, i que desitjo conservar aquesta numeració raó per la qual igualment els sol·licito que
+        al produir-se la baixa, els meus números de telèfons siguin portats al meu nou proveïdor del servei de telefonia (operador receptor). Accepto
+        la possible interrupció o limitació en la prestació del servei durant el temps mínim indispensable per realitzar els treballs de canvi d'operador,
+        que serà d'un màxim de 4 hores. He estat informat que la conservació dels números és una facilitat que afecta múltiples operadors, el
+        funcionament dels quals és complex i la seva implantació no ha estat suficientment provada i per això deficiències en la seva prestació
+        poden produir-se. El sotasignat, d'acord amb el que disposa la normativa vigent, autoritza la transferència, als operadors involucrats en el
+        procés de conservació de la numeració, de les dades personals que siguin necessàries per poder dur a terme ambdós processos. La
+        negativa o revocació d'aquesta autorització impedirà dur a terme la desagregació del bucle i/o la portabilitat sol·licitada dels números
+        amunt indicats. Podré exercitar els meus drets d'accés, rectificació, cancel·lació i oposició sobre les dades tractades per l'operador receptor:
+        Oficina d'Atenció al Client.</small>
+
+    </div>
+    <%- include('footer') %>
+</div>
+
+<div class="d-flex flex-column page"> 
+    <%- include('header') %>
+    <div class="d-flex flex-column px-2">          
+        <div lang="en" class="smaller text-black-90">
+            <h5 class="mb-1/2 text-black uppercase">Condicions per al Client:</h5>
+            <ol class="number-list">
+                <li>Donar-se prèviament d'alta amb l'Operador, mitjançant la subscripció del corresponent contracte de prestació de
+                    serveis.</li>
+                <li>Complimentar correctament la present sol·licitud per tramitar la baixa amb l'Operador Donant, que manifesti així mateix
+                    el seu desig de conservar la seva numeració amb un operador.</li>
+                <li>No trobar-se en situació de suspensió o interrupció del servei amb l'Operador Donant per impagament.</li>
+                <li>El Client accepta la possible interrupció o limitació en la prestació del servei durant el temps mínim indispensable per
+                    realitzar els treballs de canvi d'operador, que tindrà lloc en l'horari comercial de dilluns a divendres de 9:00 hores a 14:00
+                    hores i de 17:00 hores a 19:00 hores, amb una durada màxima de quatre hores, exceptuant els dies de festa nacional,
+                    festes de la Comunitat i festes locals, sense que això doni cap dret a qualsevol tipus d'indemnització.</li>
+                <li>El client/abonat autoritza a l'Operador a portar tota la numeració associada als números de capçalera en cas que el
+                    client hagi identificat com a número a portar un número associat a un número de capçalera.</li>
+            </ol>
+            <h5 class="mb-1/2 text-black uppercase">Condicions per a l'Operador:</h5>
+            <ol class="number-list">
+                <li>Tramitar la conservació de la numeració sol·licitada pel client sempre que:
+                    <ul class="disk">
+                        <li>El Client es doni d'alta amb l'Operador mitjançant el corresponent contracte de prestació de serveis.</li>
+                        <li>Simultàniament, sol·liciti a l'Operador que li tramiti la baixa amb l'Operador Donant, conservant la numeració
+                            (mitjançant la present sol·licitud).</li>
+                    </ul>
+                </li>
+                <li>Proporcionar la conservació de la numeració mentre hi hagi canvi d'operador de "xarxa telefònica pública fixa", però no hi
+                    hagi modificació del servei, ni d'ubicació física.</li>
+                <li>L'Operador respondrà dels danys que li siguin causats al Client en el transcurs d'un procés de canvi d'operador
+                    correctament sol·licitat pel Client, tret que els danys:
+                    <ul class="disk">
+                        <li>No siguin imputables a les accions o omissions de l'Operador.</li>
+                        <li>Hagin estat causats pel propi Client o per tercers operadors.</li>
+                        <li>Es produeixi a conseqüència de la possible interrupció o limitació en la prestació del servei durant el temps mínim
+                            indispensable per realitzar els treballs de canvi d'operador, i/o quan es doni a conseqüència de les causes de força
+                            major o cas fortuït.</li>
+                    </ul>
+                </li>
+                <li>Notificar al Client amb un mínim de 3 dies d'antelació quan serà efectiva la conservació de la numeració.</li>
+            </ol>
+            <h5 class="mb-1/2 text-black uppercase">Causes per les quals no es podrà dur a terme la conservació de la numeració:</h5>
+            <p>L'Operador no serà responsable de la impossibilitat de proporcionar la conservació de la numeració en els següents casos:</p>
+            <ol class="number-list">
+                <li>Per canvi d'ubicació física del Client.</li>
+                <li>Quan l'abonat del donant es trobi amb el servei suspès o interromput en els termes establerts en la legislació vigent.</li>
+                <li>Per dades incompletes o errònies sobre la identificació del Client, de l’Operador Donant o de l'Operador Receptor en la
+                    present sol·licitud.</li>
+                <li>Per la falta de correspondència entre la numeració i el Client identificat pel seu NIF/CIF.</li>
+                <li>Perquè transcorregut un mes des que el Client fou baixa amb l'operador que en aqueix moment li proveïa el servei, no
+                    sol·licità la conservació del número amb l'Operador receptor.</li>
+                <li>Per indicació de l'Entitat de Referència que ja existeix un procés de portabilitat d'aquesta numeració amb un altre
+                    operador.</li>
+                <li>Per causes de força major o tècniques sempre que siguin justificades (tipus d'accés erroni, numeració associada a grups
+                    de salt).</li>
+                <li>Qualsevol altra causa que pugui ser acordada voluntàriament entre els operadors dins del marc legal.</li>
+                <li>Perquè el prefix associat al número que es portarà, que serveix les xarxes de domini d'encaminament de portabilitat per
+                    enrutar adequadament la xarxa receptora les trucades realitzades a aquest número portat, no estigui obert en
+                    interconnexió.</li>
+            </ol>
+        </div> 
+    </div>
+    <%- include('footer') %>
+</div> 

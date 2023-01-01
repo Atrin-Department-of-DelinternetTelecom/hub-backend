@@ -1,0 +1,114 @@
+definitions:
+  CrmTask:
+    type: "object"
+    required:     
+      - "id"            
+    properties:
+      id:
+        type: "number"
+        example: 12
+      uid:
+        type: "number"
+        example: 90 
+      userId:
+        type: "number"
+        example: 12
+      taskTypeId:
+        type: "number"
+        example: 12
+      clientId:
+        type: "number"
+        example: 12  
+      alias:
+        type: "string"
+        example: "mammad" 
+      aditionalText:
+        type: "string"
+        example: "TPR" 
+      text:
+        type: "string"
+        example: "some text" 
+      image:
+        type: "string"
+        example: "image" 
+      file:
+        type: "string"
+        example: "file" 
+      file1:
+        type: "string"
+        example: "image" 
+      file2:
+        type: "string"
+        example: "image" 
+      file3:
+        type: "string"
+        example: "image" 
+      file4:
+        type: "string"
+        example: "image" 
+      file5:
+        type: "string"
+        example: "image" 
+      file6:
+        type: "string"
+        example: "image" 
+      emailAttachments:
+        type: "string"
+        example: "email attachments" 
+      executed:
+        type: "string"
+        example: 'in_progress' 
+      executedDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      previsionDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      duration:
+        type: "number"
+        example: 12 
+      refererKey:
+        type: "string"
+        example: 'refKey' 
+      refererMetadata:
+        type: "string"
+        example: '{key:val}' 
+      refererTrace:
+        type: "string"
+        example: '{key:val}' 
+      altIdType:
+        type: "string"
+        example: 'reference' 
+      altId:
+        type: "number"
+        example: 12 
+      automaticEventId:
+        type: "number"
+        example: 12 
+      canceled:
+        type: "number"
+        example: 1
+      chatId:
+        type: "string"
+        example: "chatId:12" 
+      rTaskId:
+        type: "number"
+        example: 12 
+      motherTaskId:
+        type: "number"
+        example: 12 
+      status:
+        type: "number"
+        example: 1
+      creationDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      updateDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1       
+    description: ""
+    title: "crm-task"

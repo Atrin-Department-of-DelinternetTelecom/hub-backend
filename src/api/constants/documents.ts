@@ -1,0 +1,17 @@
+export enum TYPE {
+  SEPA = 'Goufone-Documents-Sepa',
+  PROTECCIODADES = 'Goufone-Documents-ProteccioDades',
+  FIXPORTABILIDAD = 'Goufone-Documents-FixPortabilidad',
+  FISCALBUSINESS = 'Goufone-Documents-FiscalBusiness',
+  CELLPORTABILIDAD = 'Goufone-Documents-CellPortabilidad',
+  CELLCONTRATO = 'Goufone-Documents-CellContrato',
+  BUSINESSSTATUTES = 'Goufone-Documents-BusinessStatutes',
+  ALTATV = 'Goufone-Documents-AltaTv',
+  ALTAINTERNET = 'Goufone-Documents-AltaInternet',
+  ALTAFIX = 'Goufone-Documents-AltaFix',
+  CHANGE_HOLDER = 'Delinternet-Documents-ChangeHolder',
+  CHANGE_AIRE_HOLDER = 'Goufone-Documents-ChangeAireHolder',
+  CHANGE_IBAN = 'Delinternet-Documents-ChangeIBAN',
+  GRANT_PERMISSION = 'Delinternet-Documents-GrantPermission',
+  CLIENT_AGREEMENT = 'Delinternet-Documents-ClientAgreement',
+}

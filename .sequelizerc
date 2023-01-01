@@ -1,0 +1,2 @@
+// set default sequelize config to sequelizerc.system.js
+module.exports = require('./sequelizerc.system');

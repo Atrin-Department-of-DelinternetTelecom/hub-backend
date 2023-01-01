@@ -1,0 +1,20 @@
+definitions:
+  DependentLemonAddress:
+    title: Lemon Address
+    type: object
+    properties:
+      id:
+        type: number
+      locationId:
+        type: number
+      name:
+        type: string
+
+  IndependentLemonAddress:
+    title: Lemon Address
+    type: object
+    properties:
+      id:
+        type: number
+      name:
+        type: string

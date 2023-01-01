@@ -1,0 +1,18 @@
+definitions:
+  CancelReason:
+    title: CancelReason
+    type: object
+    properties:
+      id:
+        type: number
+      name:
+        type: string
+      label:
+        type: object
+        properties:
+          en:
+            type: string
+          es:
+            type: string
+          ca:
+            type: string

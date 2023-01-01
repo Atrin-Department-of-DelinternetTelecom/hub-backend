@@ -1,0 +1,139 @@
+/unpaidInvoices/client/resume:
+  post:
+    tags:
+      - 'unpaid-invoice'
+    summary: 'client resume'
+    description: 'client resume'
+    operationId: 'clientResume'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - in: 'body'
+        name: 'body'
+        description: 'dto of client resume'
+        required: false
+        schema:
+          type: 'object'
+          properties:
+            clientId:
+              type: 'number'
+              example: 12
+            unpaidInvoiceId:
+              type: 'number'
+              example: 876
+            userId:
+              type: 'number'
+              example: 2282
+          description: ''
+    responses:
+      '400':
+        description: 'Bad Request'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            message:
+              type: string
+            meta:
+              type: object
+              properties:
+                success:
+                  type: boolean
+                code:
+                  type: string
+                message:
+                  type: string
+                related_invoices:
+                  type: array
+                  items:
+                    $ref: '#/definitions/UnpaidInvoice'
+              required:
+                - 'success'
+                - 'message'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'UnpaidInvoice'
+
+/unpaidInvoices/client/unpaid:
+  post:
+    tags:
+      - 'unpaid-invoice'
+    summary: 'client Unpaid'
+    description: 'client Unpaid'
+    operationId: 'clientUnpaid'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - in: 'body'
+        name: 'body'
+        description: 'dto of client unpaid'
+        required: false
+        schema:
+          type: 'object'
+          properties:
+            clientId:
+              type: 'number'
+              example: 12
+            unpaidInvoiceId:
+              type: 'number'
+              example: 876
+            userId:
+              type: 'number'
+              example: 2282
+          description: ''
+    responses:
+      '400':
+        description: 'Bad Request'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            message:
+              type: string
+            meta:
+              type: object
+              properties:
+                success:
+                  type: boolean
+                code:
+                  type: string
+                message:
+                  type: string
+                related_invoices:
+                  type: array
+                  items:
+                    $ref: '#/definitions/UnpaidInvoice'
+              required:
+                - 'success'
+                - 'message'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'UnpaidInvoice'

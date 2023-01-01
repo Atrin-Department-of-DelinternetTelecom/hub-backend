@@ -1,0 +1,246 @@
+/invoice-clients-invoice-profiles:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - 'invoice-clients-invoice-profiles'
+    summary: 'Your GET endpoint'
+    description: 'get all invoice-clients-invoice-profiles'
+    operationId: 'getInvoiceClientsInvoiceProfiles'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters: []
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'links'
+            - 'meta'
+          properties:
+            data:
+              type: 'array'
+              uniqueItems: true
+              items:
+                $ref: '#/definitions/InvoiceClientsInvoiceProfile'
+              minItems: 1
+            links:
+              type: 'object'
+              properties:
+                first:
+                  type: 'string'
+                  minLength: 1
+                last:
+                  type: 'string'
+                  minLength: 1
+                next:
+                  type: 'string'
+                  x-nullable: true
+                prev:
+                  type: 'string'
+                  x-nullable: true
+                self:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'first'
+                - 'last'
+                - 'next'
+                - 'prev'
+                - 'self'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                current_page:
+                  type: 'number'
+                from:
+                  type: 'number'
+                last_page:
+                  type: 'number'
+                links:
+                  type: 'array'
+                  uniqueItems: true
+                  items:
+                    type: 'object'
+                    properties:
+                      active:
+                        type: 'boolean'
+                      label:
+                        type: 'string'
+                        minLength: 1
+                      url:
+                        type: 'string'
+                        x-nullable: true
+                    required:
+                      - 'active'
+                      - 'label'
+                      - 'url'
+                  minItems: 1
+                path:
+                  type: 'string'
+                  minLength: 1
+                per_page:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+                to:
+                  type: 'number'
+                total:
+                  type: 'number'
+              required:
+                - 'code'
+                - 'current_page'
+                - 'from'
+                - 'last_page'
+                - 'links'
+                - 'path'
+                - 'per_page'
+                - 'status'
+                - 'to'
+                - 'total'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'InvoiceClientsInvoiceProfile'
+  post:
+    tags:
+      - 'invoice-clients-invoice-profiles'
+    summary: ''
+    description: 'add a invoice-clients-invoice-profile to system'
+    operationId: 'postInvoiceClientsInvoiceProfiles'
+    security:
+      - Bearer: []
+    parameters:
+      - in: formData
+        name: uid
+        type: number
+        required: true
+        default: 90
+        description: The tenancy id
+      - in: formData
+        name: alias
+        type: string
+        required: true
+        description: The dispaly alias of the payment type
+      - in: formData
+        name: clientId
+        type: number
+        required: true
+        description: The GfClient id
+      - in: formData
+        name: iban
+        type: string
+        default: DE75512108001245126199
+        description: The IBAN number
+      - in: formData
+        name: bic
+        type: string
+        default: SOGEDEFF
+        description: The IBAN bic
+      - in: formData
+        name: bicName
+        type: string
+        default: Societe Generale
+        description: The IBAN bic name
+      - in: formData
+        name: payTypeId
+        type: number
+        description: The InoivePaymentType id
+      - in: formData
+        name: payDay
+        type: number
+        description: Day of the payment
+      - in: formData
+        name: countryCode
+        type: string
+        description: Country code name
+      - in: formData
+        name: city
+        type: string
+        description: City name
+      - in: formData
+        name: state
+        type: string
+        description: State name
+      - in: formData
+        name: postalCode
+        type: string
+        description: Postal code
+      - in: formData
+        name: address
+        type: string
+        description: The full address
+      - in: formData
+        name: number
+        type: string
+        description: The street number
+      - in: formData
+        name: email
+        type: string
+        description: The email address
+        allowEmptyValue: true
+      - in: formData
+        name: comments
+        type: string
+        description: Optional note
+      - in: formData
+        name: serieId
+        type: number
+        description: The InvoiceSerie id
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/InvoiceClientsInvoiceProfile'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'InvoiceClientsInvoiceProfile'

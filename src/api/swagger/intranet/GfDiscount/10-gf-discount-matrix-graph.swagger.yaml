@@ -1,0 +1,102 @@
+/gfdiscount/matrix/graph:
+  get:
+    tags:
+      - 'gf-discount-matrix'
+    x-pagination: false
+    x-filter: false
+    summary: 'Get full discount matrix graph'
+    description: 'Returns full discount matrix graph with rules, labels, actors, exclusions, and dependencies'
+    operationId: 'getDiscountsGraph'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - in: query
+        name: removeInactiveMatrices
+        type: boolean
+        required: false
+        description: 'Filter out inactive discount matrices'
+      - in: query
+        name: removeInactiveFees
+        type: boolean
+        required: false
+        description: 'Filter out inactive fees inside matrices and actors'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+          properties:
+            data:
+              type: 'array'
+              items:
+                type: 'object'
+                properties:
+                  matrixId:
+                    type: 'integer'
+                  matrixName:
+                    type: 'string'
+                  accumulation:
+                    type: 'integer'
+                  stay:
+                    type: 'integer'
+                  numberOfMonths:
+                    type: 'integer'
+                  discountType:
+                    type: 'string'
+                    enum: ['fix', 'percentage', 'bono']
+                  discount:
+                    type: 'number'
+                    format: 'float'
+                  actors:
+                    type: 'array'
+                    items:
+                      type: 'object'
+                      properties:
+                        ruleId:
+                          type: 'integer'
+                        type:
+                          type: 'string'
+                          enum: ['labeled_contract_present', 'discount_present']
+                        labelId:
+                          type: 'integer'
+                        labelName:
+                          type: 'string'
+                        matrixId:
+                          type: 'integer'
+                        matrixName:
+                          type: 'string'
+                        feeGroups:
+                          type: 'array'
+                          items:
+                            type: 'object'
+                            properties:
+                              feeGroupId:
+                                type: 'integer'
+                              feeGroupName:
+                                type: 'string'
+                    required:
+                      - ruleId
+                      - type
+                  exclusions:
+                    type: 'array'
+                    items:
+                      type: 'object'
+                      properties:
+                        excludedMatrixId:
+                          type: 'integer'
+                        excludedMatrixName:
+                          type: 'string'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'integer'
+                  example: 200
+                status:
+                  type: 'string'
+                  example: 'success'
+    x-swagger-router-controller: 'GfDiscountMatrix'

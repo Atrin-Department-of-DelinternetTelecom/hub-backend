@@ -1,0 +1,285 @@
+/landingpage:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - "landing page"
+    summary: "Your GET endpoint"
+    description: "get all landing page orders"
+    operationId: "getLandingPageOrder"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters: []
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "links"
+            - "meta"
+          properties:
+            data:
+              type: "array"
+              uniqueItems: true
+              items:
+                $ref: "#/definitions/LandingPageOrder"
+              minItems: 1
+            links:
+              type: "object"
+              properties:
+                first:
+                  type: "string"
+                  minLength: 1
+                last:
+                  type: "string"
+                  minLength: 1
+                next:
+                  type: "string"
+                  x-nullable: true
+                prev:
+                  type: "string"
+                  x-nullable: true
+                self:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "first"
+                - "last"
+                - "next"
+                - "prev"
+                - "self"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                current_page:
+                  type: "number"
+                from:
+                  type: "number"
+                last_page:
+                  type: "number"
+                links:
+                  type: "array"
+                  uniqueItems: true
+                  items:
+                    type: "object"
+                    properties:
+                      active:
+                        type: "boolean"
+                      label:
+                        type: "string"
+                        minLength: 1
+                      url:
+                        type: "string"
+                        x-nullable: true
+                    required:
+                      - "active"
+                      - "label"
+                      - "url"
+                  minItems: 1
+                path:
+                  type: "string"
+                  minLength: 1
+                per_page:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+                to:
+                  type: "number"
+                total:
+                  type: "number"
+              required:
+                - "code"
+                - "current_page"
+                - "from"
+                - "last_page"
+                - "links"
+                - "path"
+                - "per_page"
+                - "status"
+                - "to"
+                - "total"
+          description: ""
+      "401":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 401
+                message: "unauthorized"
+                status: "failed"
+      "403":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 401
+                message: "forbidden"
+                status: "failed"
+      "500":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 500
+                message: "internal server error"
+                status: "failed"
+    x-swagger-router-controller: "LandingPage"
+  post:
+    tags:
+      - "landing page"
+    summary: ""
+    description: "add an landing page order to system"
+    operationId: "postLandingPageOrder"
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          type: "object"
+          required:
+            - "name"
+            - "phone"
+            - "email"
+            - "gift"
+          properties:
+            name:
+              type: "string"
+              example: 'test'
+              minLength: 3
+            email:
+              type: "string"
+              example: "del@email.com"
+              format: email
+            phone:
+              type: "string"
+              example: '+989171111111'
+            gift:
+              type: "string"
+              example: "samsung s10"
+              minLength: 3
+            landing:
+              type: "string"
+              example: "black friday"
+              minLength: 3
+          description: ""
+          x-examples:
+            example-1:
+              name: "تست"
+              phone: "+989170000000"
+              email: "siadatan.mahsa141@gmail.com"
+              gift: "samsung s10"
+              landing: "black friday"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Order"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "LandingPage"

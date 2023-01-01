@@ -1,0 +1,80 @@
+/backups/{id}:
+  get:
+    tags:
+      - "backup"
+    summary: "Get a backups"
+    description: "Get a backups"
+    operationId: "getBackupId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+
+    parameters:
+      - name: id
+        in: "path"
+        description: "The ID of the backup"
+        required: true
+        type: "integer"
+        minLength: 1
+
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "links"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Backup"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Backup"
+
+  delete:
+    tags:
+      - "backup"
+    summary: "Delete a backups"
+    description: "Delete a backups"
+    operationId: "deleteBackupId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: id
+        in: "path"
+        description: "The ID of the backup"
+        required: true
+        type: "integer"
+        minLength: 1
+
+    responses:
+      "200":
+        description: "OK"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Backup"

@@ -1,0 +1,67 @@
+definitions:
+  UnpaidOperatorNotification:
+    type: "object"
+    required:
+      - "id"
+      - "relatedmodel"
+      - "relatedmodel_id"
+      - "client_id"
+      - "message"
+      - "invoice_id"
+      - "creator_type"
+      - "metadata"
+      - "seen"
+      - "seenby_id"
+      - "seen_at"
+      - "user_id"
+      - "uid"
+      - "status"
+      - "created_at"
+      - "updated_at"
+      - "deleted_at"
+    properties:
+      id:
+        type: "number"
+        example: 12
+      relatedmodel:
+        type: "string"
+      relatedmodel_id:
+        type: "string"
+      client_id:
+        type: "number"
+      message:
+        type: "string"
+      invoice_id:
+        type: "number"
+      creator_type:
+        type: "string"
+      metadata:
+        type: "string"
+      invoice_code:
+        type: "string"
+      seen:
+        type: "number"
+      seenby_id:
+        type: "number"
+      seen_at:
+        type: "string"
+      user_id:
+        type: "number"
+      uid:
+        type: "number"
+      status:
+        type: "number"      
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1  
+      created_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      deleted_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "unpaid operator notification"

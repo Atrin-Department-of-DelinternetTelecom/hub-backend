@@ -1,0 +1,31 @@
+/backups/databases/{id}/tables:
+  get:
+    tags:
+      - "backup"
+    operationId: "getDatabaseTables"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of database"
+        type: string
+        required: true
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    responses:
+      "200":
+        description: "OK"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Backup"

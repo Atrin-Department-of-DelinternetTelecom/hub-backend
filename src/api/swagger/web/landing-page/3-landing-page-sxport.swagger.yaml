@@ -1,0 +1,32 @@
+/landingpage/export/{landing}:
+  post:
+    tags:
+      - 'landing page'
+    description: 'Export filtered clients to CSV file'
+    operationId: 'exportReferrals'
+    security:
+      - Bearer: []
+    produces:
+      - 'text/csv'
+    parameters:
+      - name: 'landing'
+        in: 'path'
+        description: 'name of landing page order'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'LandingPage'

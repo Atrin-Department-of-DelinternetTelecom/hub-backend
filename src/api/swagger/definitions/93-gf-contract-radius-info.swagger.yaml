@@ -1,0 +1,57 @@
+definitions:
+  GfContractRadiusInfo:
+    type: object         
+    properties: 
+      username:
+        type: string
+        example: DeltFustesMauri
+      password:
+        type: string
+        example: eutimio
+      groupname:
+        type: string
+        example: 1000MP
+      static_ip:
+        type: string
+        example: null,
+      ipv6_prefix:
+        type: string
+        example: null,
+      speed_up:
+        type: integer
+        example: 1000
+      speed_down:
+        type: integer
+        example: 1000
+      type:
+        type: string
+        example: 'private' 
+      status:
+        type: boolean
+        example: true,
+      RadiusServer:
+        type: string
+        example: 10.36.255.80
+      First_connection:
+        type: string
+        example: 2019-05-22 18:33:14
+      Last_up:
+        type: string
+        example: 2021-12-23 07:29:36
+      Last_down:
+        type: string
+        example: null,
+      Active_connections:
+        type: string
+        example: m1,
+      ClientSRC:
+        type: string
+        example: c0:bf:c0:e9:0d:62
+      ClientWAN:
+        type: string
+        example: 100.64.30.63
+      AcctSessionID:
+        type: string
+        example: RouCPE8002010100000004992c6AAAAAS       
+    description: ""
+    title: "gf-contract-radius-info"

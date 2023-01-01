@@ -1,0 +1,80 @@
+/leave-requests/user:
+  post:
+    tags:
+      - 'leave-requests'
+    summary: ''
+    description: 'add new leaving request'
+    operationId: 'postUserLeaveRequest'
+    security:
+      - Bearer: []
+    consumes:
+      - 'application/json'
+    produces:
+      - 'application/json'
+    parameters:
+      - in: 'body'
+        name: 'body'
+        required: false
+        schema:
+          type: 'object'
+          required:
+            - 'start_date'
+            - 'description'
+            - 'end_date'
+          properties:
+            end_date:
+              type: 'string'
+              minLength: 1
+            description:
+              type: 'string'
+              minLength: 1
+            start_date:
+              type: 'string'
+              minLength: 1
+          description: ''
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+          description: ''
+          x-examples:
+            example-1:
+              data:
+                created_at: '2021-04-27T17:29:30.000000Z'
+                updated_at: '2021-04-27T17:29:30.000000Z'
+                deleted_at: '2021-04-27T17:29:30.000000Z'
+                creator_id: 1
+                id: 1
+              meta:
+                code: 201
+                message: 'Created'
+                status: 'success'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'LeaveRequests'

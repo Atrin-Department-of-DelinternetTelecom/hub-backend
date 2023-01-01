@@ -1,0 +1,181 @@
+/gf-contracts/{id}/block:
+  post:
+    tags:
+      - 'gf-contracts'
+    summary: ''
+    description: 'block a contract'
+    operationId: 'block'
+    security:
+      - Bearer: []
+    produces:
+      - application/json
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+        description: if of contract
+
+      - name: 'body'
+        in: 'body'
+        required: false
+        schema:
+          type: 'object'
+          properties:
+            reason:
+              type: string
+          required:
+            - reason
+
+    responses:
+      '200':
+        description: 'OK'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfContract'
+
+/gf-contracts/{id}/resume:
+  post:
+    tags:
+      - 'gf-contracts'
+    summary: ''
+    description: 'resume/unblock a contract'
+    operationId: 'resume'
+    security:
+      - Bearer: []
+    produces:
+      - application/json
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+        description: if of contract
+
+      - name: 'body'
+        in: 'body'
+        required: false
+        schema:
+          type: 'object'
+          properties:
+            reason:
+              type: string
+          required:
+            - reason
+
+    responses:
+      '200':
+        description: 'OK'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfContract'
+/gf-contracts/{id}/resume-task:
+  post:
+    tags:
+      - 'gf-contracts'
+    summary: ''
+    description: 'create resume/unblock task for a company contract'
+    operationId: 'unblockTask'
+    security:
+      - Bearer: []
+    produces:
+      - application/json
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+        description: if of contract
+
+      - name: 'body'
+        in: 'body'
+        required: false
+        schema:
+          type: 'object'
+          properties:
+            reason:
+              type: string
+          required:
+            - reason
+
+    responses:
+      '200':
+        description: 'OK'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfContract'
+/gf-contracts/{id}/block-task:
+  post:
+    tags:
+      - 'gf-contracts'
+    summary: ''
+    description: 'create resume/unblock task for a company contract'
+    operationId: 'blockTask'
+    security:
+      - Bearer: []
+    produces:
+      - application/json
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+        description: if of contract
+
+      - name: 'body'
+        in: 'body'
+        required: false
+        schema:
+          type: 'object'
+          properties:
+            reason:
+              type: string
+          required:
+            - reason
+
+    responses:
+      '200':
+        description: 'OK'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfContract'

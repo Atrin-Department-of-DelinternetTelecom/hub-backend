@@ -1,0 +1,40 @@
+/stats/sellers/{id}/points:
+  get:
+    tags:
+      - 'stats'
+    summary: 'Your GET endpoint'
+    description: 'get stats'
+    operationId: 'getSellerPoints'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: number
+        format: integer
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+          properties:
+            data:
+              type: 'object'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'StatsSellers'

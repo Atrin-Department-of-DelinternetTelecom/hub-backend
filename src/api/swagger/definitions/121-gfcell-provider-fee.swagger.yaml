@@ -1,0 +1,64 @@
+definitions:
+  GfCellProviderFee1:
+    type: object        
+    properties:
+      providerId:
+        type: number
+        example: -1
+      providerName:
+        type: string
+        example: ""
+      providerFeeId:
+        type: string
+        example: ""
+      providerState:
+        type: number
+        example: -1
+      providerBaseQuote:
+        type: string
+        example: 1
+      tpvCode:
+        type: string
+        example: ""     
+    description: ""
+    title: "gf-cell-provider-fee-1"
+  GfCellProviderFee2:
+    type: object        
+    properties:
+      id:
+        type: number
+        example: 12
+      uid:
+        type: number
+        example: -1  
+      providerId:
+        type: number
+        example: -1
+      providerName:
+        type: string
+        example: ""
+      providerFeeId:
+        type: string
+        example: ""
+      providerState:
+        type: number
+        example: -1
+      providerBaseQuote:
+        type: string
+        example: 1
+      tpvCode:
+        type: string
+        example: "" 
+      status:
+        type: integer
+        example: 0 
+      creationDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      updateDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1        
+    description: ""
+    title: "gf-cell-provider-fee-2"

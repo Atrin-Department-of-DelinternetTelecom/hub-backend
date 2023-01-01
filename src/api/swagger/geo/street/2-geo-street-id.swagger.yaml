@@ -1,0 +1,179 @@
+/geo/street/{id}:
+  get:
+    tags:
+      - 'geo-street'
+    summary: 'Your GET endpoint'
+    description: 'get a geo-street by id'
+    operationId: 'getGeoStreetId'
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of geo street'
+        required: true
+        type: 'number'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GeoStreet'
+  put:
+    tags:
+      - 'geo-street'
+    summary: ''
+    description: 'update a geo-street by id'
+    operationId: 'putGeoStreetId'
+    security:
+      - Bearer: []
+    consumes:
+      - 'application/json'
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of street'
+        required: true
+        type: 'string'
+      - in: 'body'
+        name: 'body'
+        description: 'update a geo-street'
+        required: false
+        schema:
+          type: 'object'
+          properties:
+            name:
+              type: 'string'
+            phone_number:
+              type: 'string'
+            email:
+              type: 'string'
+            processed_by_user_id:
+              type: 'number'
+            metadate:
+              type: 'string'
+            description:
+              type: 'string'
+            status:
+              type: 'string'
+          description: ''
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              type: 'object'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GeoStreet'
+
+/geo/streets/codes/{code}:
+  get:
+    tags:
+      - 'geo-street'
+    summary: 'Your GET endpoint'
+    description: 'get a geo-street by id'
+    operationId: 'getGeoStreetByCode'
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'code'
+        in: 'path'
+        description: 'code of geo street'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GeoStreet'

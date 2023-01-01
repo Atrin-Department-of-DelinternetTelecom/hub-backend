@@ -1,0 +1,52 @@
+<% 
+    type = 'Privacitat';
+    contract_type = "Document protecció <br> de dades Delinternet";
+    footer_plus = false;
+    info_extra = '';
+%>
+<div class="d-flex flex-column page"> 
+    <%- include('../components/header') %>
+    <div class="d-flex flex-column px-2">
+        <h2 class="pb-1">Informació bàsica sobre protecció de dades</h2>
+        <div class="d-flex flex-wrap">
+            <div class="w-50">
+                <h5 class="uppercase text-gray pb-1/2 mb-1/2">Dades del responsable</h5>
+                <p>Nom: DEL-INTERNET TELECOM S.L.U<br>C.I.F: ESB55606446 <br>Adreça: Plaça Mercat La Cava 1 Local Delinternet (Deltebre)  <br>Telèfon: 877 990 500<br></p>
+            </div>
+            <div class="w-50">
+                <h5 class="uppercase text-gray pb-1/2 mb-1/2">Base Jurídica</h5>
+                <p>Llei Orgànica 3/2018, de 5 de desembre, de Protecció de Dades Personals i garantia dels drets digitals.</p>
+            </div>
+            <div class="w-50">
+                <h5 class="uppercase text-gray pb-1/2 mb-1/2">Finalitats</h5>
+                <p>Gestió de contractació dels serveis contracts amb Delinternet i Enviament de publicitat genèrica i personalitzada.</p>
+            </div>
+        
+            <div class="w-50">
+                <h5 class="uppercase text-gray pb-1/2 mb-1/2">Legitimació</h5>
+                <p>Execució d'un contracte i consentiment de l'interessat.</p>
+            </div>
+            <div class="w-50">
+                <h5 class="uppercase text-gray pb-1/2 mb-1/2">Destinataris</h5>
+                <p>No es cediran dades a tercers, exepte obligació legal.</p>
+            </div>
+            <div class="w-50">
+                <h5 class="uppercase text-gray pb-1/2 mb-1/2">Drets</h5>
+                <p>Accedir, rectificar, suprimir, oposició, dret a la limitació de tractament i dret a la portabilitat.</p>
+            </div>
+            <div class="w-50">
+                <h5 class="uppercase text-gray pb-1/2 mb-1/2">Informació addicional</h5>
+                <p>Podeu consultar la informació addicional i detallada sobre Protecció de Dades a la nostra pàgina web: https://delinternet.com/proteccio-dades</p>
+            </div> 
+        </div>
+        <div class="d-flex flex-column py-2">
+            <label class="text-gray uppercase">Enviament d'ofertes de productes i serveis del seu interès</label>
+            <div class="d-flex align-center">
+                <%- include(`../components/tick`) %> 
+                <p class="px-1/2">Si accepta el tractament de les seves dades amb aquesta finalitat marqui aquesta casella.</p>
+            </div>
+        </div> 
+        <small>Podrà retirar el seu consentiment en qualsevol moment, si bé això no afectarà la legalitat del tractament efectuat amb el consentiment previ.</small>
+    </div>
+    <%- include('../components/footer', { observation: false}) %> 
+</div>

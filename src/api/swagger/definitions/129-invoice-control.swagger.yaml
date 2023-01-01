@@ -1,0 +1,99 @@
+definitions:
+  InvoiceControl:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        example: 12
+      uid:
+        type: integer
+        format: int32
+        example: 12
+      periodId:
+        type: integer
+        format: int32
+        example: 12
+      invoiceId:
+        type: integer
+        format: int32
+        example: 12
+      clientId:
+        type: integer
+        format: int32
+        example: 12
+      invoiceProfileId:
+        type: integer
+        format: int32
+        example: 12
+      total:
+        type: number
+        example: 12
+      baseTotal:
+        type: number
+        example: 12
+      taxTotal:
+        type: number
+        example: 12
+      emailSent:
+        type: number
+        example: 12
+      emailId:
+        type: number
+        example: 12
+      sorryEmailSent:
+        type: number
+        example: 12
+      payDate:
+        type: string
+        example: '2021-04-29 01:47:27.0'
+      periodDate:
+        type: string
+        example: '2021-04-29 01:47:27.0'
+      issued:
+        type: number
+        example: 12
+      issuedNumber:
+        type: string
+        example: '12'
+      paymentTypeId:
+        type: 'number'
+        example: 1
+      remounted:
+        type: number
+        example: 12
+      qRemounted:
+        type: number
+        example: 12
+      mustRemount:
+        type: number
+        example: 12
+      isRegularized:
+        type: number
+        example: 12
+      withError:
+        type: number
+        example: 12
+      mustReview:
+        type: number
+        example: 12
+      errorDescription:
+        type: string
+        example: '12'
+      errorPhase:
+        type: string
+        example: '12'
+      cueued:
+        type: string
+        example: '12'
+      cueuedIssued:
+        type: string
+        example: '12'
+      cueuedEmail:
+        type: string
+        example: '12'
+      status:
+        type: number
+        example: 0
+    description: ''
+    title: 'invoice-control'

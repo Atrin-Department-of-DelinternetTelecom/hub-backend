@@ -1,0 +1,117 @@
+definitions:
+  GfContract:
+    type: "object"
+    required:
+      - "id"
+      - "uid"
+      - "linkedContractId"
+      - "reference"
+      - "alias"
+      - "comments"
+      - "imported"
+      - "clientId"
+      - "payDay"
+      - "invoiceMonths"
+      - "invoiceProfileId"
+      - "feeGroupId"
+      - "percentageDiscount"
+      - "dateActivation"
+      - "dateDeactivation"
+      - "dateInsertion"
+      - "tempDateMustBeActivation"
+      - "collaboratorId"
+      - "state"
+      - "sellerId"
+      - "permanence"
+      - "permanenceEnd"
+      - "permanencePvp"
+      - "status"
+      - "creationDate"
+      - "updateDate"
+    properties:
+      id:
+        type: "number"
+        example: 12
+      uid:
+        type: "number"
+        example: 0
+      linkedContractId:
+        type: "number"
+        example: 0
+      reference:
+        type: "string"
+        example: "some refrence"
+      alias:
+        type: "string"
+        example: "alias of contracts"
+      comments:
+        type: "string"
+        example: "comments"
+      imported:
+        type: "number"
+        example: 0
+      clientId:
+        type: "number"
+        example: 0
+      payDay:
+        type: "number"
+        example: 0
+      invoiceMonths:
+        type: "number"
+        example: 0
+      invoiceProfileId:
+        type: "number"
+        example: 0
+      feeGroupId:
+        type: "number"
+        example: 0
+      percentageDiscount:
+        type: "number"
+        example: 7.5
+      dateActivation:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1  
+      dateDeactivation:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1  
+      dateInsertion:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1  
+      tempDateMustBeActivation:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1    
+      collaboratorId:
+        type: "number"
+        example: 1
+      sellerId:
+        type: "number"
+        example: 1
+      state:
+        type: "string"
+        example: "active"
+      permanence:
+        type: "number"
+        example: 12
+      permanenceEnd:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+      permanencePvp:
+        type: "number"
+        example: 12  
+      status:
+        type: "number"
+        example: 1
+      updateDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1  
+      creationDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "gf-contract"

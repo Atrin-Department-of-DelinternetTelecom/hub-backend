@@ -1,0 +1,106 @@
+/gf-contracts/{id}/cdrs:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - 'gf-contracts'
+    summary: 'get cdrs for a gf contract'
+    operationId: getCdrs
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table contract'
+        required: true
+        type: 'integer'
+
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/Cdr'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'status'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfContract'
+
+/gf-contracts/{id}/cdr-reports:
+  get:
+    x-filter: true
+    tags:
+      - 'gf-contracts'
+    summary: 'get cdr reportss for a gf contract'
+    operationId: getCdrReports
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table contract'
+        required: true
+        type: 'integer'
+
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/Cdr'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'status'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfContract'

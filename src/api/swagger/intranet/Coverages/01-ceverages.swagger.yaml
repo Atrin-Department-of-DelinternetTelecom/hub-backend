@@ -1,0 +1,413 @@
+/coverages/search/addresses:
+  get:
+    tags:
+      - 'coverages'
+    summary: 'Your GET endpoint'
+    description: 'get all related data for coverages'
+    operationId: 'searchAddresses'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'address_query'
+        in: 'query'
+        description: 'Search query for the address'
+        required: false
+        type: 'string'
+      - name: 'road_id'
+        in: 'query'
+        description: 'Identifier for the road'
+        required: false
+        type: 'string'
+      - name: 'municipality_id'
+        in: 'query'
+        description: 'Identifier for the municipality'
+        required: false
+        type: 'string'
+      - name: 'lat'
+        in: 'query'
+        description: 'The latitude of coordinates'
+        required: false
+        type: 'string'
+      - name: 'long'
+        in: 'query'
+        description: 'The longitude of coordinates'
+        required: false
+        type: 'string'
+      - name: 'distance'
+        in: 'query'
+        description: 'Distance radius for the search (in meters)'
+        required: false
+        type: 'integer'
+        enum: [250, 500, 1000]
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'links'
+            - 'meta'
+          properties:
+            code:
+              type: number
+              example: 200
+            data:
+              type: 'array'
+              items:
+                type: 'object'
+                properties:
+                  uuid:
+                    type: 'string'
+                  road_id:
+                    type: 'string'
+                  road:
+                    type: 'object'
+                    properties:
+                      id:
+                        type: 'string'
+                      entity_id:
+                        type: 'string'
+                      type:
+                        type: 'string'
+                      name:
+                        type: 'string'
+                      formatted_name:
+                        type: 'string'
+                      postal_code:
+                        type: 'string'
+                      geo_code:
+                        type: 'string'
+                      entity:
+                        type: 'object'
+                        properties:
+                          id:
+                            type: 'string'
+                          municipality_id:
+                            type: 'string'
+                          municipality:
+                            type: 'object'
+                            properties:
+                              id:
+                                type: 'string'
+                              province_id:
+                                type: 'string'
+                              name:
+                                type: 'string'
+                              province:
+                                type: 'object'
+                                properties:
+                                  id:
+                                    type: 'string'
+                                  geo_code:
+                                    type: 'string'
+                                  name:
+                                    type: 'string'
+                              geo_code:
+                                type: 'string'
+                          level:
+                            type: 'string'
+                          name:
+                            type: 'string'
+                  name:
+                    type: 'string'
+                  postal_code:
+                    type: 'string'
+                  location:
+                    type: 'object'
+                    properties:
+                      lat:
+                        type: 'number'
+                        format: 'float'
+                      lng:
+                        type: 'number'
+                        format: 'float'
+                  verified:
+                    type: 'integer'
+                  type:
+                    type: 'string'
+                  geo_code:
+                    type: 'string'
+                  status:
+                    type: 'object'
+                    properties:
+                      id:
+                        type: 'string'
+                      protected:
+                        type: 'boolean'
+                      code:
+                        type: 'integer'
+                      reference:
+                        type: 'string'
+                      name:
+                        type: 'string'
+                      description:
+                        type: 'string'
+                      label:
+                        type: 'string'
+                      priority:
+                        type: 'integer'
+                      trigger_available:
+                        type: 'integer'
+                      color:
+                        type: 'string'
+                      borderColor:
+                        type: 'string'
+                      created_at:
+                        type: 'string'
+                        format: 'date-time'
+                      updated_at:
+                        type: 'string'
+                        format: 'date-time'
+                  node:
+                    type: 'object'
+                    properties:
+                      id:
+                        type: 'string'
+                      node_type_id:
+                        type: 'integer'
+                      node_status_id:
+                        type: 'integer'
+                      network_provider_id:
+                        type: 'integer'
+                      city_code:
+                        type: 'string'
+                      city_formated_name:
+                        type: 'string'
+                      reference:
+                        type: 'string'
+                      suffix:
+                        type: 'string'
+                      location:
+                        type: 'object'
+                        properties:
+                          lat:
+                            type: 'number'
+                            format: 'float'
+                          lng:
+                            type: 'number'
+                            format: 'float'
+                      created_at:
+                        type: 'string'
+                        format: 'date-time'
+                      updated_at:
+                        type: 'string'
+                        format: 'date-time'
+                      node_type_name:
+                        type: 'string'
+                      node_type_reference:
+                        type: 'string'
+                      node_status_code:
+                        type: 'integer'
+                      node_status_name:
+                        type: 'string'
+                      node_status_reference:
+                        type: 'string'
+                      node_status_color:
+                        type: 'string'
+                      network_provider_reference:
+                        type: 'string'
+                      network_provider_name:
+                        type: 'string'
+                      identifier:
+                        type: 'string'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'Coverage'
+
+/coverages/search/cities:
+  get:
+    tags:
+      - 'coverages'
+    summary: 'Your GET endpoint'
+    description: 'get all related data for coverages'
+    operationId: 'searchCities'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'municipality_query'
+        in: 'query'
+        description: 'Search for the municipality'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'links'
+            - 'meta'
+          properties:
+            code:
+              type: number
+              example: 200
+            data:
+              type: 'array'
+              items:
+                type: 'object'
+                properties:
+                  id:
+                    type: 'string'
+                  province_id:
+                    type: 'string'
+                  name:
+                    type: 'string'
+                  province:
+                    type: 'object'
+                    properties:
+                      id:
+                        type: 'string'
+                      name:
+                        type: 'string'
+                  entities:
+                    type: 'array'
+                    items:
+                      type: 'object'
+                      properties:
+                        id:
+                          type: 'string'
+                        municipality_id:
+                          type: 'string'
+                        level:
+                          type: 'string'
+                        name:
+                          type: 'string'
+                  geo_code:
+                    type: 'string'
+                  match_entity_id:
+                    type: 'string'
+                  match_entity_name:
+                    type: 'string'
+                  match_entity_level:
+                    type: 'string'
+
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'Coverage'
+
+/coverages/search/roads:
+  get:
+    tags:
+      - 'coverages'
+    summary: 'Your GET endpoint'
+    description: 'get all related data for coverages'
+    operationId: 'searchRoads'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'municipality_id'
+        in: 'query'
+        description: 'Identifier for the municipality'
+        required: true
+        type: 'string'
+      - name: 'road_query'
+        in: 'query'
+        description: 'Search for the road'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'links'
+            - 'meta'
+          properties:
+            code:
+              type: number
+              example: 200
+            data:
+              type: 'array'
+              items:
+                type: 'object'
+                properties:
+                  id:
+                    type: 'string'
+                  entity_id:
+                    type: 'string'
+                  type:
+                    type: 'string'
+                  prefix:
+                    type: 'string'
+                  name:
+                    type: 'string'
+                  formatted_name:
+                    type: 'string'
+                  postal_code:
+                    type: 'string'
+                  entity:
+                    type: 'object'
+                    properties:
+                      id:
+                        type: 'string'
+                      municipality_id:
+                        type: 'string'
+                      municipality:
+                        type: 'object'
+                        properties:
+                          id:
+                            type: 'string'
+                          province_id:
+                            type: 'string'
+                          name:
+                            type: 'string'
+                          province:
+                            type: 'object'
+                            properties:
+                              id:
+                                type: 'string'
+                              geo_code:
+                                type: 'string'
+                              name:
+                                type: 'string'
+                          geo_code:
+                            type: 'string'
+                      level:
+                        type: 'string'
+                      name:
+                        type: 'string'
+                  addresses_count:
+                    type: 'integer'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'Coverage'

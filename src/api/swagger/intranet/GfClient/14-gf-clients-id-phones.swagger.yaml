@@ -1,0 +1,53 @@
+/gf-clients/{id}/phones:
+  get:
+    tags:
+      - "gf-clients"
+    summary: "Your GET endpoint"
+    description: "Get all client phones"
+    operationId: "getClientPhoneNumbersClientId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "number"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              type: "object"
+              properties: {}
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfClient"

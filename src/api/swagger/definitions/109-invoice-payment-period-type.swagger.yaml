@@ -1,0 +1,70 @@
+definitions:
+  InvoicePaymentPeriodType1:
+    type: object        
+    properties:
+      uid:
+        type: number
+        example: -1  
+      name:
+        type: string
+        example: ""
+      code:
+        type: string
+        example: ""
+      numberOfPayments:
+        type: number
+        example: -1
+      dayInterval:
+        type: number
+        example: 1
+      weekInterval:
+        type: number
+        example: 1
+      monthInterval:
+        type: number
+        example: 1
+      status:
+        type: integer
+        example: 0       
+    description: ""
+    title: "invoice-money-type-1"
+  InvoicePaymentPeriodType2:
+    type: object        
+    properties:
+      id:
+        type: number
+        example: 12
+      uid:
+        type: number
+        example: -1  
+      name:
+        type: string
+        example: ""
+      code:
+        type: string
+        example: ""
+      numberOfPayments:
+        type: number
+        example: -1
+      dayInterval:
+        type: number
+        example: 1
+      weekInterval:
+        type: number
+        example: 1
+      monthInterval:
+        type: number
+        example: 1
+      status:
+        type: integer
+        example: 0 
+      creationDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      updateDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1        
+    description: ""
+    title: "invoice-money-type-2"

@@ -1,0 +1,104 @@
+<tr class="history">
+    <td>
+        <table>
+            <thead>
+                <tr>
+                    <th class="col-date">
+                        Data
+                    </th>
+
+                    <th class="col-time text-right">
+                        Hora
+                    </th>
+
+                    <th class="col-line text-right">
+                        Línia destí
+                    </th>
+
+                    <th class="col-type">
+                        Tipus
+                    </th>
+
+                    <th class="col-description">
+                        Descripció
+                    </th>
+
+                    <th class="col-duration text-right">
+                        Durada
+                    </th>
+
+                    <th class="col-price text-right">
+                        Import
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (const [index,line] of Object.entries(consumptionPageLines)) { %>
+                    <tr class="row record">
+                        <td>
+                            <%= line.date %>
+                        </td>
+
+                        <td class="text-right">
+                            <%= line.time %>h
+                        </td>
+
+                        <td class="text-right">
+                            <%= line.number %>
+                        </td>
+
+                        <td>
+                            <%= (line?.type ?? '').replace('_',' ') %>
+                        </td>
+
+                        <td>
+                            <%= (line?.description ?? '').replace('_',' ') %>
+                        </td>
+
+                        <td class="text-right">
+                                <% var value; %>
+                                <% switch (line.type.toLowerCase()) {
+                                    case 'datos':
+                                        value = parseInt(line.duration);
+                                        if (value > 1048576) {
+                                            value = `${Math.ceil(value/1024/1024)} Mb`;
+                                        } else if (value > 1024) {
+                                            value = `${Math.ceil(value/1024)} Kb`;
+                                        } else {
+                                            value = `${value} b`;
+                                        }
+
+                                        break;
+                                    case 'movil':
+                                    case 'movil_entrante':
+                                    default:
+                                        var md = parseInt(line.duration);
+
+                                        var d = Math.floor(md / 86400 % 7);
+                                        var h = Math.floor(md / 3600 % 24);
+                                        var m = Math.floor(md / 60 % 60);
+                                        var s = Math.floor(md % 60);
+
+                                        d = d ? d + "d " : "";
+                                        h = h ? h + "h " : "";
+                                        m = m ? m + "m " : "";
+                                        s = s ? s + "s" : "";
+
+                                        value = d + h + m + s;
+                                        break;
+                                    case 'sms':
+                                        value = '-';
+                                        break;
+                                } %>
+                                <%= value %>
+                        </td>
+
+                        <td class="text-right">
+                            <%= line.charge%> €
+                        </td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </td>
+</tr>

@@ -1,0 +1,60 @@
+/crmTasks/tglExecute/{id}:
+  get:
+    tags:
+      - "crm-tasks"
+    summary: ""
+    description: "execute a crm by crm event record id"
+    operationId: "tglExecute"
+    security:
+      - Bearer: []
+    parameters:
+      - in: path
+        name: "id"
+        type: "string"
+        required: true
+        description: Numeric ID of the user to get.
+      - in: query
+        name: "text"
+        type: "string"
+        required: false
+        description: comment of executed function  
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/CrmTask"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"    
+    x-swagger-router-controller: "CrmTask"

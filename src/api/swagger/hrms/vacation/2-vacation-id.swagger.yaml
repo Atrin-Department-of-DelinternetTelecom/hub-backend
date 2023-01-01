@@ -1,0 +1,561 @@
+/vacations/{id}:
+  get:
+    tags:
+      - "vacation"
+    summary: "Your GET endpoint"
+    description: "get a vacation info (of a user) by id of table vacation"
+    operationId: "getVacationsId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+      - "application/xml"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of vacation table"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Vacation"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                created_at: "2021-04-27T19:02:08.000000Z"
+                creator_id: 4
+                explain: "some explain"
+                from: "2020-03-19 00:00:00"
+                id: 4
+                image_signed_link: "http://localhost/storage/51/Capture5.PNG"
+                image_signed_link_small: "http://localhost/storage/51/conversions/Capture5-small.jpg"
+                owner_id: 3
+                state: "pending"
+                state_by_owner: 0
+                to: "2020-04-18 00:00:00"
+                updated_at: "2021-04-27T19:02:08.000000Z"
+              meta:
+                code: 200
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Vacation"
+  post:
+    tags:
+      - "vacation"
+    summary: ""
+    description: "update a vacation record "
+    operationId: "postVacationsId"
+    security:
+      - Bearer: []
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of vacation table"
+        required: true
+        type: "string"
+      - in: formData
+        type: string
+        name: from
+        description: ' from date'
+      - in: formData
+        type: string
+        name: to
+        description: to date
+      - in: formData
+        type: string
+        name: state
+        description: state of vacation
+      - in: formData
+        type: boolean
+        name: stateByOwner
+        description: state of owner
+      - in: formData
+        type: string
+        name: explain
+        description: explain about vacation
+      - in: formData
+        type: file
+        name: vacationSignature
+        description: signature of employee
+      - in: formData
+        type: number
+        required: false
+        name: template_id
+        description: id of template related to this vacation  
+    responses:
+      "200":
+        description: "OK"
+      "401":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 401
+                message: "unauthorized"
+                status: "failed"
+      "403":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 401
+                message: "forbidden"
+                status: "failed"
+      "404":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: "Deleted"
+                status: "success"
+      "500":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 500
+                message: "internal server error"
+                status: "failed"
+    x-swagger-router-controller: "Vacation"
+  delete:
+    tags:
+      - "vacation"
+    summary: ""
+    description: "delete a vacation record"
+    operationId: "deleteVacationsId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of vacation table"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: "Deleted"
+                status: "success"
+      "401":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 401
+                message: "unauthorized"
+                status: "failed"
+      "403":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 401
+                message: "forbidden"
+                status: "failed"
+      "404":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: "Deleted"
+                status: "success"
+      "500":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 500
+                message: "internal server error"
+                status: "failed"
+    x-swagger-router-controller: "Vacation"
+  put:
+    tags:
+      - "vacation"
+    summary: ""
+    description: "update a vacation record "
+    operationId: "putVacationsId"
+    security:
+      - Bearer: []
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of vacation table"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: ""
+        schema:
+          type: "object"       
+          properties:
+            from:
+              type: "string"
+              example: "2021-04-12"
+            to:
+              type: "string"
+              example: "2021-04-22"
+            state:
+              type: "string"
+              example: "approve"
+            template_id:
+              type: "number"
+              example: 12
+            stateByOwner:
+              type: "boolean"
+              example: true
+            explain:
+              type: "string"
+              example: "some explain about signature"
+            signature_id:
+              type: "integer"
+              example: 2      
+          description: ""  
+    responses:
+      "200":
+        description: "OK"
+      "401":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 401
+                message: "unauthorized"
+                status: "failed"
+      "403":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 401
+                message: "forbidden"
+                status: "failed"
+      "404":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: "Deleted"
+                status: "success"
+      "500":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 500
+                message: "internal server error"
+                status: "failed"
+    x-swagger-router-controller: "Vacation"
+  

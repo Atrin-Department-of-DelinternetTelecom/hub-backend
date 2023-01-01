@@ -1,0 +1,65 @@
+definitions:
+  GfInvoiceLine:
+    type: "object"
+    required:     
+      - "id"            
+    properties:
+      id:
+        type: "number"
+        example: 12
+      uid:
+        type: "number"
+        example: -1 
+      periodId:
+        type: "number"
+        example: 12
+      date:
+        type: "string"
+        example: "2021-04-29 01:47:27.0" 
+      code:
+        type: "string"
+        example: "TPR" 
+      cardinal:
+        type: "number"
+        example: 12 
+      description:
+        type: "string"
+        example: "desc" 
+      quantity:
+        type: "number"
+        example: 12.2 
+      total:
+        type: "number"
+        example: 13.3 
+      clientId:
+        type: "number"
+        example: 12 
+      contractId:
+        type: "number"
+        example: 12 
+      sentToTpv:
+        type: "boolean"
+        example: true 
+      parameters:
+        type: "string"
+        example: 'params' 
+      tpvReference:
+        type: "string"
+        example: 'reference' 
+      productKey:
+        type: "string"
+        example: '12' 
+      status:
+        type: "number"
+        example: "1"
+        minLength: 1
+      creationDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      updateDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1       
+    description: ""
+    title: "gf-invoice-line"

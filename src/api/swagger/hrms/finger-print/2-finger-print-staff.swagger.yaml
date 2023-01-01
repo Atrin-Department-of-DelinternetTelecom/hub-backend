@@ -1,0 +1,272 @@
+/fingerprints/staff:
+  get:
+    tags:
+      - "finger-print"
+    summary: "Your GET endpoint"
+    description: "get finger print record of a user in a device"
+    operationId: "getFingerprintsStaff"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "staff"
+        in: "query"
+        description: "id of staff"
+        required: true
+        type: "number"
+      - name: "device"
+        in: "query"
+        description: "id of device"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "links"
+            - "meta"
+          properties:
+            data:
+              type: "array"
+              uniqueItems: true
+              items:
+                type: "object"
+                properties:
+                  anviz:
+                    type: "object"
+                    properties:
+                      basic_setting:
+                        type: "object"
+                        properties: {}
+                        x-nullable: true
+                      created_at:
+                        type: "string"
+                        minLength: 1
+                      creator:
+                        type: "object"
+                        properties:
+                          created_at:
+                            type: "string"
+                            minLength: 1
+                          email:
+                            type: "string"
+                            minLength: 1
+                          id:
+                            type: "number"
+                          name:
+                            type: "string"
+                            minLength: 1
+                          updated_at:
+                            type: "string"
+                            minLength: 1
+                        required:
+                          - "created_at"
+                          - "email"
+                          - "id"
+                          - "name"
+                          - "updated_at"
+                      device_id:
+                        type: "number"
+                      id:
+                        type: "number"
+                      ip:
+                        type: "string"
+                        minLength: 1
+                      is_enable:
+                        type: "number"
+                      location:
+                        type: "string"
+                        minLength: 1
+                      name:
+                        type: "string"
+                        minLength: 1
+                      password:
+                        type: "string"
+                        minLength: 1
+                      port:
+                        type: "number"
+                      timeout:
+                        type: "number"
+                        x-nullable: true
+                      updated_at:
+                        type: "string"
+                        minLength: 1
+                      username:
+                        type: "string"
+                        minLength: 1
+                      uuid:
+                        type: "string"
+                        minLength: 1
+                    required:
+                      - "basic_setting"
+                      - "created_at"
+                      - "creator"
+                      - "device_id"
+                      - "id"
+                      - "ip"
+                      - "is_enable"
+                      - "location"
+                      - "name"
+                      - "password"
+                      - "port"
+                      - "timeout"
+                      - "updated_at"
+                      - "username"
+                      - "uuid"
+                  created_at:
+                    type: "string"
+                    minLength: 1
+                  creator:
+                    type: "object"
+                    properties:
+                      created_at:
+                        type: "string"
+                        minLength: 1
+                      email:
+                        type: "string"
+                        minLength: 1
+                      id:
+                        type: "number"
+                      name:
+                        type: "string"
+                        minLength: 1
+                      updated_at:
+                        type: "string"
+                        minLength: 1
+                    required:
+                      - "created_at"
+                      - "email"
+                      - "id"
+                      - "name"
+                      - "updated_at"
+                  finger:
+                    type: "number"
+                  fingerprint_template:
+                    type: "string"
+                    minLength: 1
+                  hardware_name:
+                    type: "string"
+                    minLength: 1
+                  id:
+                    type: "number"
+                  updated_at:
+                    type: "string"
+                    minLength: 1
+                  user:
+                    type: "object"
+                    properties:
+                      created_at:
+                        type: "string"
+                        minLength: 1
+                      email:
+                        type: "string"
+                        minLength: 1
+                      id:
+                        type: "number"
+                      name:
+                        type: "string"
+                        minLength: 1
+                      updated_at:
+                        type: "string"
+                        minLength: 1
+                    required:
+                      - "created_at"
+                      - "email"
+                      - "id"
+                      - "name"
+                      - "updated_at"
+                required:
+                  - "anviz"
+                  - "created_at"
+                  - "creator"
+                  - "finger"
+                  - "fingerprint_template"
+                  - "hardware_name"
+                  - "id"
+                  - "updated_at"
+              minItems: 1
+            links:
+              type: "object"
+              properties:
+                self:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "self"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                - anviz:
+                    created_at: "2021-04-27T18:11:17.000000Z"
+                    creator:
+                      created_at: "2021-04-27T18:11:16.000000Z"
+                      email: "yfisher@example.com"
+                      id: 5
+                      name: "Dr. Sheridan Ebert DDS"
+                      updated_at: "2021-04-27T18:11:16.000000Z"
+                    device_id: 1003
+                    id: 3
+                    ip: "172.130.26.202"
+                    is_enable: 1
+                    location: "ml_IN"
+                    name: "Justen Davis"
+                    password: "kVFWFBXT17"
+                    port: 1094
+                    updated_at: "2021-04-27T18:11:17.000000Z"
+                    username: "dusty88"
+                    uuid: "05e6289c-da68-30e8-996a-ce0dc930e4ee"
+                  created_at: "2021-04-27T18:11:25.000000Z"
+                  creator:
+                    created_at: "2021-04-27T18:11:16.000000Z"
+                    email: "bernhard.derrick@example.org"
+                    id: 4
+                    name: "Bill Leffler"
+                    updated_at: "2021-04-27T18:11:16.000000Z"
+                  finger: 2
+                  fingerprint_template:
+                    "Non est quos qui minima ut. Voluptatem odio\
+                    \ voluptatibus doloremque velit. Ut inventore quas et odio voluptatem\
+                    \ impedit est."
+                  hardware_name: "Alvena Tromp"
+                  id: 65
+                  updated_at: "2021-04-27T18:11:25.000000Z"
+                  user:
+                    created_at: "2021-04-27T18:11:16.000000Z"
+                    email: "pcremin@example.org"
+                    id: 2
+                    name: "Ms. Maddison Fritsch PhD"
+                    updated_at: "2021-04-27T18:11:16.000000Z"
+              links:
+                self: "link-value"
+              meta:
+                code: 200
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "FingerPrint"

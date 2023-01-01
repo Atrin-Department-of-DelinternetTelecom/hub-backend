@@ -1,0 +1,268 @@
+/assists/{id}:
+  get:
+    tags:
+      - 'gf-assists'
+    summary: 'Your GET endpoint'
+    description: 'get an assist record by id of table gf_assists'
+    operationId: 'getGfAssistsId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of gf_assists table'
+        required: true
+        type: 'number'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfAssist'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfAssist'
+  put:
+    tags:
+      - 'gf-assists'
+    summary: ''
+    description: 'update a gf_assists record by id'
+    operationId: 'putGfAssistsId'
+    security:
+      - Bearer: []
+    consumes:
+      - 'application/json'
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of gf_assists table'
+        required: true
+        type: 'string'
+      - in: 'body'
+        name: 'body'
+        description: 'update an gf_assists'
+        required: false
+        schema:
+          type: 'object'
+          properties:
+            contractId:
+              type: 'number'
+              example: 12
+            clientId:
+              type: 'number'
+              example: 12
+            incidenceId:
+              type: 'number'
+              example: 12
+            motherEventId:
+              type: 'number'
+              example: 3
+            duration:
+              type: 'number'
+              example: 60
+            description:
+              type: 'string'
+              example: 'some description'
+            alias:
+              type: 'string'
+              example: 'alias of assistance'
+            closed:
+              type: 'boolean'
+              example: false
+            gfUserId:
+              type: 'number'
+              example: 12
+            coWorkers:
+              type: 'array'
+              items:
+                type: number
+            useWillShipImage:
+              type: 'boolean'
+              example: false
+            willShipImage:
+              type: 'string'
+              example: 'image.png'
+            contactPhone:
+              type: 'string'
+              example: 'image.png'
+            signed:
+              type: 'string'
+              example: 'image.png'
+            image1:
+              type: 'string'
+              example: 'image.png'
+            image2:
+              type: 'string'
+              example: 'image.png'
+            image3:
+              type: 'string'
+              example: 'image.png'
+            image4:
+              type: 'string'
+              example: 'image.png'
+            image5:
+              type: 'string'
+              example: 'image.png'
+            image6:
+              type: 'string'
+              example: 'image.png'
+            image7:
+              type: 'string'
+              example: 'image.png'
+            image8:
+              type: 'string'
+              example: 'image.png'
+            image9:
+              type: 'string'
+              example: 'image.png'
+            image10:
+              type: 'string'
+              example: 'image.png'
+            image11:
+              type: 'string'
+              example: 'image.png'
+            image12:
+              type: 'string'
+              example: 'image.png'
+            materialText:
+              type: 'string'
+              example: "hey I'm using AChar"
+            executedDate:
+              type: 'string'
+              example: '2021-04-29 01:47:27.0'
+            previsionDate:
+              type:
+                - 'string'
+                - 'null'
+              example: '2021-04-29 01:47:27.0'
+          description: ''
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfAssist'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfAssist'
+  delete:
+    tags:
+      - 'gf-assists'
+    summary: ''
+    description: 'delete an gf_assists by id'
+    operationId: 'deleteGfAssistsId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of gf_assists table'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'Example response'
+        schema:
+          type: 'object'
+          required:
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: 'Deleted'
+                status: 'success'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfAssist'

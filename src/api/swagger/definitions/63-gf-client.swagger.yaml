@@ -1,0 +1,231 @@
+definitions:
+  GfClient:
+    type: 'object'
+    required:
+      - 'subscriberTypeId'
+      - 'documentTypeId'
+      - 'fiscalId'
+      - 'contactName'
+      - 'contactPhone'
+    properties:
+      id:
+        type: 'number'
+        example: 1
+      uid:
+        type: 'number'
+        example: 90
+      active:
+        type: 'number'
+        example: 1
+      subscriberTypeId: #[9 => Residencial, 10 => Empresa, 11 => Autònom, 12 => Extranger]
+        type: 'number'
+        example: 10
+      documentTypeId: #[9 => DNI, 10 => NIE, 11 => CIF, 12 => Passport]
+        type: 'number'
+        example: 10
+      fiscalId:
+        type: 'string'
+        example: '26696668Q'
+      centreCode:
+        type: 'string'
+        example: ''
+
+      # Residencial
+      contactName:
+        type: 'string'
+        example: 'John'
+      contactFamilyName1: # required when is Residencial, Autònom
+        type: 'string'
+        example: 'Due'
+      contactFamilyName2:
+        type: 'string'
+        example: 'Cristian'
+      contactPhone: # required when is Residencial, Autònom | ignore on Empresa
+        type: 'string'
+        example: '88888888'
+
+      # Empressa
+      name:
+        type: 'string'
+        example: 'John'
+      contactDocumentTypeId:
+        type: 'number'
+        example: 0
+      contactFiscalId:
+        type: 'string'
+        example: '26696668Q'
+
+      # Email
+      emailAddress:
+        type: 'string'
+        example: 'example@example.com'
+      dontHaveEmail:
+        type: 'number'
+        example: 0
+
+      # Address
+      document:
+        type: 'string'
+      nationalityCode:
+        type: 'string'
+        example: '1'
+
+      # IABN
+      iban:
+        type: 'string'
+        example: 'DE75512108001245126199 '
+      bic:
+        type: 'string'
+        example: 'SOGEDEFF'
+      bicName:
+        type: 'string'
+        example: 'Societe Generale'
+      isRemitance:
+        type: 'number'
+        example: 0
+      paymentTypeId:
+        type: 'number'
+        example: 1
+      payDay:
+        type: 'number'
+        example: 7
+
+      # Dades personal
+      birthday:
+        type: 'string'
+        example: '1983-10-23'
+
+      # Address
+      addressRegion:
+        type: 'string'
+      addressProvince:
+        type: 'string'
+      addressProvinceCode:
+        type: 'string'
+      addressProvinceCodeName:
+        type: 'string'
+      addressCity:
+        type: 'string'
+      addressCityCode:
+        type: 'string'
+      addressCityCodeName:
+        type: 'string'
+      addressPostalCode:
+        type: 'string'
+      addressPostalCodeCode:
+        type: 'number'
+      addressPostalCodeCodeName:
+        type: 'number'
+      addressStreet:
+        type: 'string'
+      addressStreetCode:
+        type: 'string'
+      addressStreetCodeName:
+        type: 'string'
+      addressStreetTypeCode:
+        type: 'string'
+      addressStreetTypeCodeName:
+        type: 'string'
+      addressNumber:
+        type: 'string'
+      addressNumberCode:
+        type: 'string'
+      addressNumberCodeName:
+        type: 'string'
+      addressFloor:
+        type: 'string'
+      addressFloorCode:
+        type: 'string'
+      addressFloorCodeName:
+        type: 'string'
+      addressBuilding:
+        type: 'string'
+      addressBuildingCode:
+        type: 'string'
+      addressBuildingCodeName:
+        type: 'string'
+      addressDoor:
+        type: 'string'
+      addressDoorCode:
+        type: 'string'
+      addressDoorCodeName:
+        type: 'string'
+      addressStairway:
+        type: 'string'
+      addressStairwayCode:
+        type: 'string'
+      addressStairwayCodeName:
+        type: 'string'
+      addressLat:
+        type: 'string'
+      addressLng:
+        type: 'string'
+      addressMapUrl:
+        type: 'string'
+
+      # Collaborator Section
+      # collaboratorId:
+      #   type: "string"
+      # distributorId:
+      #   type: "string"
+      # noBillable:
+      #   type: "number"
+      # defaulter:
+      #   type: "number"
+      # myGoufoneDisabled:
+      #   type: "number"
+
+      # marketingConsentTypeId:
+      #   type: "string"
+      # imported:
+      #   type: "string"
+      invoiceClientId:
+        type: 'number'
+      # userId:
+      #   type: "number"
+      # idTpv:
+      #   type: "number"
+      # idOldWeb:
+      #   type: "number"
+      # phicusCustomerId:
+      #   type: "number"
+
+      # useGoogleMaps:
+      #   type: "number"
+      # useAdressForShipping:
+      #   type: "string"
+      # shippingAddressRegion:
+      #   type: "string"
+      # shippingAddressProvince:
+      #   type: "string"
+      # shippingAddressCity:
+      #   type: "string"
+      # shippingAddressPostalCode:
+      #   type: "string"
+      # shippingAddressStreet:
+      #   type: "string"
+      # shippingAddressNumber:
+      #   type: "string"
+      # shippingAddressDescription:
+      #   type: "string"
+
+      # sepaName:
+      #   type: "string"
+      # sepaSurname1:
+      #   type: "string"
+      # sepaSurname2:
+      #   type: "string"
+      # sepaFiscalTypeId:
+      #   type: "string"
+      # sepaFiscalId:
+      #   type: "string"
+      # aireCode:
+      #   type: "number"
+      # lastAireError:
+      #   type: "string"
+      # lastExtErpError:
+      #   type: "string"
+      # status:
+      #   type: "number"
+    description: ''
+    title: 'gf-client'

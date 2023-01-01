@@ -1,0 +1,242 @@
+/invoice-clients-invoice-profiles/{id}:
+  get:
+    tags:
+      - "invoice-clients-invoice-profiles"
+    summary: "Your GET endpoint"
+    description: "get a invoice-clients-invoice-profiles record by id of table invoice-clients-invoice-profiles"
+    operationId: "getInvoiceClientsInvoiceProfilesId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of invoice-clients-invoice-profiles table"
+        required: true
+        type: "number"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/InvoiceClientsInvoiceProfile"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "InvoiceClientsInvoiceProfile"
+  put:
+    tags:
+      - "invoice-clients-invoice-profiles"
+    summary: ""
+    description: "update a invoice-clients-invoice-profile by id"
+    operationId: "putInvoiceClientsInvoiceProfilesId"
+    security:
+      - Bearer: []  
+    parameters: 
+      - in: path
+        name: id
+        description: id of invoice_clients_contacts table
+        required: true
+        type: string
+      - in: formData
+        name: uid
+        type: number
+        required: true
+        default: 90
+        description: The tenancy id
+      - in: formData
+        name: alias
+        type: string
+        required: true
+        description: The dispaly alias of the payment type
+      - in: formData
+        name: clientId
+        type: number
+        required: true
+        description: The GfClient id
+      - in: formData
+        name: iban
+        type: string 
+        default: DE75512108001245126199
+        description: The IBAN number
+      - in: formData
+        name: bic
+        type: string 
+        default: SOGEDEFF
+        description: The IBAN bic
+      - in: formData
+        name: bicName
+        type: string 
+        default: Societe Generale
+        description: The IBAN bic name
+      - in: formData
+        name: payTypeId
+        type: number  
+        description: The InoivePaymentType id
+      - in: formData
+        name: payDay
+        type: number  
+        description: Day of the payment
+      - in: formData
+        name: countryCode
+        type: string  
+        description: Country code name
+      - in: formData
+        name: city
+        type: string  
+        description: City name
+      - in: formData
+        name: state
+        type: string  
+        description: State name
+      - in: formData
+        name: postalCode
+        type: string  
+        description: Postal code
+      - in: formData
+        name: address
+        type: string  
+        description: The full address
+      - in: formData
+        name: number
+        type: string  
+        description: The street number
+      - in: formData
+        name: email
+        type: string  
+        format: email
+        description: The email address
+      - in: formData
+        name: comments
+        type: string   
+        description: Optional note
+      - in: formData
+        name: serieId
+        type: number   
+        description: The InvoiceSerie id  
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/InvoiceClientsInvoiceProfile"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "InvoiceClientsInvoiceProfile"
+  delete:
+    tags:
+      - "invoice-clients-invoice-profiles"
+    summary: ""
+    description: "delete a invoice-clients-invoice-profile by id"
+    operationId: "deleteInvoiceClientsInvoiceProfilesId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of invoice-clients-invoice-profile table"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: "Deleted"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "InvoiceClientsInvoiceProfile"

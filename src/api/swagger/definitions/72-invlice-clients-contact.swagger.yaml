@@ -1,0 +1,57 @@
+definitions:
+  InvoiceClientsContact:
+    type: "object"
+    required:   
+      - "clientId"   
+      - "name"   
+      - "surname"      
+      - "email"   
+      - "status"   
+      - "phone"     
+    properties:
+      id:
+        type: "number"
+        example: 12
+      uid:
+        type: "number"
+        example: 90
+      clientId:
+        type: "number"
+        example: 12
+      name:
+        type: "string"
+        example: "isamil"
+        minLength: 1
+      surname:
+        type: "string"
+        example: "zare"
+        minLength: 1
+      position:
+        type: "string"
+        example: ""
+        minLength: 1
+      email:
+        type: "string"
+        example: "example@mail.example"
+        minLength: 1
+      phone:
+        type: "string"
+        example: "78888888"
+        minLength: 1
+      image:
+        type: "string"
+        example: "" 
+      status:
+        type: "number"
+        example: "1"
+        minLength: 1
+      creationDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      updateDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1       
+    description: ""
+    title: "invoice-clients-contact"

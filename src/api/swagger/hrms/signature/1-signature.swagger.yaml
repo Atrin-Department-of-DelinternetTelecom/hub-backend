@@ -1,0 +1,242 @@
+/signatures:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - "signature"
+    summary: "Your GET endpoint"
+    description: "get all signature record(not pics)"
+    operationId: "getSinatures"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters: []
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "links"
+            - "meta"
+          properties:
+            data:
+              type: "array"
+              uniqueItems: true
+              items:
+                $ref: "#/definitions/Signature"
+              minItems: 1
+            links:
+              type: "object"
+              properties:
+                first:
+                  type: "string"
+                  minLength: 1
+                last:
+                  type: "string"
+                  minLength: 1
+                next:
+                  type: "string"
+                prev:
+                  type: "string"
+                self:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "first"
+                - "last"
+                - "self"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                current_page:
+                  type: "number"
+                from:
+                  type: "number"
+                last_page:
+                  type: "number"
+                links:
+                  type: "array"
+                  uniqueItems: true
+                  items:
+                    type: "object"
+                    properties:
+                      active:
+                        type: "boolean"
+                      label:
+                        type: "string"
+                        minLength: 1
+                      url:
+                        type: "string"
+                        x-nullable: true
+                    required:
+                      - "active"
+                      - "label"
+                      - "url"
+                  minItems: 1
+                path:
+                  type: "string"
+                  minLength: 1
+                per_page:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+                to:
+                  type: "number"
+                total:
+                  type: "number"
+              required:
+                - "code"
+                - "current_page"
+                - "from"
+                - "last_page"
+                - "links"
+                - "path"
+                - "per_page"
+                - "status"
+                - "to"
+                - "total"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                - created_at: "2021-04-27T18:34:42.000000Z"
+                  creator:
+                    created_at: "2021-04-27T18:11:16.000000Z"
+                    email: "pcremin@example.org"
+                    id: 2
+                    name: "Ms. Maddison Fritsch PhD"
+                    updated_at: "2021-04-27T18:11:16.000000Z"
+                  id: 1
+                  image_path: "some path"
+                  owner:
+                    created_at: "2021-04-27T18:11:16.000000Z"
+                    email: "bernhard.derrick@example.org"
+                    id: 4
+                    name: "Bill Leffler"
+                    updated_at: "2021-04-27T18:11:16.000000Z"
+                  updated_at: "2021-04-27T18:34:42.000000Z"
+              links:
+                first: "http://localhost:8000/api/hrms/sinatures?page=1"
+                last: "http://localhost:8000/api/hrms/sinatures?page=1"
+                self: "link-value"
+              meta:
+                code: 200
+                current_page: 1
+                from: 1
+                last_page: 1
+                links:
+                  - active: false
+                    label: "&laquo; Previous"
+                  - active: true
+                    label: "1"
+                    url: "http://localhost:8000/api/hrms/sinatures?page=1"
+                  - active: false
+                    label: "Next &raquo;"
+                path: "http://localhost:8000/api/hrms/sinatures"
+                per_page: 20
+                status: "success"
+                to: 1
+                total: 1
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Signature"
+  post:
+    tags:
+      - "signature"
+    summary: ""
+    description: "here we need to upload image"
+    operationId: "postSinatures"
+    security:
+      - Bearer: []
+    consumes:
+      - "multipart/form-data"
+    parameters:
+      - in: formData
+        type: file
+        required: true
+        name: signature
+        description: nothing
+      - in: formData
+        type: number
+        required: true
+        name: owner_id
+        description: nothing
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Signature"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                created_at: "2021-04-27T18:34:42.000000Z"
+                creator:
+                  created_at: "2021-04-27T18:11:16.000000Z"
+                  email: "pcremin@example.org"
+                  id: 2
+                  name: "Ms. Maddison Fritsch PhD"
+                  updated_at: "2021-04-27T18:11:16.000000Z"
+                id: 1
+                image_path: "some path"
+                owner:
+                  created_at: "2021-04-27T18:11:16.000000Z"
+                  email: "bernhard.derrick@example.org"
+                  id: 4
+                  name: "Bill Leffler"
+                  updated_at: "2021-04-27T18:11:16.000000Z"
+                updated_at: "2021-04-27T18:34:42.000000Z"
+              meta:
+                code: 201
+                message: "Created"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Signature"

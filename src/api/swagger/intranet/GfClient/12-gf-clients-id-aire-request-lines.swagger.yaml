@@ -1,0 +1,125 @@
+/gf-clients/{id}/aire-request-lines:
+  get:
+    tags:
+      - 'gf-clients'
+    summary: 'Your GET endpoint'
+    description: 'get a gf-clients aire request lines by id of table gf-clients'
+    operationId: 'aireRequestLines'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of gf-client table'
+        required: true
+        type: 'number'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              type: 'array'
+              uniqueItems: true
+              items:
+                $ref: '#/definitions/AireRequestLine'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfClient'
+  post:
+    tags:
+      - 'gf-clients'
+    summary: ''
+    description: 'cancel a gf-client reqeust line by id'
+    operationId: 'cancelAireRequestLine'
+    security:
+      - Bearer: []
+    consumes:
+      - 'application/json'
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of gf-client table'
+        required: true
+        type: 'string'
+      - in: 'body'
+        name: 'body'
+        description: 'update a gf-client'
+        required: false
+        schema:
+          type: 'object'
+          properties:
+            code:
+              type: string
+              example: '00128450171438'
+          description: ''
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfClient'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfClient'

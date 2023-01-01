@@ -1,0 +1,190 @@
+/GfKamailioProviderCdrs/{id}:
+  get:
+    tags:
+      - 'gf-kamailio-provider-cdrs'
+    summary: 'Your GET endpoint'
+    description: 'get gf invoice line by id'
+    operationId: 'getGfKamailioProviderCdrsId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table GfKamailioProviderCdr'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfKamailioProviderCdr'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfKamailioProviderCdr'
+  put:
+    tags:
+      - 'gf-kamailio-provider-cdrs'
+    summary: ''
+    description: 'update a GfKamailioProviderCdr by id'
+    operationId: 'putGfKamailioProviderCdrsId'
+    security:
+      - Bearer: []
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table  GfKamailioProviderCdr'
+        required: true
+        type: 'string'
+      - in: 'body'
+        name: 'body'
+        required: true
+        schema:
+          type: 'object'
+          required:
+            - 'hubFile'
+            - 'month'
+            - 'year'
+            - 'providerId'
+          properties:
+            hubFile:
+              type: 'string'
+              example: 'file.zip'
+            month:
+              type: 'number'
+              example: 6
+            year:
+              type: 'number'
+              example: 2023
+            providerId:
+              type: 'number'
+              example: 22
+        description: ''
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfKamailioProviderCdr'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfKamailioProviderCdr'
+  delete:
+    tags:
+      - 'gf-kamailio-provider-cdrs'
+    summary: ''
+    description: 'delete GfKamailioProviderCdr info by id'
+    operationId: 'deleteGfKamailioProviderCdrsId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table GfKamailioProviderCdr'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'Example response'
+        schema:
+          type: 'object'
+          required:
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: 'Deleted'
+                status: 'success'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfKamailioProviderCdr'

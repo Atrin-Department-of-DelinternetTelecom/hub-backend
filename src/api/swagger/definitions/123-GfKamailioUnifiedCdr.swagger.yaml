@@ -1,0 +1,60 @@
+definitions:
+  GfKamailioUnifiedCdr:
+    type: object
+    properties:
+      id:
+        type: 'number'
+        example: 23
+      uid:
+        type: 'number'
+        example: 90
+      providerCdrId:
+        type: 'integer'
+        example: 32
+      periodId:
+        type: 'integer'
+        example: 39
+      pass:
+        type: 'integer'
+        example: 20
+      date:
+        type: 'string'
+        example: '2019-01-01 00:01:58.0'
+      from:
+        type: 'string'
+        example: '09217542122'
+      to:
+        type: 'string'
+        example: "09217542122"
+      seconds:
+        type: 'integer'
+        example: 20
+      cost:
+        type: 'integer'
+        example: 11
+      computed:
+        type: 'integer'
+        example: 1
+      groupIds:
+        type: 'string'
+        example: '1,2,3'
+      callType:
+        type: 'string'
+        example: 'M'
+      finalPrice:
+        type: 'number'
+        example: 12.2
+      userCharge:
+        type: 'number'
+        example: 12.2
+      contractId:
+        type: 'integer'
+        example: 12
+      description:
+        type: 'string'
+        example: 'description'
+      status:
+        type: 'integer'
+        example: 1              
+    description: ''
+    title: 'gf-kamailio-unified-cdr'

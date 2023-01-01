@@ -1,0 +1,40 @@
+definitions:
+  GfFeegroupLabel1:
+    type: object        
+    properties:
+      uid:
+        type: number
+        example: -1  
+      name:
+        type: string
+        example: ""
+      status:
+        type: integer
+        example: 0       
+    description: ""
+    title: "gf-fee-groups-label-1"
+  GfFeegroupLabel2:
+    type: object        
+    properties:
+      id:
+        type: number
+        example: 12
+      uid:
+        type: number
+        example: -1  
+      name:
+        type: string
+        example: ""
+      status:
+        type: integer
+        example: 0 
+      creationDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      updateDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1        
+    description: ""
+    title: "gf-fee-groups-label-2"

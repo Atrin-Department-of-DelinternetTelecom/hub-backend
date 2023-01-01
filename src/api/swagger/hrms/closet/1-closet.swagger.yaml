@@ -1,0 +1,224 @@
+/closets:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - "closet"
+    summary: "Your GET endpoint"
+    description: "get all closet records"
+    operationId: "getClosets"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters: []
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "links"
+            - "meta"
+          properties:
+            data:
+              type: "array"
+              uniqueItems: true
+              items:
+                $ref: "#/definitions/Closet"
+              minItems: 1
+            links:
+              type: "object"
+              properties:
+                first:
+                  type: "string"
+                  minLength: 1
+                last:
+                  type: "string"
+                  minLength: 1
+                next:
+                  type: "string"
+                  x-nullable: true
+                prev:
+                  type: "string"
+                  x-nullable: true
+                self:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "first"
+                - "last"
+                - "next"
+                - "prev"
+                - "self"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                current_page:
+                  type: "number"
+                from:
+                  type: "number"
+                last_page:
+                  type: "number"
+                links:
+                  type: "array"
+                  uniqueItems: true
+                  items:
+                    type: "object"
+                    properties:
+                      active:
+                        type: "boolean"
+                      label:
+                        type: "string"
+                        minLength: 1
+                      url:
+                        type: "string"
+                        x-nullable: true
+                    required:
+                      - "active"
+                      - "label"
+                      - "url"
+                  minItems: 1
+                path:
+                  type: "string"
+                  minLength: 1
+                per_page:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+                to:
+                  type: "number"
+                total:
+                  type: "number"
+              required:
+                - "code"
+                - "current_page"
+                - "from"
+                - "last_page"
+                - "links"
+                - "path"
+                - "per_page"
+                - "status"
+                - "to"
+                - "total"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Closet"
+  post:
+    tags:
+      - "closet"
+    summary: ""
+    description: "create new closet"
+    operationId: "postClosetsId"
+    security:
+      - Bearer: []
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    parameters:
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          type: "object"
+          required:
+            - "code"
+            - "redis_channel"
+            - "state"
+            - "type"
+          properties:
+            code:
+              type: "string"
+              minLength: 1
+            redis_channel:
+              type: "string"
+              minLength: 1
+            state:
+              type: "string"
+              minLength: 1
+            type:
+              type: "string"
+              minLength: 1
+          description: ""
+          x-examples:
+            example-1:
+              code: "dog"
+              redis_channel: "some redis channel"
+              state: "lock"
+              type: "door"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Closet"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                code: "dog"
+                created_at: "2021-04-27T16:59:16.000000Z"
+                creator:
+                  created_at: "2021-04-27T11:00:54.000000Z"
+                  email: "zola44@example.net"
+                  id: 7
+                  name: "Maxine Flatley"
+                  updated_at: "2021-04-27T11:00:54.000000Z"
+                id: 12
+                redis_channel: "some redis channel"
+                state: "lock"
+                type: "door"
+                updated_at: "2021-04-27T16:59:16.000000Z"
+              meta:
+                code: 201
+                message: "Created"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Closet"

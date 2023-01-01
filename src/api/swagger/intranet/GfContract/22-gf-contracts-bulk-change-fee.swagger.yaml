@@ -1,0 +1,72 @@
+/gf-contracts/bulk-change-fee-group:
+  post:
+    tags:
+      - "gf-contracts"
+    summary: ""
+    description: "bulk change fee group of gf-contracts by id"
+    operationId: "bulkChangeFeeGroup"
+    security:
+      - Bearer: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - name: body
+        in: body
+        description: Id of gf-contracts table
+        schema:
+          type: object
+          properties:
+            fromFeeGroupId:
+              type: integer
+            toFeeGroupId:
+              type: integer
+            notificationType:
+              type: string
+              enum: [perContract, perClient]
+            template:
+              type: string
+            skipChangeFeeGroup:
+              type: boolean
+            previsionDate:
+              type: string
+              example: "2022-06-01 00:00:00"
+            executedDate:
+              type: string
+              example: "2022-06-01 00:00:00"
+          required:
+            - fromFeeGroupId
+            - toFeeGroupId
+            - skipChangeFeeGroup
+
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          properties:
+            data:
+              type: "object"
+              properties:
+                totalContracts:
+                  type: integer
+                bulkId:
+                  type: integer
+                fromFeeGroupName:
+                  type: string
+                toFeeGroupName:
+                  type: string
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfContract"

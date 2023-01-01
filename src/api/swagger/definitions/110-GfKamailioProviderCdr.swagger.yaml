@@ -1,0 +1,30 @@
+definitions:
+  GfKamailioProviderCdr:
+    type: object        
+    properties:
+      id:
+        type: number
+        example: 12  
+      uid:
+        type: number
+        example: 90  
+      file:
+        type: string
+        example: "file.png"
+      month:
+        type: number
+        example: 12
+      year:
+        type: number
+        example: 2222
+      providerId:
+        type: number
+        example: 4
+      parsedPass:
+        type: number
+        example: 32
+      status:
+        type: integer
+        example: 1       
+    description: ""
+    title: "gf-kamailio-provider-cdr"

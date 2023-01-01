@@ -1,0 +1,46 @@
+definitions:
+  Fee:
+    type: "object"
+    required:
+      - "id"
+      - "fee_group_id"
+      - "section_id"
+      - "weight"
+      - "default"
+      - "creator_id"
+      - "deleted_at"
+      - "created_at"
+      - "updated_at"
+    properties:
+      id:
+        type: "number"
+        example: 12
+      fee_group_id:
+        type: "number"
+        example: 12
+      section_id:
+        type: "number"
+        example: 16
+      weight:
+        type: "number"
+        example: 1
+      default:
+        type: "number"
+        example: 1
+      creator_id:
+        type: "number"
+        example: 23
+      created_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      deleted_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1      
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "Fee"

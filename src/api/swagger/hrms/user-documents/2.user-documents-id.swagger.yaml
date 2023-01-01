@@ -1,0 +1,166 @@
+/user-documents/{id}:
+  get:
+    tags:
+      - 'user-documents'
+    summary: 'Your GET endpoint'
+    description: 'get a user document record by id'
+    operationId: 'getUserDocumentById'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of user document record'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+              required:
+                - 'code'
+          description: ''
+          x-examples:
+            example-1:
+              data:
+                created_at: '2021-04-27T17:29:21.000000Z'
+                id: 1
+              meta:
+                code: 200
+                status: 'success'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'UserDocument'
+  delete:
+    tags:
+      - 'user-documents'
+    summary: ''
+    description: 'delete user document record by id'
+    operationId: 'deleteUserDocument'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of user document record'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'Example response'
+        schema:
+          type: 'object'
+          required:
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+          description: ''
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: 'Deleted'
+                status: 'success'
+    x-swagger-router-controller: 'UserDocument'
+  put:
+    tags:
+      - 'user-documents'
+    summary: ''
+    consumes:
+      - multipart/form-data
+    description: 'update user document record by id'
+    operationId: 'updateUserDocument'
+    security:
+      - Bearer: []
+    parameters:
+      - in: path
+        name: id
+        type: string
+        required: true
+      - in: formData
+        name: name
+        type: string
+        required: false
+      - in: formData
+        type: string
+        name: description
+        required: false
+      - in: formData
+        type: file
+        name: file
+        required: false
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              type: 'object'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'UserDocument'

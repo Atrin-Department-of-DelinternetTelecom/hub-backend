@@ -1,0 +1,61 @@
+definitions:
+  CrmUser:
+    type: object
+    required:     
+      - id
+      - uid
+      - userId
+      - sernderId
+      - email
+      - name
+      - nickName
+      - image
+      - color
+      - patern
+      - status
+      - creationDate
+      - updateDate                 
+    properties:
+      id:
+        type: integer
+        example: 12
+      uid:
+        type: integer
+        example: 90  
+      userId:
+        type: integer
+        example: 90  
+      sernderId:
+        type: integer
+        example: 1
+      email:
+        type: string
+        example: "ali@test.com"
+      name:
+        type: string
+        example: "ali"
+      nickName:
+        type: string
+        example: "ali"
+      image:
+        type: string
+        example: "file.png"
+      color:
+        type: string
+        example: "red"
+      patern:
+        type: string
+        example: "ptrn"
+      status:
+        type: "number"
+        example: 1
+      creationDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      updateDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1                
+    description: ""
+    title: "crm-user"

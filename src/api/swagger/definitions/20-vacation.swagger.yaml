@@ -1,0 +1,80 @@
+definitions:
+  Vacation:
+    type: "object"
+    required:
+      - "creator_id"
+      - "from"
+      - "id"
+      - "owner_id"
+      - "state"
+      - "state_by_owner"
+      - "to"
+    properties:
+      created_at:
+        type: "string"
+        format: "date-time"
+        example: "2020-03-19 00:00:00"
+      creator_id:
+        type: "number"
+        example: 5
+        description: "this row belongs to who"
+      deleted_at:
+        type: "string"
+        format: "date-time"
+        example: "2020-03-19 00:00:00"
+      explain:
+        type: "string"
+        example: "this is some explain"
+      from:
+        type: "string"
+        format: "date-time"
+        example: "2020-03-19 00:00:00"
+      id:
+        type: "number"
+        example: 4
+      image_signed_link:
+        type: "string"
+        minLength: 1
+      image_signed_link_small:
+        type: "string"
+        minLength: 1
+      owner_id:
+        type: "number"
+        example: 6
+        description: "this vacation request belongs to who"
+      state:
+        type: "string"
+        example: "finish"
+        minLength: 1
+        enum:
+          - "pending"
+          - "approve"
+          - "cancel"
+          - "started"
+          - "finish"
+      state_by_owner:
+        type: "boolean"
+        default: true
+      to:
+        type: "string"
+        example: "2020-03-29 00:00:00"
+        minLength: 1
+      updated_at:
+        type: "string"
+        format: "date-time"
+        example: "2020-03-19 00:00:00"
+    description: ""
+    title: "Vacation"
+    x-examples:
+      example-1:
+        created_at: "2021-04-27T19:02:08.000000Z"
+        creator_id: 4
+        from: "2020-03-19 00:00:00"
+        id: 4
+        image_signed_link: "http://localhost/storage/51/Capture5.PNG"
+        image_signed_link_small: "http://localhost/storage/51/conversions/Capture5-small.jpg"
+        owner_id: 3
+        state: "pending"
+        state_by_owner: 0
+        to: "2020-04-18 00:00:00"
+        updated_at: "2021-04-27T19:02:08.000000Z"

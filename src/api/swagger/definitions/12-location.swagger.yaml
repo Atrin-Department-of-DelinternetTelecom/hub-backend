@@ -1,0 +1,45 @@
+definitions:
+  Location:
+    type: "object"
+    required:
+      - "id"
+      - "location"
+      - "locationable_id"
+      - "locationable_type"
+    properties:
+      created_at:
+        type: "string"
+        example: "2021-04-29 01:45:50.0"
+      deleted_at:
+        type: "string"
+        example: "2021-04-29 01:45:50.0"
+      id:
+        type: "number"
+        example: 4
+      location:
+        type: "string"
+        example: "12.34 74.233"
+        minLength: 1
+      locationable_id:
+        type: "number"
+        example: 6
+      locationable_type:
+        type: "string"
+        minLength: 1
+        enum:
+          - "user"
+          - "vehicle"
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:45:50.0"
+    description: ""
+    title: "Location"
+    x-examples:
+      example-1:
+        created_at: "2021-04-29 01:45:50.0"
+        deleted_at: "2021-04-29 01:45:50.0"
+        id: 4
+        location: "12.34 74.233"
+        locationable_id: 6
+        locationable_type: "user"
+        updated_at: "2021-04-29 01:45:50.0"

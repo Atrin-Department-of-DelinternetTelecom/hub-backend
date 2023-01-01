@@ -1,0 +1,53 @@
+<div class="d-flex flex-column mt-auto">
+  <div class="d-flex justify-between px-2 pb-1">
+    <% if(observation===true) { %>
+
+    <div class="w-50 px-1/2 d-flex">
+      <div
+        class="signature d-flex flex-column justify-between border rounded p-1 w-100 h-100"
+      >
+        <label class="uppercase">Observacions</label>
+        <p>
+          <%= info_extra %> <% if(! footer_plus && document_comments !="" ){ %>
+          <br />------------------------<br />
+          <%= document_comments %> <% } %>
+        </p>
+        <% if(footer_plus){ %>
+        <p class="down"><small> <%= document_comments %> </small></p>
+        <% } %>
+      </div>
+    </div>
+
+    <% } else { %>
+
+    <div class="w-50 px-1/2 d-flex">
+      <div
+        class="signature d-flex flex-column justify-between border rounded p-1 w-100 h-100"
+      >
+        <label class="uppercase"
+          >DEL-INTERNET TELECOM S.L.U (Delinternet)</label
+        >
+        <% if(gurbtecSignature.split(',')[1]) { %>
+        <img class="sign" src="<%- gurbtecSignature %>" />
+        <% } %>
+      </div>
+    </div>
+
+    <% } %>
+
+    <div class="w-50 px-1/2 d-flex">
+      <div
+        class="signature d-flex flex-column justify-between border rounded p-1 w-100 h-100"
+      >
+        <label class="uppercase">Signatura de l'usuari</label>
+        <% if(image_signature.split(',')[1]){ %>
+        <img class="sign" src="<%- image_signature %>" />
+        <% } else { %>
+        <div class="sign-placeholder"></div>
+        <% } %>
+        <p class="down"><%= signature_date %></p>
+      </div>
+    </div>
+  </div>
+  <%- include('delinternet-info') %>
+</div>

@@ -1,0 +1,175 @@
+/gfcellproviderfee/{id}:
+  get:
+    tags:
+      - "gf-cell-provider-fee"
+    summary: 'Your GET endpoint'
+    description: 'get a single gf-cell-provider-fee'
+    operationId: 'getGfCellProviderFeeId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table gf-cell-provider-fee'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfCellProviderFee2'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'status'
+          description: ''
+          x-examples:
+            example-1:
+              data:
+                username: 'thisisusername'
+                email: 'mostafaebrahimi.me@gmail.com'
+                first_name: 'Mostafa'
+                role: 'admin'
+                last_name: 'Ebrahimi'
+                password: 'mostafa$$1'
+              meta:
+                code: 0
+                status: 'string'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: GfCellProviderFee
+  put:
+    tags:
+      - "gf-cell-provider-fee"
+    summary: 'update a single gf-cell-provider-fee'
+    description: 'update a single gf-cell-provider-fee'
+    operationId: 'updateGfCellProviderFee'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table gf-cell-provider-fee'
+        required: true
+        type: 'string'
+      - in: 'body'
+        name: 'body'
+        required: true
+        schema:
+          $ref: '#/definitions/GfCellProviderFee1'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfCellProviderFee2'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: GfCellProviderFee
+  delete:
+    tags:
+      - "gf-cell-provider-fee"
+    summary: 'delete a single gf-cell-provider-fee'
+    description: 'delete a single gf-cell-provider-fee'
+    operationId: 'deleteGfCellProviderFee'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table gf-cell-provider-fee'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'Example response'
+        schema:
+          type: 'object'
+          required:
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: GfCellProviderFee

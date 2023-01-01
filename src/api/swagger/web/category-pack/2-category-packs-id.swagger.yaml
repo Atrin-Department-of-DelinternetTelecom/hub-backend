@@ -1,0 +1,176 @@
+/categoriesPacks/{id}:
+  get:
+    tags:
+      - "categories-packs"
+    summary: "Your GET endpoint"
+    description: "get a category-pack relation record by id of table categories_packs"
+    operationId: "getCategoriesPacksId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of categories_packs table"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/CategoryPack"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "CategoryPack"
+  put:
+    tags:
+      - "categories-packs"
+    summary: ""
+    description: "update a CategoriesPacks by id"
+    operationId: "putCategoriesPacksId"
+    security:
+      - Bearer: []
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of categories_packs table"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "update a category"
+        required: false
+        schema:
+          $ref: "#/definitions/NewCategoryPack"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/CategoryPack"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "CategoryPack"
+  delete:
+    tags:
+      - "categories-packs"
+    summary: ""
+    description: "delete a categoriesPacks by id"
+    operationId: "deleteCategoriesPacksId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of categories_pack table"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: "Deleted"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "CategoryPack"

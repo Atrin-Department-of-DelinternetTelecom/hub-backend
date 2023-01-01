@@ -1,0 +1,189 @@
+{
+    "common": {
+        "name"      : "Fake APP",
+        "code"      : "common",
+        "baseUrl"   : "/common",
+        "textScope" : "common", 
+        "ignore"    : true
+    },
+    
+    "applications": {
+        "name"      : "Applications menu",
+        "code"      : "applications",
+        "baseUrl"   : "/applications",
+        "textScope" : "applications",
+        "ignore"    : true
+    },
+    
+    "admin": {
+        "name"      : "admin",
+        "code"      : "admin",
+        "baseUrl"   : "/admin",
+        "textScope" : "admin",
+        "icon"      : "/admin/img/admin_icon.png"
+    },
+    "delinternet": {
+        "name"      : "delinternet",
+        "code"      : "delinternet",
+        "baseUrl"   : "/delinternet",
+        "textScope" : "delinternet",
+        "icon"      : "/delinternet/img/invoice_icon.png"
+    },
+    "invoice": {
+        "name"      : "invoice",
+        "code"      : "invoice",
+        "baseUrl"   : "/invoice",
+        "textScope" : "invoice",
+        "icon"      : "/invoice/img/invoice_icon.png"
+    },
+    "cash": {
+        "name"      : "cash",
+        "code"      : "cash",
+        "baseUrl"   : "/cash",
+        "textScope" : "cash",
+        "icon"      : "/cash/img/cash_icon.png"
+    },
+    "crm": {
+        "name"      : "crm",
+        "code"      : "crm",
+        "baseUrl"   : "/crm",
+        "textScope" : "crm",
+        "icon"      : "/crm/img/crm_icon.png"
+    },
+    
+    "driveappoint": {
+        "group"     : "suitdrive",
+        "code"      : "driveappoint",
+        "name"      : "driveappoint",
+        "baseUrl"   : "/driveappoint",
+        "textScope" : "driveappoint",
+        "icon"      : "/driveappoint/img/driveappoint_icon.png",
+        "roles" : {
+            "admin": {
+                "url" : "/"
+            },
+            "student":{
+                "url": "/student"
+            }
+        }
+    },
+    
+    "theorical": {
+        "group"     : "suitdrive",
+        "code"      : "theorical",
+        "name"      : "theorical",
+        "baseUrl"   : "/theorical",
+        "textScope" : "theorical",
+        "icon"      : "/theorical/img/theorical_icon.png",
+        "roles" : {
+            "admin": {
+                "url" : "/"
+            },
+            "student":{
+                "url": "/student"
+            }
+        }
+    },
+    
+    "rundrive": {
+        "group"     : "suitdrive",
+        "name"      : "rundrive",
+        "code"      : "rundrive",
+        "baseUrl"   : "/rundrive",
+        "textScope" : "rundrive",
+        "icon"      : "/rundrive/img/rundrive_icon.png"
+    },
+    
+    "ipush": {
+        "name"      : "piulapp",
+        "baseUrl"   : "/ipush",
+        "code"      : "ipush",
+        "textScope" : "ipush",
+        "icon"      : "/ipush/icon/icon.png"
+    },
+    
+    "allplayed": {
+        "name"      : "allplayed",
+        "baseUrl"   : "/allplayed",
+        "code"      : "allplayed",
+        "textScope" : "allplayed",
+        "icon"      : "/allplayed/img/allplayed_icon.png"
+    },
+    
+    "landing": {
+        "name"      : "landing",
+        "baseUrl"   : "/landing",
+        "code"      : "landing",
+        "textScope" : "landing",
+        "icon"      : "/landing/img/landing_icon.png"
+    },
+    "maintenance": {
+        "code"      : "maintenance",
+        "name"      : "maintenance",
+        "baseUrl"   : "/maintenance",
+        "textScope" : "maintenance",
+        "icon"      : "/maintenance/img/maintenance_icon.png",
+        "roles" : {
+            "admin": {
+                "url" : "/"
+            },
+            "brigade":{
+                "url": "/brigade"
+            }
+        }
+    },
+    "tasks": {
+        "code"      : "tasks",
+        "name"      : "tasks",
+        "baseUrl"   : "/tasks",
+        "textScope" : "tasks",
+        "icon"      : "/tasks/img/tasks_icon.png"
+    },
+    "goufone": {
+        "code"      : "goufone", 
+        "prefix"    : "gf",
+        "name"      : "mooisp",
+        "baseUrl"   : "/mooisp",
+        "textScope" : "goufone",
+        "icon"      : "/mooisp/img/goufone_icon.png",
+        "roles" : {
+            "admin": {
+                "url" : "/"
+            },
+            "client": {
+                "url": "/client"
+            },
+            "collaborator": {
+                "url": "/collaborator"
+            }
+        }
+    },
+    "mailing": {
+        "code"      : "mailing",
+        "name"      : "mailing",
+        "baseUrl"   : "/mailing",
+        "textScope" : "mailing",
+        "icon"      : "/mailing/img/mailing_icon.png",
+        "roles" : {
+            "admin": {
+                "url" : "/"
+            }
+        }
+    },
+    "coach": {
+        "code"      : "coach",
+        "name"      : "wellyoutoo",
+        "baseUrl"   : "/wellyoutoo",
+        "prefix"    : "gf",
+        "textScope" : "coach",
+        "icon"      : "/wellyoutoo/img/wellyoutoo.png",
+        "roles" : {
+            "admin": {
+                "url" : "/"
+            },
+            "user": {
+                "url" : "/user"
+            }
+        }
+    }
+}

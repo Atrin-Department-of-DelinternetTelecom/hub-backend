@@ -1,0 +1,67 @@
+/skills/UnAttachSkillToEmployee/{skill_id}/{employee_id}:
+  delete:
+    tags:
+      - "skill"
+    summary: ""
+    description: "unattach skills of employee or a user"
+    operationId: "deleteSkillsUnAttachSkillToEmployee"
+    security:
+      - Bearer: []
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    parameters:
+      - name: "skill_id"
+        in: "path"
+        description: "id of skill"
+        required: true
+        type: "string"
+      - name: "employee_id"
+        in: "path"
+        description: "id of employee"
+        required: true
+        type: "string"  
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: "skills UnAttached!!"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Skill"

@@ -1,0 +1,32 @@
+/gf-clients/{id}/docs/latest-sepa:
+  get:
+    tags:
+      - 'gf-clients'
+    summary: 'get the latest sepa doc of client'
+    operationId: 'getLatestSepaDoc'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: id
+        in: path
+        description: id of gf-client table
+        required: true
+        type: integer
+    responses:
+      '200':
+        description: 'OK'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfClient'

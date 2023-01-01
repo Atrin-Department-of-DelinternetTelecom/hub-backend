@@ -1,0 +1,57 @@
+definitions:
+  GfDiscountsHistory:
+    type: "object"
+    required:
+      - id
+      - uid
+      - scheduledId
+      - date
+      - action
+      - amount
+      - userId
+      - controlRowId
+      - previousRow       
+      - status
+      - creationDate
+      - updateDate
+    properties:
+      id:
+        type: number
+        example: 12
+      uid:
+        type: number
+        example: 0
+      scheduledId:
+        type: number
+        example: 0 
+      date:
+        type: string
+        example: "2021-04-29"
+      action:
+        type: string
+        example: "scheduled,applied,edited,deleted,partialApplied"
+      amount:
+        type: number
+        example: 0
+      userId:
+        type: number
+        example: 0
+      controlRowId:
+        type: number
+        example: 0
+      previousRow:
+        type: string
+        example: ""
+      status:
+        type: number
+        example: 1
+      updateDate:
+        type: string
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1  
+      creationDate:
+        type: string
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "gf-discounts-history"

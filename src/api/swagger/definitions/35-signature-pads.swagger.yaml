@@ -1,0 +1,34 @@
+definitions:
+  SignaturePad:
+    type: "object"
+    required:
+      - "id"
+      - "name"
+    properties:
+      created_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      deleted_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      id:
+        type: "number"
+        example: 12
+      is_enable:
+        type: "boolean"
+        example: true
+      creator_id:
+        type: "number"
+        example: 23
+      name:
+        type: "string"
+        example: "some name"
+        minLength: 1
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "signature-pad"

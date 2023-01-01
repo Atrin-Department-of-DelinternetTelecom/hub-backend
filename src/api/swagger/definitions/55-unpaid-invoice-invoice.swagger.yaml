@@ -1,0 +1,303 @@
+definitions:
+  InvoiceInvoice1:
+    type: 'object'
+    required:
+      - 'date'
+      - 'payDate'
+      - 'products'
+      - 'shopId'
+      - 'moneyTypeCode'
+      - 'serieId'
+      - 'paymentType'
+      - 'paymentPeriodType'
+      - 'clientId'
+    properties:
+      serieId:
+        type:
+          - 'number'
+          - 'null'
+        example: 0
+      invoiceId:
+        type: 'number'
+        example: 0
+      shopId:
+        type: 'number'
+        example: 0
+      copyForm:
+        type: 'number'
+        example: 0
+      formBudget:
+        type: 'number'
+        example: 0
+      code:
+        type: 'string'
+        example: 0
+      date:
+        type: 'string'
+        example: '2021-04-29 01:47:27.0'
+      payDate:
+        type: 'string'
+        example: '2021-04-29 01:47:27.0'
+      clientId:
+        type: 'number'
+        example: 12
+      clientName:
+        type: 'string'
+        example: 'ali'
+      clientNif:
+        type: 'string'
+        example: 'ali'
+      clientAddress:
+        type: 'string'
+        example: 'ali'
+      clientAddressNumber:
+        type: 'string'
+        example: 'ali'
+      clientCity:
+        type: 'string'
+        example: 'ali'
+      clientPostalCode:
+        type: 'string'
+        example: 'ali'
+      clientState:
+        type: 'string'
+        example: 'ali'
+      clientCountryIso:
+        type:
+          - 'string'
+          - 'null'
+        example: 'ali'
+      moneyTypeCode:
+        type:
+          - 'string'
+          - 'null'
+        minLength: 1
+        maxLength: 3
+        example: 'ali'
+      moneyTypeObject:
+        type: 'string'
+        example: 'ali'
+      paymentPeriodType:
+        type:
+          - 'number'
+          - 'null'
+        example: 2
+      paymentType:
+        type:
+          - 'number'
+          - 'null'
+        minimum: 1
+        example: 3
+      observations:
+        type: 'string'
+        example: 'ali'
+      cons_totalPaid:
+        type: 'number'
+        example: 23.8
+      user_id:
+        type: 'number'
+        example: 12
+      refererApp:
+        type: 'string'
+        example: 'some app'
+      refererKey:
+        type: 'string'
+        example: 'some key'
+      contabilityExported:
+        type: 'number'
+        example: 90
+      contabilityRef:
+        type: 'string'
+        example: 90
+      status:
+        type: 'number'
+        example: 1
+      products:
+        type: 'array'
+        items:
+          type: 'object'
+    description: ''
+    title: 'invoice-invoice-1'
+  InvoiceInvoice2:
+    type: 'object'
+    required:
+      - 'id'
+      - 'uid'
+      - 'serieId'
+      - 'invoiceId'
+      - 'copyForm'
+      - 'formBudget'
+      - 'rectificativeFrom'
+      - 'code'
+      - 'date'
+      - 'payDay'
+      - 'clientId'
+      - 'clientName'
+      - 'clientNif'
+      - 'clientAddress'
+      - 'clientAddressNumber'
+      - 'clientCity'
+      - 'clientPostalCode'
+      - 'clientState'
+      - 'clientCountryIso'
+      - 'sellerName'
+      - 'sellerNif'
+      - 'sellerFormatedAddress'
+      - 'moneyTypeCode'
+      - 'moneyTypeObject'
+      - 'paymentType'
+      - 'observations'
+      - 'total'
+      - 'baseTotal'
+      - 'taxesTotal'
+      - 'cons_totalPaid'
+      - 'user_id'
+      - 'refererApp'
+      - 'refererKey'
+      - 'contabilityExported'
+      - 'contabilityRef'
+      - 'state'
+      - 'status'
+      - 'created_at'
+      - 'updated_at'
+      - 'deleted_at'
+    properties:
+      id:
+        type: 'number'
+        example: 12
+      uid:
+        type: 'number'
+        example: 0
+      serieId:
+        type: 'number'
+        example: 0
+      invoiceId:
+        type: 'number'
+        example: 0
+      copyForm:
+        type: 'number'
+        example: 0
+      formBudget:
+        type: 'number'
+        example: 0
+      rectificativeFrom:
+        type: 'number'
+        example: 0
+      code:
+        type: 'string'
+        example: 0
+      date:
+        type: 'string'
+        example: '2021-04-29 01:47:27.0'
+      payDay:
+        type: 'string'
+        example: '2021-04-29 01:47:27.0'
+      clientId:
+        type: 'number'
+        example: 12
+      clientName:
+        type: 'string'
+        example: 'ali'
+      clientNif:
+        type: 'string'
+        example: 'ali'
+      clientAddress:
+        type: 'string'
+        example: 'ali'
+      clientAddressNumber:
+        type: 'string'
+        example: 'ali'
+      clientCity:
+        type: 'string'
+        example: 'ali'
+      clientPostalCode:
+        type: 'string'
+        example: 'ali'
+      clientState:
+        type: 'string'
+        example: 'ali'
+      clientCountryIso:
+        type: 'string'
+        example: 'ali'
+      sellerName:
+        type: 'string'
+        example: 'ali'
+      sellerNif:
+        type: 'string'
+        example: 'ali'
+      sellerFormatedAddress:
+        type: 'string'
+        example: 'ali'
+      moneyTypeCode:
+        type: 'string'
+        maxLength: 3
+        example: 'ali'
+      moneyTypeObject:
+        type: 'string'
+        example: 'ali'
+      paymentPeriodType:
+        type: 'number'
+        example: 2
+      paymentType:
+        type: 'number'
+        example: 3
+      observations:
+        type: 'string'
+        example: 'ali'
+      total:
+        type: 'number'
+        example: 23.8
+      baseTotal:
+        type: 'number'
+        example: 23.8
+      taxesTotal:
+        type: 'number'
+        example: 23.8
+      cons_totalPaid:
+        type: 'number'
+        example: 23.8
+      user_id:
+        type: 'number'
+        example: 12
+      refererApp:
+        type: 'string'
+        example: 'some app'
+      refererKey:
+        type: 'string'
+        example: 'some key'
+      contabilityExported:
+        type: 'number'
+        example: 90
+      contabilityRef:
+        type: 'string'
+        example: 90
+      state:
+        type: 'string'
+        example: 'canceled'
+      status:
+        type: 'number'
+        example: 1
+      updated_at:
+        type: 'string'
+        example: '2021-04-29 01:47:27.0'
+        minLength: 1
+      created_at:
+        type: 'string'
+        example: '2021-04-29 01:47:27.0'
+        minLength: 1
+      deleted_at:
+        type: 'string'
+        example: '2021-04-29 01:47:27.0'
+        minLength: 1
+    description: ''
+    title: 'invoice invoice'
+  paidCommissionFee:
+    type: 'object'
+    required:
+      - 'feeCommission'
+    properties:
+      feeCommission:
+        type: 'number'
+        example: 12
+    description: ''
+    title: 'fee commission'

@@ -1,0 +1,76 @@
+definitions:
+  ServiceStatus:
+    type: 'object'
+    required:
+      - service
+      - status
+      - dependencies
+      - date
+    properties:
+      service:
+        type: 'string'
+        example: 'hub'
+      status:
+        type: 'string'
+        example: 'OK'
+      dependencies:
+        type: 'array'
+        items:
+          type: 'object'
+          required:
+            - name
+            - status
+          properties:
+            name:
+              type: 'string'
+              example: 'database'
+            status:
+              type: 'string'
+              example: 'OK'
+      date:
+        type: 'string'
+        format: 'date-time'
+        example: '2024-12-19T12:00:00Z'
+
+/health-check:
+  get:
+    tags:
+      - 'health'
+    summary: 'Check service status'
+    description: 'Returns the status of the main service and its dependencies'
+    operationId: 'getServiceStatus'
+    security: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: service
+        in: query
+        description: The service name.
+        required: false
+        type: string
+        enum:
+          - AIRE
+          - LEMON
+          - REDIS
+          - IBAN
+          - IVOZ
+          - RADIUS
+          - SFTP
+          - GMAIL
+          - SEQUELIZE
+          - S3
+
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          $ref: '#/definitions/ServiceStatus'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '500':
+        description: 'Internal Server Error'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'Health'

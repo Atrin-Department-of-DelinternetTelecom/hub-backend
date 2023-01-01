@@ -1,0 +1,22 @@
+<tr class="top">
+    <td>
+        <table class="no-side-padding">
+            <tr>
+                <td class="logo">
+                    <%- include('logo.ejs') %>
+                </td>
+
+                <td>
+
+                </td>
+
+                <td class="text-right">
+                    Factura: <%= invoice.code %><br>
+                    Emissió: <%= new Date(invoice.date).toLocaleDateString("en-US") %><br>
+                    Venciment: <%= new Date(invoice.payDate).toLocaleDateString("en-US") %><br>
+                    Número de pàgina: <%- currentPage %>/<%- totalPages %>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>

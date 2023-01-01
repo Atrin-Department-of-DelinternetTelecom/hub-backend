@@ -1,0 +1,75 @@
+/unpaidXmls/loadFromSftp:
+  get:
+    tags:
+      - 'unpaid-xml'
+    summary: 'Load unpaid invoices from SFTP'
+    description: 'Fetch and process unpaid XML invoices from Sabadell SFTP server.'
+    operationId: 'LoadXmlFromSftp'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'SFTP XML files processed successfully.'
+        schema:
+          type: 'object'
+          required:
+            - code
+            - meta
+            - data
+          properties:
+            code:
+              type: 'number'
+              example: 200
+            meta:
+              type: 'object'
+              properties:
+                method:
+                  type: 'string'
+                  example: 'sftp'
+                bankName:
+                  type: 'string'
+                  example: 'sabadell'
+                state:
+                  type: 'string'
+                  example: 'success'
+                fetchDate:
+                  type: 'string'
+                  format: 'date-time'
+                  example: '2025-04-03T12:00:00Z'
+              required:
+                - method
+                - bankName
+                - state
+                - fetchDate
+            data:
+              type: 'string'
+              example: 'SFTP XML files processed.'
+      '400':
+        description: 'Bad Request - SFTP error or misconfiguration.'
+        schema:
+          type: 'object'
+          required:
+            - code
+            - error
+          properties:
+            code:
+              type: 'number'
+              example: 400
+            error:
+              type: 'string'
+              example: 'Missing required data'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'UnpaidXml'

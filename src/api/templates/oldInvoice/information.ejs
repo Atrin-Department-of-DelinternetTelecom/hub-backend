@@ -1,0 +1,25 @@
+<tr class="information">
+    <td>
+        <table class="no-side-padding">
+            <tr>
+                <td>
+                    DEL-INTERNET TELECOM S.L.U<br>
+                    B55606446 <br>
+                    Plaça mercat La Cava, 1 - Deltebre <br>
+                    43580 (local Delinternet)<br>
+                    Tarragona (Spain)
+                </td>
+
+                <td>
+
+                </td>
+
+                <td class="text-right">
+                    <%= invoice.clientName %><br>
+                    <%= invoice.clientNif %><br>
+                    <%- invoice.clientFormatedAddress.replace(/\n/g, "<br />"); %>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>

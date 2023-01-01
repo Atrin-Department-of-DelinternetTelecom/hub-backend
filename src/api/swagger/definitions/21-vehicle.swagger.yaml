@@ -1,0 +1,53 @@
+definitions:
+  Vehicle:
+    type: "object"
+    required:
+      - "creator_id"
+      - "id"
+      - "name"
+      - "number"
+      - "plate"
+    properties:
+      info:
+        type: "string"
+        example: "this is some info"
+        minLength: 1
+      created_at:
+        type: "string"
+        minLength: 1
+      creator_id:
+        type: "number"
+        example: 12
+      deleted_at:
+        type: "string"
+        minLength: 1
+      id:
+        type: "number"
+        example: 6
+      name:
+        type: "string"
+        minLength: 1
+      number:
+        type: "string"
+        example: "12s234ir73"
+        minLength: 1
+      plate:
+        type: "string"
+        example: "some plate"
+        minLength: 1
+      updated_at:
+        type: "string"
+        minLength: 1
+    description: ""
+    title: "Vehicle"
+    x-examples:
+      example-1:
+        info: "this is some info"
+        created_at: "2021-04-27T18:11:30.000000Z"
+        creator_id: 8
+        deleted_at: "2021-04-27T18:11:30.000000Z"
+        id: 1
+        name: "Antone Murray"
+        number: "Francesca Schamberger"
+        plate: "Hermann D'Amore"
+        updated_at: "2021-04-27T18:11:30.000000Z"

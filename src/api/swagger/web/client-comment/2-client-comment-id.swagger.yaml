@@ -1,0 +1,119 @@
+/client-comment/{id}:
+  put:
+    tags:
+      - "Client Comment"
+    summary: ""
+    description: "update Client Comment record by id"
+    operationId: "putClientCommentsId"
+    security:
+      - Bearer: []
+    parameters:
+      - in: path
+        name: id
+        type: string
+        required: true
+      - in: formData
+        name: name
+        type: string
+        required: true
+      - in: formData
+        type: string
+        name: comment
+        required: true
+      - in: formData
+        type: file
+        name: avatar
+        required: false
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              type: "object"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "ClientComment"
+  delete:
+    tags:
+      - "Client Comment"
+    summary: ""
+    description: "deleted record by id"
+    operationId: "deleteClientCommentsId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "ClientComment"

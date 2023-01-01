@@ -1,0 +1,24 @@
+<% contract_type = 'Prestació de servei <br>de televisió digital' %>
+
+<div class="d-flex flex-column page"> 
+    <%- include('../components/header') %>
+    <%- include('../components/personal_info') %> 
+    <div class="d-flex flex-column px-2 pb-2">
+        <h2>Servei Contractat</h2>
+        <div class="d-flex flex-wrap">
+            <div class="d-flex flex-column"> 
+                <label class="text-gray uppercase">Tarifa</label>
+                <p><%= fee_name %></p> 
+            </div>
+        </div>
+    </div>
+    <%- include('../components/footer', { observation: true }) %> 
+</div> 
+
+<%- 
+    include(`../components/${ 
+        locale === 'es' 
+            ? 'es_condiciones_contractacion' 
+            : 'condicions_contractacio'
+    }`) 
+%>  

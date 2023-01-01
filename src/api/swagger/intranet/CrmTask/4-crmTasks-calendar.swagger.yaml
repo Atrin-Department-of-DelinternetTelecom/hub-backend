@@ -1,0 +1,68 @@
+/crmTasks/calendar:
+  get:
+    tags:
+      - "crm-tasks"
+    summary: "Your GET endpoint"
+    description: "get all crm tasks"
+    operationId: "getCrmTasksForCalendar"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - in: query
+        name: "fromDate"
+        type: "string"
+        required: true
+        description: calendar fromDate filter
+      - in: query
+        name: "toDate"
+        type: "string"
+        required: true
+        description: calendar toDate filter
+      - in: query
+        name: "taskTypeIds"
+        type: "string"
+        description: comma separated array of task type ids
+      - in: query
+        name: "extraFieldIds"
+        type: "string"
+        description: comma separated array of extraFieldIds 
+      - in: query
+        name: "clientExtraFieldIds"
+        type: "string"
+        description: comma separated array of clientExtraFieldIds 
+      - in: query
+        name: "userIds"
+        type: "string"
+        description: comma separated array of userIds
+      - in: query
+        name: "executed"
+        type: "string" 
+
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+          properties:
+            data:
+              type: "array"
+              uniqueItems: true
+              items:
+                $ref: "#/definitions/CrmTask"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "CrmTask"

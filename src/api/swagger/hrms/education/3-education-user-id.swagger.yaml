@@ -1,0 +1,67 @@
+/educations/user/{id}:
+  get:
+    tags:
+      - "education"
+    summary: "Your GET endpoint"
+    description: "get all education recods"
+    operationId: "getUserEducationsId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of user that related to education table (employee_id)"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Education"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                completed_on: "2021-04-22 00:00:00"
+                created_at: "2021-04-27T17:31:29.000000Z"
+                employee_id: 2
+                id: 2
+                institute: "califonia"
+                qualification: "doctorate"
+                start_date: "2021-04-18 00:00:00"
+                updated_at: "2021-04-27T17:31:29.000000Z"
+              meta:
+                code: 200
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Education"

@@ -1,0 +1,39 @@
+/docs/{id}/signatures/{signatureName}/download:
+  get:
+    tags:
+      - 'docs'
+    summary: 'Get the document signature'
+    description: 'Get the document signature'
+    operationId: 'downloadSignature'
+    security:
+      - Token: []
+    produces:
+      - 'image/png'
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: 'string'
+        description: 'Document ID'
+      - name: signatureName
+        in: path
+        required: true
+        type: 'string'
+        description: 'Signature name'
+    responses:
+      '200':
+        description: 'OK'
+        
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'Document'

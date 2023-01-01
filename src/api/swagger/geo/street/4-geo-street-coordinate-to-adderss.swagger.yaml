@@ -1,0 +1,37 @@
+/geo/address:
+  get:
+    tags:
+      - 'geo-address'
+    summary: 'get address from coordinate x/y'
+    operationId: 'coordinateToAddress'
+    consumes:
+      - 'application/json'
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'latitude'
+        in: 'query'
+        required: true
+        type: 'number'
+
+      - name: 'longitude'
+        in: 'query'
+        required: true
+        type: 'number'
+
+    responses:
+      '200':
+        description: 'OK'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GeoStreet'

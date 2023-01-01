@@ -1,0 +1,42 @@
+/invoices/email-full-report:
+  post:
+    tags:
+      - 'invoice-invoice'
+    description: 'send one or many invoices to client email'
+    operationId: 'send'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    consumes:
+      - 'application/json'
+
+    parameters:
+      - in: "body"
+        name: "body"
+        schema:
+          type: "object"
+          properties:
+            invoiceIds:
+              type: "array"
+              items:
+                type: number
+              minItems: 1
+          required:
+            - invoiceIds
+    responses:
+      '200':
+        description: 'OK'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'InvoiceMail'

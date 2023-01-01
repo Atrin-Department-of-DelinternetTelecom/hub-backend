@@ -1,0 +1,20 @@
+definitions:
+  File:
+    type: "object"
+    required:
+      - "file"
+      - "fileable_id"
+      - "fileable_type"
+    properties:
+      file:
+        type: "string"
+        example: "address of file"
+        minLength: 1
+      fileable_id:
+        type: "number"
+        example: 12
+      fileable_type:
+        type: "string"
+        example: "USER"            
+    description: ""
+    title: "File"

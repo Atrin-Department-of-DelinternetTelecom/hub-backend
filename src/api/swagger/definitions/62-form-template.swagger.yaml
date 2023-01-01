@@ -1,0 +1,17 @@
+definitions:
+  FormTemplate:
+    type: "object"
+    required:
+      - "form_object"
+      - "name"
+    properties:
+      form_object:
+        type: "string"
+        example: "{categories_info:2021-04-29 01:47:27.0}"
+        minLength: 1
+      name:
+        type: "string"
+        example: "client survay"
+        minLength: 1    
+    description: ""
+    title: "FormTemplate"

@@ -1,0 +1,38 @@
+definitions:
+  InvoiceSerie:
+    type: "object"
+    required:     
+      - "name"            
+    properties:
+      id:
+        type: "number"
+        example: 12
+      uid:
+        type: "number"
+        example: -1 
+      name:
+        type: "string"
+        example: "Ismail"
+        minLength: 1
+      prefix:
+        type: "string"
+        example: "tpv"
+        minLength: 1 
+      type:
+        type: "string"
+        example: "tpv"
+        minLength: 1 
+      status:
+        type: "number"
+        example: "1"
+        minLength: 1
+      creationDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      updateDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1       
+    description: ""
+    title: "invoice-series"

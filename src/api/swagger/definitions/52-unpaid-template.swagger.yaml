@@ -1,0 +1,49 @@
+definitions:
+  UnpaidTemplate:
+    type: "object"
+    required:
+      - "id"
+      - "name"
+      - "content"
+      - "invoice_id"
+      - "xml_id"
+      - "user_id"
+      - "uid"
+      - "status"
+      - "created_at"
+      - "updated_at"
+      - "deleted_at"
+    properties:
+      id:
+        type: "number"
+        example: 12
+      name:
+        type: "string"
+        example: 12
+      content:
+        type: "string"
+        example: "content"
+      invoice_id:
+        type: "number"
+      xml_id:
+        type: "number"
+      user_id:
+        type: "number"
+      uid:
+        type: "number"
+      status:
+        type: "number"
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1  
+      created_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      deleted_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "unpaid template"

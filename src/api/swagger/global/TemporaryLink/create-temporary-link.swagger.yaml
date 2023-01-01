@@ -1,0 +1,36 @@
+/temporary-links:
+  post:
+    tags:
+      - 'Temporary-Link'
+    summary: ''
+    description: 'create an temporary link'
+    operationId: 'create'
+    security:
+      - Bearer: []
+    parameters:
+      - in: 'body'
+        name: 'body'
+        required: false
+        schema:
+          type: 'object'
+          required:
+            - 'pathname'
+          properties:
+            pathname:
+              type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'TemporaryLink'

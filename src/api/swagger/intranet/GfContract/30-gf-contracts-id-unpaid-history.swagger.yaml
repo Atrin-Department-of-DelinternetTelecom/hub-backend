@@ -1,0 +1,35 @@
+/gf-contracts/{id}/unpaid-state:
+  get:
+    tags:
+      - 'gf-contracts'
+    summary: 'ONLY FOR CELL CONTRACTS FOR NOW'
+    description: "get unpaid state and history for a contract from facade"
+    operationId: 'getUnpaidState'
+    security:
+      - Bearer: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+        description: Id of gf-contracts table
+    responses:
+      '200':
+        description: 'Ok'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfContract'

@@ -1,0 +1,128 @@
+definitions:
+  InvoicePayment1:
+    type: object
+    required:
+      - state
+      - quantity
+      - visible
+      - dueDate
+    properties:
+      pack:
+        type: 'string'
+        example: ''
+      remitanceId:
+        type:
+          - 'integer'
+          - 'null'
+        example: -1
+      trace:
+        type: 'string'
+        example: ''
+      invoiceId:
+        type:
+          - 'integer'
+          - 'null'
+        example: -1
+      shopId:
+        type: 'integer'
+        example: 22
+      invoiceLineId:
+        type:
+          - 'integer'
+          - 'null'
+        example: -1
+      state:
+        type:
+          - 'string'
+        example: 'due| paid| shiped| canceled| refunded'
+        enum: ['due', 'paid', 'shiped', 'canceled', 'refunded']
+      visible:
+        type: 'integer'
+        example: 0
+      quantity:
+        type: 'string'
+        example: 0
+      paymentType:
+        type:
+          - 'integer'
+          - 'null'
+        example: -1
+      dueDate:
+        type: 'string'
+        example: '2022-04-01'
+      efectiveDate:
+        type: 'string'
+        example: '2022-04-01'
+      code:
+        type: 'string'
+        example: ''
+    description: ''
+    title: 'invoice-payment-1'
+  InvoicePayment2:
+    type: object
+    properties:
+      id:
+        type: number
+        example: 12
+      uid:
+        type: number
+        example: -1
+      pack:
+        type: 'string'
+        example: ''
+      remitanceId:
+        type:
+          - 'integer'
+          - 'null'
+        example: -1
+      trace:
+        type: 'string'
+        example: ''
+      invoiceId:
+        type:
+          - 'integer'
+          - 'null'
+        example: -1
+      invoiceLineId:
+        type:
+          - 'integer'
+          - 'null'
+        example: -1
+      state:
+        type:
+          - 'string'
+        example: 'due| paid| shiped| canceled| refunded'
+        enum: ['due', 'paid', 'shiped', 'canceled', 'refunded']
+      visible:
+        type: 'integer'
+        example: 0
+      quantity:
+        type: 'integer'
+        example: 0
+      paymentType:
+        type:
+          - 'integer'
+          - 'null'
+        example: -1
+      dueDate:
+        type: 'string'
+        example: ''
+      efectiveDate:
+        type: 'string'
+        example: ''
+      code:
+        type: 'string'
+        example: ''
+      status:
+        type: integer
+        example: 0
+      creationDate:
+        type: 'string'
+        example: '2021-04-29 01:47:27.0'
+        minLength: 1
+      updateDate:
+        type: 'string'
+        example: '2021-04-29 01:47:27.0'
+        minLength: 1
+    description: ''
+    title: 'invoice-payment-2'

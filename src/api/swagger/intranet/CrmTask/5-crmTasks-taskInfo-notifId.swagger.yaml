@@ -1,0 +1,53 @@
+/crmTasks/taskInfo/{notificationId}:
+  get:
+    tags:
+      - "crm-tasks"
+    summary: "Your GET endpoint"
+    description: "get a crm task record by id of table crm_tasks"
+    operationId: "getTaskInfoByNotification"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters: 
+      - name: "notificationId"
+        in: "path"
+        description: "id of global intranet notification table"
+        required: true
+        type: "number"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/CrmTask"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "CrmTask"

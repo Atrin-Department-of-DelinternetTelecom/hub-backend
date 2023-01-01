@@ -1,0 +1,39 @@
+<table class="line-table">
+  <thead>
+    <tr>
+      <th class="ref nowrap">Referència</th>
+      <th class="desc">Descripció</th>
+      <th class="unit nowrap">Unitats</th>
+      <th class="totals nowrap">Total</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% var referer="" ;%>
+      <% var formatter=new Intl.NumberFormat('es-ES', { style: 'currency' , currency: 'EUR' }); %>
+        <% for (const [index,line] of Object.entries(frontPageLines) ) { %>
+          <tr class="table-row">
+            <td class="nowrap">
+              <% if (referer !==line.contract) { %>
+                <%= line.contract %>
+                  <% } %>
+            </td>
+            <td>
+              <% if (referer===line.contract && referer !=='C0000000' ) { %> &#155; <% } %>
+                  <%= line.data.description %>
+            </td>
+            <% referer=line.contract %>
+              <td class="nowrap">
+                <% if (line.data.count> 1) { %> <%= line.data.count + " x " %>
+                    <% }%>
+                      <% var days=parseInt(line.data.refererDays); var restOfDay=Math.abs(line.data.refererDays) -
+                        Math.floor(line.data.refererDays); var hour=Math.ceil(restOfDay * 24); %>
+                        <%= `${days ? `${days}d` : '' } ${hour ? `${hour}h` : '' }` %>
+              </td>
+              <td class="nowrap">
+                <%= formatter.format(parseFloat(line.data.count * line.data.subtotal).toFixed(2)) %>
+              </td>
+          </tr>
+          <% } %>
+  </tbody>
+</table>

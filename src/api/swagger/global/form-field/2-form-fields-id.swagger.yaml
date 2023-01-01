@@ -1,0 +1,228 @@
+/formFields/{id}:
+  get:
+    tags:
+      - "form-fields"
+    summary: "Your GET endpoint"
+    description: "get a form field by id"
+    operationId: "getFormFieldsId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of table global_form_fields"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/FormField"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                created_at: "2021-04-27T18:03:17.000000Z"
+                creator:
+                  created_at: "2021-04-27T11:00:53.000000Z"
+                  email: "conn.itzel@example.net"
+                  id: 2
+                  name: "Dr. Kayley Homenick MD"
+                  updated_at: "2021-04-27T11:00:53.000000Z"
+                details: "nothing"
+                employee:
+                  created_at: "2021-04-27T11:00:54.000000Z"
+                  email: "imorar@example.org"
+                  id: 6
+                  name: "Anastacio Ratke"
+                  updated_at: "2021-04-27T11:00:54.000000Z"
+                id: 1
+                salary: 4.230000000000000426325641456060111522674560546875
+                status: "pending"
+                updated_at: "2021-04-27T18:03:17.000000Z"
+              meta:
+                code: 200
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "FormField"
+  delete:
+    tags:
+      - "form-fields"
+    summary: ""
+    description: "delete form  by id"
+    operationId: "deleteFormFieldsId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of table global_form_fields"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: "Deleted"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "FormField"
+  put:
+    tags:
+      - "form-fields"
+    summary: ""
+    description: "update some props on forms"
+    operationId: "putFormFieldsId"
+    security:
+      - Bearer: []
+    parameters:
+      - in: path
+        name: "id"
+        type: "string"
+        required: true
+        description: Numeric ID of the form to get.
+      - in: "body"
+        name: "body"
+        description: ""
+        schema:
+          type: "object"       
+          properties:
+            metadata:
+              type: "string"
+              example: "{'pending':true}"    
+          description: ""
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/FormField"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                company_signature_date: "1998-10-08 00:00:00"
+                created_at: "2021-04-21T12:28:48.000000Z"
+                creator:
+                  created_at: "2021-04-01T06:53:16.000000Z"
+                  email: "marilie83@example.com"
+                  id: 2
+                  name: "Tess Franecki"
+                  updated_at: "2021-04-01T06:53:16.000000Z"
+                details: "nothing"
+                employee:
+                  created_at: "2021-04-01T06:53:16.000000Z"
+                  email: "boyer.hoyt@example.net"
+                  id: 6
+                  name: "Prof. Orval Rutherford DDS"
+                  updated_at: "2021-04-01T06:53:16.000000Z"
+                employee_signature_date: "1998-10-08 00:00:00"
+                id: 6
+                salary: 4.230000000000000426325641456060111522674560546875
+                status: "pending"
+                updated_at: "2021-04-21T12:28:48.000000Z"
+              meta:
+                code: 200
+                message: "Updated"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "FormField"
+  

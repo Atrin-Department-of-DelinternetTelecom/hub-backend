@@ -1,0 +1,52 @@
+definitions:
+  Text:
+    type: "object"
+    required:
+      - "id"
+      - "locator_id"
+      - "locator"
+      - "text"
+      - "language"
+      - "weight"
+      - "creator_id"
+      - "deleted_at"
+      - "created_at"
+      - "updated_at"
+    properties:
+      id:
+        type: "number"
+        example: 12
+      locator_id:
+        type: "number"
+        example: 23
+        minLength: 1
+      locator:
+        type: "string"
+        example: "some location"
+        minLength: 1
+      text:
+        type: "string"
+        example: "FIBRA"
+      language:
+        type: "string"
+        example: "fa"
+      weight:
+        type: "number"
+        example: 3
+      creator_id:
+        type: "number"
+        example: 23
+      created_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      deleted_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1      
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "text"

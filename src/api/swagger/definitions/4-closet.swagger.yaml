@@ -1,0 +1,67 @@
+definitions:
+  Closet:
+    type: "object"
+    required:
+      - "code"
+      - "creator_id"
+      - "id"
+      - "redis_channel"
+      - "state"
+      - "type"
+    properties:
+      code:
+        type: "string"
+        example: "2338c"
+      created_at:
+        type: "string"
+        example: "2021-04-29 01:30:07.0"
+      creator_id:
+        type: "number"
+        example: 12
+      deleted_at:
+        type: "string"
+        example: "2021-04-29 01:30:07.0"
+      id:
+        type: "string"
+        example: "12"
+      payload:
+        type: "object"
+        properties: {}
+      redis_channel:
+        type: "string"
+        example: "channel of redis"
+      state:
+        type: "string"
+        example: "lock"
+        enum:
+          - "open"
+          - "lock"
+      type:
+        type: "string"
+        example: "door"
+        enum:
+          - "door"
+          - "garage"
+
+      owner_telegram_username:
+        type: "string"
+
+      name:
+        type: "string"
+
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:30:07.0"
+    title: "Closet"
+    x-examples:
+      example-1:
+        code: "2338c"
+        created_at: "2021-04-29 01:30:07.0"
+        creator_id: "12"
+        deleted_at: "2021-04-29 01:30:07.0"
+        id: "12"
+        payload: {}
+        redis_channel: "channel of redis"
+        state: "lock"
+        type: "door"
+        updated_at: "2021-04-29 01:30:07.0"

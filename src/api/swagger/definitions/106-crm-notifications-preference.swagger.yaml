@@ -1,0 +1,64 @@
+definitions:
+  CrmNotificationsPreference:
+    type: object
+    required:     
+      - id
+      - uid
+      - userId
+      - alias
+      - concept
+      - email
+      - autoRemoveBell
+      - push
+      - noExecuted
+      - noExecutables
+      - status
+      - creationDate
+      - updateDate                 
+    properties:
+      id:
+        type: integer
+        example: 12
+      uid:
+        type: integer
+        example: 90  
+      userId:
+        type: integer
+        example: 90  
+      alias:
+        type: string
+        example: "ali"
+      concept:
+        type: string
+        example: "ali@test.com"
+      sernderId:
+        type: integer
+        example: 1
+      email:
+        type: boolean
+        example: false
+      autoRemoveBell:
+        type: boolean
+        example: false
+      push:
+        type: boolean
+        example: false
+      noExecuted:
+        type: boolean
+        example: false
+      noExecutables:
+        type: boolean
+        example: false  
+      status:
+        type: "number"
+        example: 1
+      creationDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      updateDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1                
+    description: ""
+    title: "crm-notification-preferences"

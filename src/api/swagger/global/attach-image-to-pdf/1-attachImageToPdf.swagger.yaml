@@ -1,0 +1,177 @@
+/attachImageToPdf:
+  post:
+    tags:
+      - "attach-image-to-pdf"
+    summary: ""
+    description: "attach image to pdf"
+    operationId: "attachImageToPdf"
+    security:
+      - Bearer: []
+    parameters:
+      - in: formData
+        type: number
+        name: pdf_id
+        description: id of pdf that we want to attach an image
+      - in: formData
+        type: file
+        name: image
+        description: image that should attached to pdf
+      - in: formData
+        type: string
+        name: signature
+        description: place of the image (signature)
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Notification"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                created_at: "2021-04-27T17:18:22.000000Z"
+                id: 1
+                name: "first employment status"
+                updated_at: "2021-04-27T17:18:22.000000Z"
+              meta:
+                code: 201
+                message: "Created"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Api"
+/exportPdf/{model_name}:
+  get:
+    tags:
+      - "attach-image-to-pdf"
+    summary: ""
+    description: "generate pdf"
+    operationId: "generatePdfOfHandlebars"
+    x-pagination: true
+    security:
+      - Bearer: []
+    parameters:
+      - in: path
+        type: string
+        name: model_name
+        required: true
+      - in: query
+        type: string
+        name: requestedId
+        required: false
+    responses:
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Api"
+  post:
+    tags:
+      - "attach-image-to-pdf"
+    summary: ""
+    description: "generate pdf"
+    operationId: "generatePdfOfHandlebarsGetAttributes"
+    x-pagination: true
+    security:
+      - Bearer: []
+    parameters:
+      - in: path
+        type: string
+        name: model_name
+        required: true
+      - in: query
+        type: string
+        name: requestedId
+        required: false
+      - in: body
+        name: body
+        schema: {}
+    responses:
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Api"
+/exportExcel/{model_name}:
+  post:
+    tags:
+      - "export-excel"
+    summary: ""
+    description: "generate excel"
+    operationId: "generateExcelGetAttributes"
+    x-pagination: true
+    security:
+      - Bearer: []
+    parameters:
+      - in: path
+        type: string
+        name: model_name
+        required: true
+      - in: query
+        type: string
+        name: requestedId
+        required: false
+      - in: body
+        name: body
+        schema: {}
+    responses:
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Api"

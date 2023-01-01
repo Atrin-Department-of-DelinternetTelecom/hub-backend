@@ -1,0 +1,121 @@
+/GfKamailioProviders:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - "gf-kamailio-providers"
+    summary: "get list of GfKamailioProviders"
+    description: "get list of all GfKamailioProviders"
+    operationId: "getGfKamailioProviders"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    responses:
+      "200":
+        description: "OK"
+        headers: {}
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "links"
+            - "meta"
+          properties:
+            data:
+              type: "array"
+              uniqueItems: true
+              items:
+                $ref: "#/definitions/GfKamailioProvider"
+              minItems: 1
+            links:
+              type: "object"
+              properties:
+                first:
+                  type: "string"
+                  minLength: 1
+                last:
+                  type: "string"
+                  minLength: 1
+                next:
+                  type: "string"
+                  minLength: 1
+                prev:
+                  type: "string"
+                  minLength: 1
+                self:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "first"
+                - "last"
+                - "next"
+                - "prev"
+                - "self"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                current_page:
+                  type: "number"
+                from:
+                  type: "number"
+                last_page:
+                  type: "number"
+                links:
+                  type: "array"
+                  uniqueItems: true
+                  items:
+                    type: "object"
+                    properties:
+                      active:
+                        type: "boolean"
+                      label:
+                        type: "string"
+                        minLength: 1
+                      url:
+                        type: "string"
+                        minLength: 1
+                    required:
+                      - "active"
+                      - "label"
+                      - "url"
+                  minItems: 1
+                path:
+                  type: "string"
+                  minLength: 1
+                per_page:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+                to:
+                  type: "number"
+                total:
+                  type: "number"
+              required:
+                - "code"
+                - "current_page"
+                - "from"
+                - "last_page"
+                - "links"
+                - "path"
+                - "per_page"
+                - "status"
+                - "to"
+                - "total"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfKamailioProvider"

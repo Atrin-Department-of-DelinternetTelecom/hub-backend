@@ -1,0 +1,20 @@
+definitions:
+  Form:
+    type: "object"
+    required:
+      - "form_template_id"
+      - "owner_id"
+      - "name"
+    properties:
+      name:
+        type: "string"
+        example: "hassan"
+        minLength: 1
+      form_template_id:
+        type: "number"
+        example: 12
+      owner_id:
+        type: "number"
+        example: 12      
+    description: ""
+    title: "Form"

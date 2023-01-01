@@ -1,0 +1,33 @@
+/gf-clients/{id}/contracts/{contractId}/docs:
+  get:
+    x-pagination: true
+    tags:
+      - 'gf-clients'
+    summary: 'get list of the docs of a contract and client'
+    operationId: 'getContractIdDocs'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: id
+        in: path
+        description: id of gf-client table
+        required: true
+        type: integer
+
+      - name: contractId
+        in: path
+        description: id of gf-contracts table
+        required: true
+        type: integer
+        
+      - name: only
+        in: query
+        description: comma separated list of type of documents you want into response
+        required: false
+        type: string
+    responses:
+      '200':
+        description: 'OK'
+    x-swagger-router-controller: 'GfClient'

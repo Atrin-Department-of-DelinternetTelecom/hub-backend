@@ -1,0 +1,74 @@
+definitions:
+  UnpaidChangeFeeNotification:
+    type: "object"
+    required:
+      - "id"
+      - "old_fee_group_id"
+      - "new_fee_group_id"
+      - "client_id"
+      - "send_method"
+      - "send_date"
+      - "send_status"
+      - "message"
+      - "metadata"
+      - "result"
+      - "contract_id"
+      - "result_user_id"
+      - "creator_id"
+      - "created_at"
+      - "updated_at"
+      - "deleted_at"
+    properties:
+      id:
+        type: "number"
+        example: 12
+      old_fee_group_id:
+        type: "number"
+        example: 12
+      new_fee_group_id:
+        type: "number"
+        example: 12
+      client_id:
+        type: "number"
+        example: 12
+      send_method:
+        type: "string"
+        example: "telegram"
+      send_date:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+      send_status:
+        type: "string"
+        example: "pending"
+      result:
+        type: "string"
+        example: "pending"
+      message:
+        type: "string"
+        example: "hi, we want to change your fee :)"
+      metadata:
+        type: "string"
+        example: "{}"
+      contract_id:
+        type: "number"
+        example: 12
+      result_user_id:
+        type: "number"
+        example: 12
+      creator_id:
+        type: "number"
+        example: 12
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1  
+      created_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      deleted_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "unpaid-change-fee-notification"

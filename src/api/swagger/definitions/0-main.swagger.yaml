@@ -1,0 +1,172 @@
+definitions:
+  Link:
+    type: 'object'
+    required:
+      - 'first'
+      - 'last'
+      - 'next'
+      - 'prev'
+      - 'self'
+    properties:
+      first:
+        type: 'string'
+        minLength: 1
+      last:
+        type: 'string'
+        minLength: 1
+      next:
+        type: 'string'
+        x-nullable: true
+      prev:
+        type: 'string'
+        x-nullable: true
+      self:
+        type: 'string'
+        minLength: 1
+  Meta:
+    type: 'object'
+    properties:
+      code:
+        type: 'number'
+      current_page:
+        type: 'number'
+      from:
+        type: 'number'
+      last_page:
+        type: 'number'
+      links:
+        type: 'array'
+        uniqueItems: true
+        items:
+          type: 'object'
+          properties:
+            active:
+              type: 'boolean'
+            label:
+              type: 'string'
+              minLength: 1
+            url:
+              type: 'string'
+              x-nullable: true
+          required:
+            - 'active'
+            - 'label'
+            - 'url'
+        minItems: 1
+      path:
+        type: 'string'
+        minLength: 1
+      per_page:
+        type: 'number'
+      status:
+        type: 'string'
+        minLength: 1
+      to:
+        type: 'number'
+      total:
+        type: 'number'
+    required:
+      - 'code'
+      - 'current_page'
+      - 'from'
+      - 'last_page'
+      - 'links'
+      - 'path'
+      - 'per_page'
+      - 'status'
+      - 'to'
+      - 'total'
+  Response_401:
+    type: 'object'
+    required:
+      - 'meta'
+    properties:
+      meta:
+        type: 'object'
+        properties:
+          code:
+            type: 'number'
+          message:
+            type: 'string'
+            minLength: 1
+          status:
+            type: 'string'
+            minLength: 1
+        required:
+          - 'code'
+          - 'message'
+          - 'status'
+    description: ''
+    x-examples:
+      example-1:
+        meta:
+          code: 401
+          message: 'unauthorized'
+          status: 'failed'
+  Response_403:
+    type: 'object'
+    required:
+      - 'meta'
+    properties:
+      meta:
+        type: 'object'
+        properties:
+          code:
+            type: 'number'
+          message:
+            type: 'string'
+            minLength: 1
+          status:
+            type: 'string'
+            minLength: 1
+        required:
+          - 'code'
+          - 'message'
+          - 'status'
+    description: ''
+    x-examples:
+      example-1:
+        meta:
+          code: 401
+          message: 'forbidden'
+          status: 'failed'
+  Response_400:
+    type: object
+    required:
+      - code
+      - message
+      - status
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+      status:
+        type: string
+  Response_500:
+    type: 'object'
+    required:
+      - 'meta'
+    properties:
+      meta:
+        type: 'object'
+        properties:
+          code:
+            type: 'number'
+          message:
+            type: 'string'
+            minLength: 1
+          status:
+            type: 'string'
+            minLength: 1
+        required:
+          - 'code'
+          - 'message'
+          - 'status'
+    description: ''
+    x-examples:
+      example-1:
+        meta:
+          code: 500
+          message: 'internal server error'
+          status: 'failed'

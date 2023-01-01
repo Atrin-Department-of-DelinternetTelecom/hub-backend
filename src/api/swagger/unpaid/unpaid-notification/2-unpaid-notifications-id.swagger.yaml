@@ -1,0 +1,226 @@
+/unpaidNotifications/{id}:
+  get:
+    tags:
+      - "unpaid-notification"
+    summary: "Your GET endpoint"
+    description: "get unpaid-notifications by id"
+    operationId: "getUnpaidNotificationsId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of table unpaid-Notification"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/UnpaidNotification"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                created_at: "2021-04-27T17:20:30.000000Z"
+                id: 2
+                name: "this is another name of skill 2"
+                updated_at: "2021-04-27T17:21:36.000000Z"
+              meta:
+                code: 200
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "UnpaidNotification"
+  put:
+    tags:
+      - "unpaid-notification"
+    summary: ""
+    description: "update an unpaid-notification by id"
+    operationId: "putUnpaidNotificationsId"
+    security:
+      - Bearer: []
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of table  UnpaidNotification"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "update UnpaidNotification"
+        schema:
+          type: "object"
+          properties:
+            invoice_id:
+              type: "number"
+            client_id:
+              type: "number"
+            task_id:
+              type: "number"
+            send_method:
+              type: "string"
+              example: "telegram"
+            send_status:
+              type: "string"
+              example: "sent"
+            to:
+              type: "string"
+              example: "to who"
+            message:
+              type: "string"
+              example: "message content"
+            sent_date:
+              type: "string"
+            send_date:
+              type: "string"
+            user_id:
+              type: "number"
+            uid:
+              type: "number"
+            status:
+              type: "number"
+          description: ""
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/UnpaidNotification"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                created_at: "2021-04-29T01:24:13.000000Z"
+                id: 2
+                name: "this is another name of skill 2"
+                updated_at: "2021-04-29T01:24:32.000000Z"
+              meta:
+                code: 200
+                message: "Updated"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "UnpaidNotification"
+  delete:
+    tags:
+      - "unpaid-notification"
+    summary: ""
+    description: "delete UnpaidNotification info by id"
+    operationId: "deleteUnpaidNotificationsId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of table UnpaidNotification"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: "Deleted"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "UnpaidNotification"

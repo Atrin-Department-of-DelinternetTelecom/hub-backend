@@ -1,0 +1,312 @@
+/anvizes/{id}:
+  get:
+    tags:
+      - "anviz"
+    summary: "Your GET endpoint"
+    description: "get single anviz by id"
+    operationId: "getAnvizesId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of selected anviz"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Anviz"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                created_at: "2021-04-27T11:00:54.000000Z"
+                creator:
+                  created_at: "2021-04-27T11:00:53.000000Z"
+                  email: "brad.strosin@example.org"
+                  id: 3
+                  name: "Dr. Mustafa Rau I"
+                  updated_at: "2021-04-27T11:00:53.000000Z"
+                device_id: 1003
+                id: 3
+                ip: "33.56.137.22"
+                is_enable: 0
+                location: "kpe_GN"
+                name: "Janick Thiel III"
+                password: "ojDGGOk9z9"
+                port: 1290
+                updated_at: "2021-04-27T11:00:54.000000Z"
+                username: "legros.drake"
+                uuid: "2452d049-e4cf-3722-82c8-1337f164a62a"
+              meta:
+                code: 200
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Anviz"
+  put:
+    tags:
+      - "anviz"
+    summary: ""
+    description: "update an anviz record by id"
+    operationId: "putAnvizesId"
+    security:
+      - Bearer: []
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of selected anviz"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "in this example we want to update name and username"
+        required: false
+        schema:
+          type: "object"
+          properties:
+            name:
+              type: "string"
+              minLength: 1
+            username:
+              type: "string"
+              minLength: 1
+          description: ""
+          x-examples:
+            example-1:
+              name: "mammad"
+              username: "this is new username"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              type: "object"
+              properties:
+                basic_setting:
+                  type: "object"
+                  properties: {}
+                created_at:
+                  type: "string"
+                  minLength: 1
+                creator:
+                  type: "object"
+                  properties:
+                    created_at:
+                      type: "string"
+                      minLength: 1
+                    email:
+                      type: "string"
+                      minLength: 1
+                    id:
+                      type: "number"
+                    name:
+                      type: "string"
+                      minLength: 1
+                    updated_at:
+                      type: "string"
+                      minLength: 1
+                  required:
+                    - "created_at"
+                    - "email"
+                    - "id"
+                    - "name"
+                    - "updated_at"
+                device_id:
+                  type: "number"
+                id:
+                  type: "number"
+                ip:
+                  type: "string"
+                  minLength: 1
+                is_enable:
+                  type: "number"
+                location:
+                  type: "string"
+                  minLength: 1
+                name:
+                  type: "string"
+                  minLength: 1
+                password:
+                  type: "string"
+                  minLength: 1
+                port:
+                  type: "number"
+                timeout:
+                  type: "number"
+                updated_at:
+                  type: "string"
+                  minLength: 1
+                username:
+                  type: "string"
+                  minLength: 1
+                uuid:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "created_at"
+                - "creator"
+                - "device_id"
+                - "id"
+                - "ip"
+                - "is_enable"
+                - "location"
+                - "name"
+                - "password"
+                - "port"
+                - "updated_at"
+                - "username"
+                - "uuid"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                created_at: "2021-04-27T18:11:17.000000Z"
+                creator:
+                  created_at: "2021-04-27T18:11:16.000000Z"
+                  email: "pollich.delbert@example.net"
+                  id: 1
+                  name: "Thea Cummings"
+                  updated_at: "2021-04-27T18:11:16.000000Z"
+                device_id: 1005
+                id: 5
+                ip: "10.176.132.17"
+                is_enable: 0
+                location: "de_AT"
+                name: "mammad"
+                password: "VfFwAeG1b6"
+                port: 1796
+                updated_at: "2021-04-29T00:29:33.000000Z"
+                username: "this is new username"
+                uuid: "d858a56c-f180-3124-b8e6-7750e6cfa48f"
+              meta:
+                code: 200
+                message: "Updated"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Anviz"
+  delete:
+    tags:
+      - "anviz"
+    summary: ""
+    description: "delete an anviz record by id"
+    operationId: "deleteAnvizesId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of selected anviz"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: "Deleted"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Anviz"

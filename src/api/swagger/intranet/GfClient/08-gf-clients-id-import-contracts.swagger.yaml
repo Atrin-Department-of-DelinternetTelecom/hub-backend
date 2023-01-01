@@ -1,0 +1,66 @@
+/gf-clients/{id}/import-contracts:
+  post:
+    tags:
+      - "gf-clients"
+    summary: ""
+    description: "update a gf-client by id"
+    operationId: "importContracts"
+    security:
+      - Bearer: []
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    parameters:
+      - name: id
+        in: path
+        description: id of gf-client table
+        required: true
+        type: integer
+      - in: "body"
+        name: "body"
+        description: "update a gf-client"
+        required: false
+        schema:
+          type: "object"  
+          properties: {}
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/GfClient"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfClient"

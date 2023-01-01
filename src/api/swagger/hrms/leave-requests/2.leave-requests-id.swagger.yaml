@@ -1,0 +1,176 @@
+/leave-requests/{id}:
+  get:
+    tags:
+      - 'leave-requests'
+    summary: 'Your GET endpoint'
+    description: 'get a leave request record by id'
+    operationId: 'getLeaveRequestById'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of leave request record'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+              required:
+                - 'code'
+          description: ''
+          x-examples:
+            example-1:
+              data:
+                created_at: '2021-04-27T17:29:21.000000Z'
+                id: 1
+              meta:
+                code: 200
+                status: 'success'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'LeaveRequests'
+  delete:
+    tags:
+      - 'leave-requests'
+    summary: ''
+    description: 'delete leave request record by id'
+    operationId: 'deleteLeaveRequest'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of leave request record'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'Example response'
+        schema:
+          type: 'object'
+          required:
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+          description: ''
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: 'Deleted'
+                status: 'success'
+    x-swagger-router-controller: 'LeaveRequests'
+  put:
+    tags:
+      - 'leave-requests'
+    summary: ''
+    description: 'update leave request record by id'
+    operationId: 'updateLeaveRequest'
+    security:
+      - Bearer: []
+    consumes:
+      - 'application/json'
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of leave request record'
+        required: true
+        type: 'string'
+      - name: 'body'
+        in: 'body'
+        description: ''
+        required: false
+        schema:
+          type: 'object'
+          required:
+            - 'user_id'
+            - 'status'
+          properties:
+            vacations:
+              type: 'number'
+            user_id:
+              type: 'string'
+              minLength: 1
+            status:
+              type: 'string'
+              minLength: 1
+            description:
+              type: 'string'
+              minLength: 1
+            end_date:
+              type: 'string'
+              minLength: 1
+            start_date:
+              type: 'string'
+              minLength: 1
+          description: ''
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+          description: ''
+          x-examples:
+            example-1:
+              data:
+                created_at: '2021-04-29T01:45:50.000000Z'
+                id: 1
+                updated_at: '2021-04-29T01:46:12.000000Z'
+              meta:
+                code: 200
+                message: 'Updated'
+                status: 'success'
+    x-swagger-router-controller: 'LeaveRequests'

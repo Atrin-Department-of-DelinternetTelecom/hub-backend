@@ -1,0 +1,130 @@
+/faq:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - 'faq'
+    summary: 'Your GET endpoint'
+    description: 'get all the frequent asked questions'
+    operationId: 'getFaqs'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters: []
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+              required:
+                - 'code'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'Faq'
+  post:
+    tags:
+      - 'faq'
+    summary: ''
+    description: 'add new faq to show to the end user'
+    operationId: 'postFaq'
+    security:
+      - Bearer: []
+    consumes:
+      - 'application/json'
+    produces:
+      - 'application/json'
+    parameters:
+      - in: 'body'
+        name: 'body'
+        required: false
+        schema:
+          type: 'object'
+          required:
+            - 'title'
+            - 'answer'
+            - 'is_active'
+          properties:
+            title:
+              type: 'string'
+              minLength: 1
+            answer:
+              type: 'string'
+              minLength: 1
+            is_active:
+              type: 'boolean'
+          description: ''
+          x-examples:
+            example-1:
+              title: 'How to create an account ?'
+              answer: 'Go to login/signup page and try to create your account with your email.'
+              is_active: true
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+          description: ''
+          x-examples:
+            example-1:
+              data:
+                created_at: '2021-04-27T17:29:30.000000Z'
+                updated_at: '2021-04-27T17:29:30.000000Z'
+                deleted_at: '2021-04-27T17:29:30.000000Z'
+                creator_id: 1
+                id: 1
+                title: 'How to create an account ?'
+                answer: 'Go to login/signup page and try to create your account with your email.'
+                is_active: true
+              meta:
+                code: 201
+                message: 'Created'
+                status: 'success'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'Faq'

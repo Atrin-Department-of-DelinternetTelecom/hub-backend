@@ -1,0 +1,20 @@
+definitions:
+  SingleFileUpload:
+    type: "object"
+    required:     
+      - "name"           
+    properties:  
+      name:
+        type: "string"
+        example: "myfile.extension"
+      path: 
+        type: "string"
+        example: "example.com/path/to/myfile.extension"  
+      realtivePath: 
+        type: "string"
+        example: "path/to/myfile.extension"  
+      url: 
+        type: "string"
+        example: "example.com/my/url/to/myfile.extension"      
+    description: ""
+    title: "single-file-upload"

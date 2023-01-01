@@ -1,0 +1,49 @@
+/package-statuses:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - 'package-status'
+    summary: 'Your GET endpoint'
+    description: 'get package suggestion for selected client'
+    operationId: 'suggestDiscounts'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              type: 'array'
+              uniqueItems: true
+              items:
+                $ref: '#/definitions/PackageStatus'
+              minItems: 1
+            meta:
+              type: 'object'
+              properties:
+                current_page:
+                  type: 'number'
+                total:
+                  type: 'number'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'SuggestDiscount'

@@ -1,0 +1,218 @@
+/package-statuses/{clientId}/packages/{packageId}:
+  get:
+    tags:
+      - 'package-status'
+    summary: 'Your GET endpoint'
+    description: 'get a package-status with attached discounts info'
+    operationId: 'getPackageDiscountInfoById'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'clientId'
+        in: 'path'
+        description: 'id of client'
+        required: true
+        type: 'number'
+      - name: 'packageId'
+        in: 'path'
+        description: 'unique id of matrix and package if avalable'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/InvoiceUnits2'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'SuggestDiscount'
+
+/package-statuses/{clientId}/matrix/{matrixId}:
+  post:
+    tags:
+      - 'package-status'
+    summary: 'Your GET endpoint'
+    description: 'get all package status'
+    operationId: 'postPackageStatus'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'clientId'
+        in: 'path'
+        description: 'id of client'
+        required: true
+        type: 'number'
+      - name: 'matrixId'
+        in: 'path'
+        description: 'id of matrix'
+        required: true
+        type: 'number'
+      - in: 'body'
+        name: 'body'
+        required: true
+        schema:
+          type: 'array'
+          items:
+            type: 'object'
+            required:
+              - 'feeGroupId'
+              - 'data'
+              - 'tags'
+            properties:
+              feeGroupId:
+                type: 'number'
+              data:
+                type: 'object'
+              comments:
+                type: 'string'
+              tags:
+                type: 'array'
+                items:
+                  type: 'object'
+                  required:
+                    - 'id'
+                    - 'comment'
+                  properties:
+                    id:
+                      type: 'number'
+                    comment:
+                      type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'links'
+            - 'meta'
+          properties:
+            data:
+              type: 'array'
+              uniqueItems: true
+              items:
+                $ref: '#/definitions/Warehouse'
+              minItems: 1
+            links:
+              type: 'object'
+              properties:
+                first:
+                  type: 'string'
+                  minLength: 1
+                last:
+                  type: 'string'
+                  minLength: 1
+                next:
+                  type: 'string'
+                  x-nullable: true
+                prev:
+                  type: 'string'
+                  x-nullable: true
+                self:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'first'
+                - 'last'
+                - 'next'
+                - 'prev'
+                - 'self'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                current_page:
+                  type: 'number'
+                from:
+                  type: 'number'
+                last_page:
+                  type: 'number'
+                links:
+                  type: 'array'
+                  uniqueItems: true
+                  items:
+                    type: 'object'
+                    properties:
+                      active:
+                        type: 'boolean'
+                      label:
+                        type: 'string'
+                        minLength: 1
+                      url:
+                        type: 'string'
+                        x-nullable: true
+                    required:
+                      - 'active'
+                      - 'label'
+                      - 'url'
+                  minItems: 1
+                path:
+                  type: 'string'
+                  minLength: 1
+                per_page:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+                to:
+                  type: 'number'
+                total:
+                  type: 'number'
+              required:
+                - 'code'
+                - 'current_page'
+                - 'from'
+                - 'last_page'
+                - 'links'
+                - 'path'
+                - 'per_page'
+                - 'status'
+                - 'to'
+                - 'total'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'SuggestDiscount'

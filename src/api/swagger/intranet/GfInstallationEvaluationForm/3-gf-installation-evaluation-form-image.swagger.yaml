@@ -1,0 +1,56 @@
+/gf-installation-evaluation-forms/image:
+  post:
+    tags:
+      - "gf-installation-evaluation-forms"
+    summary: "Your POST endpoint"
+    description: "Upload gf-installation-evaluation-forms image number"
+    operationId: "uploadImage"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - in: formData
+        name: file
+        type: file
+        description: Signature image
+      - in: formData
+        name: resourceId
+        type: number 
+        description: The form id
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/SingleFileUpload"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfInstallationEvaluationForm" 

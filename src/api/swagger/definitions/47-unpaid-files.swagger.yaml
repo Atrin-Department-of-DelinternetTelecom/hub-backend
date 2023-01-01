@@ -1,0 +1,49 @@
+definitions:
+  UnpaidFile:
+    type: "object"
+    required:
+      - "id"
+      - "storage_path"
+      - "storage_link"
+      - "file_id"
+      - "file_type"
+      - "user_id"
+      - "uid"
+      - "status"
+      - "created_at"
+      - "updated_at"
+      - "deleted_at"
+    properties:
+      id:
+        type: "number"
+        example: 12
+      storage_path:
+        type: "string"
+      storage_link:
+        type: "string"
+      file_id:
+        type: "number"
+        example: 12
+      file_type:
+        type: "string"
+        example: "JPG"
+      user_id:
+        type: "number"
+      uid:
+        type: "number"
+      status:
+        type: "number"      
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1  
+      created_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      deleted_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "unpaid file"

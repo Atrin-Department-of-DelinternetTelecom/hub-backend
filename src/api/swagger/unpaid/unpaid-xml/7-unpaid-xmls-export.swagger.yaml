@@ -1,0 +1,46 @@
+/unpaidContaplusZip:
+  get:
+    tags:
+      - 'unpaid-xml'
+    summary: 'Generate Contaplus CSVs for unpaid or paid invoices'
+    description: >
+      Generates a ZIP file containing Contaplus-formatted CSVs (diario and subcuentas)
+      based on unpaid or paid invoice data, filtered by bank and month.
+    operationId: getUnpaidContaplusZip
+    produces:
+      - application/zip
+    parameters:
+      - in: query
+        name: status
+        required: true
+        type: string
+        enum: [paid, unpaid]
+        description: Invoice status to filter by (paid or unpaid)
+      - in: query
+        name: bank
+        required: true
+        type: string
+        enum: [Sabadell, Guisona, all]
+        description: Bank to filter by (or 'all')
+      - in: query
+        name: month
+        required: true
+        type: string
+        pattern: '^\d{4}-\d{2}$'
+        description: 'Month (format: YYYY-MM)'
+
+    responses:
+      '200':
+        description: 'A ZIP file containing diario and subcuentas CSVs'
+        schema:
+          type: string
+          format: binary
+      '400':
+        description: 'Bad Request'
+        schema:
+          $ref: '#/definitions/Response_400'
+      '500':
+        description: 'Internal Server Error'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: UnpaidXml

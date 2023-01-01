@@ -1,0 +1,55 @@
+definitions:
+  Category:
+    type: "object"
+    required:
+      - "id"
+      - "alias"
+      - "code"
+      - "creator_id"
+      - "deleted_at"
+      - "created_at"
+      - "updated_at"
+    properties:
+      id:
+        type: "number"
+        example: 12
+      alias:
+        type: "string"
+        example: "some alias name"
+        minLength: 1
+      code:
+        type: "string"
+        example: "FIX"
+      creator_id:
+        type: "number"
+        example: 23
+      created_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      deleted_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1      
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "category"
+  NewCategory:
+    type: "object"
+    required:
+      - "alias"
+      - "code"
+    properties:
+      alias:
+        type: "string"
+        minLength: 1
+        example: "some alias name"
+      code:
+        type: "string"
+        minLength: 1
+        example: "FIX"
+    description: ""
+    title: "category"

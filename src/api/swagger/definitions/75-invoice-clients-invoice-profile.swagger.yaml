@@ -1,0 +1,75 @@
+definitions:
+  InvoiceClientsInvoiceProfile:
+    type: "object"
+    required:     
+      - "alias"           
+    properties:
+      id:
+        type: "number"
+        example: 12
+      uid:
+        type: "number"
+        example: -1 
+      alias:
+        type: "string"
+        example: "Ismail"
+        minLength: 1
+      clientId:
+        type: "number"
+        example: 12
+      iban:
+        type: "string"
+        example: "DE75512108001245126199 "
+      bic:
+        type: "string"
+        example: "SOGEDEFF"
+      bicName:
+        type: "string"
+        example: "Societe Generale"
+      payTypeId:
+        type: "number"
+        example: 1
+      payDay:
+        type: "number"
+        example: 1
+      countryCode:
+        type: "string"
+        example: 1
+      city:
+        type: "string"
+        example: 1
+      state:
+        type: "string"
+        example: 1
+      postalCode:
+        type: "string"
+        example: 1
+      address:
+        type: "string"
+        example: 1
+      number:
+        type: "string"
+        example: 1
+      email:
+        type: "string"
+        example: "user@gmail.com"
+      comments:
+        type: "string"
+        example: 1
+      serieId:
+        type: "number"
+        example: 1
+      status:
+        type: "number"
+        example: "1"
+        minLength: 1
+      creationDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      updateDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1       
+    description: ""
+    title: "invoice-clients-invoice-profile"

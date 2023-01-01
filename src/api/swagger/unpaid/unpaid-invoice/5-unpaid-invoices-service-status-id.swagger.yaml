@@ -1,0 +1,75 @@
+/unpaidInvoices/serviceStatus/{id}:
+  get:
+    tags:
+      - "unpaid-invoice"
+    summary: "get current service status of an client id"
+    description: "get current service status of an client id"
+    operationId: "getClientStatus"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of client"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              type: "object"
+              properties:
+                status: 
+                  type: "string"
+                  description: "status of client, can be 'block' or 'unblock' or 'block-unblock' or 'no-contract'"
+                total_contracts:
+                  type: integer
+                total_susceptible_block_contracts:
+                  type: "integer"
+                  description: "total number of contracts that are susceptible to block"
+                total_susceptible_resume_contracts:
+                  type: "integer"
+                  description: "total number of contracts that are susceptible to resume"
+                susceptible_block_contracts:
+                  type: "array"
+                  uniqueItems: true
+                  items:
+                    $ref: "#/definitions/GfContract"
+                susceptible_resume_contracts:
+                  type: "array"
+                  uniqueItems: true
+                  items:
+                    $ref: "#/definitions/GfContract"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "UnpaidInvoice"

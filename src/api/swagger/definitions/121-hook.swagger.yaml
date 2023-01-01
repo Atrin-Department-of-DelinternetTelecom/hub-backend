@@ -1,0 +1,59 @@
+definitions:
+  Hook:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 12
+      name:
+        type: string
+      is_enable:
+        type: boolean
+      type:
+        type: string
+        enum:
+          - model
+          - api
+      notifier:
+        type: string
+        enum:
+          - telegram
+      table_name:
+        type: string
+      api_name:
+        type: string  
+      model_events:
+        type: array
+        items:
+          type: string
+          enum:
+            - create
+            - read
+            - update
+            - delete
+      api_events:
+        type: array
+        items:
+          type: string
+          enum:
+            - pre
+            - post
+      api_variable_path:
+        type: string
+      telegram_api_key:
+        type: string
+      telegram_channel_id:
+        type: string
+      template:
+        type: string
+      creator_id:
+        type: integer
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        type: string
+        format: date-time
+      deleted_at:
+        type: string
+        format: date-time

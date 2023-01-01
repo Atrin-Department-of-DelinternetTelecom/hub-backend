@@ -1,0 +1,259 @@
+/users/{id}:
+  get:
+    tags:
+      - 'user'
+    summary: 'Your GET endpoint'
+    description: 'get a single user'
+    operationId: 'getUsersId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table user'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/User'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'status'
+          description: ''
+          x-examples:
+            example-1:
+              data:
+                username: 'thisisusername'
+                email: 'mostafaebrahimi.me@gmail.com'
+                first_name: 'Mostafa'
+                role: 'admin'
+                last_name: 'Ebrahimi'
+                password: 'mostafa$$1'
+              meta:
+                code: 0
+                status: 'string'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'User'
+  put:
+    tags:
+      - 'user'
+    summary: ''
+    description: 'update a single user'
+    operationId: 'putUsersId'
+    security:
+      - Bearer: []
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table user'
+        required: true
+        type: 'string'
+      - in: 'body'
+        name: 'body'
+        description: 'we can update every field of user'
+        required: true
+        schema:
+          type: 'object'
+          properties:
+            username:
+              type: 'string'
+              example: 'akbzh'
+              minLength: 4
+            first_name:
+              type: 'string'
+              example: 'ali'
+              minLength: 2
+            last_name:
+              type: 'string'
+              example: 'akbzh'
+              minLength: 2
+            password:
+              type: 'string'
+              example: 'a password'
+            enable:
+              type: 'boolean'
+              example: true
+            email:
+              type: 'string'
+              example: 'aliakbzh@email.com'
+              format: email
+            role_id:
+              type: 'number'
+              example: 12
+            collaborator_id:
+              type: 'number'
+              example: 2
+            avatar:
+              type: 'string'
+              example: 'file.png'
+            dni:
+              type: 'string'
+              example: 'a dni'
+            language:
+              type: 'string'
+              enum:
+                - en
+                - es
+                - ca
+              example: 'en'
+            # calendar setting
+            color:
+              type: 'string'
+              example: '#ffffff'
+            pinned:
+              type: 'boolean'
+              example: false
+            selected_by_default:
+              type: 'boolean'
+              example: false
+            user_type:
+              type: 'string'
+              enum:
+                - client
+                - employee
+                - service
+          description: 'we can update fields of user'
+          x-examples:
+            example-1:
+              name: 'mamad'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/User'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+          x-examples:
+            example-1:
+              data:
+                username: 'thisisusername'
+                email: 'mostafaebrahimi.me@gmail.com'
+                first_name: 'Mostafa'
+                role: 'admin'
+                last_name: 'Ebrahimi'
+                password: 'mostafa$$1'
+              meta:
+                code: 0
+                message: 'string'
+                status: 'string'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'User'
+  delete:
+    tags:
+      - 'user'
+    summary: ''
+    description: 'delete a single user'
+    operationId: 'deleteUsersId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table user'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'Example response'
+        schema:
+          type: 'object'
+          required:
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: 'Deleted'
+                status: 'success'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'User'

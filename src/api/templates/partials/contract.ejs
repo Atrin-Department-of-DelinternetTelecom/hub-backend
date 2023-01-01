@@ -1,0 +1,27 @@
+<div class="contract">
+  <table class="contract-table">
+    <thead>
+      <tr>
+        <th class="contract-col">Contracte</th>
+        <th class="origin-col">Línia orígen</th>
+        <th>Període</th>
+
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= `C${('0' + contract.id).slice(-7)}` %></td>
+        <td><%= contract?.meta?.number ?? '' %></td>
+        <td>
+          <%= contract?.consumptions?.meta?.startDate ?? '' %> – <%=
+          contract?.consumptions?.meta?.endDate ?? '' %>
+        </td>
+        <td class="pagina">
+          <span > Pàgina </span> <%= currentCuntractInfoPage %> de
+          <%= allPage %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

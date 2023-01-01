@@ -1,0 +1,69 @@
+/incidences/toggle-close/{id}:
+  patch:
+    tags:
+      - 'gf-incidences'
+    summary: 'Your GET endpoint'
+    description: 'toggle close incidence'
+    operationId: 'patchToggleCloseGfIncidencesId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of gf_incidences table'
+        required: true
+        type: 'number'
+      - in: 'body'
+        name: 'body'
+        description: 'update an incidence'
+        required: true
+        schema:
+          type: 'object'
+          required:
+            - reasonId
+            - description
+          properties:
+            reasonId:
+              type: 'number'
+              example: 12
+            description:
+              type: 'string'
+              example: 'I just cancelled the assist'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfIncidence'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfIncidence'

@@ -1,0 +1,214 @@
+/CrmNotificationsPreferences/{id}:
+  get:
+    tags:
+      - "crm-notification-preferences"
+    summary: "Your GET endpoint"
+    description: "get a crm notification preferences record by id"
+    operationId: "getCrmNotificationsPreferencesId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters: 
+      - name: "id"
+        in: "path"
+        description: "id of crm notification preferences table"
+        required: true
+        type: "number"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/CrmNotificationsPreference"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "CrmNotificationsPreference"
+  put:
+    tags:
+      - "crm-notification-preferences"
+    summary: ""
+    description: "update crm notification preferences record by id"
+    operationId: "putCrmNotificationsPreferencesId"
+    security:
+      - Bearer: []
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of crm notification preferences table"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "update a crm notification preferences"
+        required: false
+        schema:
+          type: "object" 
+          properties: 
+            alias:
+              type: "string"
+              example: "role number 1"
+            concept:
+              type: "string"
+              example: "mammad" 
+            email:
+              type: "boolean"
+              example: false 
+            push:
+              type: "boolean"
+              example: false 
+            autoRemoveBell:
+              type: "boolean"
+              example: false 
+            noExecuted:
+              type: "boolean"
+              example: false
+            executed:
+              type: "boolean"
+              example: false
+            noExecutables:
+              type: "number"
+              example: 1
+            users:
+              type: "array"
+              items: 
+                type: "number"
+            types:
+              type: "array"
+              items: 
+                type: "number"
+            tags:
+              type: "array"
+              items: 
+                type: "number"  
+          description: ""
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/CrmNotificationsPreference"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "CrmNotificationsPreference"
+  delete:
+    tags:
+      - "crm-notification-preferences"
+    summary: ""
+    description: "delete crm notification preferences by id"
+    operationId: "deleteCrmNotificationsPreferencesId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of crm notification preferences table"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: "Deleted"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "CrmNotificationsPreference"

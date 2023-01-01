@@ -1,0 +1,32 @@
+/geo/street/{id}:
+  patch:
+    tags:
+      - 'geo-street'
+    summary: 'Automation update streets'
+    description: 'update Geo-Street'
+    operationId: 'update'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of city'
+        required: true
+        type: 'number'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+    x-swagger-router-controller: 'GeoStreet'

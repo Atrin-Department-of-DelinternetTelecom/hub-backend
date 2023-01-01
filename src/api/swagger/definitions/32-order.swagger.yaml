@@ -1,0 +1,200 @@
+definitions:
+  Order:
+    type: "object"
+    required:
+      - "id"
+      - "web_id"
+      - "procesed"
+      - "fiscal_id"
+      - "fiscal_doc"
+      - "user_type"
+      - "goufone_user"
+      - "company_name"
+      - "name"
+      - "surname1"
+      - "surname2"
+      - "email"
+      - "phone"
+      - "address_auto_complete"
+      - "region"
+      - "city"
+      - "postal_code"
+      - "address_street"
+      - "address_number"
+      - "address_lat"
+      - "address_lng"
+      - "fingerprint"
+      - "creator_id"
+      - "deleted_at"
+      - "created_at"
+      - "updated_at"
+    properties:
+      id:
+        type: "number"
+        example: 12
+      web_id:
+        type: "number"
+        example: 23
+        minLength: 1
+      procesed:
+        type: "boolean"
+        example: false
+        minLength: 1
+      fiscal_id:
+        type: "number"
+        example: 23
+      fiscal_doc:
+        type: "string"
+        example: "doc of fiscal"
+      user_type:
+        type: "string"
+        example: "type of the user"
+      goufone_user:
+        type: "string"
+        example: "user of goufone"
+      company_name:
+        type: "string"
+        example: "name of the company"
+      name:
+        type: "string"
+        example: "name"
+      surname1:
+        type: "string"
+        example: "sur name 1"
+      surname2:
+        type: "string"
+        example: "sur name 2"
+      email:
+        type: "string"
+        example: "ali@gmail.com"
+      phone:
+        type: "string"
+        example: "09305505766"
+      address_auto_complete:
+        type: "string"
+        example: "address_auto_complete"
+      region:
+        type: "string"
+        example: "region"
+      city:
+        type: "string"
+        example: "city"
+      postal_code:
+        type: "string"
+        example: "postal code"
+      address_street:
+        type: "string"
+        example: "address street"
+      address_number:
+        type: "string"
+        example: "address number"
+      address_stairway:
+        type: "string"
+        example: "address stairway"
+      address_floor:
+        type: "string"
+        example: "address floor"
+      address_door:
+        type: "string"
+        example: "address door"
+      address_lat:
+        type: "string"
+        example: "address lat"
+      address_lng:
+        type: "string"
+        example: "address lng"
+      fingerprint:
+        type: "string"
+        example: "fingerprint"
+      creator_id:
+        type: "number"
+        example: 23
+      created_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      deleted_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1      
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "order"
+  NewOrder:
+    type: "object"
+    properties:
+      web_id:
+        type: "number"
+        example: 23
+      procesed:
+        type: "boolean"
+        example: false
+      fiscal_id:
+        type: "number"
+        example: 23
+      fiscal_doc:
+        type: "string"
+        example: "doc of fiscal"
+      user_type:
+        type: "string"
+        example: "type of the user"
+      goufone_user:
+        type: "string"
+        example: "user of goufone"
+      company_name:
+        type: "string"
+        example: "name of the company"
+      name:
+        type: "string"
+        example: "name"
+      surname1:
+        type: "string"
+        example: "sur name 1"
+      surname2:
+        type: "string"
+        example: "sur name 2"
+      email:
+        type: "string"
+        example: "ali@gmail.com"
+        format: "email"
+      phone:
+        type: "string"
+        example: "09305505766"
+      address_auto_complete:
+        type: "string"
+        example: "address_auto_complete"
+      region:
+        type: "string"
+        example: "region"
+      city:
+        type: "string"
+        example: "city"
+      postal_code:
+        type: "string"
+        example: "postal code"
+      address_street:
+        type: "string"
+        example: "address street"
+      address_number:
+        type: "string"
+        example: "address number"
+      address_stairway:
+        type: "string"
+        example: "address stairway"
+      address_floor:
+        type: "string"
+        example: "address floor"
+      address_door:
+        type: "string"
+        example: "address door"
+      address_lat:
+        type: "string"
+        example: "address lat"
+      address_lng:
+        type: "string"
+        example: "address lng"
+    description: ""
+    title: "NewOrder"

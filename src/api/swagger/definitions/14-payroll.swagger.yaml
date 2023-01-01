@@ -1,0 +1,67 @@
+definitions:
+  Payroll:
+    type: "object"
+    required:
+      - "creator_id"
+      - "employee_id"
+      - "id"
+      - "salary"
+      - "status"
+    properties:
+      company_signature_date:
+        type: "string"
+        format: "date-time"
+      created_at:
+        type: "string"
+        format: "date-time"
+      creator_id:
+        type: "number"
+        example: 12
+      deleted_at:
+        type: "string"
+        format: "date-time"
+      details:
+        type: "string"
+        example: "some details is here"
+        minLength: 1
+      employee_id:
+        type: "number"
+        example: 12
+      employee_signature_date:
+        type: "string"
+        format: "date-time"
+      id:
+        type: "number"
+        example: 2
+      salary:
+        type: "number"
+        format: "double"
+        example: 3
+        minimum: 0
+      status:
+        type: "string"
+        example: "pending"
+        minLength: 1
+        enum:
+          - "pending"
+          - "readyToPay"
+          - "paid"
+          - "cancel"
+      updated_at:
+        type: "string"
+        format: "date-time"
+    description: ""
+    title: "Payroll"
+    x-examples:
+      example-1:
+        company_signature_date: "2021-04-27T18:03:17"
+        created_at: "2021-04-27T18:03:17"
+        creator_id: 3
+        deleted_at: "2021-04-27T18:03:17"
+        details: "nothing"
+        employee_id: 6
+        employee_signature_date: "2021-04-27T18:03:17"
+        id: 1
+        salary: 4.230000000000000426325641456060111522674560546875
+        status: "pending"
+        updated_at: "2021-04-27T18:03:17"

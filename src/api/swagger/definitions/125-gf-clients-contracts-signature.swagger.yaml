@@ -1,0 +1,40 @@
+definitions:
+  GfClientsContractsSignature:
+    type: "object"
+    properties:
+      id:
+        type: number
+        example: 12
+      uid:
+        type: number
+        example: -1
+      clientId:
+        type: number
+      signatures:
+        type: string
+      signed:
+        type: boolean
+      useUploaded:
+        type: boolean
+      sentToClient:
+        type: boolean
+      finalDocumentId:
+        type: number
+      uploadedSignedDoc:
+        type: string
+      signedDate:
+        type: string
+        example: "2021-04-29 01:47:27.0"
+      status:
+        type: number
+        example: 1
+      updateDate:
+        type: string
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1  
+      creationDate:
+        type: string
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+
+    

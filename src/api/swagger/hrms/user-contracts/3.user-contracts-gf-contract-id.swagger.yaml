@@ -1,0 +1,55 @@
+/user-contracts/gf-contract/{id}:
+  get:
+    tags:
+      - 'user-contracts'
+    summary: 'Your GET endpoint'
+    description: 'get an user contract via gf contract id'
+    operationId: 'getUserContractByGfContractId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of gf contract'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+              required:
+                - 'code'
+          description: ''
+          x-examples:
+            example-1:
+              data:
+                created_at: '2021-04-27T17:29:21.000000Z'
+                id: 1
+              meta:
+                code: 200
+                status: 'success'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'UserContract'

@@ -1,0 +1,240 @@
+/timeRecords:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - "time-record"
+    summary: "Your GET endpoint"
+    description: "get all time records"
+    operationId: "getTimeRecords"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters: []
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "links"
+            - "meta"
+          properties:
+            data:
+              type: "array"
+              uniqueItems: true
+              items:
+                $ref: "#/definitions/TimeRecord"
+              minItems: 1
+            links:
+              type: "object"
+              properties:
+                first:
+                  type: "string"
+                  minLength: 1
+                last:
+                  type: "string"
+                  minLength: 1
+                next:
+                  type: "string"
+                  x-nullable: true
+                prev:
+                  type: "string"
+                  x-nullable: true
+                self:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "first"
+                - "last"
+                - "next"
+                - "prev"
+                - "self"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                current_page:
+                  type: "number"
+                from:
+                  type: "number"
+                last_page:
+                  type: "number"
+                links:
+                  type: "array"
+                  uniqueItems: true
+                  items:
+                    type: "object"
+                    properties:
+                      active:
+                        type: "boolean"
+                      label:
+                        type: "string"
+                        minLength: 1
+                      url:
+                        type: "string"
+                        x-nullable: true
+                    required:
+                      - "active"
+                      - "label"
+                      - "url"
+                  minItems: 1
+                path:
+                  type: "string"
+                  minLength: 1
+                per_page:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+                to:
+                  type: "number"
+                total:
+                  type: "number"
+              required:
+                - "code"
+                - "current_page"
+                - "from"
+                - "last_page"
+                - "links"
+                - "path"
+                - "per_page"
+                - "status"
+                - "to"
+                - "total"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "TimeRecord"
+  post:
+    tags:
+      - "time-record"
+    summary: ""
+    description: "add a time record (of a user) to system"
+    operationId: "postTimeRecords"
+    security:
+      - Bearer: []
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    parameters:
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          type: "object"
+          required:
+            - "anviz_id"
+            - "enter"
+            - "exit"
+            - "user_id"
+          properties:
+            anviz_id:
+              type: "number"
+            enter:
+              type: "string"
+              minLength: 1
+            exit:
+              type: "string"
+              minLength: 1
+            user_id:
+              type: "number"
+          description: ""
+          x-examples:
+            example-1:
+              anviz_id: 5
+              enter: "2021-04-12 17:49:26.0"
+              exit: "2021-04-12 18:49:26.0"
+              user_id: 7
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/TimeRecord"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                anviz:
+                  basic_setting: {}
+                  created_at: "2021-04-27T11:00:55.000000Z"
+                  creator:
+                    created_at: "2021-04-27T11:00:53.000000Z"
+                    email: "brad.strosin@example.org"
+                    id: 3
+                    name: "Dr. Mustafa Rau I"
+                    updated_at: "2021-04-27T11:00:53.000000Z"
+                  device_id: 12
+                  id: 5
+                  ip: "27.108.9.75"
+                  is_enable: 0
+                  location: "fr_MC"
+                  name: "Lonny Maggio"
+                  port: 427
+                  timeout: 12
+                  updated_at: "2021-04-27T11:00:55.000000Z"
+                  uuid: "66fbc2a3-d470-3c8d-a5f8-74cb0b161990"
+                created_at: "2021-04-27T11:02:27.000000Z"
+                creator:
+                  created_at: "2021-04-27T11:00:54.000000Z"
+                  email: "zola44@example.net"
+                  id: 7
+                  name: "Maxine Flatley"
+                  updated_at: "2021-04-27T11:00:54.000000Z"
+                enter: "2021-04-12 17:49:26"
+                exit: "2021-04-12 18:49:26"
+                id: 11
+                updated_at: "2021-04-27T11:02:27.000000Z"
+                user:
+                  created_at: "2021-04-27T11:00:54.000000Z"
+                  email: "zola44@example.net"
+                  id: 7
+                  name: "Maxine Flatley"
+                  updated_at: "2021-04-27T11:00:54.000000Z"
+              meta:
+                code: 200
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "TimeRecord"

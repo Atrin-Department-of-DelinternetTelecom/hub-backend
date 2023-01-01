@@ -1,0 +1,34 @@
+definitions:
+  Country:
+    type: "object"
+    required:   
+      - "name"   
+      - "isoCode"   
+      - "currencyCode" 
+    properties:
+      id:
+        type: "number"
+        example: 12
+      isoCode:
+        type: "string"
+        example: 'IR'
+      name:
+        type: "string"
+        example: "Iran"
+      currencyCode:
+        type: "string"
+        example: "IRR"  
+      uid:
+        type: "number"
+        example: 90
+      status:
+        type: "number"
+        example: "1" 
+      creationDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0" 
+      updateDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"       
+    description: ""
+    title: "country"

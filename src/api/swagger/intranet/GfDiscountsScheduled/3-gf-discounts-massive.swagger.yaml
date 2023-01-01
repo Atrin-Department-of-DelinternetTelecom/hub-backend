@@ -1,0 +1,97 @@
+/gf-discounts-massive:
+  post:
+    tags:
+      - "gf-discounts-scheduleds"
+    summary: ""
+    description: "add a gf-discounts-scheduled to system"
+    operationId: "postGfDiscountsMassive"
+    security:
+      - Bearer: [] 
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:  
+      - in: body
+        name: body
+        schema:
+          type: object   
+          required:
+            - contractId
+            - dateInit        
+            - dateEnd 
+            - description         
+            - type         
+            - discountType  
+            - discount                 
+          properties:  
+            uid:
+              type: number
+              example: 90 
+            contractId:
+              type: number
+              example: 1 
+            dateInit:
+              type: string
+              example: "2021-04-29"
+            dateEnd:
+              type: string
+              example: "2021-05-29"
+            description:
+              type: string
+              example: "test" 
+            discount:
+              type: number
+              example: "1.2"
+            discountType:
+              type: string
+              example: "percentage,fix"
+            type:
+              type: string
+              example: "discount,charge" 
+            tpvCode:
+              type: string
+              example: ""
+    responses:
+      "200":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: "Deleted"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfDiscountsScheduled"

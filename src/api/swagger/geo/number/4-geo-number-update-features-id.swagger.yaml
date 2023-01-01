@@ -1,0 +1,32 @@
+/geo/number/features/{id}:
+  patch:
+    tags:
+      - 'geo-number-feature'
+    summary: 'Automation update one number features'
+    description: 'update Geo-Number features'
+    operationId: 'updateFeature'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of number'
+        required: true
+        type: 'number'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+    x-swagger-router-controller: 'GeoNumber'

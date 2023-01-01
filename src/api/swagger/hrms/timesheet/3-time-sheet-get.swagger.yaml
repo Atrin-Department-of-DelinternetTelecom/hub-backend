@@ -1,0 +1,33 @@
+/timeSheets/getsheet/{id}:
+  get:
+    tags:
+      - "time-sheet"
+    summary: "Your GET endpoint"
+    description: "download time sheet"
+    operationId: "getTimeSheetsGetsheet"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of the time sheet"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "TimeSheet"

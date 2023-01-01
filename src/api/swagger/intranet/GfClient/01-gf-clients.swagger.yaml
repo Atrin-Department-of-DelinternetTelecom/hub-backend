@@ -1,0 +1,361 @@
+/gf-clients:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - 'gf-clients'
+    summary: 'Your GET endpoint'
+    description: 'get all gf-clients'
+    operationId: 'getGfClients'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters: []
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'links'
+            - 'meta'
+          properties:
+            data:
+              type: 'array'
+              uniqueItems: true
+              items:
+                $ref: '#/definitions/GfClient'
+              minItems: 1
+            links:
+              type: 'object'
+              properties:
+                first:
+                  type: 'string'
+                  minLength: 1
+                last:
+                  type: 'string'
+                  minLength: 1
+                next:
+                  type: 'string'
+                  x-nullable: true
+                prev:
+                  type: 'string'
+                  x-nullable: true
+                self:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'first'
+                - 'last'
+                - 'next'
+                - 'prev'
+                - 'self'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                current_page:
+                  type: 'number'
+                from:
+                  type: 'number'
+                last_page:
+                  type: 'number'
+                links:
+                  type: 'array'
+                  uniqueItems: true
+                  items:
+                    type: 'object'
+                    properties:
+                      active:
+                        type: 'boolean'
+                      label:
+                        type: 'string'
+                        minLength: 1
+                      url:
+                        type: 'string'
+                        x-nullable: true
+                    required:
+                      - 'active'
+                      - 'label'
+                      - 'url'
+                  minItems: 1
+                path:
+                  type: 'string'
+                  minLength: 1
+                per_page:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+                to:
+                  type: 'number'
+                total:
+                  type: 'number'
+              required:
+                - 'code'
+                - 'current_page'
+                - 'from'
+                - 'last_page'
+                - 'links'
+                - 'path'
+                - 'per_page'
+                - 'status'
+                - 'to'
+                - 'total'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfClient'
+  post:
+    tags:
+      - 'gf-clients'
+    summary: ''
+    description: 'add a gf-client to system'
+    operationId: 'postGfClients'
+    security:
+      - Bearer: []
+    consumes:
+      - 'application/json'
+    produces:
+      - 'application/json'
+    parameters:
+      - in: 'body'
+        name: 'body'
+        required: true
+        schema:
+          type: 'object'
+          properties:
+            uid:
+              type: 'integer'
+              example: 90
+            active:
+              type: 'integer'
+              example: 1
+            collaboratorId:
+              type: 'integer'
+              example: 0
+            subscriberTypeId:
+              type: 'integer'
+              example: 0
+            documentTypeId:
+              type: 'integer'
+              example: 0
+            fiscalId:
+              type: 'string'
+              example: '26696668Q'
+            centreCode:
+              type: 'string'
+              example: ''
+
+            # Residencial
+            contactName:
+              type: 'string'
+              example: 'John'
+            contactFamilyName1: # required when is Residencial, Autònom
+              type: 'string'
+              example: 'Due'
+            contactFamilyName2:
+              type: 'string'
+              example: 'Cristian'
+            contactPhone: # required when is Residencial, Autònom | ignore on Empresa
+              type: 'string'
+              example: '88888888'
+
+            # Empressa
+            name:
+              type: 'string'
+              example: 'John'
+            contactDocumentTypeId:
+              type: 'integer'
+              example: 0
+            contactFiscalId:
+              type: 'string'
+              example: '26696668Q'
+
+            # Email
+            emailAddress:
+              type: 'string'
+              example: 'example@example.com'
+            dontHaveEmail:
+              type: 'integer'
+              example: 0
+            sendInvoiceMail:
+              type: 'integer'
+              example: 0
+
+            # Address
+            document:
+              type: 'string'
+            nationalityCode:
+              type: 'string'
+              example: '1'
+            addressRegion:
+              type: 'string'
+            addressProvince:
+              type: 'string'
+            addressProvinceCode:
+              type: 'string'
+            addressProvinceCodeName:
+              type: 'string'
+            addressCity:
+              type: 'string'
+            addressCityCode:
+              type: 'string'
+            addressCityCodeName:
+              type: 'string'
+            addressPostalCode:
+              type: 'string'
+            addressPostalCodeCode:
+              type: 'string'
+            addressPostalCodeCodeName:
+              type: 'string'
+            addressStreet:
+              type: 'string'
+            addressStreetCode:
+              type: 'string'
+            addressStreetCodeName:
+              type: 'string'
+            addressStreetTypeCode:
+              type: 'string'
+            addressStreetTypeCodeName:
+              type: 'string'
+            addressNumber:
+              type: 'string'
+            addressNumberCode:
+              type: 'string'
+            addressNumberCodeName:
+              type: 'string'
+            addressFloor:
+              type: 'string'
+            addressFloorCode:
+              type: 'string'
+            addressFloorCodeName:
+              type: 'string'
+            addressBuilding:
+              type: 'string'
+            addressBuildingCode:
+              type: 'string'
+            addressBuildingCodeName:
+              type: 'string'
+            addressDoor:
+              type: 'string'
+            addressDoorCode:
+              type: 'string'
+            addressDoorCodeName:
+              type: 'string'
+            addressStairway:
+              type: 'string'
+            addressStairwayCode:
+              type: 'string'
+            addressStairwayCodeName:
+              type: 'string'
+            addressLat:
+              type: 'string'
+            addressLng:
+              type: 'string'
+            addressMapUrl:
+              type: 'string'
+
+            # IABN
+            iban:
+              type: 'string'
+              example: 'DE75512108001245126199 '
+            bic:
+              type: 'string'
+              example: 'SOGEDEFF'
+            bicName:
+              type: 'string'
+              example: 'Societe Generale'
+            isRemitance:
+              type: 'integer'
+              example: 0
+            paymentTypeId:
+              type: 'number'
+              example: 1
+            payDay:
+              type: 'integer'
+              example: 7
+            dealtInvoiceAmount:
+              type: 'number'
+              example: 0
+
+            # Dades personal
+            birthday:
+              type: 'string'
+              # format: "date"
+              example: '1983-10-23'
+
+            # Dades comercials
+            alias:
+              type: 'string'
+              example: 'my alias'
+            logo:
+              type: 'string'
+              example: ''
+            excludeFromMailings:
+              type: integer
+              example: 0
+
+            # Tags
+            tags:
+              type: array
+              items:
+                type: integer
+              example: '[1]'
+            comments:
+              type: string
+              example: 'something'
+          description: ''
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfClient'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfClient'

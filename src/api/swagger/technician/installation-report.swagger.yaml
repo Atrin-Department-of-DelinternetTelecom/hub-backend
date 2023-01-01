@@ -1,0 +1,241 @@
+/technician/installation-reports:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - 'installation report'
+    operationId: 'getInstallationReports'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+    x-swagger-router-controller: 'InstallationReport'
+
+  post:
+    tags:
+      - 'installation report'
+    description: 'create installation report'
+    operationId: 'createInstallationReport'
+    parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          type: object
+          properties:
+            taskId:
+              type: number
+            clientObservation:
+              type: string
+            technicianObservation:
+              type: string
+            isAssistance:
+              type: boolean
+            description:
+              type: string
+            materials:
+              type: array
+              items:
+                type: object
+                properties:
+                  materialId:
+                    type: number
+                  amount:
+                    type: number
+                required: [materialId, amount]
+            additionalWorks:
+              type: array
+              items:
+                type: object
+                properties:
+                  additionalWorkId:
+                    type: number
+                  amount:
+                    type: number
+                required: [additionalWorkId, amount]
+          required: [taskId, materials, additionalWorks]
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+    x-swagger-router-controller: 'InstallationReport'
+  put:
+    tags:
+      - 'installation report'
+    description: 'replace installation report'
+    operationId: 'putInstallationReport'
+    parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          type: object
+          properties:
+            taskId:
+              type: number
+            clientObservation:
+              type: string
+            technicianObservation:
+              type: string
+            isAssistance:
+              type: boolean
+            description:
+              type: string
+            customOperationalCost:
+              type: number
+            customMaterialCost:
+              type: number
+            materials:
+              type: array
+              items:
+                type: object
+                properties:
+                  materialId:
+                    type: number
+                  amount:
+                    type: number
+                required: [materialId, amount]
+            additionalWorks:
+              type: array
+              items:
+                type: object
+                properties:
+                  additionalWorkId:
+                    type: number
+                  amount:
+                    type: number
+                required: [additionalWorkId, amount]
+          required: [taskId, materials, additionalWorks]
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+    x-swagger-router-controller: 'InstallationReport'
+
+/technician/installation-reports/{id}:
+  get:
+    tags:
+      - 'installation report'
+    description: 'get installation report'
+    operationId: 'getReportById'
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: string
+        description: 'installation report id'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+    x-swagger-router-controller: 'InstallationReport'
+
+/technician/installation-reports/{id}/review:
+  post:
+    tags:
+      - 'installation report'
+    description: 'review installation report'
+    operationId: 'setReportReviewStatus'
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: string
+        description: 'installation report id'
+      - in: body
+        name: body
+        required: true
+        schema:
+          type: object
+          properties:
+            reviewStatus:
+              type: string
+              enum: [accepted, rejected]
+            discount:
+              type: number
+              minimum: 0
+            charge:
+              type: number
+              minimum: 0
+            operatorDescription:
+              type: string
+
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+    x-swagger-router-controller: 'InstallationReport'
+
+/technician/installation-reports/{id}/calculate-detail:
+  post:
+    tags:
+      - 'installation report'
+    description: 'Calculate installation report detail. this api is stateless, so it will not change installation report in database'
+    operationId: 'calculateReportDetail'
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: string
+        description: 'installation report id'
+      - in: body
+        name: body
+        required: true
+        schema:
+          type: object
+          properties:
+            isAssistance:
+              type: boolean
+            elapsedTime:
+              type: number
+            discount:
+              type: number
+              minimum: 0
+            customOperationalCost:
+              type: number
+            customMaterialCost:
+              type: number
+            materials:
+              type: array
+              items:
+                type: object
+                properties:
+                  materialId:
+                    type: number
+                  amount:
+                    type: number
+                required: [materialId, amount]
+            additionalWorks:
+              type: array
+              items:
+                type: object
+                properties:
+                  additionalWorkId:
+                    type: number
+                  amount:
+                    type: number
+                required: [additionalWorkId, amount]
+          required: [materials, additionalWorks]
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+    x-swagger-router-controller: 'InstallationReport'

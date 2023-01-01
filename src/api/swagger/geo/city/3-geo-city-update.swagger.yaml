@@ -1,0 +1,32 @@
+/geo/city/{id}:
+  patch:
+    tags:
+      - 'geo-city'
+    summary: 'Automation update cities'
+    description: 'update Geo-City'
+    operationId: 'update'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of province'
+        required: true
+        type: 'number'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+    x-swagger-router-controller: 'GeoCity'

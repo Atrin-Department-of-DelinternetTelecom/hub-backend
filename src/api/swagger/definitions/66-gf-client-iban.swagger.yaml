@@ -1,0 +1,17 @@
+definitions:
+  Iban:
+    type: "object"
+    required:
+      - "iban"   
+    properties:
+      iban:
+        type: "string"
+        example: "GB33BUKB20201555555555" 
+      bic:
+        type: "string"
+        example: "BUKBGB22"
+      bank:
+        type: "string"
+        example: "BARCLAYS BANK UK PLC"
+    description: ""
+    title: "Iban Validation"

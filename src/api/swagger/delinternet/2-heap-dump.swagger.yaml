@@ -1,0 +1,40 @@
+/heapdump:
+  get:
+    tags:
+      - 'debug-tools'
+    summary: 'Trigger a heapdump and return the path to the file'
+    description: 'Generates a V8 heap snapshot and saves it to the root directory of the server. For debugging memory leaks.'
+    operationId: 'createHeapdump'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters: []
+    responses:
+      '200':
+        description: 'Heapdump successfully created'
+        schema:
+          type: 'object'
+          properties:
+            message:
+              type: 'string'
+              example: 'Heapdump created successfully'
+            path:
+              type: 'string'
+              example: '/app/heapdump-2025-04-10T10-30-00.heapsnapshot'
+          required:
+            - message
+            - path
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'Heapdump'

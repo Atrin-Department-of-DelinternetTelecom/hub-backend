@@ -1,0 +1,44 @@
+/gf-contracts/{id}/ivoz-register-status:
+  get:
+    tags:
+      - "gf-contracts"
+    summary: "Your GET endpoint"
+    description: "get a single contract"
+    operationId: "getIvozRegisterStatus"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of table contract"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          properties:
+            data:
+              type: "object"
+              properties:
+                ok:
+                  type: "boolean"
+                message:
+                  type: "string"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfContract"

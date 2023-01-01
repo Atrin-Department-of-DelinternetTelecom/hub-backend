@@ -1,0 +1,44 @@
+definitions:
+  DelUser:
+    type: object
+    required:
+      - id
+      - email
+      - name
+      - username
+      - surname_1
+      - surname_2
+      - fiscal_id
+      - phone
+      - language
+    properties:
+      id:
+        type: number
+        example: 12
+      email:
+        type: string
+        example: ali@gmail.com
+      name:
+        type: string
+        example: root
+      username:
+        type: string
+        example: root
+      surname_1:
+        type: string
+        example: root
+      surname_2:
+        type: string
+        example: root
+      fiscal_id:
+        type: string
+        example: root
+      phone:
+        type: string
+        example: root
+      language:
+        type: string
+        example: root
+
+    description: ''
+    title: my_delinternet_user

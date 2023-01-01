@@ -1,0 +1,36 @@
+/bulks/{id}:
+  get:
+    tags:
+      - "action"
+    summary: ""
+    description: "get bulk by Id"
+    operationId: "getBulkById"
+    security:
+      - Bearer: []
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of bulk"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          properties:
+            data:
+              $ref: "#/definitions/ChangeFeeBulk"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Action"

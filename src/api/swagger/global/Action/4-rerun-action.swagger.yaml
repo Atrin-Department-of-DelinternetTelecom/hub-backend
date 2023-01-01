@@ -1,0 +1,42 @@
+/bulks/{bulkId}/actions/{actionId}/rerun:
+  post:
+    tags:
+      - "action"
+    summary: ""
+    description: "rerun a single failed action again"
+    operationId: "rerunAction"
+    security:
+      - Bearer: []
+    parameters:
+      - name: "bulkId"
+        in: "path"
+        description: "bulk id"
+        required: true
+        type: "string"
+      - name: "actionId"
+        in: "path"
+        description: "action id"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          properties:
+            data:
+              $ref: "#/definitions/ChangeFeeAction"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Action"

@@ -1,0 +1,28 @@
+/gf-contracts/csv:
+  post:
+    x-pagination: false
+    x-filter: true
+    tags:
+      - 'gf-contracts'
+    description: 'Export filtered contracts to CSV file'
+    operationId: 'exportGfContracts'
+    security:
+      - Bearer: []
+    produces:
+      - 'text/csv'
+    responses:
+      '200':
+        description: 'OK'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfContract'

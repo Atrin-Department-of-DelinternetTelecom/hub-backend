@@ -1,0 +1,15 @@
+definitions:
+  GfConfig:
+    type: object
+    properties:
+      invoiceDay:
+        type: 'number'
+        example: 12
+      invoiceMonths:
+        type: 'number'
+        example: 11
+      invoiceSerieId:
+        type: 'number'
+        example: 1
+    description: ''
+    title: 'gf-config'

@@ -1,0 +1,277 @@
+definitions:
+  GfFeePostUpdate:
+    type: object
+    required:
+      - name
+      - fromDate
+      - baseQuote
+      - tpvCode
+      - initialCost
+    properties:
+      initial_fees:
+        type: array
+        items:
+          type: number
+        example: []
+      feeGroupId:
+        type: number
+        example: -1
+      name:
+        type: string
+        example: ''
+      fromDate:
+        type: string
+        example: '2021-04-29 00:29:33.0'
+      baseQuote:
+        type: string
+        example: ''
+      initialCost:
+        type: string
+        example: ''
+      tpvCode:
+        type: string
+        example: ''
+      initialCostTpvCode:
+        type: string
+        example: ''
+      autoUpdate:
+        type: boolean
+        example: false
+      classBuilder:
+        type: string
+        example: ''
+      ivozId:
+        type: string
+        example: ''
+      cellProviderId:
+        type:
+          - 'number'
+          - 'null'
+        example: 1
+      cellFee:
+        type:
+          - 'number'
+          - 'null'
+        example: 1
+      cellPercentage:
+        type: string
+        example: ''
+      cellExcludeFromAire:
+        type:
+          - 'number'
+          - 'null'
+        example: 1
+      internetIncludedMb:
+        type:
+          - 'number'
+          - 'null'
+        example: 1
+      internetIncludedUpMb:
+        type:
+          - 'number'
+          - 'null'
+        example: 1
+      internetSLAType:
+        type: string
+        example: '24x7-8h| 8x5-16h| 8x5-8h'
+        enum: ['24x7-8h', '8x5-16h', '8x5-8h', '']
+      internetTechnology:
+        type: string
+        example: 'altres| 4g| adsl| fibra| radio| no_nostre'
+        enum: ['altres', '4g', 'adsl', 'fibra', 'radio', 'no_nostre', '']
+      internetDefaultCpeLineProfile:
+        type: string
+        example: ''
+      internetExcludeFromRadius:
+        type:
+          - 'number'
+          - 'null'
+        example: 1
+      internetTax:
+        type: string
+        example: 'altres'
+      internetTechnologyAnalitic:
+        type: string
+        example: 'ADSL| BONOSRAROS| RADIO| FIXBONUS| FIBRA| FIBRAINTERNET| TV| FIX'
+        enum:
+          [
+            'ADSL',
+            'BONOSRAROS',
+            'RADIO',
+            'FIXBONUS',
+            'FIBRA',
+            'FIBRAINTERNET',
+            'TV',
+            'FIX',
+            '',
+          ]
+      internetPercentageRule:
+        type: string
+        example: 'INTERNET| INTERNET+BONO'
+        enum: ['INTERNET', 'INTERNET+BONO', '']
+      internetCapexType:
+        type:
+          - 'number'
+          - 'null'
+        example: 1
+      internetOpexValue:
+        type: string
+        example: ''
+      internetInfraIp:
+        type: string
+        example: ''
+      internetTransit:
+        type: string
+        example: ''
+      internetSuportCor:
+        type: string
+        example: ''
+      internetRadiusGroupName:
+        type:
+          - 'string'
+          - 'null'
+        example: 'null'
+      fixConcurrentCalls:
+        type:
+          - 'number'
+          - 'null'
+        example: 1
+      fixCallForwarded:
+        type:
+          - 'boolean'
+        example: true
+      applicableService:
+        type: 'string'
+        example: 'CELL'
+        enum: ['CELL', 'INTERNET', 'FIX', '']
+    description: ''
+    title: 'gf-fee-post-update'
+  GfFeeResponse:
+    type: object
+    properties:
+      uid:
+        type: number
+        example: -1
+      name:
+        type: string
+        example: ''
+      fromDate:
+        type: string
+        example: '2022-01-31T08:05:03.890Z'
+      feeGroupId:
+        type: number
+        example: 1
+      classBuilder:
+        type: string
+        example: ''
+      cellProviderId:
+        type: number
+        example: 1
+      cellFee:
+        type: number
+        example: 1
+      cellPercentage:
+        type: string
+        example: ''
+      cellExcludeFromAire:
+        type: number
+        example: 1
+      internetIncludedMb:
+        type: number
+        example: 1
+      internetIncludedUpMb:
+        type: number
+        example: 1
+      internetDefaultCpeLineProfile:
+        type: string
+        example: ''
+      internetSLAType:
+        type: string
+        example: '8x5-8h'
+        enum: ['24x7-8h', '8x5-16h', '8x5-8h', '']
+      internetTechnology:
+        type: string
+        example: 'altres'
+        enum: ['altres', '4g', 'adsl', 'fibra', 'radio', 'no_nostre', '']
+      internetExcludeFromRadius:
+        type: number
+        example: 1
+      internetTax:
+        type: string
+        example: 'altres'
+      internetTechnologyAnalitic:
+        type: string
+        example: 'ADSL'
+        enum:
+          [
+            'ADSL',
+            'BONOSRAROS',
+            'RADIO',
+            'FIXBONUS',
+            'FIBRA',
+            'FIBRAINTERNET',
+            'TV',
+            'FIX',
+            '',
+          ]
+      internetPercentageRule:
+        type: string
+        example: 'INTERNET'
+        enum: ['INTERNET', 'INTERNET+BONO', '']
+      internetCapexType:
+        type: number
+        example: 1
+      internetOpexValue:
+        type: string
+        example: ''
+      internetInfraIp:
+        type: string
+        example: ''
+      internetTransit:
+        type: string
+        example: ''
+      internetSuportCor:
+        type: string
+        example: ''
+      internetRadiusGroupName:
+        type: string
+        example: ''
+      internetSLAE:
+        type: string
+        example: ''
+      fixConcurrentCalls:
+        type: number
+        example: 1
+      initialCost:
+        type: string
+        example: ''
+      baseQuote:
+        type: string
+        example: ''
+      tpvCode:
+        type: string
+        example: ''
+      initialCostTpvCode:
+        type: string
+        example: ''
+      InitialFees:
+        type: array
+        items:
+          $ref: '#/definitions/InitialFee'
+      status:
+        type: integer
+        example: 0
+      creationDate:
+        type: 'string'
+        example: '2021-04-29 01:47:27.0'
+        minLength: 1
+      updateDate:
+        type: 'string'
+        example: '2021-04-29 01:47:27.0'
+        minLength: 1
+      applicableService:
+        type: 'string'
+        example: 'CELL'
+        enum: ['CELL', 'INTERNET', 'FIX', '']
+    description: ''
+    title: 'gf-fee-response'

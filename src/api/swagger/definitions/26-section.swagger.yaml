@@ -1,0 +1,67 @@
+definitions:
+  Section:
+    type: "object"
+    required:
+      - "id"
+      - "alias"
+      - "code"
+      - "weight"
+      - "definition_id"
+      - "discount"
+      - "discount_type"
+      - "tax"
+      - "tax_type"
+      - "discount_permanent"
+      - "creator_id"
+      - "deleted_at"
+      - "created_at"
+      - "updated_at"
+    properties:
+      id:
+        type: "number"
+        example: 12
+      alias:
+        type: "string"
+        example: "some alias name"
+        minLength: 1
+      code:
+        type: "string"
+        example: "FIX"
+      weight:
+        type: "number"
+        example: 2    
+      definition_id:
+        type: "number"
+        example: 24
+      discount:
+        type: "number"
+        example: 23.8
+      discount_type:
+        type: "string"
+        example: "fix"        
+      tax:
+        type: "number"
+        example: 12.9        
+      tax_type:
+        type: "string"
+        example: "fix"        
+      discount_permanent:
+        type: "boolean"
+        example: false        
+      creator_id:
+        type: "number"
+        example: 23
+      created_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      deleted_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1      
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "section"    

@@ -1,0 +1,36 @@
+definitions:
+  InvoiceUnits1:
+    type: object        
+    properties:
+      name:
+        type: string
+        minLength: 2
+        example: ""   
+    description: ""
+    title: "invoice-unit-1"
+  InvoiceUnits2:
+    type: object        
+    properties:
+      id:
+        type: number
+        example: 12
+      uid:
+        type: number
+        example: -1
+      name:
+        type: string
+        minLength: 2
+        example: ""
+      status:
+        type: integer
+        example: 0 
+      creationDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      updateDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1        
+    description: ""
+    title: "invoice-unit-2"

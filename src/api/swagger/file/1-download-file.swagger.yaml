@@ -1,0 +1,26 @@
+/file/{bucket}/{filename}:
+  get:
+    tags:
+      - 'file'
+    summary: 'download file'
+    description: 'get file by bucket and filename'
+    operationId: 'downloadFile'
+    security:
+      - Bearer: []
+    parameters:
+      - name: 'bucket'
+        in: 'path'
+        description: 'download file from selected bucket'
+        required: true
+        type: 'string'
+      - name: 'filename'
+        in: 'path'
+        description: 'name of file to download'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+      '404':
+        description: 'not found'
+    x-swagger-router-controller: 'file'

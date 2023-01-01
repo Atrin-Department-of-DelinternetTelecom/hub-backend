@@ -1,0 +1,233 @@
+/technician/cancel-reasons:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - 'technician'
+    operationId: 'getTaskCancelReasons'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'links'
+            - 'meta'
+          properties:
+            data:
+              type: 'array'
+              uniqueItems: true
+              items:
+                $ref: '#/definitions/CancelReason'
+              minItems: 1
+            links:
+              type: 'object'
+              properties:
+                first:
+                  type: 'string'
+                  minLength: 1
+                last:
+                  type: 'string'
+                  minLength: 1
+                next:
+                  type: 'string'
+                  x-nullable: true
+                prev:
+                  type: 'string'
+                  x-nullable: true
+                self:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'first'
+                - 'last'
+                - 'next'
+                - 'prev'
+                - 'self'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                current_page:
+                  type: 'number'
+                from:
+                  type: 'number'
+                last_page:
+                  type: 'number'
+                links:
+                  type: 'array'
+                  uniqueItems: true
+                  items:
+                    type: 'object'
+                    properties:
+                      active:
+                        type: 'boolean'
+                      label:
+                        type: 'string'
+                        minLength: 1
+                      url:
+                        type: 'string'
+                        x-nullable: true
+                    required:
+                      - 'active'
+                      - 'label'
+                      - 'url'
+                  minItems: 1
+                path:
+                  type: 'string'
+                  minLength: 1
+                per_page:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+                to:
+                  type: 'number'
+                total:
+                  type: 'number'
+              required:
+                - 'code'
+                - 'current_page'
+                - 'from'
+                - 'last_page'
+                - 'links'
+                - 'path'
+                - 'per_page'
+                - 'status'
+                - 'to'
+                - 'total'
+          description: ''
+    x-swagger-router-controller: 'Technician'
+  post:
+    tags:
+      - 'technician'
+    operationId: 'createTaskCancelReasons'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - in: body
+        name: requestBody
+        description: Request body for creating task cancel reasons
+        required: true
+        schema:
+          type: object
+          properties:
+            label:
+              type: object
+              properties:
+                en:
+                  type: string
+                  description: English label
+                es:
+                  type: string
+                  description: Spanish label
+                ca:
+                  type: string
+                  description: Catalan label
+            category:
+              type: string
+              example: '*'
+            commentRequired:
+              type: boolean
+              example: false
+    responses:
+      '200':
+        description: 'OK'
+    x-swagger-router-controller: 'Technician'
+
+/technician/cancel-reasons/{id}:
+  get:
+    tags:
+      - 'technician'
+    operationId: 'getTaskCancelReason'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - in: path
+        name: id
+        type: integer
+        required: true
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            code:
+              type: integer
+              default: 200
+            data:
+              $ref: '#/definitions/CancelReason'
+    x-swagger-router-controller: 'Technician'
+  put:
+    tags:
+      - 'technician'
+    operationId: 'updateTaskCancelReason'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - in: path
+        name: id
+        type: integer
+        required: true
+      - in: body
+        name: requestBody
+        description: Request body for creating task cancel reasons
+        required: true
+        schema:
+          type: object
+          properties:
+            label:
+              type: object
+              properties:
+                en:
+                  type: string
+                  description: English label
+                es:
+                  type: string
+                  description: Spanish label
+                ca:
+                  type: string
+                  description: Catalan label
+            category:
+              type: string
+              example: '*'
+            commentRequired:
+              type: boolean
+              example: false
+    responses:
+      '200':
+        description: 'OK'
+    x-swagger-router-controller: 'Technician'
+  delete:
+    tags:
+      - 'technician'
+    operationId: 'deleteTaskCancelReason'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - in: path
+        name: id
+        type: integer
+        required: true
+    responses:
+      '200':
+        description: 'OK'
+    x-swagger-router-controller: 'Technician'

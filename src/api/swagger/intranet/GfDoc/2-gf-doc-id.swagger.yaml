@@ -1,0 +1,211 @@
+/gf-docs/{id}:
+  get:
+    tags:
+      - 'gf-docs'
+    summary: 'Your GET endpoint'
+    description: 'get a single contract'
+    operationId: 'getGfDocsId'
+    deprecated: true
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table contract'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfDoc'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'status'
+          description: ''
+          x-examples:
+            example-1:
+              data:
+                username: 'thisisusername'
+                email: 'mostafaebrahimi.me@gmail.com'
+                first_name: 'Mostafa'
+                role: 'admin'
+                last_name: 'Ebrahimi'
+                password: 'mostafa$$1'
+              meta:
+                code: 0
+                status: 'string'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfDoc'
+  put:
+    tags:
+      - 'gf-docs'
+    summary: ''
+    description: 'update a gf-doc by id'
+    operationId: 'putGfDocsId'
+    security:
+      - Bearer: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+        description: Id of gf-doc table
+      - in: body
+        name: body
+        schema:
+          type: object
+          properties:
+            uid:
+              type: number
+              example: 90
+            type:
+              type: string
+              example:
+            file:
+              type: string
+              example:
+            clientId:
+              type: integer
+              example: -1
+            contractId:
+              type: integer
+              example: -1
+            aireType:
+              type: string
+              example:
+            comments:
+              type: string
+              example:
+            reason:
+              type: string
+              example:
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfDoc'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfDoc'
+  delete:
+    tags:
+      - 'gf-docs'
+    summary: ''
+    description: 'delete a gf-doc by id'
+    operationId: 'deleteGfDocsId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of gf-doc table'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'Example response'
+        schema:
+          type: 'object'
+          required:
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: 'Deleted'
+                status: 'success'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfDoc'

@@ -1,0 +1,16 @@
+definitions:
+  FormTag:
+    type: "object"
+    required:
+      - "name"
+      - "form_category_id"
+    properties:
+      name:
+        type: "string"
+        example: "first-name"
+        minLength: 1
+      form_category_id:
+        type: "number"
+        example: 12          
+    description: ""
+    title: "FormTag"

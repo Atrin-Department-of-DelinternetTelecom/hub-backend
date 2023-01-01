@@ -1,0 +1,71 @@
+/GfKamailioProviderCdrs/operadors:
+  post:
+    tags:
+      - 'gf-kamailio-provider-cdrs'
+    summary: ''
+    description: 'add a GfKamailioProviderCdr to system from operadors'
+    operationId: 'createGfKamailioProviderCdrFromOperadors'
+    security:
+      - Bearer: []
+    parameters:
+      - in: 'body'
+        name: 'body'
+        required: true
+        schema:
+          type: 'object'
+          required:
+            - 'month'
+            - 'year'
+          properties:
+            hubFile:
+              type: 'string'
+              example: 'file.zip'
+            month:
+              type: 'number'
+              example: 6
+            year:
+              type: 'number'
+              example: 2023
+        description: ''
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              properties:
+                filename:
+                  type: 'string'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfKamailioProviderCdr'

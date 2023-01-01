@@ -1,0 +1,88 @@
+<b>
+    <%= option.subject %>
+</b><br>
+<% if(contract){ %>
+    <div class='btn-group'>
+        <button class='btn btn-xs editContract pull-left' data-contractId='<%= contract.id %>'>
+            <%= contract.reference %>
+        </button>
+        <button class='btn btn-xs btn-info editSection' data-section='<%= section.type %>'
+            data-contractId='<%= contract.id %>'>
+            Secció
+        </button>
+    </div>
+
+    <% if ( option.rightButtonsHtml){ %>
+        <div class='pull-right'><%- option.rightButtonsHtml %></div>
+        <% } %>
+            <br><br>
+            <% } %>
+                <%- option.text %>
+                    <table class='table table-bordered'>
+                        <% if ( section.type==="FIX" ) { %>
+                            <tr>
+                                <td>Num:</td>
+                                <td>
+                                    <%= section.section ? section.section.row ? section.section.row.number ?
+                                        section.section.row.number : '' : '' : '' %>
+                                </td>
+
+                            <tr>
+                            </tr>
+                            <td>Usuari:</td>
+                            <td>
+                                <%= client ? client.name ? client.name : '' : '' %>
+                            </td>
+                            </tr>
+                            <% } %>
+                                <% if ( section.type==="INTERNET" ) { %>
+                                    <td>Usuari:</td>
+                                    <td>
+                                        <%= client ? client.name ? client.name : '' : '' %>
+                                    </td>
+                                    </tr>
+                                    <% } %>
+                                        <% if ( section.type==="CELL" ) { %>
+                                            <tr>
+                                                <td>Num:</td>
+                                                <td>
+                                                    <%= section.section ? section.section.row ?
+                                                        section.section.row.number ? section.section.row.number : ''
+                                                        : '' : '' %>
+                                                </td>
+                                            <tr>
+                                            </tr>
+                                            <td>Usuari:</td>
+                                            <td>
+                                                <%= client ? client.name ? client.name : '' : '' %>
+                                            </td>
+                                            </tr>
+                                            <% } %>
+                                                <% if ( section.type==="TV" ) { %>
+                                                    <tr>
+                                                        <td>Usuari:</td>
+                                                        <td>
+                                                            <%= client ? client.name ? client.name : '' : '' %>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                                        <% for(const [k,val] of Object.entries(option.aditionalInfo)){
+                                                            %>
+                                                            </tr>
+                                                            <td>
+                                                                <%= k %>
+                                                            </td>
+                                                            <td>
+                                                                <%= val %>
+                                                            </td>
+                                                            </tr>
+                                                            <% } %>
+                                                                <% if ( contract && contract.alias !=="" ) { %>
+                                                                    </tr>
+                                                                    <td>Alias</td>
+                                                                    <td>
+                                                                        <%= contract.alias %>
+                                                                    </td>
+                                                                    </tr>
+                                                                    <% } %>
+                    </table>

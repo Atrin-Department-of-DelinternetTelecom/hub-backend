@@ -1,0 +1,251 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%= invoice.code %></title>
+
+    <style>
+
+        * {
+            -webkit-print-color-adjust: exact;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        @page{
+            size A4
+            margin-top 8mm
+            margin-bottom 10mm
+            margin-right 5mm
+            margin-left 5mm
+        }
+        
+        .page-print{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0 0 30px;
+            box-sizing: border-box;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .page-break {
+            page-break-after: always;
+        }
+
+        .invoice-box{
+            width: 100%;
+            max-width: 800px;
+            height: 960px;  
+            min-height: 960px;  
+            margin: auto;
+            margin-top: 0px !important;
+            padding: 15px;
+            border: 1px solid #ddd;
+            font-size: 10px;
+            line-height: 14px;
+            font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+            color: #333;
+            box-sizing: border-box;
+        }
+
+        table {
+            width:100%;
+            line-height: inherit;
+            text-align: left;
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+
+        table td,
+        table th {
+            padding: 3px;
+            vertical-align: top;
+            font-size: 10px;
+            line-height: 14px;
+            font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+            color: #333;
+        }
+
+        table thead th {
+            background: #ddd;
+            border-bottom: 1px solid #ccc;
+            font-weight: 700;
+        }
+
+        table table {
+            margin-bottom: 10px;
+        }
+
+        .no-padding > tbody > tr > td {
+            padding: 0;
+        }
+
+        .no-side-padding > tbody > tr > td:first-child {
+            padding-left: 0;
+        }
+
+        .no-side-padding > tbody > tr > td:last-child {
+            padding-right: 0;
+        }
+
+        .information td{
+            padding-bottom: 10px;
+        }
+
+        .payment table,
+        .history table {
+            margin-bottom: 0;
+        }
+
+        .contract table{
+            margin-bottom: 0;
+        }
+
+        .contract table th,
+        .history table th{
+            padding: 2px 3px;
+            line-height: 12px;
+        }
+
+        .contract table td{
+            font-size: 8px;
+            line-height: 9px;
+        }
+
+        .history .row:last-child td{
+            border-bottom: 1px solid #ccc;
+        }
+
+        .logo img {
+            height: auto;
+            width: 240px;
+        }
+
+        .row td {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .row:last-child td {
+            border-bottom: none;
+        }
+
+        .row.record td {
+            font-size: 8px;
+            line-height: 9px;
+            padding: 2px 4px;
+        }
+
+        .row.record:nth-child(even) td {
+            background-color: #f6f6f6;
+        }
+
+        .row.total td {
+            border-top: 2px solid #ccc;
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .page-footer {
+            text-align: center;
+            position: absolute;
+            bottom: 0px;
+            left: 0;
+            width: 100%;
+            color: #aaa;
+        }
+
+        .col-ref,
+        .col-total{
+            width: 100px;
+        }
+
+        .col-date{
+            width: 60px;
+        }
+        .col-time{
+            width: 60px;
+        }
+        .col-line{
+            width: 100px;
+        }
+        .col-type{
+            width: 80px;
+        }
+        .col-description{
+
+        }
+        .col-duration{
+            width: 80px;
+        }
+        .col-price{
+            width: 80px;
+        }
+
+    </style>
+</head>
+<body>
+    <% var currentConsumptionsPage=1; %>      
+    <% for (var [frontPageIndex,frontPageLines] of Object.entries(chunkedFrontPages)) { %>
+    
+        <div class="page-print">
+            <div class="invoice-box" id="page">
+                <table class="no-padding">
+                    
+                    <%- include('partials/top.ejs'); %>
+                    
+
+                    <%- include('partials/information.ejs'); %>
+                    
+                    <%- include('partials/lines.ejs',{frontPageLines}); %>
+                    <% if (frontPageIndex == Object.keys(chunkedFrontPages).length - 1) { %>
+                        
+                        <%- include('partials/totals.ejs'); %>
+                        
+                        <%- include('partials/payment.ejs'); %>
+                        
+                    <% } else { %>
+
+                        <%- include('partials/next.ejs'); %>
+                        
+                    <% } %>
+
+                </table>
+                <div class="page-footer">
+                    <small>Delinternet</small>
+                </div>
+                
+            </div>
+        </div>
+        <div class="page-break"></div>
+
+        <% currentPage++; %>
+    <% } %>
+    <% for (var [index,contract] of Object.entries(invoice.contracts ?? {})) { %>
+        <% var consumptionPageLines = chunkedContractDetails[index][0]; %>
+        <div class="page-print">
+            <div class="invoice-box" id="page">
+                <table class="no-padding">
+                    
+                    <%- include('partials/top.ejs'); %>
+
+                    <%- include('partials/contract.ejs',{currentConsumptionsPage,consumptionPageLines,contract}); %>
+                    
+                    <%- include('partials/history.ejs',{consumptionPageLines}); %>
+                </table>
+                <div class="page-footer">
+                    <small>Delinternet</small>
+                </div>
+                <div class="page-break"></div>
+                <% currentConsumptionsPage++; %>
+                <% currentPage++; %>
+            </div>
+        </div>
+    <% } %>    
+</body>
+</html>

@@ -1,0 +1,46 @@
+/gf-clients/{id}/resume-unpaid:
+  post:
+    tags:
+      - "gf-clients"
+    summary: ""
+    description: "update a gf-client by id"
+    operationId: "resumeUnpaid"
+    security:
+      - Bearer: []
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    parameters:
+      - name: id
+        in: path
+        description: id of gf-client table
+        required: true
+        type: integer
+      - in: "body"
+        name: "body"
+        schema:
+          type: "object"  
+          properties:
+            reason:
+              type: string
+          required:
+            - reason
+          
+          
+    responses:
+      "200":
+        description: "OK"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfClient"

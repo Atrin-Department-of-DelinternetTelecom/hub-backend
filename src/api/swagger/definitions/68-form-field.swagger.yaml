@@ -1,0 +1,28 @@
+definitions:
+  FormField:
+    type: "object"
+    required:
+      - "value"
+      - "type"
+      - "name"
+      - "metadata"
+      - "form_id"
+    properties:
+      name:
+        type: "string"
+        example: "first-name"
+        minLength: 1
+      value:
+        type: "string"
+        example: "hassnam"
+      type:
+        type: "string"
+        example: "text-field"
+      metadata:
+        type: "string"
+        example: "{'test': 'test'}"
+      form_id:
+        type: "number"
+        example: 12          
+    description: ""
+    title: "FormField"

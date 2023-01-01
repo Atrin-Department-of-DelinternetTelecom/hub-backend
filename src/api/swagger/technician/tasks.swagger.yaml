@@ -1,0 +1,16 @@
+/technician/tasks/all:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - "technician"
+    description: "get technician tasks"
+    operationId: "getAllTasks"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    responses:
+      "200":
+        description: "OK"
+    x-swagger-router-controller: "Technician"

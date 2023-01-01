@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html> 
+  <style><%- include('css/index') %></style>
+  <head>
+      <meta charset="UTF-8">
+      <title>Contractes</title>
+  </head> 
+  <body>
+    <%- 
+      include({
+        SEPA: 'views/SEPA/index',
+        DADES: 'views/proteccio-dades/index',
+        INTERNET: 'views/alta-de-servei/index-fibra',
+        FIX: 'views/alta-de-servei/index-fix',
+        FIXPORTABILIDAD: 'views/portabilitat/portabilitat-fix-aire',
+        TV: 'views/alta-de-servei/index-tv',
+        CELL: 'views/alta-de-servei/index-cell',
+        BAIXA: 'views/baixa/index',
+        'BAIXA-FIX': 'views/baixa/fix',
+        CANVI: 'views/canvi-titular/index',
+        'CANVI-FIX': 'views/canvi-titular/fix',
+        PORTABILITAT: 'views/portabilitat/portabilitat-fix-aire',
+        InvoiceProfile: 'views/SEPA/invoice-profile',
+      }[documentType]) 
+    %>
+  </body>
+</html>

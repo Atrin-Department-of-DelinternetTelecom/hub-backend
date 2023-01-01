@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:iso:std:iso:20022:tech:xsd:pain.002.001.03">
+	<CstmrPmtStsRpt>
+		<GrpHdr>
+			<MsgId>DA20220309181038736938090339670002</MsgId>
+			<CreDtTm>2022-03-09T00:00:00</CreDtTm>
+			<CdtrAgt>
+				<FinInstnId>
+					<BIC>BSABESBBXXX</BIC>
+				</FinInstnId>
+			</CdtrAgt>
+		</GrpHdr>
+		<OrgnlGrpInfAndSts>
+			<OrgnlMsgId>010220221929-67525aa5650c</OrgnlMsgId>
+			<OrgnlMsgNmId>pain.008.001.02</OrgnlMsgNmId>
+			<OrgnlNbOfTxs>1</OrgnlNbOfTxs>
+			<OrgnlCtrlSum>31.34</OrgnlCtrlSum>
+			<StsRsnInf>
+				<Orgtr>
+					<Nm>DEL-INTERNET TELECOM, S.L.U</Nm>
+				</Orgtr>
+			</StsRsnInf>
+		</OrgnlGrpInfAndSts>
+		<OrgnlPmtInfAndSts>
+			<OrgnlPmtInfId>DEL-INTERNET TELECOM S-9bd8490be0d5</OrgnlPmtInfId>
+			<OrgnlNbOfTxs>1</OrgnlNbOfTxs>
+			<OrgnlCtrlSum>31.34</OrgnlCtrlSum>
+			<StsRsnInf>
+				<Orgtr>
+					<Nm>DEL-INTERNET TELECOM S.L.U</Nm>
+					<Id>
+						<OrgId>
+							<BICOrBEI>BSABESBBXXX</BICOrBEI>
+						</OrgId>
+					</Id>
+				</Orgtr>
+			</StsRsnInf>
+			<TxInfAndSts>
+				<OrgnlEndToEndId>DEL-INTERNET TELECOM S-a033583ac517</OrgnlEndToEndId>
+				<TxSts>RJCT</TxSts>
+				<StsRsnInf>
+					<Orgtr>
+						<Nm>Jasmina Magraner Pla</Nm>
+					</Orgtr>
+					<Rsn>
+						<Cd>MD01</Cd>
+					</Rsn>
+				</StsRsnInf>
+				<OrgnlTxRef>
+					<Amt>
+						<InstdAmt Ccy="EUR">31.34</InstdAmt>
+					</Amt>
+					<ReqdColltnDt>2022-02-01</ReqdColltnDt>
+					<CdtrSchmeId>
+						<Id>
+							<PrvtId>
+								<Othr>
+									<Id>ES90000B55606446</Id>
+									<SchmeNm>
+										<Prtry>SEPA AT-02</Prtry>
+									</SchmeNm>
+								</Othr>
+							</PrvtId>
+						</Id>
+					</CdtrSchmeId>
+					<PmtTpInf>
+						<SvcLvl>
+							<Cd>SEPA</Cd>
+						</SvcLvl>
+						<LclInstrm>
+							<Cd>CORE</Cd>
+						</LclInstrm>
+						<SeqTp>FRST</SeqTp>
+					</PmtTpInf>
+					<MndtRltdInf>
+						<MndtId>249107:F18/00004:246883</MndtId>
+						<DtOfSgntr>2022-02-01</DtOfSgntr>
+					</MndtRltdInf>
+					<RmtInf>
+						<Ustrd>DEL-INTERNET TELECOM S.L.U factura F18/00004</Ustrd>
+					</RmtInf>
+					<Dbtr>
+						<Nm>Jasmina Magraner Pla</Nm>
+					</Dbtr>
+					<DbtrAcct>
+						<Id>
+							<IBAN>ES9001827971140201692910</IBAN>
+						</Id>
+					</DbtrAcct>
+					<Cdtr>
+						<Nm>DEL-INTERNET TELECOM S.L.U</Nm>
+					</Cdtr>
+					<CdtrAcct>
+						<Id>
+							<IBAN>ES3500815139020001111714</IBAN>
+						</Id>
+					</CdtrAcct>
+				</OrgnlTxRef>
+			</TxInfAndSts>
+		</OrgnlPmtInfAndSts></CstmrPmtStsRpt></Document>

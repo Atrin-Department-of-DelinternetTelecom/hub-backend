@@ -1,0 +1,91 @@
+/unpaidNotifications/fix-wrong-clients:
+  post:
+    tags:
+      - 'unpaid-notification'
+    summary: 'Fix wrong client notifications for unpaid invoices'
+    description: >
+      Regenerates notifications for unpaid invoices where existing
+      unpaid_notifications.client_id does not match unpaid_invoices.client_id.
+      Uses only data from unpaid_invoices and marks old notifications as inactive (status = 0)
+      before creating new ones.
+    operationId: 'fixWrongClientNotifications'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters: []
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              type: 'object'
+              properties:
+                fixed:
+                  type: 'array'
+                  items:
+                    type: 'object'
+                    properties:
+                      invoice_id:
+                        type: 'number'
+                      unpaid_invoice_id:
+                        type: 'number'
+                      client_id:
+                        type: 'number'
+                      regenerated_count:
+                        type: 'number'
+                skipped:
+                  type: 'array'
+                  items:
+                    type: 'object'
+                    properties:
+                      invoice_id:
+                        type: 'number'
+                      unpaid_invoice_id:
+                        type: 'number'
+                      client_id:
+                        type: 'number'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'status'
+          x-examples:
+            example-1:
+              data:
+                fixed:
+                  - invoice_id: 123
+                    unpaid_invoice_id: 45
+                    client_id: 678
+                    regenerated_count: 3
+                skipped:
+                  - invoice_id: 124
+                    unpaid_invoice_id: 46
+                    client_id: 679
+              meta:
+                code: 200
+                status: 'success'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'UnpaidNotification'

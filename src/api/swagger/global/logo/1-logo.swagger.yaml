@@ -1,0 +1,83 @@
+/logo:
+  get:
+    tags:
+      - "logo"
+    summary: "get logo image"
+    description: "download logo"
+    operationId: "downloadLogo"
+    parameters: 
+      - in: query
+        type: boolean
+        name: isIcon
+        description: logo or icon    
+    responses:
+      "200":
+        description: "OK"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Logo"
+  post:
+    tags:
+      - "logo"
+    summary: "upload logo"
+    description: "upload logo"
+    operationId: "uploadLogo"
+    security:
+      - Bearer: []
+    parameters: 
+      - in: formData
+        type: file
+        name: image
+        description: logo image
+      - in: formData
+        type: boolean
+        name: isIcon
+        description: logo image    
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/SignaturePad"
+            meta:
+              $ref: "#/definitions/Meta"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                created_at: "2021-04-27T17:18:22.000000Z"
+                id: 1
+                name: "first employment status"
+                updated_at: "2021-04-27T17:18:22.000000Z"
+              meta:
+                code: 201
+                message: "Created"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Logo"

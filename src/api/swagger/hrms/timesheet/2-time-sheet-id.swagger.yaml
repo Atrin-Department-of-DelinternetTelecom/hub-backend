@@ -1,0 +1,203 @@
+/timeSheet/{id}:
+  get:
+    tags:
+      - "time-sheet"
+    summary: "Your GET endpoint"
+    description: "get a single time sheet by {id}"
+    operationId: "getTimeSheetId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of table time_sheet"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/TimeSheet"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                created_at: "2021-04-27T18:36:57.000000Z"
+                deleted_at: "2021-04-27T18:36:57.000000Z"
+                end_date: "2020-01-24 00:00:00"
+                id: 1
+                owner_id:
+                  created_at: "2021-04-27T18:11:16.000000Z"
+                  email: "morar.daisy@example.org"
+                  id: 3
+                  name: "Markus Lehner"
+                  updated_at: "2021-04-27T18:11:16.000000Z"
+                start_date: "2020-01-22 00:00:00"
+                updated_at: "2021-04-27T18:36:57.000000Z"
+              meta:
+                code: 200
+                status: "success"
+    x-swagger-router-controller: "TimeSheet"
+  put:
+    tags:
+      - "time-sheet"
+    summary: ""
+    description: "update a single time sheet by {id}"
+    operationId: "putTimeSheetId"
+    security:
+      - Bearer: []
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of table time_sheet"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "for example we can change end date"
+        required: false
+        schema:
+          type: "object"
+          required:
+            - "end_date"
+          properties:
+            end_date:
+              type: "string"
+              minLength: 1
+          description: ""
+          x-examples:
+            example-1:
+              end_date: "2020-01-24 00:00:00"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/TimeSheet"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                created_at: "2021-04-29T01:21:37.000000Z"
+                id: 1
+                name: "another dep"
+                updated_at: "2021-04-29T01:21:46.000000Z"
+              meta:
+                code: 200
+                message: "Updated"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "TimeSheet"
+  delete:
+    tags:
+      - "time-sheet"
+    summary: ""
+    description: "delete a single time sheet by {id}"
+    operationId: "deleteTimeSheetId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of table time_sheet"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: "Deleted"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "TimeSheet"

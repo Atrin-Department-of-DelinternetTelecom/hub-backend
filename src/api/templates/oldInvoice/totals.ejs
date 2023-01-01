@@ -1,0 +1,60 @@
+<tr class="totals">
+    <td>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Resum
+                    </th>
+
+                    <th class="text-right">
+
+                    </th>
+
+                    <th class="text-right col-total">
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="row">
+                    <td>
+                        Base imposable
+                    </td>
+
+                    <td class="text-right">
+
+                    </td>
+
+                    <td class="text-right">
+                        <%= invoice.baseTotal %> €
+                    </td>
+                </tr>
+
+                <tr class="row">
+                    <td>
+                        Impostos
+                    </td>
+
+                    <td class="text-right">
+                        I.V.A. 21%
+                    </td>
+
+                    <td class="text-right">
+                        <%= invoice.taxesTotal %> €
+                    </td>
+                </tr>
+
+                <tr class="row total">
+                    <td>Total a pagar</td>
+
+                    <td class="text-right"></td>
+
+                    <td class="text-right">
+                       <%= invoice.total %> €
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </td>
+</tr>

@@ -1,0 +1,38 @@
+definitions:
+  Menu:
+    type: "object"
+    required:
+      - "id"
+      - "name"
+      - "acl_app_id"
+      - "creator_id"
+      - "created_at"
+      - "updated_at"
+      - "deleted_at"
+    properties:
+      id:
+        type: "number"
+        example: 12
+      name:
+        type: "string"
+        example: "hrms"
+      creator_id:
+        type: "number"
+        example: 12
+      acl_app_id:
+        type: "number"
+        example: 14
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1  
+      created_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      deleted_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "menu"

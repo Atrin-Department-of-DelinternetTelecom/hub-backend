@@ -1,0 +1,122 @@
+/assists/cancel-assist/{id}:
+  patch:
+    tags:
+      - 'gf-assists'
+    summary: 'Your GET endpoint'
+    description: 'cancel (close) assistance and its technician task'
+    operationId: 'patchCancelGfAssistsId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of gf_assists table'
+        required: true
+        type: 'number'
+      - in: 'body'
+        name: 'body'
+        description: 'update an gf_assists'
+        required: true
+        schema:
+          type: 'object'
+          required:
+            - reasonId
+            - description
+          properties:
+            reasonId:
+              type: 'number'
+              example: 12
+            description:
+              type: 'string'
+              example: 'I just cancelled the assist'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfAssist'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfAssist'
+/assists/toggle-close/{id}:
+  patch:
+    tags:
+      - 'gf-assists'
+    summary: 'Your GET endpoint'
+    description: 'toggle close for gf assist'
+    operationId: 'patchToggleCloseGfAssistsId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of gf_assists table'
+        required: true
+        type: 'number'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfAssist'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfAssist'

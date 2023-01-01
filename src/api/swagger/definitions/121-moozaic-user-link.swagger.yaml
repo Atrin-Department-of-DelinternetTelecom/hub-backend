@@ -1,0 +1,27 @@
+definitions:
+  MoozaicUserLink:
+    type: object
+    properties:
+      id:
+        type: 'number'
+        example: 12
+      uid:
+        type: 'number'
+        example: 90
+      userId:
+        type: 'number'
+        example: 2338
+      service:
+        type: 'string'
+        example: "google"
+      token:
+        type: 'string'
+        example: "{token:sss,refreshToken:'ssss'}"
+      externalUserId:
+        type: 'string'
+        example: "111887871868740773420"
+      status:
+        type: 'number'
+        example: 0
+    description: ''
+    title: 'moozaic-user-link'

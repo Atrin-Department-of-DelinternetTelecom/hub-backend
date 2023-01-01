@@ -1,0 +1,328 @@
+definitions:
+  Installation:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      uid:
+        type: integer
+        format: int32
+      contractId:
+        type: integer
+        format: int32
+      ip:
+        type: string
+      staticIp:
+        type: string
+        format: nullable
+      mac:
+        type: string
+      guifiNetIp:
+        type: string
+      node:
+        type: string
+      nodeRadiusName:
+        type: string
+      nodeRadiusPassword:
+        type: string
+      radiusProfileSufix:
+        type: string
+      lastCoaMessage:
+        type: string
+        format: nullable
+      oldWebNodeName:
+        type: string
+        format: nullable
+      lat:
+        type: string
+      lng:
+        type: string
+      addressRegion:
+        type: string
+        format: nullable
+      addressRegionCode:
+        type: string
+        format: nullable
+      addressRegionCodeName:
+        type: string
+        format: nullable
+      addressProvince:
+        type: string
+      addressProvinceCode:
+        type: string
+      addressProvinceCodeName:
+        type: string
+      addressCity:
+        type: string
+      addressCityCode:
+        type: string
+      addressCityCodename:
+        type: string
+      addressPostalCode:
+        type: string
+      addressPostalCodeCode:
+        type: string
+      addressPostalCodeCodeName:
+        type: string
+      addressStreet:
+        type: string
+      addressStreetCode:
+        type: string
+      addressStreetCodeName:
+        type: string
+      addressStreetTypeCode:
+        type: string
+      addressStreetTypeCodeName:
+        type: string
+      addressNumber:
+        type: string
+      addressNumberCode:
+        type: string
+      addressNumberCodeName:
+        type: string
+      addressFloor:
+        type: string
+      addressFloorCode:
+        type: string
+      addressFloorCodeName:
+        type: string
+      addressBuilding:
+        type: string
+      addressBuildingCode:
+        type: string
+      addressBuildingCodeName:
+        type: string
+      addressDoor:
+        type: string
+      addressDoorCode:
+        type: string
+      addressDoorCodeName:
+        type: string
+      addressStairway:
+        type: string
+      addressStairwayCode:
+        type: string
+      addressStairwayCodeName:
+        type: string
+      addressLat:
+        type: string
+      addressLng:
+        type: string
+      addressMapUrl:
+        type: string
+      instalationDate:
+        type: string
+      installatorUserId:
+        type: string
+        format: nullable
+      installationDone:
+        type: integer
+        format: int32
+      installationLevel:
+        type: string
+        format: nullable
+      radiosIp:
+        type: string
+        format: nullable
+      cpeDsn:
+        type: string
+      cpeSn:
+        type: string
+      cpeModel:
+        type: string
+        format: nullable
+      cpeVoipProfile:
+        type: string
+        format: nullable
+      cpePppoeUsername:
+        type: string
+      cpePppoePassword:
+        type: string
+      cpeWifiSsid:
+        type: string
+      cpeWifiPassword:
+        type: string
+      cpeId:
+        type: integer
+        format: int32
+      cpeLineProfile:
+        type: string
+        format: nullable
+      infoRepair:
+        type: string
+      invoiced:
+        type: string
+        format: nullable
+      guifiZona:
+        type: string
+      guifiLat:
+        type: string
+      guifiLon:
+        type: string
+      guifiNodeName:
+        type: string
+      guifiName:
+        type: string
+      guifiUrl:
+        type: string
+      signed:
+        type: string
+        format: nullable
+      image1:
+        type: string
+      image2:
+        type: string
+      image3:
+        type: string
+      image4:
+        type: string
+      image5:
+        type: string
+        format: nullable
+      image6:
+        type: string
+        format: nullable
+      image7:
+        type: string
+        format: nullable
+      image8:
+        type: string
+        format: nullable
+      image9:
+        type: string
+        format: nullable
+      image10:
+        type: string
+        format: nullable
+      image11:
+        type: string
+        format: nullable
+      image12:
+        type: string
+        format: nullable
+      image13:
+        type: string
+        format: nullable
+      materialDescription:
+        type: string
+        format: nullable
+      box:
+        type: string
+      providerCode:
+        type: string
+      status:
+        type: integer
+        format: int32
+      creationDate:
+        type: string
+      updateDate:
+        type: string
+      installatorUser:
+        type: object
+        properties: {}
+      dataFixes:
+        type: object
+        properties: {}
+      address:
+        type: object
+        properties:
+          line1:
+            type: string
+          line2:
+            type: string
+          line3:
+            type: string
+          line4:
+            type: string
+          mapUrl:
+            type: string
+          mapMiniUrl:
+            type: string
+          lat:
+            type: string
+          lng:
+            type: string
+          html:
+            type: string
+          values:
+            type: object
+            properties:
+              region:
+                type: string
+                format: nullable
+              regionCode:
+                type: string
+                format: nullable
+              regionCodeName:
+                type: string
+                format: nullable
+              province:
+                type: string
+              provinceCode:
+                type: string
+              provinceCodeName:
+                type: string
+              city:
+                type: string
+              cityCode:
+                type: string
+              cityCodename:
+                type: string
+              postalCode:
+                type: string
+              postalCodeCode:
+                type: string
+              postalCodeCodeName:
+                type: string
+              street:
+                type: string
+              streetCode:
+                type: string
+              streetCodeName:
+                type: string
+              streetTypeCode:
+                type: string
+              streetTypeCodeName:
+                type: string
+              number:
+                type: string
+              numberCode:
+                type: string
+              numberCodeName:
+                type: string
+              floor:
+                type: string
+              floorCode:
+                type: string
+              floorCodeName:
+                type: string
+              building:
+                type: string
+              buildingCode:
+                type: string
+              buildingCodeName:
+                type: string
+              door:
+                type: string
+              doorCode:
+                type: string
+              doorCodeName:
+                type: string
+              stairway:
+                type: string
+              stairwayCode:
+                type: string
+              stairwayCodeName:
+                type: string
+              lat:
+                type: string
+              lng:
+                type: string
+              mapUrl:
+                type: string
+      event:
+        type: string
+        format: nullable
+      description:
+        type: string

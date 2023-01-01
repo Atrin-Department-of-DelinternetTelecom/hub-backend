@@ -1,0 +1,15 @@
+/technician/materials:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - "installation report"
+    operationId: "getMaterials"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    responses:
+      "200":
+        description: "OK"
+    x-swagger-router-controller: "InstallationReport"

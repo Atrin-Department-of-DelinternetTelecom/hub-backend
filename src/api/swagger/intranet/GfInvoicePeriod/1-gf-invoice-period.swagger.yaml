@@ -1,0 +1,257 @@
+/gfInvoicePeriods:
+  get:
+    tags:
+      - "gf-invoice-period"
+    summary: "get list of all gf invoice periods"
+    description: "get list of all invoice periods"
+    x-pagination: true
+    x-filter: true
+    operationId: "getGfInvoicePeriods"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    responses:
+      "200":
+        description: "OK"
+        headers: {}
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "links"
+            - "meta"
+          properties:
+            data:
+              type: "array"
+              uniqueItems: true
+              items:
+                $ref: "#/definitions/GfInvoicePeriod"
+              minItems: 1
+            links:
+              type: "object"
+              properties:
+                first:
+                  type: "string"
+                  minLength: 1
+                last:
+                  type: "string"
+                  minLength: 1
+                next:
+                  type: "string"
+                  minLength: 1
+                prev:
+                  type: "string"
+                  minLength: 1
+                self:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "first"
+                - "last"
+                - "next"
+                - "prev"
+                - "self"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                current_page:
+                  type: "number"
+                from:
+                  type: "number"
+                last_page:
+                  type: "number"
+                links:
+                  type: "array"
+                  uniqueItems: true
+                  items:
+                    type: "object"
+                    properties:
+                      active:
+                        type: "boolean"
+                      label:
+                        type: "string"
+                        minLength: 1
+                      url:
+                        type: "string"
+                        minLength: 1
+                    required:
+                      - "active"
+                      - "label"
+                      - "url"
+                  minItems: 1
+                path:
+                  type: "string"
+                  minLength: 1
+                per_page:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+                to:
+                  type: "number"
+                total:
+                  type: "number"
+              required:
+                - "code"
+                - "current_page"
+                - "from"
+                - "last_page"
+                - "links"
+                - "path"
+                - "per_page"
+                - "status"
+                - "to"
+                - "total"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                - createDate: "2019-08-24"
+                  dateOfBirth: "1997-10-31"
+                  email: "user@example.com"
+                  emailVerified: true
+                  firstName: "string"
+                  id: 0
+                  lastName: "string"
+              links:
+                first: "string"
+                last: "string"
+                next: "string"
+                prev: "string"
+                self: "string"
+              meta:
+                code: 0
+                current_page: 0
+                from: 0
+                last_page: 0
+                links:
+                  - active: true
+                    label: "string"
+                    url: "string"
+                path: "string"
+                per_page: 0
+                status: "string"
+                to: 0
+                total: 0
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfInvoicePeriod"
+  post:
+    tags:
+      - "gf-invoice-period"
+    summary: ""
+    description: "add a gfInvoicePeriod to system"
+    operationId: "postGfInvoicePeriods"
+    security:
+      - Bearer: [] 
+    parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          type: "object"       
+          required: 
+            - "period" 
+            - "emailSubject"    
+            - "fromName"
+            - "senderId"
+          properties: 
+            period:
+              type: "string"
+              example: "2021-04-29 01:47:27.0"
+            aireDesgloseDownloaded:
+              type: "string"
+              example: "pending" 
+            fixCdrExcel:
+              type: "string"
+              example: 'value' 
+            emailSubject:
+              type: "string"
+              example: 'del@delinternet.com' 
+            senderId:
+              type: number
+              example: 22
+            fromName:
+              type: "string"
+              example: "a name"
+            testMail:
+              type: "string"
+              example: "tested"
+            transitUnitPrice:
+              type: "string"
+              example: "12.2"
+            transportUnitPrice:
+              type: "string"
+              example: "12.2"
+            infraIpUnitPrice:
+              type: "string"
+              example: "12.2"
+            opexUnitPrice:
+              type: "string"
+              example: "12.2"
+            supportUnitPrice:
+              type: "string"
+              example: "12.2"
+            guifiRadioStructureUnitPrice:
+              type: "string"
+              example: "12.2"
+            liquidationDateInit:
+              type: "string"
+              example: "2021-04-29 01:47:27.0"
+            liquidationDateEnd:
+              type: "string"
+              example: "2021-04-29 01:47:27.0"            
+        description: ""
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/GfInvoicePeriod"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfInvoicePeriod"

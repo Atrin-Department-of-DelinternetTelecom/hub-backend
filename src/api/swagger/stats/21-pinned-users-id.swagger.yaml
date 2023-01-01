@@ -1,0 +1,46 @@
+/stats/pinned-users:
+  post:
+    tags:
+      - 'stats'
+    description: 'pin a user'
+    operationId: 'postPinUser'
+    security:
+      - Bearer: []
+    parameters:
+      - in: 'body'
+        name: 'body'
+        schema:
+          type: 'object'
+          properties:
+            table_name:
+              type: 'string'
+              description: 'name of ui table that user should pinned into'
+              enum:
+                - sellers
+                - installers
+                - incidences-per-user
+                - technicians
+
+            user_id:
+              type: 'number'
+              description: 'value of userId that you want to pin'
+              example: 1123
+          required:
+            - table_name
+            - user_id
+    responses:
+      '200':
+        description: 'OK'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'StatsPinUser'

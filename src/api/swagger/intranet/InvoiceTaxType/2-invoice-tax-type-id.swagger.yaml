@@ -1,0 +1,111 @@
+/invoice/taxtype/{id}:
+  get:
+    tags:
+      - "invoice-tax-type"
+    summary: "Your GET endpoint"
+    description: "get a invoice-tax-type record by id of table invoice-series"
+    operationId: "getInvoiceTaxTypeId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of invoice-tax-type table"
+        required: true
+        type: "number"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/InvoiceTaxType2"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "InvoiceTaxType"
+  put:
+    tags:
+      - "invoice-tax-type"
+    summary: ""
+    description: "update a invoice-tax-type by id"
+    operationId: "putInvoiceTaxTypeId"
+    security:
+      - Bearer: []  
+    parameters: 
+      - in: path
+        name: id
+        description: id of invoice_clients_contacts table
+        required: true
+        type: string
+      - in: body
+        name: body
+        schema:
+          $ref: '#/definitions/InvoiceTaxType1'
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/InvoiceSerie"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "InvoiceTaxType"

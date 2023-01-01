@@ -1,0 +1,52 @@
+definitions:
+  PackageStatus:
+    title: PackageStatus
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 21
+      matrixId:
+        type: integer
+        example: 13
+      clientId:
+        type: integer
+        example: 19097
+      userId:
+        type: integer
+        example: 2450
+      state:
+        type: string
+        example: 'pending'
+      status:
+        type: integer
+        example: 1
+      creationDate:
+        type: string
+        format: date-time
+        example: '2024-10-24T16:52:43.000Z'
+      updateDate:
+        type: string
+        format: date-time
+        example: '2024-10-24T16:52:43.000Z'
+      matrix:
+        type: object
+        properties:
+          id:
+            type: integer
+            example: 13
+          alias:
+            type: string
+            example: 'PACK FAMÍLIA'
+      client:
+        type: object
+        properties:
+          fiscalId:
+            type: string
+            example: '52608768V'
+          id:
+            type: integer
+            example: 19097
+          name:
+            type: string
+            example: 'Ursula Blanc Panisello'

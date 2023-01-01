@@ -1,0 +1,144 @@
+/crmUsers/{id}:
+  get:
+    tags:
+      - "crm-user"
+    summary: "Your GET endpoint"
+    description: "get crm user by id of crm"
+    operationId: "getCrmUsersId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters: 
+      - name: "id"
+        in: "path"
+        description: "id of crm user table"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/CrmUser"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "CrmUser"
+  put:
+    tags:
+      - "crm-user"
+    summary: "Your PUT endpoint"
+    description: "update crm user id of crm table"
+    operationId: "putCrmUsersId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters: 
+      - name: "id"
+        in: "path"
+        description: "id of crm user table"
+        required: true
+        type: "number"
+      - in: "body"
+        name: "body"
+        description: "update a crm user"
+        required: false
+        schema:
+          type: "object" 
+          properties: 
+            userId:
+              type: "number"
+              example: 12 
+            senderId:
+              type: "number"
+              example: 12 
+            email:
+              type: "string"
+              example: "ali@delinternet.com" 
+            name:
+              type: "string"
+              example: "ali" 
+            nickName:
+              type: "string"
+              example: "ali" 
+            image:
+              type: "string"
+              example: "test.png"
+            googleCalendarId:
+              type: "string"
+              example: "superAdmin"
+            color:
+              type: "string"
+              example: "red"
+            patern:
+              type: "string"
+              example: "this is pattern"
+            status:
+              type: "number"
+              example: 1    
+          description: ""  
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/CrmUser"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "CrmUser"
+  

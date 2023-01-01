@@ -1,0 +1,60 @@
+/gf-docs/transmit-upload-history:
+  post:
+    tags:
+      - 'gf-docs'
+    summary: 'Transmit upload history of AIRE contracts'
+    operationId: 'transmitUploadHistory'
+    deprecated: false
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+        headers: {}
+        schema:
+          type: 'object'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfDoc'
+/gf-docs/transmit-data-protection-document:
+  post:
+    tags:
+      - 'gf-docs'
+    summary: 'Transfer data protection documents to new database'
+    operationId: 'transmitDataProtectionDocuments'
+    deprecated: false
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+        headers: {}
+        schema:
+          type: 'object'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfDoc'

@@ -1,0 +1,34 @@
+/docs/{id}/html:
+  get:
+    tags:
+      - "docs"
+    summary: "Only for backend development purpose"
+    description: "Get the document HTML (Only for backend development purpose)"
+    operationId: "getHtml"
+    security:
+      - Token: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "string"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Document"

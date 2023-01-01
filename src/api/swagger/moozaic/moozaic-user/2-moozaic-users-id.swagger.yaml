@@ -1,0 +1,169 @@
+/moozaicUsers/{id}:
+  get:
+    tags:
+      - "moozaic-user"
+    summary: "Your GET endpoint"
+    description: "get a single moozaic user"
+    operationId: "getMoozaicUsersId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of table user"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/MoozaicUser"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                username: "thisisusername"
+                email: "mostafaebrahimi.me@gmail.com"
+                first_name: "Mostafa"
+                role: "admin"
+                last_name: "Ebrahimi"
+                password: "mostafa$$1"
+              meta:
+                code: 0
+                status: "string"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "MoozaicUser"
+  put:
+    tags:
+      - "moozaic-user"
+    summary: "Your PUT endpoint"
+    description: "update moozaic user by id"
+    operationId: "putMoozaicUsersId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of table user"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "update a moozaic user"
+        required: false
+        schema:
+          type: "object" 
+          properties: 
+            user:
+              type: "string"
+              example: "mammad" 
+            password:
+              type: "string"
+              example: "TPR" 
+            image:
+              type: "string"
+              example: "image.png" 
+            name:
+              type: "string"
+              example: 'ali' 
+            email:
+              type: "string"
+              example: "ali@delinternet.com"
+              minLength: 1
+            language:
+              type: "string"
+              example: "fa"
+              minLength: 1
+            admin:
+              type: "number"
+              example: 1
+            cronUser:
+              type: "number"
+              example: 1
+            stripe_id:
+              type: "number"
+              example: 1
+            status:
+              type: "number"
+              example: 1    
+          description: ""  
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/MoozaicUser"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                username: "thisisusername"
+                email: "mostafaebrahimi.me@gmail.com"
+                first_name: "Mostafa"
+                role: "admin"
+                last_name: "Ebrahimi"
+                password: "mostafa$$1"
+              meta:
+                code: 0
+                status: "string"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "MoozaicUser"  

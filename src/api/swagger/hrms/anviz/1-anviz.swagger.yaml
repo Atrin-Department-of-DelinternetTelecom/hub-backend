@@ -1,0 +1,224 @@
+/anvizes:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - "anviz"
+    summary: "Get list of all anviz devices"
+    description: "if we call this without id, we get all anvizes and if we call\
+      \ this with id we get single anviz related to id"
+    operationId: "getAnvizes"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters: []
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "links"
+            - "meta"
+          properties:
+            data:
+              type: "array"
+              uniqueItems: true
+              items:
+                $ref: "#/definitions/Anviz"
+              minItems: 1
+            links:
+              type: "object"
+              properties:
+                first:
+                  type: "string"
+                  minLength: 1
+                last:
+                  type: "string"
+                  minLength: 1
+                next:
+                  type: "string"
+                prev:
+                  type: "string"
+                self:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "first"
+                - "last"
+                - "self"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                current_page:
+                  type: "number"
+                from:
+                  type: "number"
+                last_page:
+                  type: "number"
+                links:
+                  type: "array"
+                  uniqueItems: true
+                  items:
+                    type: "object"
+                    properties:
+                      active:
+                        type: "boolean"
+                      label:
+                        type: "string"
+                        minLength: 1
+                      url:
+                        type: "string"
+                    required:
+                      - "active"
+                      - "label"
+                      - "url"
+                  minItems: 1
+                path:
+                  type: "string"
+                  minLength: 1
+                per_page:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+                to:
+                  type: "number"
+                total:
+                  type: "number"
+              required:
+                - "code"
+                - "current_page"
+                - "from"
+                - "last_page"
+                - "links"
+                - "path"
+                - "per_page"
+                - "status"
+                - "to"
+                - "total"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Anviz"
+  post:
+    tags:
+      - "anviz"
+    summary: ""
+    description: "save a post value"
+    operationId: "postAnvizesId"
+    security:
+      - Bearer: []
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    parameters:
+      - in: "body"
+        name: "body"
+        description: "parameter needed to save an anviz record"
+        required: false
+        schema:
+          type: "object"
+          properties:
+            ip:
+              type: "string"
+              example: "192.168.1.1"
+              minimum: 1  
+            location:
+              type: "string"
+              example: "23.234 16.92"
+              minimum: 1  
+            name:
+              type: "string"
+              example: "name of the anviz"
+              minLength: 1
+            password:
+              type: "string"
+              example: "password"
+              minLength: 1
+            port:
+              type: "number"
+              example: "3220"
+              minimum: 0
+            username:
+              type: "string"
+              example: "anviz1"
+              minLength: 1
+          description: ""
+          x-examples:
+            example-1:
+              device_id: 12
+              name: "this is an anviz"
+              password: "and this is pass"
+              port: 33
+              username: "this is user name"
+    responses:
+      "201":
+        description: "Created"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Anviz"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                created_at: "2021-04-27T13:04:51.000000Z"
+                device_id: 12
+                id: 12
+                name: "this is an anviz"
+                password: "and this is pass"
+                port: 33
+                updated_at: "2021-04-27T13:04:51.000000Z"
+                username: "this is user name"
+              meta:
+                code: 201
+                message: "Created"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Anviz"

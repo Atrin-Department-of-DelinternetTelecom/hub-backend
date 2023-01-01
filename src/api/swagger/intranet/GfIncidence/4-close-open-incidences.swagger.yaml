@@ -1,0 +1,65 @@
+/incidences/close-open-incidences/{userId}:
+  patch:
+    tags:
+      - 'gf-incidences'
+    summary: 'Your GET endpoint'
+    description: 'close open incidences with suspended contracts'
+    operationId: 'closeOpenIncidencesWithSuspendedContracts'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'userId'
+        in: 'path'
+        description: 'userId(creator) of gf_incidences table'
+        required: true
+        type: 'number'
+      - in: 'body'
+        name: 'body'
+        description: 'list of incidences that we dont want to close it'
+        required: false
+        schema:
+          type: 'object'
+          properties:
+            exceptedIds:
+              type: 'array'
+              items:
+                type: 'number'
+          description: ''
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfIncidence'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfIncidence'

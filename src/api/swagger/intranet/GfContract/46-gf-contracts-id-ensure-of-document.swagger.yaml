@@ -1,0 +1,34 @@
+/gf-contracts/{id}/ensure-of-document:
+  post:
+    tags:
+      - 'gf-contracts'
+    summary: ''
+    description: 'ensureOfDocument (this api is a helper for developers. do not use it in frontend)'
+    operationId: 'ensureOfDocument'
+    security:
+      - Bearer: []
+    produces:
+      - application/json
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+        description: id of contract
+
+    responses:
+      '200':
+        description: 'OK'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfContract'

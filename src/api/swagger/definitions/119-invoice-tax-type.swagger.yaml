@@ -1,0 +1,46 @@
+definitions:
+  InvoiceTaxType1:
+    type: object        
+    properties:
+      value:
+        type: number
+        example: -1.0
+      name:
+        type: string
+        example: ""
+      order:
+        type: number
+        example: -1    
+    description: ""
+    title: "invoice-tax-type-1"
+  InvoiceTaxType2:
+    type: object        
+    properties:
+      id:
+        type: number
+        example: 12
+      uid:
+        type: number
+        example: -1  
+      value:
+        type: number
+        example: -1.0
+      name:
+        type: string
+        example: ""
+      order:
+        type: number
+        example: -1
+      status:
+        type: integer
+        example: 0 
+      creationDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      updateDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1        
+    description: ""
+    title: "invoice-tax-type-2"

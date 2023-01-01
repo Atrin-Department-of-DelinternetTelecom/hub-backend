@@ -1,0 +1,41 @@
+definitions:
+  AireBonos:
+    type: object 
+    required: 
+     - id     
+    properties:
+      id:
+        type: string
+        example: V00132
+      nombre:
+        type: string
+        example: MOVILOCAL BONO LLAMADAS INTERNAS 
+      min:
+        type: string
+        example: 1000
+      pvp:
+        type: string
+        example: 2.5
+      descripcion:
+        type: boolean
+        example: false
+      auto_renovable:
+        type: string
+        example: S
+      tipo_bono:
+        type: string
+        example: VOZ
+      tarifa_basica:
+        type: boolean
+        example: false
+      tarifa_crea_basica:
+        type: boolean
+        example: false
+      tarifa_libre:
+        type: boolean
+        example: false
+      estado:
+        type: string
+        example: ON
+    description: ""
+    title: "aire-bonos"      

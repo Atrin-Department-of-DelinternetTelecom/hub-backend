@@ -1,0 +1,77 @@
+definitions:
+  CategoryPack:
+    type: "object"
+    required:
+      - "id"
+      - "section_id"
+      - "fee_group_id"
+      - "weight"
+      - "default"
+      - "creator_id"
+      - "deleted_at"
+      - "created_at"
+      - "updated_at"
+    properties:
+      id:
+        type: "number"
+        example: 12
+      section_id:
+        type: "number"
+        example: 41
+        minLength: 1
+      fee_group_id:
+        type: "number"
+        example: 23
+      weight:
+        type: "number"
+        example: 13
+      default:
+        type: "number"
+        example: 12
+      creator_id:
+        type: "number"
+        example: 23
+      created_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      deleted_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1      
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "CategoryPack"
+  NewCategoryPack:
+    type: "object"
+    required:
+      - "category_id"
+      - "pack_id"
+      - "weight"
+      - "type"
+      - "published"
+      - "default_definition"
+    properties:
+      category_id:
+        type: "number"
+        minLength: 1
+      pack_id:
+        type: "number"
+        minLength: 1
+      type:
+        type: "string"
+        minLength: 1 
+      weight:
+        type: "number"
+        minLength: 1 
+      published:
+        type: "number"
+        minLength: 1 
+      default_definition:
+        type: "number"
+        minLength: 1
+    description: ""
+    title: "CategoryPack"

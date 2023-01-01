@@ -1,0 +1,63 @@
+definitions:
+  Message:
+    type: "object"
+    required:
+      - "id"
+      - "from_user_id"
+      - "to_user_id"
+      - "text"
+      - "creator_id"
+      - "filter"
+      - "read"
+    properties:
+      createdAt:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      deletedAt:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      id:
+        type: "number"
+        example: 12
+      creator_id:
+        type: "number"
+        example: 23
+      text:
+        type: "string"
+        example: "some name"
+        minLength: 1
+      from_user_id:
+        type: "number"
+        example: 23
+      file_id:
+        type: "number"
+        example: 2    
+      to_user_id:
+        type: "number"
+        example: 24
+      read:
+        type: "boolean"
+        example: false
+      filter:
+        type: "number"
+        example: 13        
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "message"
+    x-examples:
+      example-1:
+        id: 5
+        from_user_id: 2
+        to_user_id: 4
+        creator_id: 2
+        filter: 13
+        text: "content of the message"
+        updated_at: "2021-04-27T17:19:12"
+        deleted_at: null
+        created_at: "2021-04-27T17:18:41"
+        

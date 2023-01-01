@@ -1,0 +1,226 @@
+/anvizes/addstaff:
+  post:
+    tags:
+      - "anviz"
+    summary: ""
+    security:
+      - Bearer: []
+    description: "add an staff to selected device"
+    operationId: "postAnvizesAddstaff"
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    parameters:
+      - in: "body"
+        name: "body"
+        description: "add a user to a device with hardware(staff and name) information"
+        required: false
+        schema:
+          type: "object"
+          required:
+            - "anviz_id"
+            - "name"
+            - "user_hardware_id"
+            - "user_id"
+          properties:
+            anviz_id:
+              type: "number"
+            name:
+              type: "string"
+              minLength: 1
+            user_hardware_id:
+              type: "number"
+            user_id:
+              type: "number"
+          description: ""
+          x-examples:
+            example-1:
+              anviz_id: 1010
+              name: "this is names"
+              user_hardware_id: 2338
+              user_id: 7
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              type: "object"
+              properties:
+                anviz:
+                  type: "object"
+                  properties:
+                    basic_setting:
+                      type: "object"
+                      properties: {}
+                    created_at:
+                      type: "string"
+                      minLength: 1
+                    creator:
+                      type: "object"
+                      properties:
+                        created_at:
+                          type: "string"
+                          minLength: 1
+                        email:
+                          type: "string"
+                          minLength: 1
+                        id:
+                          type: "number"
+                        name:
+                          type: "string"
+                          minLength: 1
+                        updated_at:
+                          type: "string"
+                          minLength: 1
+                      required:
+                        - "created_at"
+                        - "email"
+                        - "id"
+                        - "name"
+                        - "updated_at"
+                    device_id:
+                      type: "number"
+                    id:
+                      type: "number"
+                    ip:
+                      type: "string"
+                      minLength: 1
+                    is_enable:
+                      type: "number"
+                    location:
+                      type: "string"
+                      minLength: 1
+                    name:
+                      type: "string"
+                      minLength: 1
+                    password:
+                      type: "string"
+                      minLength: 1
+                    port:
+                      type: "number"
+                    timeout:
+                      type: "number"
+                    updated_at:
+                      type: "string"
+                      minLength: 1
+                    username:
+                      type: "string"
+                      minLength: 1
+                    uuid:
+                      type: "string"
+                      minLength: 1
+                  required:
+                    - "basic_setting"
+                    - "created_at"
+                    - "creator"
+                    - "device_id"
+                    - "id"
+                    - "ip"
+                    - "is_enable"
+                    - "location"
+                    - "name"
+                    - "password"
+                    - "port"
+                    - "timeout"
+                    - "updated_at"
+                    - "username"
+                    - "uuid"
+                created_at:
+                  type: "string"
+                  minLength: 1
+                creator_id:
+                  type: "object"
+                  properties:
+                    created_at:
+                      type: "string"
+                      minLength: 1
+                    email:
+                      type: "string"
+                      minLength: 1
+                    id:
+                      type: "number"
+                    name:
+                      type: "string"
+                      minLength: 1
+                    updated_at:
+                      type: "string"
+                      minLength: 1
+                  required:
+                    - "created_at"
+                    - "email"
+                    - "id"
+                    - "name"
+                    - "updated_at"
+                id:
+                  type: "number"
+                name:
+                  type: "string"
+                  minLength: 1
+                updated_at:
+                  type: "string"
+                  minLength: 1
+                user:
+                  type: "object"
+                  properties:
+                    created_at:
+                      type: "string"
+                      minLength: 1
+                    email:
+                      type: "string"
+                      minLength: 1
+                    id:
+                      type: "number"
+                    name:
+                      type: "string"
+                      minLength: 1
+                    updated_at:
+                      type: "string"
+                      minLength: 1
+                  required:
+                    - "created_at"
+                    - "email"
+                    - "id"
+                    - "name"
+                    - "updated_at"
+                user_hardware_id:
+                  type: "number"
+              required:
+                - "anviz"
+                - "created_at"
+                - "creator_id"
+                - "id"
+                - "name"
+                - "updated_at"
+                - "user"
+                - "user_hardware_id"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Anviz"

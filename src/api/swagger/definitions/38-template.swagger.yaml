@@ -1,0 +1,42 @@
+definitions:
+  Template:
+    type: "object"
+    required:
+      - "id"
+      - "name"
+      - "template_file_id"
+      - "metadata"
+      - "creator_id"
+      - "created_at"
+      - "updated_at"
+      - "deleted_at"
+    properties:
+      id:
+        type: "number"
+        example: 12
+      name:
+        type: "string"
+        example: "payroll"
+      template_file_id:
+        type: "number"
+        example: 23
+      metadata:
+        type: "string"
+        example: "{new_doc:'value'}"
+      creator_id:
+        type: "number"
+        example: 12
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1  
+      created_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      deleted_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "template"

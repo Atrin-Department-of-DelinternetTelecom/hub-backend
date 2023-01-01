@@ -1,0 +1,104 @@
+/timeRecords/setexit:
+  put:
+    tags:
+      - "time-record"
+    summary: ""
+    description: "set exit on selected time record"
+    operationId: "putTimeRecordsSetexit"
+    security:
+      - Bearer: []
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    parameters:
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          type: "object"
+          required:
+            - "timeRecord_id"
+          properties:
+            timeRecord_id:
+              type: "number"
+          description: ""
+          x-examples:
+            example-1:
+              timeRecord_id: 12
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/TimeRecord"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                anviz:
+                  created_at: "2021-04-27T11:00:55.000000Z"
+                  creator:
+                    created_at: "2021-04-27T11:00:54.000000Z"
+                    email: "marquardt.rossie@example.com"
+                    id: 8
+                    name: "Paige Ankunding"
+                    updated_at: "2021-04-27T11:00:54.000000Z"
+                  id: 8
+                  ip: "185.3.209.51"
+                  is_enable: 0
+                  location: "en_IE"
+                  name: "Hilma Williamson"
+                  port: 2377
+                  timeout: 12
+                  updated_at: "2021-04-27T11:00:55.000000Z"
+                  uuid: "baf08eaa-9a21-3dc8-a001-267f24ad44c3"
+                created_at: "2021-04-27T12:41:45.000000Z"
+                creator:
+                  created_at: "2021-04-27T11:00:54.000000Z"
+                  email: "anissa65@example.net"
+                  id: 5
+                  name: "Lesley Smitham"
+                  updated_at: "2021-04-27T11:00:54.000000Z"
+                enter: "2021-04-27 12:41:45"
+                exit: "2021-04-27 12:44:54"
+                id: 12
+                updated_at: "2021-04-27T12:44:54.000000Z"
+                user:
+                  created_at: "2021-04-27T11:00:53.000000Z"
+                  email: "brad.strosin@example.org"
+                  id: 3
+                  name: "Dr. Mustafa Rau I"
+                  updated_at: "2021-04-27T11:00:53.000000Z"
+              meta:
+                code: 200
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "TimeRecord"

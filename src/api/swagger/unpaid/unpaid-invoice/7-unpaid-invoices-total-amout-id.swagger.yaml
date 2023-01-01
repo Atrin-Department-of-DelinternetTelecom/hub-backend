@@ -1,0 +1,61 @@
+/unpaidInvoices/total-unpaid-amount/{id}:
+  get:
+    tags:
+      - "unpaid-invoice"
+    summary: "get total unpaid amount of an client id"
+    description: "get total unpaid amount of an client id"
+    operationId: "getUnpaidInvoicesTotalAmount"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of client"
+        required: true
+        type: "string"
+
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              type: "object"
+              properties:
+                total_unpaid_invoices:
+                  type: "number"
+                  description: "total unpaid invoices"
+                total_unpaid_invoices_amount:
+                  type: "number"
+                  description: "total unpaid invoices amount"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "UnpaidInvoice"

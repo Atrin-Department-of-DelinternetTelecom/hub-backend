@@ -1,0 +1,182 @@
+/invoice-payment-types/{id}:
+  get:
+    tags:
+      - "invoice-payment-types"
+    summary: "Your GET endpoint"
+    description: "get a invoice-payment-types record by id of table invoice-payment-types"
+    operationId: "getInvoicePaymentTypesId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of invoice-payment-types table"
+        required: true
+        type: "number"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/InvoicePaymentType"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "InvoicePaymentType"
+  put:
+    tags:
+      - "invoice-payment-types"
+    summary: ""
+    description: "update a invoice-payment-type by id"
+    operationId: "putInvoicePaymentTypesId"
+    security:
+      - Bearer: []  
+    parameters: 
+      - in: path
+        name: id
+        description: id of invoice_clients_contacts table
+        required: true
+        type: string
+      - in: formData
+        name: uid
+        type: number
+        required: true
+        default: -1
+        description: The tenancy id
+      - in: formData
+        name: name
+        type: string
+        required: true
+        description: The dispaly name of the payment type
+      - in: formData
+        name: type
+        type: string
+        required: true
+        description: The payment type flag  
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/InvoicePaymentType"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "InvoicePaymentType"
+  delete:
+    tags:
+      - "invoice-payment-types"
+    summary: ""
+    description: "delete a invoice-payment-type by id"
+    operationId: "deleteInvoicePaymentTypesId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of invoice-payment-type table"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: "Deleted"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "InvoicePaymentType"

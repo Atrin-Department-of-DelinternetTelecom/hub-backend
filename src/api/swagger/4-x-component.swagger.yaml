@@ -1,0 +1,155 @@
+x-components:
+  responses:
+    Internal-Server-Error:
+      content:
+        application/json:
+          examples:
+            example-1:
+              value:
+                meta:
+                  code: 500
+                  message: "internal server error"
+                  status: "failed"
+          schema:
+            description: ""
+            properties:
+              meta:
+                properties:
+                  code:
+                    type: "number"
+                  message:
+                    minLength: 1
+                    type: "string"
+                  status:
+                    minLength: 1
+                    type: "string"
+                required:
+                  - "code"
+                  - "status"
+                  - "message"
+                type: "object"
+            required:
+              - "meta"
+            type: "object"
+            x-examples:
+              example-1:
+                meta:
+                  code: 500
+                  message: "internal server error"
+                  status: "failed"
+      description: "Example response"
+    Unauthorized:
+      content:
+        application/json:
+          examples:
+            example-1:
+              value:
+                meta:
+                  code: 401
+                  message: "unauthorized"
+                  status: "failed"
+          schema:
+            description: ""
+            properties:
+              meta:
+                properties:
+                  code:
+                    default: 401
+                    type: "number"
+                  message:
+                    minLength: 1
+                    type: "string"
+                  status:
+                    minLength: 1
+                    type: "string"
+                required:
+                  - "code"
+                  - "status"
+                  - "message"
+                type: "object"
+            required:
+              - "meta"
+            type: "object"
+            x-examples:
+              example-1:
+                meta:
+                  code: 401
+                  message: "unauthorized"
+                  status: "failed"
+      description: "Example response"
+    delete:
+      content:
+        application/json:
+          examples:
+            example-1:
+              value:
+                meta:
+                  code: 200
+                  message: "Deleted"
+                  status: "success"
+          schema:
+            description: ""
+            properties:
+              meta:
+                properties:
+                  code:
+                    type: "number"
+                  message:
+                    minLength: 1
+                    type: "string"
+                  status:
+                    minLength: 1
+                    type: "string"
+                required:
+                  - "code"
+                  - "status"
+                  - "message"
+                type: "object"
+            required:
+              - "meta"
+            type: "object"
+            x-examples:
+              example-1:
+                meta:
+                  code: 200
+                  message: "Deleted"
+                  status: "success"
+      description: "Example response"
+    not-found:
+      content:
+        application/json:
+          examples:
+            example-1:
+              value:
+                meta:
+                  code: 404
+                  message: "not found"
+                  status: "failed"
+          schema:
+            description: ""
+            properties:
+              meta:
+                properties:
+                  code:
+                    type: "number"
+                  message:
+                    minLength: 1
+                    type: "string"
+                  status:
+                    minLength: 1
+                    type: "string"
+                required:
+                  - "code"
+                  - "status"
+                  - "message"
+                type: "object"
+            required:
+              - "meta"
+            type: "object"
+            x-examples:
+              example-1:
+                meta:
+                  code: 200
+                  message: "Deleted"
+                  status: "success"
+      description: "Example response"

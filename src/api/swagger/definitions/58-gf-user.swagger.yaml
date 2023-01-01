@@ -1,0 +1,66 @@
+definitions:
+  GfUser:
+    type: "object"
+    required:
+      - "id"
+      - "uid"
+      - "userId"
+      - "email"
+      - "name"
+      - "collaboratorId"
+      - "distributorId"
+      - "role"
+      - "providerId"
+      - "clientId"
+      - "status"
+      - "creationDate"
+      - "updateDate"
+      - "typeanalitic"
+    properties:
+      id:
+        type: "number"
+        example: 12
+      uid:
+        type: "number"
+        example: 12
+      userId:
+        type: "number"
+        example: 12
+      email:
+        type: "string"
+        example: "ali@gmail.com"
+      name:
+        type: "string"
+        example: "root"
+      collaboratorId:
+        type: "number"
+        example: 12
+      distributorId:
+        type: "number"
+        example: 12
+      role:
+        type: "string"
+        example: 12
+      providerId:
+        type: "number"
+        example: 12
+      clientId:
+        type: "number"
+        example: 12
+      status:
+        type: "number"
+        example: 12
+      creationDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1  
+      updateDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      typeanalitic:
+        type: "string"
+        example: "some text"
+        minLength: 1
+    description: ""
+    title: "gf_user"

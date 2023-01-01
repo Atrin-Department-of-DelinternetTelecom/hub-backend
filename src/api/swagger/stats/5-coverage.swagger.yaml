@@ -1,0 +1,40 @@
+/stats/coverage:
+  get:
+    tags:
+      - "stats"
+    summary: "Your GET endpoint"
+    x-pagination: true
+    x-filter: true
+    description: "get all coverage stats"
+    operationId: "getCoverageStats"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "service"
+        in: "query"
+        description: "type of internetTechnology"
+        required: true
+        type: string
+        enum:
+          - fibra
+          - radio
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "StatsCoverage"

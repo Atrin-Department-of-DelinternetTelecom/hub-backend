@@ -1,0 +1,58 @@
+/stats/clients/sepa-included:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - "stats"
+    operationId: "getClientsSepaStats"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          properties:
+            data:
+              type: "array"
+              items:
+                type: "object"
+                properties:
+                  id:
+                    type: "number"
+                  userId:
+                    type: "number"
+                  email:
+                    type: "string"
+                  name:
+                    type: "string"
+                  role:
+                    type: "string"
+                  status:
+                    type: "number"
+                  image:
+                    type: "string"
+                  total:
+                    type: "number"
+                    example: 120
+                  done_total:
+                    type: "number"
+                    example: 100
+                  pending_total:
+                    type: "number"
+                    example: 20
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "StatsDocuments"

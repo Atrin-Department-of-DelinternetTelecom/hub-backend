@@ -1,0 +1,121 @@
+/phone-otp/send:
+  post:
+    tags:
+      - "Phone OTP"
+    description: "send otp message to validate phone number"
+    operationId: "sendOTPMessage"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+
+    parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          required:
+            - "phone"
+          properties:
+            phone:
+              type: "string"
+
+    responses:
+      "200":
+        description: "OK"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "PhoneOtp"
+
+
+
+/phone-otp/info:
+  get:
+    tags:
+      - "Phone OTP"
+    description: "get otp info for the given phone number"
+    operationId: "info"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: phone
+        in: query
+        required: true
+        type: "string"
+
+    responses:
+      "200":
+        description: "OK"
+        schema: 
+          type: "object"
+          properties:
+            expireAt:
+              type: string
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "PhoneOtp"
+
+
+/phone-otp/verify:
+  post:
+    tags:
+      - "Phone OTP"
+    description: "verify the otp"
+    operationId: "verify"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          required:
+            - "phone"
+            - "code"
+          properties:
+            phone:
+              type: "string"
+            code:
+              type: "string"
+    responses:
+      "200":
+        description: "OK"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "PhoneOtp"

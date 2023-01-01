@@ -1,0 +1,113 @@
+/locations:
+  post:
+    tags:
+      - "location"
+    summary: ""
+    description: "insert new location"
+    operationId: "postLocations"
+    security:
+      - Bearer: []
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    parameters:
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          type: "object"
+          required:
+            - "location"
+            - "locationable_id"
+            - "locationable_type"
+          properties:
+            location:
+              type: "object"
+              properties:
+                lat:
+                  type: "number"
+                lng:
+                  type: "number"
+              required:
+                - "lat"
+                - "lng"
+            locationable_id:
+              type: "number"
+            locationable_type:
+              type: "string"
+              minLength: 1
+          description: ""
+          x-examples:
+            example-1:
+              location:
+                lat: 22.32000000000000028421709430404007434844970703125
+                lng: 11.7200000000000006394884621840901672840118408203125
+              locationable_id: 7
+              locationable_type: "vehicle"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Location"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                created_at: "2021-04-27T17:05:14.000000Z"
+                creator_id:
+                  created_at: "2021-04-27T11:00:54.000000Z"
+                  email: "marquardt.rossie@example.com"
+                  id: 8
+                  name: "Paige Ankunding"
+                  updated_at: "2021-04-27T11:00:54.000000Z"
+                id: 1
+                location:
+                  coordinates:
+                    - 11.7200000000000006394884621840901672840118408203125
+                    - 22.32000000000000028421709430404007434844970703125
+                  type: "Point"
+                locationable:
+                  info:
+                    "Aliquam eaque doloribus incidunt blanditiis in qui qui.\
+                    \ Nesciunt sequi facere quam et. Dolores sunt quos architecto\
+                    \ in enim corrupti cupiditate."
+                  created_at: "2021-04-27T11:01:08.000000Z"
+                  creator:
+                    created_at: "2021-04-27T11:00:53.000000Z"
+                    email: "conn.itzel@example.net"
+                    id: 2
+                    name: "Dr. Kayley Homenick MD"
+                    updated_at: "2021-04-27T11:00:53.000000Z"
+                  id: 7
+                  name: "Jackie Swaniawski DDS"
+                  number: "Ms. Kristin Kertzmann"
+                  plate: "Carolina Kuhic"
+                  updated_at: "2021-04-27T11:01:08.000000Z"
+                updated_at: "2021-04-27T17:05:14.000000Z"
+              meta:
+                code: 201
+                message: "Created"
+                status: "success"
+    x-swagger-router-controller: "Location"

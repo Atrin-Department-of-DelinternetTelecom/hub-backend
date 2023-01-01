@@ -1,0 +1,26 @@
+/docs/opero/{gfClientId}/{gfContractId}:
+  get:
+    tags:
+      - 'docs'
+    summary: 'get document for opero tasks'
+    description: 'get docs for opero'
+    operationId: 'getDocsForOpero'
+    parameters:
+      - in: path
+        name: gfClientId
+        required: true
+        type: number
+      - in: path
+        name: gfContractId
+        required: true
+        type: number
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: OK
+        schema:
+          type: object
+    x-swagger-router-controller: 'Document'

@@ -1,0 +1,290 @@
+/fingerprints/{id}:
+  get:
+    tags:
+      - "finger-print"
+    summary: "Your GET endpoint"
+    description: "get single finger print by id"
+    operationId: "getFingerprintsId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of finger print table"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Finger-print"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                anviz:
+                  basic_setting: {}
+                  created_at: "2021-04-27T18:11:17.000000Z"
+                  creator:
+                    created_at: "2021-04-27T18:11:16.000000Z"
+                    email: "alanis86@example.net"
+                    id: 8
+                    name: "Gage Batz"
+                    updated_at: "2021-04-27T18:11:16.000000Z"
+                  device_id: 1006
+                  id: 6
+                  ip: "64.162.57.244"
+                  is_enable: 0
+                  location: "en_PK"
+                  name: "Destiny O'Conner"
+                  password: "B26D9W8jDP"
+                  port: 2918
+                  timeout: 12
+                  updated_at: "2021-04-27T18:11:17.000000Z"
+                  username: "schiller.gabe"
+                  uuid: "60d8b229-183c-3d1c-b2cf-fb8931ce5133"
+                created_at: "2021-04-27T18:11:19.000000Z"
+                creator:
+                  created_at: "2021-04-27T18:11:16.000000Z"
+                  email: "yfisher@example.com"
+                  id: 5
+                  name: "Dr. Sheridan Ebert DDS"
+                  updated_at: "2021-04-27T18:11:16.000000Z"
+                finger: 2
+                fingerprint_template:
+                  "Omnis sunt perspiciatis sint. Ut molestiae\
+                  \ quam veritatis minus. Ut esse consequuntur officia culpa et.\
+                  \ Qui rerum maxime repellat optio magnam nobis molestiae."
+                hardware_name: "Prof. Jayme Nikolaus"
+                id: 3
+                updated_at: "2021-04-27T18:11:19.000000Z"
+                user:
+                  created_at: "2021-04-27T18:11:16.000000Z"
+                  email: "yfisher@example.com"
+                  id: 5
+                  name: "Dr. Sheridan Ebert DDS"
+                  updated_at: "2021-04-27T18:11:16.000000Z"
+              meta:
+                code: 200
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "FingerPrint"
+  put:
+    tags:
+      - "finger-print"
+    summary: ""
+    description: "update an finger print by id"
+    operationId: "putFingerprintsId"
+    security:
+      - Bearer: []
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of finger print table"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "for update existing record"
+        required: false
+        schema:
+          type: "object"
+          required:
+            - "finger"
+            - "fingerprint_template"
+            - "hardware_name"
+          properties:
+            finger:
+              type: "string"
+              minLength: 1
+            fingerprint_template:
+              type: "string"
+              minLength: 1
+            hardware_name:
+              type: "string"
+              minLength: 1
+          description: ""
+          x-examples:
+            example-1:
+              finger: "7"
+              fingerprint_template: "template was changed"
+              hardware_name: "this is new hardware name"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Finger-print"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                anviz:
+                  basic_setting: {}
+                  created_at: "2021-04-27T18:11:17.000000Z"
+                  creator:
+                    created_at: "2021-04-27T18:11:16.000000Z"
+                    email: "yfisher@example.com"
+                    id: 5
+                    name: "Dr. Sheridan Ebert DDS"
+                    updated_at: "2021-04-27T18:11:16.000000Z"
+                  device_id: 1003
+                  id: 3
+                  ip: "172.130.26.202"
+                  is_enable: 1
+                  location: "ml_IN"
+                  name: "Justen Davis"
+                  password: "kVFWFBXT17"
+                  port: 1094
+                  timeout: 12
+                  updated_at: "2021-04-27T18:11:17.000000Z"
+                  username: "dusty88"
+                  uuid: "05e6289c-da68-30e8-996a-ce0dc930e4ee"
+                created_at: "2021-05-05T11:24:53.000000Z"
+                creator:
+                  created_at: "2021-04-27T18:11:16.000000Z"
+                  email: "emil80@example.org"
+                  id: 7
+                  name: "Francisca Glover"
+                  updated_at: "2021-04-27T18:11:16.000000Z"
+                finger: 7
+                fingerprint_template: "template was changed"
+                hardware_name: "this is new hardware name"
+                id: 101
+                updated_at: "2021-05-05T11:37:37.000000Z"
+                user:
+                  created_at: "2021-04-27T18:11:16.000000Z"
+                  email: "morar.daisy@example.org"
+                  id: 3
+                  name: "Markus Lehner"
+                  updated_at: "2021-04-27T18:11:16.000000Z"
+              meta:
+                code: 200
+                message: "Updated"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "FingerPrint"
+  delete:
+    tags:
+      - "finger-print"
+    summary: ""
+    description: "delete a finger print by id"
+    operationId: "deleteFingerprintsId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of finger print table"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: "Deleted"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "FingerPrint"

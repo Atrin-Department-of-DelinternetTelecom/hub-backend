@@ -1,0 +1,37 @@
+definitions:
+  InvoiceClientsExtraFieldsCategory:
+    type: object
+    required:
+      - id
+      - uid
+      - name
+    properties:
+      id:
+        type: number
+        example: 12
+      uid:
+        type: number
+        example: -1
+      name:
+        type: string
+        example: 'category 1'
+      label:
+        type: object
+        properties:
+          en:
+            type: string
+          es:
+            type: string
+          ca:
+            type: string
+      active:
+        type: boolean
+        example: false
+      required:
+        type: boolean
+        example: false
+      multiple:
+        type: boolean
+        example: false
+    description: ''
+    title: 'invoice-clients-extra-fields-categories'

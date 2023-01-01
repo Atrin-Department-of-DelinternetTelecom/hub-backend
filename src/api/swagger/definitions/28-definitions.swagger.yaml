@@ -1,0 +1,103 @@
+definitions:
+  Definition:
+    type: "object"
+    required:
+      - "id"
+      - "alias"
+      - "pack_id"
+      - "weight"
+      - "default"
+      - "published"
+      - "products_hide"
+      - "features_hide"
+      - "class_list"
+      - "creator_id"
+      - "deleted_at"
+      - "created_at"
+      - "updated_at"
+    properties:
+      id:
+        type: "number"
+        example: 12
+      alias:
+        type: "string"
+        example: "some alias name"
+        minLength: 1
+      pack_id:
+        type: "number"
+        example: 49
+      weight:
+        type: "number"
+        example: 2
+      default:
+        type: "boolean"
+        example: false
+      published:
+        type: "boolean"
+        example: true
+      products_hide:
+        type: "boolean"
+        example: true
+      features_hide:
+        type: "boolean"
+        example: true
+      class_list:
+        type: "string"
+        example: "some valid class list"
+      creator_id:
+        type: "number"
+        example: 23
+      created_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      deleted_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1      
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "definition"
+  NewDefinition:
+    type: "object"
+    required:
+      - "alias"
+      - "pack_id"
+      - "weight"
+      - "default"
+      - "published"
+      - "products_hide"
+      - "features_hide"
+    properties:
+      alias:
+        type: "string"
+        example: "some alias name"
+        minLength: 1
+      pack_id:
+        type: "number"
+        example: 49
+      weight:
+        type: "number"
+        example: 2
+      default:
+        type: "boolean"
+        example: false
+      published:
+        type: "boolean"
+        example: true
+      products_hide:
+        type: "boolean"
+        example: true
+      features_hide:
+        type: "boolean"
+        example: true
+      home_page:
+        type: "boolean"
+      class_list:
+        type: "string"
+        example: "some valid class list"
+    description: ""
+    title: "new-definition"

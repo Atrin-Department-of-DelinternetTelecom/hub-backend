@@ -1,0 +1,242 @@
+/locationHistories/{id}:
+  get:
+    tags:
+      - "location-history"
+    summary: "Your GET endpoint"
+    description: "get location history recrod by id"
+    operationId: "getLocationHistoriesId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of a location history record"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Location-History"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                created_at: "2021-04-27T17:09:40.000000Z"
+                id: 1
+                route:
+                  coordinates:
+                    - - 54.13649863927700067733894684351980686187744140625
+                      - 27.674246663582000138603689265437424182891845703125
+                    - - 54.13676551907399669971709954552352428436279296875
+                      - 27.674246663582000138603689265437424182891845703125
+                    - - 54.13676551907399669971709954552352428436279296875
+                      - 27.674117205788999029891783720813691616058349609375
+                    - - 54.13649863927700067733894684351980686187744140625
+                      - 27.674117205788999029891783720813691616058349609375
+                    - - 54.13649863927700067733894684351980686187744140625
+                      - 27.674246663582000138603689265437424182891845703125
+                  type: "LineString"
+                routeable:
+                  info:
+                    "Occaecati exercitationem sed voluptate molestias consequatur\
+                    \ laborum praesentium velit. Ab voluptatem velit dignissimos\
+                    \ labore error. Provident qui itaque porro. Quia nostrum qui\
+                    \ eos."
+                  created_at: "2021-04-27T11:01:08.000000Z"
+                  creator:
+                    created_at: "2021-04-27T11:00:54.000000Z"
+                    email: "zola44@example.net"
+                    id: 7
+                    name: "Maxine Flatley"
+                    updated_at: "2021-04-27T11:00:54.000000Z"
+                  id: 5
+                  name: "Dr. Edison Rippin"
+                  number: "Brandon Terry Sr."
+                  plate: "Kaelyn Morar"
+                  updated_at: "2021-04-27T11:01:08.000000Z"
+                updated_at: "2021-04-27T17:10:44.000000Z"
+              meta:
+                code: 200
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "LocationHistory"
+  put:
+    tags:
+      - "location-history"
+    summary: ""
+    description: "update a location history record by "
+    operationId: "putLocationHistoriesId"
+    security:
+      - Bearer: []
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of a location history record"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: ""
+        required: false
+        schema:
+          type: "object"
+          required:
+            - "routeable_id"
+          properties:
+            routeable_id:
+              type: "number"
+          description: ""
+          x-examples:
+            example-1:
+              routeable_id: 5
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Location-History"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                created_at: "2021-04-27T17:09:40.000000Z"
+                id: 1
+                route:
+                  coordinates:
+                    - - 54.13649863927700067733894684351980686187744140625
+                      - 27.674246663582000138603689265437424182891845703125
+                    - - 54.13676551907399669971709954552352428436279296875
+                      - 27.674246663582000138603689265437424182891845703125
+                    - - 54.13676551907399669971709954552352428436279296875
+                      - 27.674117205788999029891783720813691616058349609375
+                    - - 54.13649863927700067733894684351980686187744140625
+                      - 27.674117205788999029891783720813691616058349609375
+                    - - 54.13649863927700067733894684351980686187744140625
+                      - 27.674246663582000138603689265437424182891845703125
+                  type: "LineString"
+                routeable:
+                  info:
+                    "Occaecati exercitationem sed voluptate molestias consequatur\
+                    \ laborum praesentium velit. Ab voluptatem velit dignissimos\
+                    \ labore error. Provident qui itaque porro. Quia nostrum qui\
+                    \ eos."
+                  created_at: "2021-04-27T11:01:08.000000Z"
+                  creator:
+                    created_at: "2021-04-27T11:00:54.000000Z"
+                    email: "zola44@example.net"
+                    id: 7
+                    name: "Maxine Flatley"
+                    updated_at: "2021-04-27T11:00:54.000000Z"
+                  id: 5
+                  name: "Dr. Edison Rippin"
+                  number: "Brandon Terry Sr."
+                  plate: "Kaelyn Morar"
+                  updated_at: "2021-04-27T11:01:08.000000Z"
+                updated_at: "2021-04-27T17:10:44.000000Z"
+              meta:
+                code: 200
+                message: "Updated"
+                status: "success"
+    x-swagger-router-controller: "LocationHistory"
+  delete:
+    tags:
+      - "location-history"
+    summary: ""
+    description: "delete location history by id"
+    operationId: "deleteLocationHistoriesId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of a location history record"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: "Deleted"
+                status: "success"
+    x-swagger-router-controller: "LocationHistory"

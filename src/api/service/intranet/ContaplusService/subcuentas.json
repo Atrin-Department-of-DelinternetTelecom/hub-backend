@@ -1,0 +1,434 @@
+{
+    "1": {
+        "pos": "1",
+        "fijo": "*",
+        "campo": "Cod",
+        "tipo": "C",
+        "lon": "12",
+        "de": "",
+        "descripcion": "C\u00f3digo de la subcuenta"
+    },
+    "2": {
+        "pos": "2",
+        "fijo": "*",
+        "campo": "T\u00edtulo",
+        "tipo": "C",
+        "lon": "40",
+        "de": "",
+        "descripcion": "Nombre de la subcuenta"
+    },
+    "3": {
+        "pos": "3",
+        "fijo": "*4",
+        "campo": "Nif",
+        "tipo": "C",
+        "lon": "15",
+        "de": "",
+        "descripcion": "NIF"
+    },
+    "4": {
+        "pos": "4",
+        "fijo": "",
+        "campo": "Domicilio",
+        "tipo": "C",
+        "lon": "35",
+        "de": "",
+        "descripcion": "Domicilio"
+    },
+    "5": {
+        "pos": "5",
+        "fijo": "",
+        "campo": "Poblaci\u00f3n",
+        "tipo": "C",
+        "lon": "25",
+        "de": "",
+        "descripcion": "Poblaci\u00f3n"
+    },
+    "6": {
+        "pos": "6",
+        "fijo": "",
+        "campo": "Provincia",
+        "tipo": "C",
+        "lon": "20",
+        "de": "",
+        "descripcion": "Provincia"
+    },
+    "7": {
+        "pos": "7",
+        "fijo": "",
+        "campo": "CodPostal",
+        "tipo": "C",
+        "lon": "5",
+        "de": "",
+        "descripcion": "C\u00f3digo Postal"
+    },
+    "8": {
+        "pos": "8",
+        "fijo": "",
+        "campo": "Divisa",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descripcion": "Subcuenta moneda extranjera"
+    },
+    "9": {
+        "pos": "9",
+        "fijo": "",
+        "campo": "Coddivisa",
+        "tipo": "C",
+        "lon": "5",
+        "de": "",
+        "descripcion": "C\u00f3digo divisa asociado"
+    },
+    "10": {
+        "pos": "10",
+        "fijo": "",
+        "campo": "Documento",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descripcion": "Uso obligatorio del documento"
+    },
+    "11": {
+        "pos": "11",
+        "fijo": "",
+        "campo": "Ajustame",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descripcion": "Ajustes M.E."
+    },
+    "12": {
+        "pos": "12",
+        "fijo": "**",
+        "campo": "TipoIVA",
+        "tipo": "C",
+        "lon": "1",
+        "de": "",
+        "descripcion": "Tipo de IVA de la subcuenta (*3)"
+    },
+    "13": {
+        "pos": "13",
+        "fijo": "",
+        "campo": "Proye",
+        "tipo": "C",
+        "lon": "9",
+        "de": "",
+        "descripcion": "Proyecto"
+    },
+    "14": {
+        "pos": "14",
+        "fijo": "**",
+        "campo": "SubEquiv",
+        "tipo": "C",
+        "lon": "12",
+        "de": "",
+        "descripcion": "Subcuenta de recargo equivalencia"
+    },
+    "15": {
+        "pos": "15",
+        "fijo": "",
+        "campo": "Subcierre",
+        "tipo": "C",
+        "lon": "12",
+        "de": "",
+        "descripcion": "Subcuenta cierre 8-9"
+    },
+    "16": {
+        "pos": "16",
+        "fijo": "",
+        "campo": "LInterrump",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descripcion": "Operaciones interrumpidas"
+    },
+    "17": {
+        "pos": "17",
+        "fijo": "",
+        "campo": "Segmento",
+        "tipo": "C",
+        "lon": "12",
+        "de": "",
+        "descripcion": "Segmento asociado"
+    },
+    "18": {
+        "pos": "18",
+        "fijo": "**",
+        "campo": "TPC",
+        "tipo": "N",
+        "lon": "5",
+        "de": "2",
+        "descripcion": "Porcentaje de IVA"
+    },
+    "19": {
+        "pos": "19",
+        "fijo": "**",
+        "campo": "RecEquiv",
+        "tipo": "N",
+        "lon": "5",
+        "de": "2",
+        "descripcion": "Porcentaje de recargo de equivalencia"
+    },
+    "20": {
+        "pos": "20",
+        "fijo": "",
+        "campo": "Fax01",
+        "tipo": "C",
+        "lon": "15",
+        "de": "",
+        "descripcion": "Fax"
+    },
+    "21": {
+        "pos": "21",
+        "fijo": "",
+        "campo": "Email",
+        "tipo": "C",
+        "lon": "50",
+        "de": "",
+        "descripcion": "Direcci\u00f3n de correo electr\u00f3nico"
+    },
+    "22": {
+        "pos": "22",
+        "fijo": "",
+        "campo": "TituloL",
+        "tipo": "C",
+        "lon": "100",
+        "de": "",
+        "descripcion": "Descripci\u00f3n larga de la subcuenta"
+    },
+    "23": {
+        "pos": "23",
+        "fijo": "*4",
+        "campo": "IdNif",
+        "tipo": "N",
+        "lon": "1",
+        "de": "",
+        "descripcion": "Clave de Identificaci\u00f3n del tercero (*6)"
+    },
+    "24": {
+        "pos": "24",
+        "fijo": "*4",
+        "campo": "CodPais",
+        "tipo": "C",
+        "lon": "2",
+        "de": "",
+        "descripcion": "C\u00f3digo ISO (2 d\u00edgitos) del Pa\u00eds."
+    },
+    "25": {
+        "pos": "25",
+        "fijo": "",
+        "campo": "Rep14NIF",
+        "tipo": "C",
+        "lon": "9",
+        "de": "",
+        "descripcion": "NIF del representante legal para menores de 14 a\u00f1os"
+    },
+    "26": {
+        "pos": "26",
+        "fijo": "",
+        "campo": "Rep14Nom",
+        "tipo": "C",
+        "lon": "40",
+        "de": "",
+        "descripcion": "Nombre del representante legal para menores de 14 a\u00f1os."
+    },
+    "27": {
+        "pos": "27",
+        "fijo": "",
+        "campo": "MetCobro",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descripcion": "Subcuenta con cobro en met\u00e1lico"
+    },
+    "28": {
+        "pos": "28",
+        "fijo": "",
+        "campo": "MetCobFre",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descripcion": "Subcuenta con cobro en met\u00e1lico frecuente."
+    },
+    "29": {
+        "pos": "29",
+        "fijo": "",
+        "campo": "Suplido",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descripcion": "Subcuenta de suplido"
+    },
+    "30": {
+        "pos": "30",
+        "fijo": "",
+        "campo": "Provision",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descripcion": "Subcuenta de provisi\u00f3n"
+    },
+    "31": {
+        "pos": "31",
+        "fijo": "",
+        "campo": "lEsIRPF",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descripcion": "Subcuenta de IRPF"
+    },
+    "32": {
+        "pos": "32",
+        "fijo": "",
+        "campo": "nIRPF",
+        "tipo": "N",
+        "lon": "5",
+        "de": "2",
+        "descripcion": "% IRPF"
+    },
+    "33": {
+        "pos": "33",
+        "fijo": "",
+        "campo": "nClaveIRPF",
+        "tipo": "N",
+        "lon": "2",
+        "de": "",
+        "descripcion": "Clave IRPF (*7)"
+    },
+    "34": {
+        "pos": "34",
+        "fijo": "",
+        "campo": "lEsMod130",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descripcion": "Retenci\u00f3n para el modelo 130"
+    },
+    "35": {
+        "pos": "35",
+        "fijo": "",
+        "campo": "lDeducible",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descripcion": "Deducible\/computable para el 130"
+    },
+    "36": {
+        "pos": "36",
+        "fijo": "",
+        "campo": "lCritCaja",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descripcion": "Es Criterio de caja"
+    },
+    "37": {
+        "pos": "37",
+        "fijo": "",
+        "campo": "cSubivaas",
+        "tipo": "c",
+        "lon": "12",
+        "de": "",
+        "descripcion": "C\u00f3digo subcuenta IVA asociada criterio caja"
+    },
+    "38": {
+        "pos": "38",
+        "fijo": "",
+        "campo": "lPefectivo",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descripcion": "Control pagos en efectivo"
+    },
+    "39": {
+        "pos": "39",
+        "fijo": "",
+        "campo": "lIngGasto",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descripcion": "Subcuenta con tipo ingreso\/gasto (Naturaleza ingreso\/gasto del PGC)"
+    },
+    "40": {
+        "pos": "40",
+        "fijo": "*5",
+        "campo": "nTipoIG",
+        "tipo": "N",
+        "lon": "2",
+        "de": "",
+        "descripcion": "Tipo ingreso\/gasto (*8 o *9)"
+    },
+    "41": {
+        "pos": "41",
+        "fijo": "",
+        "campo": "medioCrit",
+        "tipo": "C",
+        "lon": "1",
+        "de": "",
+        "descripcion": "Medio de cobro\/pago criterio de caja (*11)"
+    },
+    "42": {
+        "pos": "42",
+        "fijo": "",
+        "campo": "SubCtaCon",
+        "tipo": "C",
+        "lon": "12",
+        "de": "",
+        "descripcion": "Subcuenta contrapartida en asientos"
+    },
+    "43": {
+        "pos": "43",
+        "fijo": "",
+        "campo": "nTipoExist",
+        "tipo": "N",
+        "lon": "2",
+        "de": "",
+        "descripcion": "Tipo regularizaci\u00f3n existencias (*12)"
+    },
+    "44": {
+        "pos": "44",
+        "fijo": "",
+        "campo": "SubCtaVar",
+        "tipo": "C",
+        "lon": "12",
+        "de": "",
+        "descripcion": "Subcuenta de variaci\u00f3n de existencias"
+    },
+    "45": {
+        "pos": "45",
+        "fijo": "",
+        "campo": "lMod140",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descripcion": "Gestiona modelo 140 (Modelo 140 Vizcaya)"
+    },
+    "46": {
+        "pos": "46",
+        "fijo": "",
+        "campo": "lIRPF140",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descripcion": "Subcuenta que gestiona cobros\/pagos IRPF modelo 140 (Modelo 140 Vizcaya)"
+    },
+    "47": {
+        "pos": "47",
+        "fijo": "",
+        "campo": "SctaBanco",
+        "tipo": "C",
+        "lon": "12",
+        "de": "",
+        "descripcion": "Subcuenta de banco"
+    },
+    "48": {
+        "pos": "48",
+        "fijo": "",
+        "campo": "CCodMun",
+        "tipo": "C",
+        "lon": "5",
+        "de": "",
+        "descripcion": "C\u00f3digo de municipio"
+    }
+}

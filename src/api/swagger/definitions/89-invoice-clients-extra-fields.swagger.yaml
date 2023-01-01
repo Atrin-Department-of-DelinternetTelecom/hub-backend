@@ -1,0 +1,35 @@
+definitions:
+  InvoiceClientsExtraField:
+    type: object
+    required:
+      - id
+      - uid
+      - name
+      - categoryId
+    properties:
+      id:
+        type: integer
+        example: 12
+      uid:
+        type: integer
+        example: -1
+      name:
+        type: string
+        example: 'category 1'
+      explain:
+        type: string
+        example: 'category 1'
+      label:
+        type: object
+        properties:
+          en:
+            type: string
+          es:
+            type: string
+          ca:
+            type: string
+      categoryId:
+        type: integer
+        example: 1
+    description: ''
+    title: 'invoice-clients-extra-fields'

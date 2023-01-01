@@ -1,0 +1,40 @@
+definitions:
+  Cdr:
+    title: Contract CDR
+    type: object
+    properties:
+      id:
+        type: number
+      date:
+        type: string
+        example: 2023-02-01
+      type:
+        type: string
+        example: RI
+      status:
+        type: number
+        example: 1
+      amount:
+        type: number
+        example: 90
+      fromNumber:
+        type: number
+        example: 90
+      toNumber:
+        type: number
+        example: 90
+      cost:
+        type: number
+        example: 90
+      datetime:
+        type: string
+        example: 2023-02-01
+      uid:
+        type: number
+        example: 90
+      creationDate:
+        type: string
+        example: 2023-02-01
+      updateDate:
+        type: string
+        example: 2023-02-01

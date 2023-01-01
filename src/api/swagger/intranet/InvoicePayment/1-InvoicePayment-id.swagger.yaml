@@ -1,0 +1,236 @@
+/invoice/payment/{id}:
+  get:
+    tags:
+      - 'invoice-payment'
+    summary: 'Your GET endpoint'
+    description: 'get a single invoice payment'
+    operationId: 'getInvoicePaymentId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table invoice-payment'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/InvoicePayment2'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'status'
+          description: ''
+          x-examples:
+            example-1:
+              data:
+                username: 'thisisusername'
+                email: 'mostafaebrahimi.me@gmail.com'
+                first_name: 'Mostafa'
+                role: 'admin'
+                last_name: 'Ebrahimi'
+                password: 'mostafa$$1'
+              meta:
+                code: 0
+                status: 'string'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'InvoicePayment'
+  put:
+    tags:
+      - 'invoice-payment'
+    summary: 'update a single invoice payment'
+    description: 'update a single invoice payment'
+    operationId: 'updateInvoicePayment'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table invoice-payment'
+        required: true
+        type: 'string'
+      - in: 'body'
+        name: 'body'
+        required: true
+        schema:
+          type: object
+          required:
+            - state
+            - quantity
+            - visible
+          properties:
+            pack:
+              type: 'string'
+              example: ''
+            remitanceId:
+              type:
+                - 'integer'
+                - 'null'
+              example: -1
+            trace:
+              type: 'string'
+              example: ''
+            invoiceId:
+              type:
+                - 'integer'
+                - 'null'
+              example: -1
+            shopId:
+              type: 'integer'
+              example: 22
+            invoiceLineId:
+              type:
+                - 'integer'
+                - 'null'
+              example: -1
+            state:
+              type:
+                - 'string'
+              example: 'due| paid| shiped| canceled| refunded'
+              enum: ['due', 'paid', 'shiped', 'canceled', 'refunded']
+            visible:
+              type: 'integer'
+              example: 0
+            quantity:
+              type: 'string'
+              example: 0
+            paymentType:
+              type:
+                - 'integer'
+                - 'null'
+              example: -1
+            dueDate:
+              type: 'string'
+              example: '2022-04-01'
+            efectiveDate:
+              type: 'string'
+              example: '2022-04-01'
+            code:
+              type: 'string'
+              example: ''
+          description: ''
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/InvoicePayment2'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'InvoicePayment'
+  delete:
+    tags:
+      - 'invoice-payment'
+    summary: ''
+    description: 'delete Invoice payment info by id'
+    operationId: 'deleteInvoicePayment'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table invoice-payment'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'Example response'
+        schema:
+          type: 'object'
+          required:
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: 'Deleted'
+                status: 'success'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'InvoicePayment'

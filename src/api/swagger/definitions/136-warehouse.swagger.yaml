@@ -1,0 +1,24 @@
+definitions:
+  Warehouse:
+    type: object
+    required:
+      - id
+      - uid
+      - name
+      - status
+    properties:
+      id:
+        type: number
+        example: 12
+      uid:
+        type: number
+        example: 12
+      name:
+        type: string
+        example: root
+      status:
+        type: number
+        example: 1
+
+    description: ''
+    title: Warehouse

@@ -1,0 +1,20 @@
+definitions:
+  Backup:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 12
+      file_name:
+        type: string
+      type:
+        type: string
+      size:
+        type: integer
+        example: 12000
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        type: string
+        format: date-time

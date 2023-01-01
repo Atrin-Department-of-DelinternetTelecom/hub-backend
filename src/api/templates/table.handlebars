@@ -1,0 +1,83 @@
+<head>
+  <style>
+    table {
+      width: 100%;
+      -webkit-print-color-adjust: exact;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid lightgrey;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    th,
+    td {
+      padding: 2px 4px;
+    }
+
+    th {
+      background-color: #04AA6D;
+      color: white;
+    }
+
+    tr:nth-child(2n+2) {
+      background-color: #f2f2f2 !important;
+    }
+  </style>
+</head>
+
+<h3>{{modelName}}</h3>
+<div>
+  <!-- The script element is used to define the Handlebars template -->
+  {{!--
+  <script type="text/x-handlebars-template" id="tableTemplate"> --}}
+<table>
+<thead>
+  <tr>
+    {{#each array.[0]}}
+      <th>{{@key}}</th>
+    {{/each}}
+  </tr>
+</thead>
+<tbody>
+  {{#each array}}
+    <tr>
+    	{{#each this}}
+        <td>{{this}}</td>
+      {{/each}}
+    </tr>
+  {{/each}}
+</tbody>
+</table>
+{{!-- </script> --}}
+</div>
+
+<!-- The script element is used to define the Handlebars template -->
+<script type="text/x-handlebars-template" id="tableTemplate">
+<table>
+<thead>
+  <tr>
+    {{#each array.[0]}}
+      <th>{{@key}}</th>
+    {{/each}}
+  </tr>
+</thead>
+<tbody>
+  {{#each array}}
+    <tr>
+    	{{#each this}}
+        <td>{{this}}</td>
+      {{/each}}
+    </tr>
+  {{/each}}
+</tbody>
+</table>
+</script>
+
+<div style="position: absolute;bottom: 5px;">
+  Read about this Fiddle at: <a href="http://jsdev.wikidot.com/howto:12" target="_blank">How To: Handlebars - Create
+    Table element</a>
+</div>

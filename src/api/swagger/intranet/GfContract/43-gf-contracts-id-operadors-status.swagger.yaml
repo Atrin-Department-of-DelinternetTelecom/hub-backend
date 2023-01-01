@@ -1,0 +1,89 @@
+/gf-contracts/{id}/operadors/inbounds/status:
+  get:
+    tags:
+      - 'gf-contracts'
+    summary: ''
+    description: 'get status of a inbounds portability of a contract from  operadors'
+    operationId: 'getOperadorsStatus'
+    security:
+      - Bearer: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+        description: Id of gf-contracts table
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              type: 'object'
+              properties:
+                id: { type: 'integer' }
+                operatorClient: { type: 'string' }
+                endClient: { type: 'string' }
+                taxIdentificationNumber: { type: 'string' }
+                province: { type: 'string' }
+                municipality: { type: 'string' }
+                postalCode: { type: 'string' }
+                address: { type: 'string' }
+                processType: { type: 'string' }
+                accessType: { type: 'string' }
+                wholesaleAccess: { type: 'string' }
+                wholesaleAdministrativeNumber: { type: 'string' }
+                wholesaleIdentifierNumber: { type: 'string' }
+                observations: { type: 'string' }
+                processNumber: { type: 'string' }
+                orderNumber: { type: 'string' }
+                requestDate: { type: 'string' }
+                preferredChangeWindow: { type: 'string' }
+                changeWindowStart: { type: 'string' }
+                donatingOperator: { type: 'string' }
+                donatingResellingOperator: { type: 'string' }
+                routingSet: { type: 'string' }
+                tariffPlan: { type: 'string' }
+                tariffProfileGroupName: { type: 'string' }
+                status: { type: 'string' }
+                cancellationReason: { type: 'string' }
+                previousStatus: { type: 'string' }
+                completedOnDate: { type: 'string' }
+                numbers: { type: 'string' }
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfContract'

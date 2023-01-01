@@ -1,0 +1,319 @@
+/gf-contracts:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - 'gf-contracts'
+    summary: 'get list of gf-contracts'
+    description: 'get list of all gf-contracts'
+    operationId: 'getGfContracts'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'percentageDiscount'
+        in: 'query'
+        description: 'percentageDiscount'
+        required: false
+        type: 'number'
+        format: 'double'
+    responses:
+      '200':
+        description: 'OK'
+        headers: {}
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'links'
+            - 'meta'
+          properties:
+            data:
+              type: 'array'
+              uniqueItems: true
+              items:
+                $ref: '#/definitions/GfContract'
+              minItems: 1
+            links:
+              type: 'object'
+              properties:
+                first:
+                  type: 'string'
+                  minLength: 1
+                last:
+                  type: 'string'
+                  minLength: 1
+                next:
+                  type: 'string'
+                  minLength: 1
+                prev:
+                  type: 'string'
+                  minLength: 1
+                self:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'first'
+                - 'last'
+                - 'next'
+                - 'prev'
+                - 'self'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                current_page:
+                  type: 'number'
+                from:
+                  type: 'number'
+                last_page:
+                  type: 'number'
+                links:
+                  type: 'array'
+                  uniqueItems: true
+                  items:
+                    type: 'object'
+                    properties:
+                      active:
+                        type: 'boolean'
+                      label:
+                        type: 'string'
+                        minLength: 1
+                      url:
+                        type: 'string'
+                        minLength: 1
+                    required:
+                      - 'active'
+                      - 'label'
+                      - 'url'
+                  minItems: 1
+                path:
+                  type: 'string'
+                  minLength: 1
+                per_page:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+                to:
+                  type: 'number'
+                total:
+                  type: 'number'
+              required:
+                - 'code'
+                - 'current_page'
+                - 'from'
+                - 'last_page'
+                - 'links'
+                - 'path'
+                - 'per_page'
+                - 'status'
+                - 'to'
+                - 'total'
+          description: ''
+          x-examples:
+            example-1:
+              data:
+                - createDate: '2019-08-24'
+                  dateOfBirth: '1997-10-31'
+                  email: 'user@example.com'
+                  emailVerified: true
+                  firstName: 'string'
+                  id: 0
+                  lastName: 'string'
+              links:
+                first: 'string'
+                last: 'string'
+                next: 'string'
+                prev: 'string'
+                self: 'string'
+              meta:
+                code: 0
+                current_page: 0
+                from: 0
+                last_page: 0
+                links:
+                  - active: true
+                    label: 'string'
+                    url: 'string'
+                path: 'string'
+                per_page: 0
+                status: 'string'
+                to: 0
+                total: 0
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfContract'
+  post:
+    tags:
+      - 'gf-contracts'
+    summary: ''
+    description: 'add a gf-contract to system'
+    operationId: 'postGfContracts'
+    security:
+      - Bearer: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - in: body
+        name: body
+        schema:
+          type: object
+          required:
+            - clientId
+            - feeGroupId
+          properties:
+            uid:
+              type: number
+              default: 90
+            clientId:
+              type: number
+              default: 22
+            feeGroupId:
+              type: number
+            alias:
+              type: string
+            payDay:
+              type: number
+              default: 1
+            invoiceMonths:
+              type: number
+              default: 1001
+            percentageDiscount:
+              type: number
+              format: double
+              default: 0
+            invoiceProfileId:
+              type: number
+              default: 0
+            dateActivation:
+              type: string
+              default: '2022-02-22'
+            dateDeactivation:
+              type: string
+              default: '2022-02-22'
+            comments:
+              type: string
+              default: Enter small description
+            sellerId:
+              type: number
+            permanence:
+              type: number
+            permanenceEnd:
+              type: string
+              default: '2022-02-22'
+            permanencePvp:
+              type: number
+              format: double
+            tags:
+              type: array
+              default:
+                - { id: 1, comment: '' }
+              items:
+                type: object
+                properties:
+                  id:
+                    type: number
+                  comment:
+                    type: string
+            initialFee:
+              type: object
+              properties:
+                initial_fee_id:
+                  type: number
+                  example: 1
+                start_date:
+                  type: string
+                end_date:
+                  type: string
+                installments:
+                  type: number
+                  example: 1
+                discount:
+                  type: number
+                  format: decimal
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfContract'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfContract'
+
+/gf-contracts/{contractId}/save-cpe-sn:
+  post:
+    tags:
+      - 'gf-contracts'
+    summary: 'save cpe serial number by contract id'
+    description: 'save router cpe sn'
+    operationId: 'saveCpeSnByContractId'
+    parameters:
+      - in: path
+        name: contractId
+        required: true
+        type: number
+      - in: body
+        name: body
+        required: true
+        schema:
+          type: object
+          properties:
+            cpeSn:
+              type: string
+          required:
+            - cpeSn
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+    x-swagger-router-controller: 'GfContract'

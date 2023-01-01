@@ -1,0 +1,173 @@
+/gf-contract-data-fix/{id}:
+  get:
+    tags:
+      - 'gf-contract-data-fix'
+    summary: 'Your GET endpoint'
+    description: 'get a single contract'
+    operationId: 'getGfContractDataFixsId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table contract'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfContractDataFix'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'status'
+          description: ''
+          x-examples:
+            example-1:
+              data:
+                username: 'thisisusername'
+                email: 'mostafaebrahimi.me@gmail.com'
+                first_name: 'Mostafa'
+                role: 'admin'
+                last_name: 'Ebrahimi'
+                password: 'mostafa$$1'
+              meta:
+                code: 0
+                status: 'string'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfContractDataFix'
+  put:
+    tags:
+      - 'gf-contract-data-fix'
+    summary: ''
+    description: 'update a gf-contract-data-fix by id'
+    operationId: 'putGfContractDataFixsId'
+    security:
+      - Bearer: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+        description: Id of gf-contract-data-fix table
+      - in: body
+        name: body
+        schema:
+          type: object
+          required:
+            - internetSectionId
+            - type
+            - number
+          properties:
+            internetSectionId:
+              type: integer
+              default: 1
+            technician_id:
+              type: integer
+              default: 1
+            directIp:
+              type: string
+              example: '192.168.1.1'
+            type:
+              type: string
+              example: 'particular'
+            idTpv:
+              type: string
+              example: ''
+            portability:
+              type: integer
+              example: '0'
+            number:
+              type: string
+              example: '977451209'
+            giverOperator:
+              type: integer
+              example: 0
+            extension:
+              type: string
+              example: ''
+            password:
+              type: string
+              example: ''
+            description:
+              type: string
+              example: ''
+            autoExecuteDate:
+              type: string
+              example: '2021-04-29 01:47:27.0'
+            aireExecuteDate:
+              type: string
+              example: '2021-04-29 01:47:27.0'
+            haveTeleassistance:
+              type: integer
+              example: ''
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfContractDataFix'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfContractDataFix'

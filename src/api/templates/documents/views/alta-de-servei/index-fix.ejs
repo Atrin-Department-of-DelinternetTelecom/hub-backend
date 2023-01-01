@@ -1,0 +1,64 @@
+<% contract_type = 'Prestació de servei de telefonia fixa' %>
+<div class="d-flex flex-column page"> 
+    <%- include('../components/header') %>
+    <%- include('../components/personal_info') %> 
+    <div class="d-flex flex-column px-2 pb-2">
+        <h2>Servei Contractat</h2>
+        <div class="d-flex flex-wrap">
+            <div class="d-flex flex-column mb-1/5 w-100">
+                <label class="text-gray uppercase">Tarifa</label>
+                <p><%= fee_name %></p>
+            </div>
+            <div class="d-flex flex-column mb-1/5 w-75">
+                <label class="text-gray uppercase">Adreça d'instal·lació</label>
+                <p><%= installation_address %></p>
+            </div>
+            <div class="d-flex flex-column mb-1/5 w-25">
+                <label class="text-gray uppercase">Codi Postal</label>
+                <p><%= installation_CP %></p>
+            </div>
+            <div class="d-flex flex-column mb-1/5 w-75">
+                <label class="text-gray uppercase">Localitat</label>
+                <p><%= installation_city %></p>
+            </div>
+            <div class="d-flex flex-column mb-1/5 w-25">
+                <label class="text-gray uppercase">Provincia</label>
+                <p><%= installation_region %></p>
+            </div> 
+            <div class="d-flex w-1/3">
+                <div class="d-flex flex-column">
+                    <label class="text-gray uppercase">Portabilitat</label>
+                    <div class="d-flex align-center">
+                        <%- include(`../components/${fix_portability ? 'tick' : 'close'}`) %> 
+                        <p class="px-1/2">del número de telèfon</p>
+                    </div>
+                </div>  
+            </div> 
+            <div class="d-flex flex-column w-1/3">
+                <div class="d-flex flex-column">
+                    <label class="text-gray uppercase">Numeració nova</label>
+                    <div class="d-flex align-center">
+                        <%- include(`../components/${! fix_portability ? 'tick' : 'close'}`) %> 
+                        <p class="px-1/2">del número de telèfon</p>
+                    </div> 
+                </div>
+            </div> 
+            <div class="d-flex flex-column mb-1/5 w-1/3">
+                <label class="text-gray uppercase">Número de fix</label>
+                <p><%= fix_number %></p>
+            </div>
+            <div class="box_gran w-100">
+                <label class="text-gray uppercase">Característiques</label>
+                <p><%= fee_description %></p>
+            </div>
+        </div> 
+    </div>
+    <%- include('../components/footer', { observation: true }) %> 
+</div>
+<%- 
+    include(`../components/${ 
+        locale === 'es' 
+            ? 'es_condiciones_contractacion' 
+            : 'condicions_contractacio'
+    }`) 
+%> 

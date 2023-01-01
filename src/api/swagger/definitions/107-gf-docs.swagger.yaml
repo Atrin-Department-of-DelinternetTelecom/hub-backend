@@ -1,0 +1,49 @@
+definitions:
+  GfDoc:
+    type: object
+    required:
+      - id
+      - uid
+      - contractId
+    properties:
+      id:
+        type: integer
+        example: 12
+      uid:
+        type: integer
+        example: -1
+      type:
+        type: string
+        example:
+      file:
+        type: string
+        example:
+      clientId:
+        type: integer
+        example: -1
+      contractId:
+        type: integer
+        example: -1
+      aireType:
+        type: string
+        example:
+      comments:
+        type: string
+        example:
+      reason:
+        type: string
+        example:
+      status:
+        type: integer
+        example: 1
+        minLength: 1
+      creationDate:
+        type: string
+        example: '2021-04-29 01:47:27.0'
+        minLength: 1
+      updateDate:
+        type: string
+        example: '2021-04-29 01:47:27.0'
+        minLength: 1
+    description: ''
+    title: 'gf-docs'

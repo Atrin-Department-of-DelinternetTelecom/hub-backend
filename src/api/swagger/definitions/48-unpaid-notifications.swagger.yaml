@@ -1,0 +1,66 @@
+definitions:
+  UnpaidNotification:
+    type: "object"
+    required:
+      - "id"
+      - "invoice_id"
+      - "client_id"
+      - "task_id"
+      - "send_method"
+      - "send_status"
+      - "to"
+      - "message"
+      - "sent_date"
+      - "send_date"
+      - "user_id"
+      - "uid"
+      - "status"
+      - "created_at"
+      - "updated_at"
+      - "deleted_at"
+    properties:
+      id:
+        type: "number"
+        example: 12
+      invoice_id:
+        type: "number"
+      client_id:
+        type: "number"
+      task_id:
+        type: "number"
+      send_method:
+        type: "string"
+        example: "telegram"
+      send_status:
+        type: "string"
+        example: "sent"
+      to:
+        type: "string"
+        example: "to who"
+      message:
+        type: "string"
+        example: "message content"
+      sent_date:
+        type: "string"
+      send_date:
+        type: "string"
+      user_id:
+        type: "number"
+      uid:
+        type: "number"
+      status:
+        type: "number"      
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1  
+      created_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      deleted_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "unpaid notification"

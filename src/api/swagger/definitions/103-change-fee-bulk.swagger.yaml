@@ -1,0 +1,54 @@
+definitions:
+  ChangeFeeBulk:
+    type: object
+    properties:
+      params: 
+        type: object
+        properties: 
+          template: 
+            type: string
+          fromFeeGroupId: 
+            type: integer
+            format: int32
+          toFeeGroupId: 
+            type: integer
+            format: int32
+          fromFeeGroupName: 
+            type: string
+          toFeeGroupName: 
+            type: string
+          notificationType: 
+            type: string
+          isRevertBulk: 
+            type: boolean
+      id: 
+        type: integer
+        format: int32
+      creator_id: 
+        type: integer
+        format: int32
+      total_actions: 
+        type: integer
+        format: int32
+      total_fulfilled_actions: 
+        type: integer
+        format: int32
+      total_failed_actions: 
+        type: integer
+        format: int32
+      status: 
+        type: string
+      name: 
+        type: string
+      scheduled_for: 
+        type: string
+        format: nullable
+      finished_at: 
+        type: string
+      createdAt: 
+        type: string
+      updatedAt: 
+        type: string
+      deletedAt: 
+        type: string
+        format: nullable

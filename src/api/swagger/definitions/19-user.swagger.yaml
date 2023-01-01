@@ -1,0 +1,46 @@
+definitions:
+  User:
+    type: 'object'
+    required:
+      - 'email'
+      - 'emailVerified'
+      - 'firstName'
+      - 'id'
+      - 'lastName'
+    properties:
+      createDate:
+        type: 'string'
+        format: 'date'
+        description: 'The date that the user was created.'
+      dateOfBirth:
+        type: 'string'
+        format: 'date'
+        example: '1997-10-31'
+      email:
+        type: 'string'
+        format: 'email'
+      emailVerified:
+        type: 'boolean'
+        description: "Set to true if the user's email has been verified."
+      firstName:
+        type: 'string'
+      dni:
+        type: 'string'
+      id:
+        type: 'integer'
+        description: 'Unique identifier for the given user.'
+      lastName:
+        type: 'string'
+      user_type:
+        type: 'string'
+    title: 'User'
+    description: ''
+    x-examples:
+      example-1:
+        dateOfBirth: '1997-10-31'
+        email: 'alice.smith@gmail.com'
+        emailVerified: true
+        firstName: 'Alice'
+        id: 142
+        lastName: 'Smith'
+        signUpDate: '2019-08-24'

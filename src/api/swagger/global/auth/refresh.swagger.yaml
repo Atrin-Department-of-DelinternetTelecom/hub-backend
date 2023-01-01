@@ -1,0 +1,17 @@
+/auth/refresh:
+  post:
+    tags:
+      - 'auth'
+    summary: ''
+    description: 'login to system'
+    operationId: 'refreshToken'
+    security:
+      - Bearer: []
+    responses:
+      '200':
+        description: 'OK'
+      '401':
+        description: 'email/password is incorrect'
+      '500':
+        description: 'Something happened to the server - call the operator'
+    x-swagger-router-controller: 'Authentication'

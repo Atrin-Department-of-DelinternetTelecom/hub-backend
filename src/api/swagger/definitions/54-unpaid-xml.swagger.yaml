@@ -1,0 +1,89 @@
+definitions:
+  UnpaidXml:
+    type: "object"
+    required:
+      - "id"
+      - "auto_execute"
+      - "executed"
+      - "send_method"
+      - "template_id"
+      - "message_template"
+      - "invoice_id"
+      - "msg_period"
+      - "msgs_per_period"
+      - "msg_hour"
+      - "xml_file"
+      - "unpaid_fee"
+      - "start_sending_time"
+      - "description"
+      - "user_id"
+      - "uid"
+      - "status"
+      - "created_at"
+      - "updated_at"
+      - "deleted_at"
+    properties:
+      id:
+        type: "number"
+        example: 12
+      auto_execute:
+        type: "number"
+        example: 0
+      executed:
+        type: "number"
+        example: 0
+      send_method:
+        type: "string"
+        example: "telegram"
+      template_id:
+        type: "number"
+        example: 12
+      message_template:
+        type: "string"
+        example: "template of message"
+      invoice_id:
+        type: "number"
+        example: 12
+      msg_period:
+        type: "number"
+        example: 12
+      msgs_per_period:
+        type: "number"
+        example: 12
+      msg_hour:
+        type: "string"
+      xml_file:
+        type: "string"
+      unpaid_fee:
+        type: "number"
+        example: 7.5
+      start_sending_time:
+        type: "string"
+      description:
+        type: "string"
+      user_id:
+        type: "number"
+        example: 12
+      uid:
+        type: "number"
+        example: 90
+      status:
+        type: "number"
+        example: 1
+      total_invoices:
+        type: "number"
+        example: 50
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1  
+      created_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      deleted_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "unpaid xml"

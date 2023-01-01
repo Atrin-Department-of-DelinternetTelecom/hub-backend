@@ -1,0 +1,56 @@
+/gf-contracts/revert-bulk-change-fee-group:
+  post:
+    tags:
+      - "gf-contracts"
+    summary: ""
+    description: "revert bulk change fee group of gf-contracts by id"
+    operationId: "revertBulkChangeFeeGroup"
+    security:
+      - Bearer: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters: 
+      - name: body
+        in: body
+        description: Id of gf-contracts table
+        schema:
+          type: object
+          properties:
+            bulkId:
+              type: integer
+              format: int64
+          required:
+            - bulkId
+ 
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          properties:
+            data:
+              type: "object"
+              properties:
+                totalContracts:
+                  type: integer
+                bulkId:
+                  type: integer
+                fromFeeGroupName:
+                  type: string
+                toFeeGroupName:
+                  type: string
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfContract"

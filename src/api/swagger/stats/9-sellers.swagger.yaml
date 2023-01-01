@@ -1,0 +1,110 @@
+/stats/sellers:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - 'stats'
+    summary: 'Your GET endpoint'
+    description: 'get all seller stats'
+    operationId: 'getSellersStats'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: startDate
+        in: 'query'
+        required: true
+        type: string
+        default: '2022-01-01'
+
+      - name: endDate
+        in: 'query'
+        type: string
+
+      - name: dateColumn
+        in: 'query'
+        type: string
+        default: 'creationDate'
+        enum:
+          - creationDate
+          - dateActivation
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          properties:
+            data:
+              type: 'array'
+              items:
+                type: 'object'
+                properties:
+                  id:
+                    type: 'number'
+                  uid:
+                    type: 'number'
+                  userId:
+                    type: 'number'
+                  email:
+                    type: 'string'
+                  name:
+                    type: 'string'
+                  role:
+                    type: 'string'
+                  status:
+                    type: 'number'
+                  image:
+                    type: 'string'
+                  data:
+                    type: 'object'
+                    properties:
+                      internet:
+                        type: 'object'
+                        properties:
+                          active:
+                            type: 'number'
+                          pendingSectionsReady:
+                            type: 'number'
+                          total:
+                            type: 'number'
+                      fix:
+                        type: 'object'
+                        properties:
+                          active:
+                            type: 'number'
+                          pendingSectionsReady:
+                            type: 'number'
+                          total:
+                            type: 'number'
+                      cell:
+                        type: 'object'
+                        properties:
+                          active:
+                            type: 'number'
+                          pendingSectionsReady:
+                            type: 'number'
+                          total:
+                            type: 'number'
+                      tv:
+                        type: 'object'
+                        properties:
+                          active:
+                            type: 'number'
+                          pendingSectionsReady:
+                            type: 'number'
+                          total:
+                            type: 'number'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'StatsSellers'

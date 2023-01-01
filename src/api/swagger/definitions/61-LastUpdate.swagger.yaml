@@ -1,0 +1,12 @@
+definitions:
+  LastUpdate:
+    type: "object"
+    required:
+      - "metadata"
+    properties:
+      metadata:
+        type: "string"
+        example: "{categories_info:2021-04-29 01:47:27.0}"
+        minLength: 1  
+    description: ""
+    title: "LastUpdate"

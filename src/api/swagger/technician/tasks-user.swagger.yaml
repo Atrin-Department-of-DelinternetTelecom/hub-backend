@@ -1,0 +1,115 @@
+/technician/tasks:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - 'technician'
+    description: 'deprecated: use /technician/users/{userId}/tasks'
+    operationId: 'getUserTasksOld'
+    deprecated: true
+    parameters:
+      - name: startDate
+        in: 'query'
+        required: true
+        type: string
+        format: full-date
+
+      - name: endDate
+        in: 'query'
+        required: true
+        type: string
+        format: full-date
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+    x-swagger-router-controller: 'Technician'
+
+/technician/users/{userId}/tasks:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - 'technician'
+    description: 'get technician tasks'
+    operationId: 'getUserTasks'
+    parameters:
+      - name: userId
+        in: path
+        required: true
+        type: number
+
+      - name: startDate
+        in: 'query'
+        required: true
+        type: string
+        format: full-date
+
+      - name: endDate
+        in: 'query'
+        required: true
+        type: string
+        format: full-date
+
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+    x-swagger-router-controller: 'Technician'
+
+/technician/in-progress-task:
+  get:
+    tags:
+      - 'technician'
+    description: 'deprecated: use /technician/users/{userId}/in-progress-task'
+    operationId: 'getInProgressTaskOld'
+    deprecated: true
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+    x-swagger-router-controller: 'Technician'
+
+/technician/users/{userId}/in-progress-task:
+  get:
+    tags:
+      - 'technician'
+    description: 'get technician in-progress task'
+    operationId: 'getInProgressTask'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: userId
+        in: path
+        required: true
+        type: number
+    responses:
+      '200':
+        description: 'OK'
+    x-swagger-router-controller: 'Technician'
+
+/technician/users/in-progress-tasks:
+  get:
+    tags:
+      - 'technician'
+    description: 'get all in-progress task for all technicians'
+    operationId: 'getInProgressTasks'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+    x-swagger-router-controller: 'Technician'

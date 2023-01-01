@@ -1,0 +1,73 @@
+definitions:
+  InvoiceRemitance1:
+    type: object
+    required:
+      - matrixId
+      - type
+    properties:
+      type:
+        type: 'string'
+        example: 'discount_present| labeled_contract_present'
+      matrixId:
+        type: 'integer'
+        example: -1
+      presentLabelId:
+        type: 'integer'
+        example: -1
+      presentMatrixId:
+        type: 'integer'
+        example: -1
+      maxdaysexists:
+        type: 'integer'
+        example: -1
+      maxDaysTargetExists:
+        type: 'integer'
+        example: -1
+      excludeFromFeeChange:
+        type: 'integer'
+        example: 0
+    description: ''
+    title: 'gf-matrix-rule-1'
+  InvoiceRemitance2:
+    type: object
+    properties:
+      id:
+        type: number
+        example: 12
+      uid:
+        type: number
+        example: -1
+      type:
+        type: 'string'
+        example: ''
+      matrixId:
+        type: 'integer'
+        example: -1
+      presentLabelId:
+        type: 'integer'
+        example: -1
+      presentMatrixId:
+        type: 'integer'
+        example: -1
+      Maxdaysexists:
+        type: 'integer'
+        example: -1
+      maxDaysTargetExists:
+        type: 'integer'
+        example: -1
+      excludeFromFeeChange:
+        type: 'integer'
+        example: 0
+      status:
+        type: integer
+        example: 0
+      creationDate:
+        type: 'string'
+        example: '2021-04-29 01:47:27.0'
+        minLength: 1
+      updateDate:
+        type: 'string'
+        example: '2021-04-29 01:47:27.0'
+        minLength: 1
+    description: ''
+    title: 'gf-matrix-rule-2'

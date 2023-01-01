@@ -1,0 +1,64 @@
+/stats/fee-groups:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - 'stats'
+    summary: 'Your GET endpoint'
+    description: 'get all fee groups with stats'
+    operationId: 'getFeeGroups'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: startDate
+        in: 'query'
+        required: true
+        type: string
+        default: '2022-01-01'
+
+      - name: endDate
+        in: 'query'
+        type: string
+
+      - name: user_id
+        in: 'query'
+        required: false
+        type: 'number'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          properties:
+            data:
+              type: 'array'
+              items:
+                type: 'object'
+                properties:
+                  id:
+                    type: 'number'
+                  name:
+                    type: 'string'
+                  code:
+                    type: 'string'
+                  active_count:
+                    type: 'number'
+                  pending_count:
+                    type: 'number'
+                  total_count:
+                    type: 'number'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'StatsFeeGroups'

@@ -1,0 +1,268 @@
+/anvizes/staff/{id}:
+  get:
+    tags:
+      - "anviz"
+    summary: "Your GET endpoint"
+    description: "get staffs of selected anviz device"
+    operationId: "getAnvizesStaff"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of selected anviz"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "links"
+            - "meta"
+          properties:
+            data:
+              type: "array"
+              uniqueItems: true
+              items:
+                type: "object"
+                properties:
+                  anviz:
+                    type: "object"
+                    properties:
+                      basic_setting:
+                        type: "object"
+                        properties: {}
+                      created_at:
+                        type: "string"
+                        minLength: 1
+                      creator:
+                        type: "object"
+                        properties:
+                          created_at:
+                            type: "string"
+                            minLength: 1
+                          email:
+                            type: "string"
+                            minLength: 1
+                          id:
+                            type: "number"
+                          name:
+                            type: "string"
+                            minLength: 1
+                          updated_at:
+                            type: "string"
+                            minLength: 1
+                        required:
+                          - "created_at"
+                          - "email"
+                          - "id"
+                          - "name"
+                          - "updated_at"
+                      device_id:
+                        type: "number"
+                      id:
+                        type: "number"
+                      ip:
+                        type: "string"
+                        minLength: 1
+                      is_enable:
+                        type: "number"
+                      location:
+                        type: "string"
+                        minLength: 1
+                      name:
+                        type: "string"
+                        minLength: 1
+                      password:
+                        type: "string"
+                        minLength: 1
+                      port:
+                        type: "number"
+                      timeout:
+                        type: "number"
+                      updated_at:
+                        type: "string"
+                        minLength: 1
+                      username:
+                        type: "string"
+                        minLength: 1
+                      uuid:
+                        type: "string"
+                        minLength: 1
+                    required:
+                      - "created_at"
+                      - "creator"
+                      - "device_id"
+                      - "id"
+                      - "ip"
+                      - "is_enable"
+                      - "location"
+                      - "name"
+                      - "password"
+                      - "port"
+                      - "updated_at"
+                      - "username"
+                      - "uuid"
+                  created_at:
+                    type: "string"
+                    minLength: 1
+                  creator_id:
+                    type: "object"
+                    properties:
+                      created_at:
+                        type: "string"
+                        minLength: 1
+                      email:
+                        type: "string"
+                        minLength: 1
+                      id:
+                        type: "number"
+                      name:
+                        type: "string"
+                        minLength: 1
+                      updated_at:
+                        type: "string"
+                        minLength: 1
+                    required:
+                      - "created_at"
+                      - "email"
+                      - "id"
+                      - "name"
+                      - "updated_at"
+                  id:
+                    type: "number"
+                  name:
+                    type: "string"
+                    minLength: 1
+                  updated_at:
+                    type: "string"
+                    minLength: 1
+                  user:
+                    type: "object"
+                    properties:
+                      created_at:
+                        type: "string"
+                        minLength: 1
+                      email:
+                        type: "string"
+                        minLength: 1
+                      id:
+                        type: "number"
+                      name:
+                        type: "string"
+                        minLength: 1
+                      updated_at:
+                        type: "string"
+                        minLength: 1
+                    required:
+                      - "created_at"
+                      - "email"
+                      - "id"
+                      - "name"
+                      - "updated_at"
+                  user_hardware_id:
+                    type: "number"
+                required:
+                  - "created_at"
+                  - "id"
+                  - "name"
+                  - "updated_at"
+                  - "user_hardware_id"
+              minItems: 1
+            links:
+              type: "object"
+              properties:
+                self:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "self"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Anviz"
+  delete:
+    tags:
+      - "anviz"
+    summary: ""
+    description: "clear all staff of selected anviz device"
+    operationId: "deleteAnvizesStaffId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of selected anviz"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: "all staffs removed."
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Anviz"

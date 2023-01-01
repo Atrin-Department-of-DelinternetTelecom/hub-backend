@@ -1,0 +1,1039 @@
+{
+    "1": {
+        "pos": "1",
+        "nota": "1",
+        "campo": "Asien",
+        "tipo": "N",
+        "lon": "6",
+        "ignoreDecimals" : true,
+        "de": "",
+        "descipcion": "N\u00famero del asiento"
+    },
+    "2": {
+        "pos": "2",
+        "nota": "1",
+        "campo": "Fecha",
+        "tipo": "F",
+        "lon": "8",
+        "de": "",
+        "descipcion": "Fecha del asiento"
+    },
+    "3": {
+        "pos": "3",
+        "nota": "1",
+        "campo": "SubCta",
+        "tipo": "C",
+        "lon": "12",
+        "de": "",
+        "descipcion": "C\u00f3digo de la subcuenta"
+    },
+    "4": {
+        "pos": "4",
+        "nota": "2",
+        "campo": "Contra",
+        "tipo": "C",
+        "lon": "12",
+        "de": "",
+        "descipcion": "C\u00f3digo de la contrapartida\/IVA. Debe llevar REGULARIZACI en la partida de IVA, cuando sea un asiento de regularizaci\u00f3n"
+    },
+    "5": {
+        "pos": "5",
+        "nota": "1",
+        "campo": "PtaDebe",
+        "tipo": "N",
+        "lon": "16",
+        "de": "2",
+        "descipcion": "Importe al debe en pesetas"
+    },
+    "6": {
+        "pos": "6",
+        "nota": "1",
+        "campo": "Concepto",
+        "tipo": "C",
+        "lon": "25",
+        "de": "",
+        "descipcion": "Concepto del asiento"
+    },
+    "7": {
+        "pos": "7",
+        "nota": "1",
+        "campo": "PtaHaber",
+        "tipo": "N",
+        "lon": "16",
+        "de": "2",
+        "descipcion": "Importe al haber en pesetas"
+    },
+    "8": {
+        "pos": "8",
+        "nota": "",
+        "campo": "Factura",
+        "ignoreDecimals" : true,
+        "tipo": "N",
+        "lon": "8",
+        "de": "",
+        "descipcion": "N\u00famero de factura al IVA"
+    },
+    "9": {
+        "pos": "9",
+        "nota": "2",
+        "campo": "Baseimpo",
+        "tipo": "N",
+        "lon": "16",
+        "de": "2",
+        "descipcion": "Base imponible del IVA en pesetas"
+    },
+    "10": {
+        "pos": "10",
+        "nota": "2",
+        "campo": "IVA",
+        "tipo": "N",
+        "lon": "5",
+        "de": "2",
+        "descipcion": "Tanto por ciento de IVA"
+    },
+    "11": {
+        "pos": "11",
+        "nota": "2",
+        "campo": "Recequiv",
+        "tipo": "N",
+        "lon": "5",
+        "de": "2",
+        "descipcion": "% recargo de equivalencia"
+    },
+    "12": {
+        "pos": "12",
+        "nota": "",
+        "campo": "Documento",
+        "tipo": "C",
+        "lon": "10",
+        "de": "",
+        "descipcion": "N\u00famero de documento"
+    },
+    "13": {
+        "pos": "13",
+        "nota": "",
+        "campo": "Departa",
+        "tipo": "C",
+        "lon": "3",
+        "de": "",
+        "descipcion": "C\u00f3digo de departamento"
+    },
+    "14": {
+        "pos": "14",
+        "nota": "",
+        "campo": "Clave",
+        "tipo": "C",
+        "lon": "6",
+        "de": "",
+        "descipcion": "C\u00f3digo del proyecto"
+    },
+    "15": {
+        "pos": "15",
+        "nota": "",
+        "campo": "Estado",
+        "tipo": "C",
+        "lon": "1",
+        "de": "",
+        "descipcion": "Punteo (interno)"
+    },
+    "16": {
+        "pos": "16",
+        "nota": "",
+        "campo": "Ncasado",
+        "tipo": "N",
+        "lon": "6",
+        "de": "",
+        "descipcion": "Num\u00e9rico de casaci\u00f3n (interno)"
+    },
+    "17": {
+        "pos": "17",
+        "nota": "",
+        "campo": "TCasado",
+        "tipo": "N",
+        "lon": "1",
+        "de": "",
+        "descipcion": "Tipo de casado (interno)"
+    },
+    "18": {
+        "pos": "18",
+        "nota": "",
+        "campo": "Trans",
+        "tipo": "N",
+        "lon": "6",
+        "de": "",
+        "descipcion": "N\u00famero de pago"
+    },
+    "19": {
+        "pos": "19",
+        "nota": "",
+        "campo": "Cambio",
+        "tipo": "N",
+        "lon": "16",
+        "de": "6",
+        "descipcion": "Cambio a aplicar"
+    },
+    "20": {
+        "pos": "20",
+        "nota": "",
+        "campo": "DebeME",
+        "tipo": "N",
+        "lon": "16",
+        "de": "2",
+        "descipcion": "Importe debe moneda extranjera"
+    },
+    "21": {
+        "pos": "21",
+        "nota": "",
+        "campo": "HaberME",
+        "tipo": "N",
+        "lon": "16",
+        "de": "2",
+        "descipcion": "Importe haber moneda extranjera"
+    },
+    "22": {
+        "pos": "22",
+        "nota": "",
+        "campo": "Auxiliar",
+        "tipo": "C",
+        "lon": "1",
+        "de": "",
+        "descipcion": "En caso de tener un \u201c*\u201d no se incluir\u00e1 en declaraciones de IVA."
+    },
+    "23": {
+        "pos": "23",
+        "nota": "",
+        "campo": "Serie",
+        "tipo": "C",
+        "lon": "1",
+        "de": "",
+        "descipcion": "Serie de la facturaci\u00f3n"
+    },
+    "24": {
+        "pos": "24",
+        "nota": "",
+        "campo": "Sucursal",
+        "tipo": "C",
+        "lon": "4",
+        "de": "",
+        "descipcion": "Sin uso"
+    },
+    "25": {
+        "pos": "25",
+        "nota": "",
+        "campo": "CodDivisa",
+        "tipo": "C",
+        "lon": "5",
+        "de": "",
+        "descipcion": "C\u00f3digo de la divisa"
+    },
+    "26": {
+        "pos": "26",
+        "nota": "",
+        "campo": "ImpAuxME",
+        "tipo": "N",
+        "lon": "16",
+        "de": "2",
+        "descipcion": "Importe auxiliar moneda extranjera"
+    },
+    "27": {
+        "pos": "27",
+        "nota": "1",
+        "campo": "MonedaUso",
+        "tipo": "C",
+        "lon": "1",
+        "de": "",
+        "descipcion": "1.- Ptas.; 2.- Euros"
+    },
+    "28": {
+        "pos": "28",
+        "nota": "1",
+        "campo": "EuroDebe",
+        "tipo": "N",
+        "lon": "16",
+        "de": "2",
+        "descipcion": "Importe al debe en euros"
+    },
+    "29": {
+        "pos": "29",
+        "nota": "1",
+        "campo": "EuroHaber",
+        "tipo": "N",
+        "lon": "16",
+        "de": "2",
+        "descipcion": "Importe al haber en euros"
+    },
+    "30": {
+        "pos": "30",
+        "nota": "1",
+        "campo": "BaseEuro",
+        "tipo": "N",
+        "lon": "16",
+        "de": "2",
+        "descipcion": "Base imponible del IVA en euros"
+    },
+    "31": {
+        "pos": "31",
+        "nota": "1",
+        "campo": "NoConv",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descipcion": "(Interno)"
+    },
+    "32": {
+        "pos": "32",
+        "nota": "",
+        "campo": "NumeroInv",
+        "tipo": "C",
+        "lon": "10",
+        "de": "",
+        "descipcion": "C\u00f3digo de activo"
+    },
+    "33": {
+        "pos": "33",
+        "nota": "1",
+        "campo": "Serie_RT",
+        "tipo": "C",
+        "lon": "1",
+        "de": "",
+        "descipcion": "Serie factura rectificada"
+    },
+    "34": {
+        "pos": "34",
+        "nota": "1",
+        "campo": "Factu_RT",
+        "tipo": "N",
+        "lon": "8",
+        "de": "",
+        "descipcion": "N\u00famero factura rectificada"
+    },
+    "35": {
+        "pos": "35",
+        "nota": "1",
+        "campo": "BaseImp_RT",
+        "tipo": "N",
+        "lon": "16",
+        "de": "2",
+        "descipcion": "Base imponible factura rectificada"
+    },
+    "36": {
+        "pos": "36",
+        "nota": "1",
+        "campo": "BaseImp_RF",
+        "tipo": "N",
+        "lon": "16",
+        "de": "2",
+        "descipcion": "Base imponible factura rectificativa"
+    },
+    "37": {
+        "pos": "37",
+        "nota": "1",
+        "campo": "Rectifica",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descipcion": "(.T.) En caso de factura rectificativa"
+    },
+    "38": {
+        "pos": "38",
+        "nota": "1",
+        "campo": "Fecha_RT",
+        "tipo": "F",
+        "lon": "8",
+        "de": "",
+        "descipcion": "Fecha factura rectificada"
+    },
+    "39": {
+        "pos": "39",
+        "nota": "",
+        "campo": "NIC",
+        "tipo": "C",
+        "lon": "1",
+        "de": "",
+        "descipcion": "2 valores posibles : VACIO -> Asiento v\u00e1lido solo P.G.C. E -> Asiento v\u00e1lido para P.G.C. y para las normas NIC."
+    },
+    "40": {
+        "pos": "40",
+        "nota": "",
+        "campo": "Libre",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descipcion": "Libre"
+    },
+    "41": {
+        "pos": "41",
+        "nota": "",
+        "campo": "Libre",
+        "tipo": "N",
+        "lon": "6",
+        "de": "",
+        "descipcion": "Libre"
+    },
+    "42": {
+        "pos": "42",
+        "nota": "",
+        "campo": "lInterrump",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descipcion": "Operaciones interrumpidas"
+    },
+    "43": {
+        "pos": "43",
+        "nota": "",
+        "campo": "SegActiv",
+        "tipo": "C",
+        "lon": "6",
+        "de": "",
+        "descipcion": "Segmentos Actividades"
+    },
+    "44": {
+        "pos": "44",
+        "nota": "",
+        "campo": "SegGeog",
+        "tipo": "C",
+        "lon": "6",
+        "de": "",
+        "descipcion": "Segmentos Geogr\u00e1ficos"
+    },
+    "45": {
+        "pos": "45",
+        "nota": "",
+        "campo": "lRect349",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descipcion": "Rectificaci\u00f3n periodos anteriores Modelo IVA 349"
+    },
+    "46": {
+        "pos": "46",
+        "nota": "",
+        "campo": "Fecha_OP",
+        "tipo": "F",
+        "lon": "8",
+        "de": "",
+        "descipcion": "Fecha operaci\u00f3n Modelo 349"
+    },
+    "47": {
+        "pos": "47",
+        "nota": "",
+        "campo": "Fecha_EX",
+        "tipo": "F",
+        "lon": "8",
+        "de": "",
+        "descipcion": "Fecha expedici\u00f3n Modelo 340"
+    },
+    "48": {
+        "pos": "48",
+        "nota": "",
+        "campo": "Departa5",
+        "tipo": "C",
+        "lon": "5",
+        "de": "",
+        "descipcion": "Sin uso"
+    },
+    "49": {
+        "pos": "49",
+        "nota": "",
+        "campo": "Factura10",
+        "tipo": "C",
+        "lon": "10",
+        "de": "",
+        "descipcion": "Sin uso"
+    },
+    "50": {
+        "pos": "50",
+        "nota": "",
+        "campo": "Porcen_Ana",
+        "tipo": "N",
+        "lon": "5",
+        "de": "2",
+        "descipcion": "Sin uso"
+    },
+    "51": {
+        "pos": "51",
+        "nota": "",
+        "campo": "Porcen_Seg",
+        "tipo": "N",
+        "lon": "5",
+        "de": "2",
+        "descipcion": "Sin uso"
+    },
+    "52": {
+        "pos": "52",
+        "nota": "",
+        "campo": "NumApunte",
+        "tipo": "N",
+        "lon": "6",
+        "de": "",
+        "descipcion": "Sin uso"
+    },
+    "53": {
+        "pos": "53",
+        "nota": "",
+        "campo": "EuroTotal",
+        "tipo": "N",
+        "lon": "16",
+        "de": "2",
+        "descipcion": "Sin uso"
+    },
+    "54": {
+        "pos": "54",
+        "nota": "2",
+        "campo": "RazonSoc",
+        "tipo": "C",
+        "lon": "100",
+        "de": "",
+        "descipcion": "Sin uso"
+    },
+    "55": {
+        "pos": "55",
+        "nota": "2",
+        "campo": "Apellido1",
+        "tipo": "C",
+        "lon": "50",
+        "de": "",
+        "descipcion": "Sin uso"
+    },
+    "56": {
+        "pos": "56",
+        "nota": "2",
+        "campo": "Apellido2",
+        "tipo": "C",
+        "lon": "50",
+        "de": "",
+        "descipcion": "Sin uso"
+    },
+    "57": {
+        "pos": "57",
+        "nota": "",
+        "campo": "TipoOpe",
+        "tipo": "C",
+        "lon": "1",
+        "de": "",
+        "descipcion": "Clave operaci\u00f3n (*5) (*10 para Criterio de Caja)"
+    },
+    "58": {
+        "pos": "58",
+        "nota": "",
+        "campo": "nFacTick",
+        "tipo": "N",
+        "lon": "8",
+        "de": "",
+        "descipcion": "N\u00famero total de facturas o tickets que agrupa el asiento para los casos de clave de operaci\u00f3n A \u00f3 B"
+    },
+    "59": {
+        "pos": "59",
+        "nota": "",
+        "campo": "NumAcuIni",
+        "tipo": "C",
+        "lon": "40",
+        "de": "",
+        "descipcion": "N\u00famero de factura inicial de la agrupaci\u00f3n. S\u00f3lo para claves A o B"
+    },
+    "60": {
+        "pos": "60",
+        "nota": "",
+        "campo": "NumAcuFin",
+        "tipo": "C",
+        "lon": "40",
+        "de": "",
+        "descipcion": "N\u00famero de factura final de la agrupaci\u00f3n. S\u00f3lo para claves A o B"
+    },
+    "61": {
+        "pos": "61",
+        "nota": "2",
+        "campo": "TerIdNif",
+        "tipo": "N",
+        "lon": "1",
+        "de": "",
+        "descipcion": "Clave de Identificaci\u00f3n del tercero(*6)"
+    },
+    "62": {
+        "pos": "62",
+        "nota": "2",
+        "campo": "TerNif",
+        "tipo": "C",
+        "lon": "15",
+        "de": "",
+        "descipcion": "NIF del tercero (subcuenta de contrapartida del apunte de IVA)"
+    },
+    "63": {
+        "pos": "63",
+        "nota": "2",
+        "campo": "TerNom",
+        "tipo": "C",
+        "lon": "40",
+        "de": "",
+        "descipcion": "Nombre \/Raz\u00f3n social del tercero"
+    },
+    "64": {
+        "pos": "64",
+        "nota": "2",
+        "campo": "TerNif14",
+        "tipo": "C",
+        "lon": "9",
+        "de": "",
+        "descipcion": "Nif del representante legal del tercero para menores de 14 a\u00f1os"
+    },
+    "65": {
+        "pos": "65",
+        "nota": "2",
+        "campo": "TBienTran",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descipcion": "(.T.) En caso de Factura de transmisi\u00f3n de bienes de inversi\u00f3n"
+    },
+    "66": {
+        "pos": "66",
+        "nota": "2",
+        "campo": "TBienCod",
+        "tipo": "C",
+        "lon": "10",
+        "de": "",
+        "descipcion": "C\u00f3digo de inventario de la factura de transmisi\u00f3n de bienes de inversi\u00f3n"
+    },
+    "67": {
+        "pos": "67",
+        "nota": "2",
+        "campo": "TransInm",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descipcion": "(.T.) Cuando la factura sea una transmisi\u00f3n de inmuebles sujetos a IVA."
+    },
+    "68": {
+        "pos": "68",
+        "nota": "",
+        "campo": "Metal",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descipcion": "Apunte con cobro en met\u00e1lico"
+    },
+    "69": {
+        "pos": "69",
+        "nota": "",
+        "campo": "MetalImp",
+        "tipo": "N",
+        "lon": "16",
+        "de": "2",
+        "descipcion": "Importe del cobro realizada en met\u00e1lico"
+    },
+    "70": {
+        "pos": "70",
+        "nota": "",
+        "campo": "Cliente",
+        "tipo": "C",
+        "lon": "12",
+        "de": "",
+        "descipcion": "C\u00f3digo de subcuenta del cliente del que se realiza el cobro en met\u00e1lico"
+    },
+    "71": {
+        "pos": "71",
+        "nota": "",
+        "campo": "OpBienes",
+        "tipo": "N",
+        "lon": "1",
+        "de": "",
+        "descipcion": "Tipo de bienes en operaciones de compras. Valores posibles: 1 \uf0e0 Bienes y servicios corrientes. 2 \uf0e0 Bienes de inversi\u00f3n. Campo opcional. Se podr\u00e1 dejar en blanco o con valor cero para las partidas en las que no aplique"
+    },
+    "72": {
+        "pos": "72",
+        "nota": "",
+        "campo": "FacturaEx",
+        "tipo": "C",
+        "lon": "40",
+        "de": "",
+        "descipcion": "N\u00ba Factura expedici\u00f3n. Para facturas de compra (Modelo 340)"
+    },
+    "73": {
+        "pos": "73",
+        "nota": "",
+        "campo": "TipoFac",
+        "tipo": "C",
+        "lon": "1",
+        "de": "",
+        "descipcion": "\u201cE\u201d = Emitida \u201cR\u201d = Recibida"
+    },
+    "74": {
+        "pos": "74",
+        "nota": "",
+        "campo": "TipoIVA",
+        "tipo": "C",
+        "lon": "1",
+        "de": "",
+        "descipcion": "Tipo de IVA de la subcuenta ***"
+    },
+    "75": {
+        "pos": "75",
+        "nota": "",
+        "campo": "GUID",
+        "tipo": "C",
+        "lon": "40",
+        "de": "",
+        "descipcion": "(Uso interno) Sage Drive. GUID diferente por apunte"
+    },
+    "76": {
+        "pos": "76",
+        "nota": "",
+        "campo": "L340",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descipcion": "Incluir factura en Modelo 340. (.T.) si verdadero y (.F.) si falso"
+    },
+    "77": {
+        "pos": "77",
+        "nota": "",
+        "campo": "MetalEje",
+        "tipo": "N",
+        "lon": "4",
+        "de": "",
+        "descipcion": "A\u00f1o de la factura con la que se corresponde el cobro en met\u00e1lico. Por defecto el a\u00f1o de la fecha del asiento"
+    },
+    "78": {
+        "pos": "78",
+        "nota": "",
+        "campo": "Document15",
+        "tipo": "C",
+        "lon": "15",
+        "de": "",
+        "descipcion": "Sin uso"
+    },
+    "79": {
+        "pos": "79",
+        "nota": "",
+        "campo": "ClienteSup",
+        "tipo": "C",
+        "lon": "12",
+        "de": "",
+        "descipcion": "Cliente de suplido"
+    },
+    "80": {
+        "pos": "80",
+        "nota": "",
+        "campo": "FechaSub",
+        "tipo": "F",
+        "lon": "8",
+        "de": "",
+        "descipcion": "Fecha de suplido"
+    },
+    "81": {
+        "pos": "81",
+        "nota": "",
+        "campo": "ImporteSup",
+        "tipo": "N",
+        "lon": "16",
+        "de": "2",
+        "descipcion": "Importe suplido"
+    },
+    "82": {
+        "pos": "82",
+        "nota": "",
+        "campo": "DocSup",
+        "tipo": "C",
+        "lon": "40",
+        "de": "",
+        "descipcion": "Documento suplido"
+    },
+    "83": {
+        "pos": "83",
+        "nota": "",
+        "campo": "ClientePro",
+        "tipo": "C",
+        "lon": "12",
+        "de": "",
+        "descipcion": "Cliente provisi\u00f3n"
+    },
+    "84": {
+        "pos": "84",
+        "nota": "",
+        "campo": "FechaPro",
+        "tipo": "F",
+        "lon": "8",
+        "de": "",
+        "descipcion": "Fecha provisi\u00f3n"
+    },
+    "85": {
+        "pos": "85",
+        "nota": "",
+        "campo": "ImportePro",
+        "tipo": "N",
+        "lon": "16",
+        "de": "2",
+        "descipcion": "Importe provisi\u00f3n"
+    },
+    "86": {
+        "pos": "86",
+        "nota": "",
+        "campo": "DocPro",
+        "tipo": "C",
+        "lon": "40",
+        "de": "",
+        "descipcion": "Documento provisi\u00f3n"
+    },
+    "87": {
+        "pos": "87",
+        "nota": "",
+        "campo": "nClaveIRPF",
+        "tipo": "N",
+        "lon": "2",
+        "de": "",
+        "descipcion": "Clave IRPF (*7)"
+    },
+    "88": {
+        "pos": "88",
+        "nota": "",
+        "campo": "lArrend347",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descipcion": "Arrendamiento 347"
+    },
+    "89": {
+        "pos": "89",
+        "nota": "",
+        "campo": "nSitinmueb",
+        "tipo": "N",
+        "lon": "1",
+        "de": "",
+        "descipcion": "Situaci\u00f3n del inmueble"
+    },
+    "90": {
+        "pos": "90",
+        "nota": "",
+        "campo": "cRefcatast",
+        "tipo": "C",
+        "lon": "25",
+        "de": "",
+        "descipcion": "Referencia catastral"
+    },
+    "91": {
+        "pos": "91",
+        "nota": "",
+        "campo": "Concil347",
+        "tipo": "N",
+        "lon": "1",
+        "de": "",
+        "descipcion": "Conciliaci\u00f3n 347"
+    },
+    "92": {
+        "pos": "92",
+        "nota": "",
+        "campo": "tipoRegula",
+        "tipo": "N",
+        "lon": "2",
+        "de": "",
+        "descipcion": "Tipo regularizaci\u00f3n (*14)"
+    },
+    "93": {
+        "pos": "93",
+        "nota": "3",
+        "campo": "nCritCaja",
+        "tipo": "N",
+        "lon": "2",
+        "de": "",
+        "descipcion": "TIPO_CRITERIO_CAJA_NONE: 0, TIPO_CRITERIO_CAJA_FACTURA_EMITIDA: 1, TIPO_CRITERIO_CAJA_COBRO: 2, IPO_CRITERIO_CAJA_COBRO_SUPERADO: 3, TIPO_CRITERIO_CAJA_FACTURA_RECIBIDA: 4, TIPO_CRITERIO_CAJA_PAGO: 5, TIPO_CRITERIO_CAJA_PAGO_SUPERADO: 6"
+    },
+    "94": {
+        "pos": "94",
+        "nota": "3",
+        "campo": "lCritCaja",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descipcion": "Es criterio de caja"
+    },
+    "95": {
+        "pos": "95",
+        "nota": "",
+        "campo": "dMaxLiqui",
+        "tipo": "D",
+        "lon": "8",
+        "de": "",
+        "descipcion": "Fecha m\u00e1xima liquidaci\u00f3n"
+    },
+    "96": {
+        "pos": "96",
+        "nota": "",
+        "campo": "nTotalFac",
+        "tipo": "N",
+        "lon": "16",
+        "de": "2",
+        "descipcion": "Total factura"
+    },
+    "97": {
+        "pos": "97",
+        "nota": "3",
+        "campo": "idFactura",
+        "tipo": "C",
+        "lon": "32",
+        "de": "",
+        "descipcion": "Id de la factura criterio caja"
+    },
+    "98": {
+        "pos": "98",
+        "nota": "",
+        "campo": "nCobrPago",
+        "tipo": "N",
+        "lon": "16",
+        "de": "2",
+        "descipcion": "Total cobrado\/pagado"
+    },
+    "99": {
+        "pos": "99",
+        "nota": "4",
+        "campo": "nTipoIG",
+        "tipo": "N",
+        "lon": "2",
+        "de": "",
+        "descipcion": "Tipo ingreso\/gasto (*8 o *9)"
+    },
+    "100": {
+        "pos": "100",
+        "nota": "",
+        "campo": "Devoivaid",
+        "tipo": "C",
+        "lon": "50",
+        "de": "",
+        "descipcion": "(Uso interno) Id de las facturas de DevoluIVA"
+    },
+    "101": {
+        "pos": "101",
+        "nota": "",
+        "campo": "lDevoluiva",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descipcion": "(Uso interno) Indica si es o no de DevoluIVA"
+    },
+    "102": {
+        "pos": "102",
+        "nota": "3",
+        "campo": "medioCrit",
+        "tipo": "C",
+        "lon": "1",
+        "de": "",
+        "descipcion": "Medio de cobro\/pago criterio de caja (*11)"
+    },
+    "103": {
+        "pos": "103",
+        "nota": "3",
+        "campo": "cuentaCrit",
+        "tipo": "C",
+        "lon": "34",
+        "de": "",
+        "descipcion": "Cuenta criterio de caja"
+    },
+    "104": {
+        "pos": "104",
+        "nota": "",
+        "campo": "lConAc",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descipcion": "Concurso de acreedores o cr\u00e9ditos incobrables"
+    },
+    "105": {
+        "pos": "105",
+        "nota": "",
+        "campo": "GuidSPAY",
+        "tipo": "C",
+        "lon": "40",
+        "de": "",
+        "descipcion": "(Uso interno) GUID SagePay"
+    },
+    "106": {
+        "pos": "106",
+        "nota": "",
+        "campo": "TipoEntr",
+        "tipo": "N",
+        "lon": "2",
+        "de": "",
+        "descipcion": "(Uso interno) Tipo entrada del asiento. ( 0: Diario; 1: SagePay; 2: Regularizaci\u00f3n de existencias )"
+    },
+    "107": {
+        "pos": "107",
+        "nota": "",
+        "campo": "Mod140",
+        "tipo": "N",
+        "lon": "2",
+        "de": "",
+        "descipcion": "(Uso interno) (Modelo 140, Vizcaya)"
+    },
+    "108": {
+        "pos": "108",
+        "nota": "",
+        "campo": "FechaAnota",
+        "tipo": "D",
+        "lon": "8",
+        "de": "",
+        "descipcion": "Fecha anotaci\u00f3n (Modelo 140, Vizcaya)"
+    },
+    "109": {
+        "pos": "109",
+        "nota": "",
+        "campo": "nTipo140",
+        "tipo": "N",
+        "lon": "2",
+        "de": "",
+        "descipcion": "Tipo 140 (*13) (Modelo 140, Vizcaya)"
+    },
+    "110": {
+        "pos": "110",
+        "nota": "",
+        "campo": "Cuenta140",
+        "tipo": "C",
+        "lon": "12",
+        "de": "",
+        "descipcion": "Cuenta 140 (Modelo 140, Vizcaya)"
+    },
+    "111": {
+        "pos": "111",
+        "nota": "",
+        "campo": "Importe140",
+        "tipo": "N",
+        "lon": "16",
+        "de": "2",
+        "descipcion": "Importe 140 (Modelo 140, Vizcaya)"
+    },
+    "112": {
+        "pos": "112",
+        "nota": "",
+        "campo": "lDepAduan",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descipcion": "Operaciones r\u00e9gimen de dep\u00f3sito distinto del aduanero"
+    },
+    "113": {
+        "pos": "113",
+        "nota": "",
+        "campo": "lDifAduan",
+        "tipo": "L",
+        "lon": "1",
+        "de": "",
+        "descipcion": "Diferimiento IVA aduana en importaci\u00f3n"
+    },
+    "114": {
+        "pos": "114",
+        "nota": "",
+        "campo": "nInter303",
+        "tipo": "N",
+        "lon": "2",
+        "de": "",
+        "descipcion": "Campo modelo 303 para indicar los servicios de internet prestados en Espa\u00f1a o fuera de Espa\u00f1a"
+    },
+    "115": {
+        "pos": "115",
+        "nota": "5",
+        "campo": "IdRecargo",
+        "tipo": "C",
+        "lon": "40",
+        "de": "",
+        "descipcion": "Campo que asocia la subcuenta de IVA con su recargo"
+    }
+}

@@ -1,0 +1,132 @@
+/invoiceInvoices/{id}/download-full-report:
+  get:
+    tags:
+      - 'invoice-invoice'
+    summary: 'Download full invoice pdf report document'
+    description: 'get invoice by id'
+    operationId: 'downloadFullInvoice'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table invoice_invoice'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'InvoiceInvoice'
+/invoiceInvoices/{id}/download-full-report/get-html:
+  get:
+    tags:
+      - 'invoice-invoice'
+    summary: 'Download full invoice html report document'
+    description: 'get full detailed html invoice by id'
+    operationId: 'downloadFullInvoiceHtml'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table invoice_invoice'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'InvoiceInvoice'
+/invoiceInvoices/{id}/download-summary-report:
+  get:
+    tags:
+      - 'invoice-invoice'
+    summary: 'Download summary invoice pdf report document'
+    description: 'get invoice by id'
+    operationId: 'downloadSummaryInvoice'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table invoice_invoice'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'InvoiceInvoice'
+/invoiceInvoices/{id}/download-summary-report/get-html:
+  get:
+    tags:
+      - 'invoice-invoice'
+    summary: 'Download summary invoice in html forma'
+    description: 'get invoice by id'
+    operationId: 'downloadSummaryInvoiceHtml'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table invoice_invoice'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'InvoiceInvoice'

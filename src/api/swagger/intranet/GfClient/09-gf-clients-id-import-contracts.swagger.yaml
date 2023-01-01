@@ -1,0 +1,79 @@
+/gf-clients/{id}/check-discounts:
+  post:
+    tags:
+      - 'gf-clients'
+    summary: ''
+    description: 'update a gf-client by id'
+    operationId: 'checkDiscounts'
+    security:
+      - Bearer: []
+    consumes:
+      - 'application/json'
+    produces:
+      - 'application/json'
+    parameters:
+      - name: id
+        in: path
+        description: id of gf-client table
+        required: true
+        type: integer
+      - in: 'body'
+        name: 'body'
+        description: 'update a gf-client'
+        required: false
+        schema:
+          type: 'object'
+          properties: {}
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              type: 'array'
+              items:
+                type: 'object'
+                properties:
+                  contractId:
+                    type: 'string'
+                    example: 1111111
+                  name:
+                    type: 'string'
+                    example: Pack X
+                  reason:
+                    type: 'string'
+                    example: (:)
+
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfClient'

@@ -1,0 +1,62 @@
+definitions:
+  GfInstallationEvaluationForm:
+    type: object
+    required:     
+      - id
+      - uid           
+      - contractId           
+      - email           
+    properties:
+      id:
+        type: number
+        example: 12
+      uid:
+        type: number
+        example: -1 
+      contractId:
+        type: number
+        example: 1 
+      routerAtPlace:
+        type: integer
+        example: 0
+      inOutCheck:
+        type: integer
+        example: 0
+      velocityTest:
+        type: integer
+        example: 0
+      particularitiesText:
+        type: string
+        example: ""
+      evaluatorName:
+        type: string
+        example: ""
+      evaluatorPhone:
+        type: string
+        example: ""
+      forIncidenceName:
+        type: string
+        example: ""
+      forIncidencePhone:
+        type: string
+        example: ""
+      evaluatorPuntuation:
+        type: integer
+        example: 0
+      evaluatorComments:
+        type: string
+        example: ""
+      cableMeters:
+        type: string
+        example: ""
+      box:
+        type: string
+        example: ""
+      email:
+        type: string
+        example: ""
+      signature:
+        type: string
+        example: ""       
+    description: ""
+    title: "gf-installation-evaluation-form"

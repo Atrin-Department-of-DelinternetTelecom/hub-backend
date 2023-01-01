@@ -1,0 +1,49 @@
+/stats/sellers/{id}/task-types:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - 'stats'
+    summary: 'Your GET endpoint'
+    description: 'get all tags stats'
+    operationId: 'getSellerTaskTypesStats'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of user'
+        required: true
+        type: 'string'
+
+      - name: startDate
+        in: 'query'
+        required: true
+        type: string
+        default: '2022-01-01'
+
+      - name: endDate
+        in: 'query'
+        type: string
+        required: true
+
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'StatsTaskTypes'

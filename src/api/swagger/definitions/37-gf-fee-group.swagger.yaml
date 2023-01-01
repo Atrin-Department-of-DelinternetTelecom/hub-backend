@@ -1,0 +1,45 @@
+definitions:
+  GfFeeGroup:
+    type: "object"
+    required:
+      - "id"
+      - "uid"
+      - "active"
+      - "name"
+      - "internalName"
+      - "description"
+      - "status"
+      - "creationDate"
+      - "updateDate"
+    properties:
+      id:
+        type: "number"
+        example: 12
+      uid:
+        type: "number"
+        example: 22
+      active:
+        type: "number"
+        example: 1
+      name:
+        type: "string"
+        example: "name of fee group"
+      internalName:
+        type: "string"
+        example: "internal name of fee group"
+      description:
+        type: "string"
+        example: "description for gf fee group"
+      status:
+        type: "number"
+        example: 1
+      creationDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1  
+      updateDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "gfFeeGroup"

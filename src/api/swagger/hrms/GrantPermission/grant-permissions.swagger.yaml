@@ -1,0 +1,139 @@
+/grant-permissions:
+  post:
+    tags:
+      - "Grant Permission"
+    description: "create a new grant permission for client"
+    operationId: "create"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+
+    parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            clientId:
+              type: integer
+            authorizedName:
+              type: string
+            authorizedFiscalId:
+              type: string
+            description:
+              type: string
+          required:
+            - clientId
+            - authorizedName
+            - authorizedFiscalId
+            - description
+
+    responses:
+      "200":
+        description: "OK"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GrantPermission"
+
+/grant-permissions/{id}:
+  put:
+    tags:
+      - "Grant Permission"
+    description: "update a new grant permission for client"
+    operationId: "put"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of grant permission"
+        required: true
+        type: "integer"
+
+
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            clientId:
+              type: integer
+            authorizedName:
+              type: string
+            authorizedFiscalId:
+              type: string
+            description:
+              type: string
+          required:
+            - clientId
+            - authorizedName
+            - authorizedFiscalId
+            - description
+
+    responses:
+      "200":
+        description: "OK"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GrantPermission"
+
+
+
+/gf-clients/{clientId}/grant-permissions:
+  get:
+    tags:
+      - "Grant Permission"
+    description: "get all grant permission for client"
+    operationId: "getAllForClientId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "clientId"
+        in: "path"
+        description: "id of table education that belongs to specific employee"
+        required: true
+        type: "integer"
+    responses:
+      "200":
+        description: "OK"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GrantPermission"

@@ -1,0 +1,42 @@
+/stats/invoice/products/chart:
+  get:
+    tags:
+      - "stats"
+    summary: "Your GET endpoint"
+    description: "get invoice products chart"
+    operationId: "getInvoiceProductsChart"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: month
+        in: 'query'
+        required: true
+        type: string
+        description: 'date in YYYY-MM format'
+        default: '2022-05'
+
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+          properties:
+            data:
+              type: "object"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "StatsInvoice"

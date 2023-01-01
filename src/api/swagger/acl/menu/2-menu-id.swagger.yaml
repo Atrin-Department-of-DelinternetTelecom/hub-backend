@@ -1,0 +1,220 @@
+/menus/{id}:
+  get:
+    tags:
+      - "menus"
+    summary: "Your GET endpoint"
+    description: "get menu by id"
+    operationId: "getMenusId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Menu"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                code: "LBP"
+                created_at: "2021-04-27T11:01:05.000000Z"
+                creator:
+                  created_at: "2021-04-27T11:00:53.000000Z"
+                  email: "conn.itzel@example.net"
+                  id: 2
+                  name: "Dr. Kayley Homenick MD"
+                  updated_at: "2021-04-27T11:00:53.000000Z"
+                id: 4
+                payload: {}
+                redis_channel: "CL"
+                state: "lock"
+                type: "garage"
+                updated_at: "2021-04-27T11:01:05.000000Z"
+              meta:
+                code: 200
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Menu"
+  put:
+    tags:
+      - "menus"
+    summary: ""
+    description: "update menu record by id"
+    operationId: "putMenusId"
+    security:
+      - Bearer: []
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          type: "object"
+          properties:
+            name:
+              type: "string"
+              minLength: 1
+            acl_app_id:
+              type: "number"         
+          description: "we can just update image,icon,metadata and read property"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Menu"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                code: "CZK"
+                created_at: "2021-04-27T18:11:28.000000Z"
+                creator:
+                  created_at: "2021-04-27T18:11:16.000000Z"
+                  email: "pcremin@example.org"
+                  id: 2
+                  name: "Ms. Maddison Fritsch PhD"
+                  updated_at: "2021-04-27T18:11:16.000000Z"
+                id: 2
+                payload: {}
+                redis_channel: "redis channel was changed"
+                state: "open"
+                type: "door"
+                updated_at: "2021-04-29T00:52:42.000000Z"
+              meta:
+                code: 200
+                message: "Updated"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Menu"
+  delete:
+    tags:
+      - "menus"
+    summary: ""
+    description: "deleted record by id"
+    operationId: "deleteMenusId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: "Deleted"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Menu"

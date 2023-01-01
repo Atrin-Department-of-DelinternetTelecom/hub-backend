@@ -1,0 +1,42 @@
+/auth/login:
+  post:
+    tags:
+      - 'auth'
+    summary: ''
+    description: 'login to system'
+    operationId: 'postLogin'
+    consumes:
+      - 'application/json'
+    produces:
+      - 'application/json'
+    parameters:
+      - in: 'body'
+        name: 'body'
+        required: true
+        schema:
+          type: 'object'
+          required:
+            - 'email'
+            - 'password'
+          properties:
+            email:
+              type: 'string'
+              example: 'del@email.com'
+              format: email
+            password:
+              type: 'string'
+              example: 'password'
+              minLength: 3
+          description: ''
+          x-examples:
+            example-1:
+              email: 'mostafa@delinternet.com'
+              password: 'password'
+    responses:
+      '200':
+        description: 'OK'
+      '401':
+        description: 'email/password is incorrect'
+      '500':
+        description: 'Something happened to the server - call the operator'
+    x-swagger-router-controller: 'Authentication'

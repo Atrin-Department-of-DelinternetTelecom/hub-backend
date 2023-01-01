@@ -1,0 +1,32 @@
+definitions:
+  GfDocumentType:
+    type: "object"
+    required:   
+      - "aireNetworksCode"   
+      - "name"       
+    properties:
+      id:
+        type: "number"
+        example: 12
+      uid:
+        type: "number"
+        example: 90
+      aireNetworksCode:
+        type: "number"
+        example: 0 
+      name:
+        type: "string"
+        example: 'Empresa'  
+      status:
+        type: "number"
+        example: 1 
+      creationDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      updateDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1       
+    description: ""
+    title: "gf-document-type"

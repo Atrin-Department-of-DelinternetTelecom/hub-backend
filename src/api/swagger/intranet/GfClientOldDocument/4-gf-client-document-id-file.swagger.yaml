@@ -1,0 +1,66 @@
+/gf-client-documents/{id}/file:
+  get:
+    tags:
+      - "gf-client-documents"
+    summary: "Your GET endpoint"
+    description: "Get the GfClientOldDocument file pdf"
+    operationId: "downloadFile"
+    security:
+      - Bearer: []
+      - TemporaryToken: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path" 
+        required: true
+        type: "number" 
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              type: "object"
+              properties: {}
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                "2021-04-25": "00:00:00"
+                "2021-04-26": "00:00:00"
+                "2021-04-27": "00:00:00"
+                "2021-04-28": "00:00:00"
+                max_time_record: 0
+                total: "00:00:00"
+              meta:
+                code: 200
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfClientOldDocument"

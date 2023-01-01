@@ -1,0 +1,305 @@
+/certifications/{id}:
+  get:
+    tags:
+      - "certification"
+    summary: "Your GET endpoint"
+    description: "get simple certification record by id"
+    operationId: "getCertificationsId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of certification of an employee"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Certification"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                certification: "ICDL"
+                created_at: "2021-04-27T17:36:18.000000Z"
+                employee_id: 6
+                granted_on: "2021-04-18 00:00:00"
+                id: 2
+                institute: "rayanet"
+                updated_at: "2021-04-27T17:36:18.000000Z"
+                valid_until: "2021-04-20 00:00:00"
+              meta:
+                code: 200
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Certification"
+  put:
+    tags:
+      - "certification"
+    summary: ""
+    description: "update certification record by id"
+    operationId: "putCertificationsId"
+    security:
+      - Bearer: []
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of certification of an employee"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "for update without file"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            certification:
+              type: "string"
+              minLength: 1
+            granted_on:
+              type: "string"
+              minLength: 1
+            institute:
+              type: "string"
+              minLength: 1
+            valid_until:
+              type: "string"
+              minLength: 1              
+          description: ""
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Certification"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                certification: "ICDL"
+                created_at: "2021-04-29T01:51:40.000000Z"
+                employee_id: 6
+                granted_on: "2021-04-18 00:00:00"
+                id: 1
+                institute: "rayanet"
+                updated_at: "2021-04-29T01:51:54.000000Z"
+                valid_until: "2021-04-25 00:00:00"
+              meta:
+                code: 200
+                message: "Updated"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Certification"
+  post:
+    tags:
+      - "certification"
+    summary: ""
+    description: "update certification record by id"
+    operationId: "postCertificationsId"
+    security:
+      - Bearer: []
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of certification of an employee"
+        required: true
+        type: "string"
+      - in: formData
+        type: file
+        required: true
+        name: proof_doc
+        description: proof_doc pdf
+      - in: formData
+        type: string
+        name: certification
+        description: certification title
+      - in: formData
+        type: string
+        name: granted_on
+        description: date of generated certification
+      - in: formData
+        type: string
+        name: institute
+        description: institute of certification
+      - in: formData
+        type: string
+        name: valid_until
+        description: valid until witch time
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Certification"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                certification: "ICDL"
+                created_at: "2021-04-29T01:51:40.000000Z"
+                employee_id: 6
+                granted_on: "2021-04-18 00:00:00"
+                id: 1
+                institute: "rayanet"
+                updated_at: "2021-04-29T01:51:54.000000Z"
+                valid_until: "2021-04-25 00:00:00"
+              meta:
+                code: 200
+                message: "Updated"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Certification"  
+  delete:
+    tags:
+      - "certification"
+    summary: ""
+    description: "delete certification record by id"
+    operationId: "deleteCertificationsId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of certification of an employee"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: "Deleted"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Certification"

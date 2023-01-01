@@ -1,0 +1,164 @@
+/gfUsers/{id}:
+  get:
+    tags:
+      - "gf-user"
+    summary: "Your GET endpoint"
+    description: "get a single gf user"
+    operationId: "getGfUsersId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of table gf_users"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/GfUser"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                username: "thisisusername"
+                email: "mostafaebrahimi.me@gmail.com"
+                first_name: "Mostafa"
+                role: "admin"
+                last_name: "Ebrahimi"
+                password: "mostafa$$1"
+              meta:
+                code: 0
+                status: "string"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfUser"
+  put:
+    tags:
+      - "gf-user"
+    summary: "Your PUT endpoint"
+    description: "update gf user by id"
+    operationId: "putGfUsersId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of table gf user"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "update a gf user"
+        required: false
+        schema:
+          type: "object" 
+          properties: 
+            userId:
+              type: "number"
+              example: 12 
+            name:
+              type: "string"
+              example: "TPR" 
+            email:
+              type: "string"
+              example: "image.png" 
+            collaboratorId:
+              type: "number"
+              example: 1 
+            distributorId:
+              type: "number"
+              example: 12
+            role:
+              type: "string"
+              example: "superAdmin"
+            providerId:
+              type: "number"
+              example: 1
+            clientId:
+              type: "number"
+              example: 1
+            status:
+              type: "number"
+              example: 1    
+          description: ""  
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/GfUser"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                username: "thisisusername"
+                email: "mostafaebrahimi.me@gmail.com"
+                first_name: "Mostafa"
+                role: "admin"
+                last_name: "Ebrahimi"
+                password: "mostafa$$1"
+              meta:
+                code: 0
+                status: "string"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfUser"    

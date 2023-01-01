@@ -1,0 +1,215 @@
+/crmTasks/{id}:
+  get:
+    tags:
+      - 'crm-tasks'
+    summary: 'Your GET endpoint'
+    description: 'get a crm task record by id of table crm_tasks'
+    operationId: 'getCrmTasksId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of crm task table'
+        required: true
+        type: 'number'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/CrmTask'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'CrmTask'
+  put:
+    tags:
+      - 'crm-tasks'
+    summary: ''
+    description: 'update a crm task record by id'
+    operationId: 'putCrmTasksId'
+    security:
+      - Bearer: []
+    consumes:
+      - 'application/json'
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of crm task table'
+        required: true
+        type: 'string'
+      - in: 'body'
+        name: 'body'
+        description: 'update a crm task'
+        required: false
+        schema:
+          type: 'object'
+          properties:
+            alias:
+              type: 'string'
+              example: 'mammad'
+            aditionalText:
+              type: 'string'
+              example: 'TPR'
+            text:
+              type: 'string'
+              example: 'some text'
+            emailAttachments:
+              type: 'string'
+              example: 'email attachments'
+            executed:
+              type: 'string'
+              example: '0'
+            executedDate:
+              type: 'string'
+              example: '2021-04-29 01:47:27.0'
+              minLength: 1
+            previsionDate:
+              type: 'string'
+              example: '2021-04-29 01:47:27.0'
+              minLength: 1
+            canceled:
+              type: 'number'
+              example: 1
+            preventCreateManually:
+              type: 'boolean'
+              example: false
+            crm_users:
+              type: 'array'
+              items:
+                type: 'number'
+            extra_fields:
+              type: 'array'
+              items:
+                type: 'number'
+          description: ''
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/CrmTask'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'CrmTask'
+  delete:
+    tags:
+      - 'crm-tasks'
+    summary: ''
+    description: 'delete a crm task by id'
+    operationId: 'deleteCrmTasksId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of crm task table'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'Example response'
+        schema:
+          type: 'object'
+          required:
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: 'Deleted'
+                status: 'success'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'CrmTask'

@@ -1,0 +1,145 @@
+/geo/province/{id}:
+  get:
+    tags:
+      - 'geo-province'
+    summary: 'Your GET endpoint'
+    description: 'get a geo-province record by id'
+    operationId: 'getGeoProvinceId'
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of province'
+        required: true
+        type: 'number'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GeoProvince'
+  put:
+    tags:
+      - 'geo-province'
+    summary: ''
+    description: 'update a geo-province by id'
+    operationId: 'putGeoProvinceId'
+    security:
+      - Bearer: []
+    consumes:
+      - 'application/json'
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of province'
+        required: true
+        type: 'string'
+      - in: 'body'
+        name: 'body'
+        description: 'update a geo-province'
+        required: false
+        schema:
+          type: 'object'
+          properties:
+            formated_name:
+              type: 'string'
+            alias:
+              type: 'string'
+          description: ''
+    responses:
+      '200':
+        description: 'OK'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GeoProvince'
+
+/geo/province/codes/{code}:
+  get:
+    tags:
+      - 'geo-province'
+    summary: 'Your GET endpoint'
+    description: 'get a geo-province record by code'
+    operationId: 'getGeoProvinceByCode'
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'code'
+        in: 'path'
+        description: 'code of province'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GeoProvince'

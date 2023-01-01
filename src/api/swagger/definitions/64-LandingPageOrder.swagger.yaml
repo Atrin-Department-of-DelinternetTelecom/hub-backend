@@ -1,0 +1,42 @@
+definitions:
+  LandingPageOrder:
+    type: 'object'
+    required:
+      - 'id'
+      - 'name'
+      - 'email'
+      - 'phone'
+      - 'gift'
+      - 'created_at'
+      - 'updated_at'
+    properties:
+      id:
+        type: 'number'
+        example: 12
+      name:
+        type: 'string'
+        example: 'name'
+      email:
+        type: 'string'
+        format: 'email'
+        example: 'ali@gmail.com'
+      phone:
+        type: 'string'
+        example: '09305505766'
+      gift:
+        type: 'string'
+        example: 'gift'
+      created_at:
+        type: 'string'
+        example: '2021-04-29 01:47:27.0'
+        minLength: 1
+      deleted_at:
+        type: 'string'
+        example: '2021-04-29 01:47:27.0'
+        minLength: 1
+      updated_at:
+        type: 'string'
+        example: '2021-04-29 01:47:27.0'
+        minLength: 1
+    description: ''
+    title: 'landingpageorder'

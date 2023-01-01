@@ -1,0 +1,62 @@
+<div class="top-padding line-wrap">
+    <table class="compelete-table">
+      <thead>
+        <tr>
+          <th  >Data</th>
+          <th >Hora</th>
+          <th >Línia destí</th>
+          <th >Tipus</th>
+          <th >Descripció</th>
+          <th >Durada</th>
+          <th >Import</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (const [index,line] of Object.entries(consumptionPageLines)) { %>
+        <tr class="table-row">
+          <td><%= line.date %></td>
+          <td><%= line.time %>h</td>
+          <td><%= line.number %></td>
+          <td><%= (line?.type ?? '').replace('_',' ') %></td>
+          <td><%= (line?.description ?? '').replace('_',' ') %></td>
+          <td><% var value; %>
+            <% switch (line.type.toLowerCase()) {
+                case 'datos':
+                    value = parseInt(line.duration);
+                    if (value > 1048576) {
+                        value = `${Math.ceil(value/1024/1024)} Mb`;
+                    } else if (value > 1024) {
+                        value = `${Math.ceil(value/1024)} Kb`;
+                    } else {
+                        value = `${value} b`;
+                    }
+
+                    break;
+                case 'movil':
+                case 'movil_entrante':
+                default:
+                    var md = parseInt(line.duration);
+
+                    var d = Math.floor(md / 86400 % 7);
+                    var h = Math.floor(md / 3600 % 24);
+                    var m = Math.floor(md / 60 % 60);
+                    var s = Math.floor(md % 60);
+
+                    d = d ? d + "d " : "";
+                    h = h ? h + "h " : "";
+                    m = m ? m + "m " : "";
+                    s = s ? s + "s" : "";
+
+                    value = d + h + m + s;
+                    break;
+                case 'sms':
+                    value = '-';
+                    break;
+            } %>
+            <%= value %></td>
+          <td><%= line.charge%> €</td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+</div>

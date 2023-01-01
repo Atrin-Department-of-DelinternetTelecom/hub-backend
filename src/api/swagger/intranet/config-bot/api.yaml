@@ -1,0 +1,70 @@
+/config-bot:
+  post:
+    summary: Apply configuration
+    description: Applies the selected configuration type (`flat` or `home`) with the required parameters.
+    tags:
+      - 'config-bot'
+    security:
+      - Bearer: []
+    consumes:
+      - 'application/json'
+    produces:
+      - 'application/json'
+    operationId: 'configure'
+    parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          type: object
+          required:
+            - config_type
+          properties:
+            config_type:
+              type: string
+              enum: [flat, home]
+              example: 'flat'
+            ip_flat:
+              type: string
+              format: ipv4
+              example: '192.168.1.1'
+              description: Required if `config_type` is `flat`.
+            installer_flat:
+              type: string
+              example: 'installer_v1'
+              description: Required if `config_type` is `flat`.
+            ip_home:
+              type: string
+              format: ipv4
+              example: '10.0.0.1'
+              description: Required if `config_type` is `home`.
+            username:
+              type: string
+              example: 'admin'
+              description: Required if `config_type` is `home`.
+            password:
+              type: string
+              format: password
+              example: 'securepass'
+              description: Required if `config_type` is `home`.
+            installer_home:
+              type: string
+              example: 'installer_home_v2'
+              description: Required if `config_type` is `home`.
+    responses:
+      '204':
+        description: 'OK'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+
+    x-swagger-router-controller: 'ConfigBot'

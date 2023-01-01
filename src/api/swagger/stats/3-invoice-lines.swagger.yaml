@@ -1,0 +1,67 @@
+/stats/invoice/lines:
+  get:
+    tags:
+      - 'stats'
+    x-pagination: true
+    x-filter: true
+    summary: 'Your GET endpoint'
+    description: 'get all invoice lines'
+    operationId: 'getInvoiceLines'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: startDate
+        in: 'query'
+        required: true
+        type: string
+
+      - name: endDate
+        in: 'query'
+        required: true
+        type: string
+
+      - name: service
+        in: 'query'
+        type: string
+        enum:
+          - fibra
+          - radio
+          - internet
+          - cell
+          - fix
+          - tv
+
+      - name: state
+        in: 'query'
+        type: string
+        enum:
+          - proforma
+          - issued
+          - canceled
+          - rectificative
+
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+          properties:
+            data:
+              type: 'object'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'StatsInvoice'

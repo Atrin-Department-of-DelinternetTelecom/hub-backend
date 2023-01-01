@@ -1,0 +1,48 @@
+definitions:
+  CrmTaskType:
+    type: object
+    properties:
+      id:
+        type: 'number'
+        example: 12
+      uid:
+        type: 'number'
+        example: 90
+      tag:
+        type: 'string'
+        example: "ph"
+      name:
+        type: 'string'
+        example: "achar"
+      executable:
+        type: 'number'
+        example: 1
+      rTaskFluxId:
+        type: 'number'
+        example: 123
+      forcePrevisionInFuture:
+        type: 'number'
+        example: 123
+      color:
+        type: 'string'
+        example: "red"
+      icon:
+        type: 'string'
+        example: "iconFormat"
+      leftRight:
+        type: 'string'
+        example: "left"
+      excludedApps:
+        type: 'string'
+        example: "goufone"
+      onlyApps:
+        type: 'string'
+        example: "goufone"
+      hiddedOnCombo:
+        type: 'number'
+        example: 0
+      status:
+        type: 'number'
+        example: 0
+    description: ''
+    title: 'crm-task-type'

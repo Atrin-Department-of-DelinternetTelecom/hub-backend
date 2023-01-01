@@ -1,0 +1,263 @@
+/gf-ivoz-fixes/{id}:
+  get:
+    tags:
+      - 'gf-ivoz-fixes'
+    summary: 'Your GET endpoint'
+    description: 'get a single contract'
+    operationId: 'getGfIvozFixesId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table contract'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfIvozFix'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'status'
+          description: ''
+          x-examples:
+            example-1:
+              data:
+                username: 'thisisusername'
+                email: 'mostafaebrahimi.me@gmail.com'
+                first_name: 'Mostafa'
+                role: 'admin'
+                last_name: 'Ebrahimi'
+                password: 'mostafa$$1'
+              meta:
+                code: 0
+                status: 'string'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfIvozFix'
+  put:
+    tags:
+      - 'gf-ivoz-fixes'
+    summary: ''
+    description: 'update a gf-ivoz-fixes by id'
+    operationId: 'putGfIvozFixesId'
+    security:
+      - Bearer: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+        description: Id of gf-ivoz-fixes table
+      - in: body
+        name: body
+        schema:
+          type: object
+          required:
+            - contractId
+            - email
+            - maxInboundCalls
+            - maxCalls
+            - ratingGroup
+            - ring_time
+            - language
+          properties:
+            uid:
+              type: integer
+              example: -1
+            contractId:
+              type: integer
+              example: 1
+            extension:
+              type: string
+              example: ''
+            password:
+              type: string
+              example: ''
+            email:
+              type: string
+              example: 'email@example.mail'
+            giverOperator:
+              type: integer
+              example: 0
+            useAta:
+              type: integer
+              example: 0
+            sync:
+              type: integer
+              example: 0
+            nif:
+              type: string
+              example: ''
+            language:
+              type: string
+              example: 'en,ca,es,fr'
+            ring_time:
+              type: integer
+              example: 0
+            type:
+              type: string
+              example: 'residential,home'
+            maxInboundCalls:
+              type: integer
+              example: 0
+            maxCalls:
+              type: integer
+              example: 0
+            cf:
+              type: integer
+              example: 0
+            cfb:
+              type: integer
+              example: 0
+            cfu:
+              type: integer
+              example: 0
+            voicemail:
+              type: integer
+              example: 0
+            description:
+              type: string
+              example: ''
+            error:
+              type: string
+              example: ''
+            autoExecuteDate:
+              type: string
+              example: '2022-01-02 00:00:00'
+            state:
+              type: string
+              example: 'pending,in_progress,done,error,preparing,prepared'
+            ratingGroup:
+              type: integer
+              example: 0
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfIvozFix'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfIvozFix'
+  delete:
+    tags:
+      - 'gf-ivoz-fixes'
+    summary: ''
+    description: 'delete a gf-ivoz-fixes by id'
+    operationId: 'deleteGfIvozFixesId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of gf-ivoz-fixes table'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'Example response'
+        schema:
+          type: 'object'
+          required:
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: 'Deleted'
+                status: 'success'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfIvozFix'

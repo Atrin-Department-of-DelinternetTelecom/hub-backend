@@ -1,0 +1,16 @@
+definitions:
+  FormCategory:
+    type: "object"
+    required:
+      - "name"
+      - "current_version_form_template_id"
+    properties:
+      name:
+        type: "string"
+        example: "first-name"
+        minLength: 1
+      current_version_form_template_id:
+        type: "number"
+        example: 12          
+    description: ""
+    title: "FormCategory"

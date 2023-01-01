@@ -1,0 +1,155 @@
+/gfcellproviderfee/import/fee:
+  get:
+    tags:
+      - 'gf-cell-provider-fee'
+    summary: 'Get list of gf-cell-provider-fee'
+    description: 'Import all provider fees from AIRE and LEMON to the local database.'
+    operationId: 'importFees'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'loadAllLemonPackages'
+        in: 'query'
+        description: 'Flag to determine whether to load all Lemon packages'
+        required: false
+        type: 'boolean'
+        default: false # Default value is false
+    responses:
+      '200':
+        description: 'Successfully fetched provider fee data.'
+        headers: {}
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'links'
+            - 'meta'
+          properties:
+            data:
+              type: 'array'
+              uniqueItems: true
+              items:
+                $ref: '#/definitions/GfCellProviderFee2'
+              minItems: 1
+            links:
+              type: 'object'
+              properties:
+                first:
+                  type: 'string'
+                  minLength: 1
+                last:
+                  type: 'string'
+                  minLength: 1
+                next:
+                  type: 'string'
+                  minLength: 1
+                prev:
+                  type: 'string'
+                  minLength: 1
+                self:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'first'
+                - 'last'
+                - 'next'
+                - 'prev'
+                - 'self'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                current_page:
+                  type: 'number'
+                from:
+                  type: 'number'
+                last_page:
+                  type: 'number'
+                links:
+                  type: 'array'
+                  uniqueItems: true
+                  items:
+                    type: 'object'
+                    properties:
+                      active:
+                        type: 'boolean'
+                      label:
+                        type: 'string'
+                        minLength: 1
+                      url:
+                        type: 'string'
+                        minLength: 1
+                    required:
+                      - 'active'
+                      - 'label'
+                      - 'url'
+                  minItems: 1
+                path:
+                  type: 'string'
+                  minLength: 1
+                per_page:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+                to:
+                  type: 'number'
+                total:
+                  type: 'number'
+              required:
+                - 'code'
+                - 'current_page'
+                - 'from'
+                - 'last_page'
+                - 'links'
+                - 'path'
+                - 'per_page'
+                - 'status'
+                - 'to'
+                - 'total'
+        x-examples:
+          example-1:
+            data:
+              - createDate: '2019-08-24'
+                dateOfBirth: '1997-10-31'
+                email: 'user@example.com'
+                emailVerified: true
+                firstName: 'John'
+                id: 0
+                lastName: 'Doe'
+            links:
+              first: 'https://example.com/api/v1/first'
+              last: 'https://example.com/api/v1/last'
+              next: 'https://example.com/api/v1/next'
+              prev: 'https://example.com/api/v1/prev'
+              self: 'https://example.com/api/v1/self'
+            meta:
+              code: 200
+              current_page: 1
+              from: 1
+              last_page: 5
+              links:
+                - active: true
+                  label: 'Next'
+                  url: 'https://example.com/api/v1/next'
+              path: '/gfcellproviderfee/import/fee'
+              per_page: 10
+              status: 'success'
+              to: 10
+              total: 50
+      '401':
+        description: 'Unauthorized - Invalid or missing authentication.'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden - Insufficient permissions to access this resource.'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'Internal Server Error - An error occurred on the server.'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfCellProviderFee'

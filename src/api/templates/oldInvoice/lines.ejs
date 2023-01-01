@@ -1,0 +1,68 @@
+<tr class="lines">
+    <td>
+        <div class="wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="col-ref">
+                            Referència
+                        </th>
+
+                        <th>
+                            Descripció
+                        </th>
+
+                        <th class="text-right">
+                            Unitats
+                        </th>
+
+                        <th class="text-right">
+                            Total
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                    var referer = "";
+                    %>
+
+                    <% for (const [index,line] of Object.entries(frontPageLines) ) { %>
+                        <tr class="row">
+                            <td>
+                                <% if (referer !== line.contract) {
+                                    %>
+                                    <%= line.contract %>
+                                    <% }
+                                %>
+                            </td>
+                            <td>
+                                <% if (referer === line.contract) {
+                                    %>
+                                    &#155;
+                                    <% }
+                                %>
+                                <%= line.data.description %>
+                            </td>
+                            <% referer = line.contract %>
+
+                            <td class="text-right">
+                                <% if (line.data.count > 1) { %>
+                                    <%= line.data.count + " x " %> <% }%>
+                                <%   
+                                    var days = parseInt(line.data.refererDays);
+                                    var restOfDay = Math.abs(line.data.refererDays) - Math.floor(line.data.refererDays);
+                                    var hour = Math.ceil(restOfDay * 24);
+                                %>
+                                <%= `${days ? `${days}d` : ''} ${hour ? `${hour}h` : ''}` %>
+                            </td>
+
+                            <td class="text-right col-total">
+                                <%= parseFloat(line.data.count * line.data.subtotal).toFixed(2) %> €
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </td>
+</tr>

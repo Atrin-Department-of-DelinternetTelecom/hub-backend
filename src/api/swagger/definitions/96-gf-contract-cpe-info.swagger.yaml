@@ -1,0 +1,45 @@
+definitions:
+  GfContractCpeInfo:
+    type: object         
+    properties: 
+      cpeDsn:
+        type: string
+        example: ""
+      cpeSn:
+        type: string
+        example: ""
+      cpeModel:
+        type: string
+        example: ""
+      cpeVoipProfile:
+        type: string
+        example: ""
+      cpePppoeUsername:
+        type: string
+        example: ""
+      cpePppoePassword:
+        type: string
+        example: ""
+      cpeWifiSsid:
+        type: string
+        example: ""
+      cpeWifiPassword:
+        type: string
+        example: ""
+      cpeId:
+        type: number
+        example: 0
+      cpeLineProfile:
+        type: string
+        example: ""  
+      userInterfaceUsername:
+        type: string
+        example: ""  
+      userInterfacePassword:
+        type: string
+        example: ""    
+      device:
+        type: object
+        example: ""    
+    description: ""
+    title: "gf-contract-cpe-info"

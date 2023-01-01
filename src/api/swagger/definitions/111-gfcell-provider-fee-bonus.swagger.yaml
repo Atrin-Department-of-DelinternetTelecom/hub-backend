@@ -1,0 +1,109 @@
+definitions:
+  GfCellProviderFeeBonus1:
+    type: object        
+    properties:
+      providerBonusId:
+        type: string
+        example: ""
+      name:
+        type: string
+        example: ""
+      keySearch:
+        type: string
+        example: ""
+      pvp:
+        type: string
+        example: ""
+      minutes:
+        type: string
+        example: ""
+      gb:
+        type: string
+        example: ""
+      description:
+        type: string
+        example: ""
+      bonusType:
+        type: string
+        example: ""
+      providerState:
+        type: number
+        example: 1 
+      tpvCode:
+        type: string
+        example: ""
+      proportional:
+        type: 
+          - "number"
+          - "null"
+        example: 1
+      providerId:
+        type: 
+          - "number"
+          - "null"
+        example: 1 
+    description: ""
+    title: "gf-cell-provider-fee-bonus-1"
+  GfCellProviderFeeBonus2:
+    type: object        
+    properties:
+      id:
+        type: number
+        example: 12
+      uid:
+        type: number
+        example: -1  
+      providerBonusId:
+        type: string
+        example: ""
+      name:
+        type: string
+        example: ""
+      keySearch:
+        type: string
+        example: ""
+      pvp:
+        type: string
+        example: ""
+      minutes:
+        type: string
+        example: ""
+      gb:
+        type: string
+        example: ""
+      description:
+        type: string
+        example: ""
+      bonusType:
+        type: string
+        example: ""
+      providerState:
+        type: 
+          - "number"
+          - "null"
+        example: 1 
+      tpvCode:
+        type: string
+        example: ""
+      proportional:
+        type: 
+          - "number"
+          - "null"
+        example: 1
+      providerId:
+        type: 
+          - "number"
+          - "null"
+      status:
+        type: integer
+        example: 0 
+      creationDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      updateDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1        
+    description: ""
+    title: "gf-cell-provider-fee-bonus-2"

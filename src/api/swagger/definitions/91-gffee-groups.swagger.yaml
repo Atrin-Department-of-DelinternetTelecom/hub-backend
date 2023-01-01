@@ -1,0 +1,40 @@
+definitions:
+  GfFeegroups:
+    type: object 
+    required:
+      - sectionId
+      - groupLabels
+      - labels
+      - name       
+    properties:
+      id:
+        type: number
+        example: 12
+      uid:
+        type: number
+        example: -1  
+      name:
+        type: string
+        example: ""
+      internalName:
+        type: string
+        example: ""
+      active:
+        type: number
+        example: 0
+      description:
+        type: string
+        example: ""
+      sectionId:
+        type: number
+        example: 0 
+      labels:
+        type: "array"
+        items: 
+          type: number 
+      groupLabels:
+        type: "array"
+        items: 
+          type: number   
+    description: ""
+    title: "gf-fee-groups"

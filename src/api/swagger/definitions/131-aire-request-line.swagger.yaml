@@ -1,0 +1,58 @@
+definitions:
+  AireRequestLine:
+    type: object
+    properties:
+      cod: 
+        type: string 
+        example: 00128450171438
+      tipo: 
+        type: string 
+        example: PORTABILIDAD
+      telefono: 
+        type: string 
+        example: 717771799
+      cliente_final: 
+        type: string 
+        example: DEL-INTERNET TELECOM SLU
+      tarifa: 
+        type: string 
+        example: DELINTERNET Tarifa SIM
+      siglas_tarifa: 
+        type: string 
+        example: TMIBAS
+      fecha_insercion: 
+        type: string 
+        example: 2016
+      fiscalId: 
+        type: string 
+        example: B55606446
+      subscriberType: 
+        type: string 
+        example: 1
+      icc: 
+        type: string 
+        example: 893490307130356200
+      icc_dc: 
+        type: string 
+        example: 4
+      cod_port: 
+        type: string 
+        example: 134414
+      modalidad_actual: 
+        type: string 
+        example: postpago
+      f_portabilidad_diferida: 
+        type: string 
+        example: 0000-00-00
+      estado: 
+        type: string 
+        example: ACTIVA
+      estado_n: 
+        type: string 
+        example: 2
+      estado_detallado: 
+        type: string 
+        example: Solicitud finalizada con exito.
+       
+    description: ''
+    title: 'aire-request-line'

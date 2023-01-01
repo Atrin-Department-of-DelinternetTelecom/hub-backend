@@ -1,0 +1,60 @@
+definitions:
+  Finger-print:
+    type: "object"
+    required:
+      - "anviz_id"
+      - "creator_id"
+      - "finger"
+      - "fingerprint_template"
+      - "hardware_name"
+      - "id"
+      - "user_id"
+    properties:
+      anviz_id:
+        type: "number"
+        example: 7
+      created_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      creator_id:
+        type: "number"
+        example: 14
+      deleted_at:
+        type: "string"
+        format: "date-time"
+        example: "2021-04-29 01:47:27.0"
+      finger:
+        type: "number"
+        example: 6
+      fingerprint_template:
+        type: "string"
+        example: "some temp of a finger"
+        minLength: 1
+      hardware_name:
+        type: "string"
+        example: "name of hardware"
+        minLength: 1
+      id:
+        type: "number"
+        example: 12
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      user_id:
+        type: "number"
+        example: 5
+    description: ""
+    title: "FingerPrint"
+    x-examples:
+      example-1:
+        anviz_id: 7
+        created_at: "2021-04-27T18:11:19"
+        creator_id: 9
+        finger: 8
+        fingerprint_template: "tmp of finger"
+        hardware_name: "Zachary Altenwerth"
+        id: 1
+        updated_at: "2021-04-27T18:11:19"
+        user_id: 5

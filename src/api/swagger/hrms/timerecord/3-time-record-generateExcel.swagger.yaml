@@ -1,0 +1,43 @@
+/timeRecords/generateexcel:
+  get:
+    tags:
+      - "time-record"
+    summary: "Your GET endpoint"
+    description: "download genrated excel report of actvity"
+    operationId: "getTimeRecordsGenerateexcel"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "startTime"
+        in: "query"
+        description: "from witch time"
+        required: true
+        type: "string"
+      - name: "endTime"
+        in: "query"
+        description: "to witch time"
+        required: true
+        type: "string"
+      - name: "fake"
+        in: "query"
+        description: "generate fake data or no"
+        required: false
+        type: "boolean"
+    responses:
+      "200":
+        description: "download excel file"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "TimeRecord"

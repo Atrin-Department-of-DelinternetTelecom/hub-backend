@@ -1,0 +1,69 @@
+/gf-contracts/newCustomAdministrativeAction:
+  post:
+    tags:
+      - "gf-contracts"
+    summary: ""
+    description: "add new custom administrative event"
+    operationId: "newCustomAdministrativeAction"
+    security:
+      - Bearer: [] 
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:  
+      - in: body
+        name: body
+        schema:
+          type: object   
+          required:
+            - contractId    
+            - text    
+          properties:
+            contractId:
+              type: number
+              default: 22
+            title:
+              type: string 
+            text:
+              type: string   
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/GfContract"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfContract"

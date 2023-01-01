@@ -1,0 +1,50 @@
+definitions:
+  UnpaidSetting:
+    type: "object"
+    required:
+      - "id"
+      - "disabled_notifiers"
+      - "fallback_sms_count"
+      - "msg_period"
+      - "msgs_per_period"
+      - "msg_hour"
+      - "user_id"
+      - "uid"
+      - "status"
+      - "created_at"
+      - "updated_at"
+      - "deleted_at"
+    properties:
+      id:
+        type: "number"
+        example: 12
+      disabled_notifiers:
+        type: "string"
+      fallback_sms_count:
+        type: "number"
+      msg_period:
+        type: "number"
+      msgs_per_period:
+        type: "number"
+      msg_hour:
+        type: "string"
+      user_id:
+        type: "number"
+      uid:
+        type: "number"
+      status:
+        type: "number"
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1  
+      created_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      deleted_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "unpaid setting"

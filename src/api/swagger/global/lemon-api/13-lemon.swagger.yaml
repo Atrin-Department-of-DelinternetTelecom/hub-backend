@@ -1,0 +1,119 @@
+/lemon-api/regions:
+  get:
+    tags:
+      - 'lemon-api'
+    summary: 'Available filters: name'
+    description: 'Get available lemon regions'
+    operationId: 'regions'
+    x-pagination: true
+    x-filter: true
+    security:
+      - Bearer: []
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          properties:
+            data:
+              type: 'array'
+              items:
+                $ref: '#/definitions/IndependentLemonAddress'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'LemonApi'
+
+/lemon-api/regions/{id}/provinces:
+  get:
+    tags:
+      - 'lemon-api'
+    summary: 'Available filters: name'
+    description: 'Get available lemon provinces for given region id'
+    operationId: 'provinces'
+    x-pagination: true
+    x-filter: true
+    security:
+      - Bearer: []
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'The region id'
+        required: true
+        type: 'number'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          properties:
+            data:
+              type: 'array'
+              items:
+                $ref: '#/definitions/DependentLemonAddress'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'LemonApi'
+
+/lemon-api/provinces/{id}/cities:
+  get:
+    tags:
+      - 'lemon-api'
+    summary: 'Available filters: name'
+    description: 'Get available lemon cities for given province id'
+    operationId: 'cities'
+    x-pagination: true
+    x-filter: true
+    security:
+      - Bearer: []
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'The province id'
+        required: true
+        type: 'number'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          properties:
+            data:
+              type: 'array'
+              items:
+                $ref: '#/definitions/DependentLemonAddress'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'LemonApi'

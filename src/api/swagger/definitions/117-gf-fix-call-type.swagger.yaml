@@ -1,0 +1,86 @@
+definitions:
+  GfFixCallType1:
+    type: object
+    required:
+      - name
+    properties:
+      name:
+        type: 'string'
+        example: ''
+      primary:
+        type:
+          - 'integer'
+          - 'null'
+        example: -1
+      priceType:
+        type:
+          - 'string'
+          - 'null'
+        enum: ['byCost', 'byMinutes']
+      kamailioRef:
+        type:
+          - 'string'
+          - 'null'
+        example: ''
+      priceValue:
+        type:
+          - 'string'
+          - 'null'
+        example: ''
+      code:
+        type: 'array'
+        items: 
+          type: string 
+        example: ['1','2','3']
+    description: ''
+    title: 'gf-fix-call-type-1'
+  GfFixCallType2:
+    type: object
+    properties:
+      id:
+        type: number
+        example: 12
+      uid:
+        type: number
+        example: -1
+      name:
+        type: 'string'
+        example: ''
+      primary:
+        type:
+          - 'integer'
+          - 'null'
+        example: -1
+      priceType:
+        type:
+          - 'string'
+          - 'null'
+        enum: ['byCost', 'byMinutes']
+      kamailioRef:
+        type:
+          - 'string'
+          - 'null'
+        example: ''
+      priceValue:
+        type:
+          - 'string'
+          - 'null'
+        example: ''
+      prefixCode:
+        type:
+          - 'string'
+          - 'null'
+        example: ''
+      status:
+        type: integer
+        example: 0
+      creationDate:
+        type: 'string'
+        example: '2021-04-29 01:47:27.0'
+        minLength: 1
+      updateDate:
+        type: 'string'
+        example: '2021-04-29 01:47:27.0'
+        minLength: 1
+    description: ''
+    title: 'gf-fix-call-type-2'

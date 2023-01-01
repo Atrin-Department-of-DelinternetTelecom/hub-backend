@@ -1,0 +1,55 @@
+definitions:
+  InvoiceMoneyType1:
+    type: object        
+    properties:
+      uid:
+        type: number
+        example: -1  
+      name:
+        type: string
+        example: ""
+      code:
+        type: string
+        example: ""
+      symbol:
+        type: string
+        example: ""
+      conversion:
+        type: number
+        example: ""
+      status:
+        type: integer
+        example: 0       
+    description: ""
+    title: "invoice-money-type-1"
+  InvoiceMoneyType2:
+    type: object        
+    properties:
+      id:
+        type: number
+        example: 12
+      uid:
+        type: number
+        example: -1  
+      name:
+        type: string
+        example: ""
+      code:
+        type: string
+        example: ""
+      conversion:
+        type: string
+        example: ""
+      status:
+        type: integer
+        example: 0 
+      creationDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      updateDate:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1        
+    description: ""
+    title: "invoice-money-type-2"

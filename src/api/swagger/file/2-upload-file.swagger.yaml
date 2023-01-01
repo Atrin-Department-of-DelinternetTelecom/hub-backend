@@ -1,0 +1,31 @@
+/file/{bucket}:
+  post:
+    tags:
+      - 'file'
+    summary: ''
+    description: 'upload file to a bucket'
+    operationId: 'uploadFile'
+    security:
+      - Bearer: []
+    parameters:
+      - name: 'bucket'
+        in: 'path'
+        description: 'select bucket to insert file'
+        required: true
+        type: 'string'
+      - in: formData
+        type: file
+        name: file
+        required: true
+        description: file to upload
+      - in: formData
+        type: boolean
+        name: useV4FileName
+        required: false
+        description: set random file name or with original file name
+    responses:
+      '200':
+        description: 'OK'
+      '404':
+        description: 'not found'
+    x-swagger-router-controller: 'file'

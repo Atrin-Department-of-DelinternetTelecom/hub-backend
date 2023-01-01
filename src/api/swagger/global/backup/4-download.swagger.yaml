@@ -1,0 +1,36 @@
+/backups/download:
+  get:
+    tags:
+      - "backup"
+    operationId: "download"
+    produces:
+      - "application/gzip"
+    parameters:
+      - name: key
+        in: "query"
+        description: "The access key of the backup"
+        required: true
+        type: "string"
+        minLength: 1
+      - name: hmac
+        in: "query"
+        description: "The HMAC of the backup"
+        required: true
+        type: "string"
+        minLength: 1
+    responses:
+      "200":
+        description: "OK"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Backup"

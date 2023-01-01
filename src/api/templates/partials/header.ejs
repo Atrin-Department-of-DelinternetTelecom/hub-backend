@@ -1,0 +1,39 @@
+<div class="header">
+  <div class="header-top">
+    <% var logos={ Altercom21: 'altercomeLogo.ejs' , PcHard: 'pchardLogo.ejs' } %>
+
+      <div class="logo">
+        <%- (invoice.client.collaborator && logos[invoice.client.collaborator.name]) ?
+          include(`${logos[invoice.client.collaborator.name]}`) : include('delinternetLogo.ejs') %>
+      </div>
+      <div class="header-info">
+        <div class="info-box">
+          <span class="title">Factura</span>
+          <p>
+            <%= invoice.code %>
+          </p>
+        </div>
+        <div class="info-box">
+          <span class="title">Emissió</span>
+          <p>
+            <%= new Date(invoice.date).toLocaleDateString("en-GB") %>
+          </p>
+        </div>
+        <div class="info-box">
+          <span class="title">Venciment</span>
+          <p>
+            <%= new Date(invoice.payDate).toLocaleDateString("en-GB") %>
+          </p>
+        </div>
+        <div class="info-box ">
+          <span class="title">Pàgina</span>
+          <p><%- currentPage %>/<%- totalPages %></p>
+        </div>
+        <div class="right-border"></div>
+        <div class="info-box ">
+          <span class="title refrence">B55606446</span>
+          <p class="green-color">DEL-INTERNET TELECOM S.L.U</p>
+        </div>
+      </div>
+  </div>
+</div>

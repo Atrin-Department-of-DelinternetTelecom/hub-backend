@@ -1,0 +1,87 @@
+definitions:
+  createCrmEvent:
+    type: object
+    required:
+      - description
+      - reference
+      - type
+    properties:
+      reference:
+        type: string
+        example: ''
+      title:
+        type:
+          - 'string'
+          - 'null'
+        example: ''
+      description:
+        type: string
+        example: ''
+      type:
+        type: number
+        example: 1
+      collaboratorId:
+        type: number
+        example: 1
+      labels:
+        type: array
+        items:
+          type: integer
+        example: [1]
+      users:
+        type: array
+        items:
+          type: integer
+        example: [1]
+      clientTags:
+        type: array
+        items:
+          type: integer
+        example: [1]
+      clientTagsAnd:
+        type: integer
+        example: 0
+    description: ''
+    title: 'create-crm-event'
+  GfCrmEvent2:
+    type: object
+    properties:
+      id:
+        type: number
+        example: -1
+      uid:
+        type: number
+        example: -1
+      reference:
+        type: string
+        example: ''
+      title:
+        type: string
+        example: ''
+      description:
+        type: string
+        example: ''
+      type:
+        type: number
+        example: 1
+      collaboratorId:
+        type: number
+        example: 1
+      clientTagsAnd:
+        type:
+          - boolean
+          - 'null'
+        example: null
+      status:
+        type: integer
+        example: 0
+      creationDate:
+        type: 'string'
+        example: '2021-04-29 01:47:27.0'
+        minLength: 1
+      updateDate:
+        type: 'string'
+        example: '2021-04-29 01:47:27.0'
+        minLength: 1
+    description: ''
+    title: 'gf-crm-event-2'

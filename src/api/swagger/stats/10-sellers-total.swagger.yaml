@@ -1,0 +1,59 @@
+/stats/sellers/total:
+  get:
+    tags:
+      - 'stats'
+    summary: 'Your GET endpoint'
+    description: 'get all sellers stats'
+    operationId: 'getTotalStats'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: startDate
+        in: 'query'
+        required: true
+        type: string
+        default: '2022-01-01'
+
+      - name: endDate
+        in: 'query'
+        type: string
+
+      - name: dateColumn
+        in: 'query'
+        type: string
+        default: 'creationDate'
+        enum:
+          - creationDate
+          - dateActivation
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          properties:
+            data:
+              type: 'object'
+              properties:
+                cell:
+                  type: integer
+                fix:
+                  type: integer
+                internet:
+                  type: integer
+                tv:
+                  type: integer
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'StatsSellers'

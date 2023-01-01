@@ -1,0 +1,391 @@
+/gf-clients/{id}:
+  get:
+    tags:
+      - 'gf-clients'
+    summary: 'Your GET endpoint'
+    description: 'get a gf-clients record by id of table gf-clients'
+    operationId: 'getGfClientsId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of gf-client table'
+        required: true
+        type: 'number'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfClient'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfClient'
+  put:
+    tags:
+      - 'gf-clients'
+    summary: ''
+    description: 'update a gf-client by id'
+    operationId: 'putGfClientsId'
+    security:
+      - Bearer: []
+    consumes:
+      - 'application/json'
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of gf-client table'
+        required: true
+        type: 'string'
+      - in: 'body'
+        name: 'body'
+        description: 'update a gf-client'
+        required: false
+        schema:
+          type: 'object'
+          properties:
+            uid:
+              type: 'integer'
+              example: 90
+            active:
+              type: 'integer'
+              example: 1
+            collaboratorId:
+              type: 'integer'
+              example: 0
+            subscriberTypeId:
+              type: 'integer'
+              example: 0
+            documentTypeId:
+              type: 'integer'
+              example: 0
+            fiscalId:
+              type: 'string'
+              example: '26696668Q'
+            centreCode:
+              type: 'string'
+              example: ''
+
+            # Residencial
+            contactName:
+              type: 'string'
+              example: 'John'
+            contactFamilyName1: # required when is Residencial, Autònom
+              type: 'string'
+              example: 'Due'
+            contactFamilyName2:
+              type: 'string'
+              example: 'Cristian'
+            contactPhone: # required when is Residencial, Autònom | ignore on Empresa
+              type: 'string'
+              example: '88888888'
+
+            # Empressa
+            name:
+              type: 'string'
+              example: 'John'
+            contactDocumentTypeId:
+              type: 'integer'
+              example: 0
+            contactFiscalId:
+              type: 'string'
+              example: '26696668Q'
+
+            # Email
+            emailAddress:
+              type: 'string'
+              example: 'example@example.com'
+            dontHaveEmail:
+              type: 'integer'
+              example: 0
+            sendInvoiceMail:
+              type: 'integer'
+              example: 0
+
+            # Address
+            document:
+              type: 'string'
+            nationalityCode:
+              type: 'string'
+              example: '1'
+            addressRegion:
+              type: 'string'
+            addressProvince:
+              type: 'string'
+            addressProvinceCode:
+              type: 'string'
+            addressProvinceCodeName:
+              type: 'string'
+            addressCity:
+              type: 'string'
+            addressCityCode:
+              type: 'string'
+            addressCityCodeName:
+              type: 'string'
+            addressPostalCode:
+              type: 'string'
+            addressPostalCodeCode:
+              type: 'string'
+            addressPostalCodeCodeName:
+              type: 'string'
+            addressStreet:
+              type: 'string'
+            addressStreetCode:
+              type: 'string'
+            addressStreetCodeName:
+              type: 'string'
+            addressStreetTypeCode:
+              type: 'string'
+            addressStreetTypeCodeName:
+              type: 'string'
+            addressNumber:
+              type: 'string'
+            addressNumberCode:
+              type: 'string'
+            addressNumberCodeName:
+              type: 'string'
+            addressFloor:
+              type: 'string'
+            addressFloorCode:
+              type: 'string'
+            addressFloorCodeName:
+              type: 'string'
+            addressBuilding:
+              type: 'string'
+            addressBuildingCode:
+              type: 'string'
+            addressBuildingCodeName:
+              type: 'string'
+            addressDoor:
+              type: 'string'
+            addressDoorCode:
+              type: 'string'
+            addressDoorCodeName:
+              type: 'string'
+            addressStairway:
+              type: 'string'
+            addressStairwayCode:
+              type: 'string'
+            addressStairwayCodeName:
+              type: 'string'
+            addressLat:
+              type: 'string'
+            addressLng:
+              type: 'string'
+            addressMapUrl:
+              type: 'string'
+
+            # IABN
+            iban:
+              type: 'string'
+              example: 'DE75512108001245126199 '
+            bic:
+              type: 'string'
+              example: 'SOGEDEFF'
+            bicName:
+              type: 'string'
+              example: 'Societe Generale'
+            isRemitance:
+              type: 'integer'
+              example: 0
+            paymentTypeId:
+              type: 'number'
+              example: 1
+            payDay:
+              type: 'integer'
+              example: 7
+            dealtInvoiceAmount:
+              type: 'number'
+              example: 0
+
+            # Dades personal
+            birthday:
+              type: 'string'
+              # format: "date"
+              example: '1983-10-23'
+          description: ''
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfClient'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfClient'
+  delete:
+    tags:
+      - 'gf-clients'
+    summary: ''
+    description: 'delete a gf-client by id'
+    operationId: 'deleteGfClientsId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of gf-client table'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'Example response'
+        schema:
+          type: 'object'
+          required:
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: 'Deleted'
+                status: 'success'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfClient'
+
+/gf-clients/find-by-fiscal/{fiscalId}:
+  get:
+    tags:
+      - 'gf-clients'
+    summary: 'Your GET endpoint'
+    description: 'get a gf-clients record by fiscal id'
+    operationId: 'getGfClientByFiscalId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'fiscalId'
+        in: 'path'
+        description: 'id of gf-client table'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfClient'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfClient'

@@ -1,0 +1,53 @@
+definitions:
+  Certification:
+    type: "object"
+    required:
+      - "certification"
+      - "employee_id"
+      - "generated_on"
+      - "id"
+      - "institute"
+    properties:
+      certification:
+        type: "string"
+        example: "computer eng"
+      created_at:
+        type: "string"
+        example: "2021-04-29 01:59:26.0"
+      deleted_at:
+        type: "string"
+        example: "2021-04-29 01:59:26.0"
+      employee_id:
+        type: "integer"
+        example: 12
+        description: "belongs to witch user in system\n"
+        minimum: 0
+      generated_on:
+        type: "string"
+        format: "date"
+        example: "2021-04-29"
+      id:
+        type: "number"
+        example: 4
+      institute:
+        type: "string"
+        example: "shiraz university"
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:59:26.0"
+      valid_until:
+        type: "string"
+        format: "date-time"
+        example: "2021-04-29 01:59:26.0"
+    title: "Certification"
+    x-examples:
+      example-1:
+        certification: "computer eng"
+        created_at: "2021-04-29 01:59:26.0"
+        deleted_at: "2021-04-29 01:59:26.0"
+        employee_id: "12"
+        generated_on: "2021-04-29 01:59:26.0"
+        id: "string"
+        institute: "shiraz university"
+        updated_at: "2021-04-29 01:59:26.0"
+        valid_until: "2021-04-29 01:59:26.0"

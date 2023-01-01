@@ -1,0 +1,504 @@
+/gf-contract-data-cell/{id}/services:
+  get:
+    tags:
+      - 'gf-contract-data-cell'
+    summary: 'Your GET endpoint'
+    description: 'get a single contract'
+    operationId: 'getServices'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table contract'
+        required: true
+        type: string
+        default: 42471
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              type: object
+              properties:
+                Activable:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      featureID:
+                        type: string
+                      servicio:
+                        type: string
+                      active:
+                        type: string
+                        enum: ['true', 'false']
+                      extString:
+                        type: string
+                      extNumber:
+                        type: string
+                      functionality:
+                        type: string
+                Editable:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      featureID:
+                        type: string
+                      servicio:
+                        type: string
+                      active:
+                        type: string
+                        enum: ['true', 'false']
+                      extString:
+                        type: string
+                      extNumber:
+                        type: string
+                      functionality:
+                        type: string
+                Static:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      featureID:
+                        type: string
+                      servicio:
+                        type: string
+                      extString:
+                        type: string
+                      functionality:
+                        type: string
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: string
+                  minLength: 1
+              required:
+                - 'status'
+          description: ''
+          x-examples:
+            example-1:
+              code: 200
+              data:
+                Activable:
+                  - featureID: 'Boic'
+                    servicio: 'Bloqueo Llamadas Internacionales'
+                    active: 'false'
+                    extString: ''
+                    extNumber: ''
+                    functionality: 'Activable'
+                  - featureID: 'CountryFixedOGCallsBarred'
+                    servicio: 'Bloqueo llamadas a fijos'
+                    active: 'false'
+                    extString: ''
+                    extNumber: ''
+                    functionality: 'Activable'
+                  - featureID: 'CountryMobileOGCallsBarred'
+                    servicio: 'Bloqueo llamadas a móviles'
+                    active: 'false'
+                    extString: ''
+                    extNumber: ''
+                    functionality: 'Activable'
+                  - featureID: 'AireBarrado118'
+                    servicio: 'Bloqueo Llamadas Salientes 118 (no regulado)'
+                    active: 'false'
+                    extString: ''
+                    extNumber: ''
+                    functionality: 'Activable'
+                Editable:
+                  - featureID: 'RoamingOutsidePLMN-CountryBarred'
+                    servicio: 'Roaming Zonas 2 y 3 Voz y SMS (Consultar redes disponibles en roaming por zonas y países)'
+                    active: 'true'
+                    extString: 'RoamZ1CS'
+                    extNumber: ''
+                    functionality: 'Editable'
+                  - featureID: 'RoamerAccessToHPLMN-AP-Barred'
+                    servicio: 'Roaming Zonas 2 y 3 Datos (Consultar redes disponibles en roaming por zonas y países)'
+                    active: 'true'
+                    extString: 'RoamZ1PS'
+                    extNumber: ''
+                    functionality: 'Editable'
+                  - featureID: 'ForwardingCall'
+                    servicio: 'Desvío de llamadas'
+                    active: 'false'
+                    extString: 'ForwardAll'
+                    extNumber: '123456789'
+                    functionality: 'Editable'
+                  - featureID: 'CallWaiting'
+                    servicio: 'Llamada en espera'
+                    active: 'true'
+                    extString: ''
+                    extNumber: ''
+                    functionality: 'Editable'
+                  - featureID: 'CLIR'
+                    servicio: 'Ocultar identificación de llamada saliente'
+                    active: 'true'
+                    extString: ''
+                    extNumber: ''
+                    functionality: 'Editable'
+                Static:
+                  - featureID: 'VLR'
+                    servicio: 'Información de registro: VLR'
+                    country: 'España'
+                    network_name: 'Telefónica'
+                    functionality: 'Static'
+                  - featureID: 'LastUpdateLocation'
+                    servicio: 'Información de registro: Fecha'
+                    active: 'true'
+                    extString: '2024-12-05T12:35:16.130+01:00'
+                    extNumber: ''
+                    functionality: 'Static'
+                  - featureID: 'IMEI'
+                    servicio: 'Identificación del dispositivo (IMEI)'
+                    extString: '351520709156550'
+                    extNumber: ''
+                    functionality: 'Static'
+                  - featureID: 'SIMStatus'
+                    servicio: 'Estado de la tarjeta SIM'
+                    extString: 'Activo'
+                    extNumber: ''
+                    functionality: 'Static'
+                  - featureID: 'NetworkStatus'
+                    servicio: 'Estado de red'
+                    extString: 'Conectado'
+                    extNumber: ''
+                    functionality: 'Static'
+
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfContractDataCell'
+  put:
+    tags:
+      - 'gf-contract-data-cell'
+    summary: ''
+    description: 'update a gf-contract-data-cell services by id'
+    operationId: 'setServices'
+    security:
+      - Bearer: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+        description: Id of gf-contract-data-cell table
+      - in: body
+        name: body
+        schema:
+          type: object
+          properties:
+            Boic:
+              type: object
+              description: Bloqueo Llamadas Internacionales
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            CountryFixedOGCallsBarred:
+              type: object
+              description: Bloqueo llamadas a fijos
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            CountryMobileOGCallsBarred:
+              type: object
+              description: Bloqueo llamadas a móviles
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            AireBarrado118:
+              type: object
+              description: Bloqueo Llamadas Salientes 118 (no regulado)
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            AireBarrado118_N2:
+              type: object
+              description: Bloqueo Llamadas Salientes 118 (no regulado) Zona 2
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            AireBarrado118_N3:
+              type: object
+              description: Bloqueo Llamadas Salientes 118 (no regulado) Zona 3
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            AireBarrado901:
+              type: object
+              description: Bloqueo Llamadas Salientes 901
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            AireBarrado902:
+              type: object
+              description: Bloqueo Llamadas Salientes 902
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            AireBarrado905:
+              type: object
+              description: Bloqueo Llamadas Salientes 905
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            AireBarrado907:
+              type: object
+              description: Bloqueo Llamadas Salientes 907
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            AireBarradoPremium:
+              description: Bloqueo Llamadas Salientes 80X
+              type: object
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            AireBarradoPremiumPlus:
+              type: object
+              description: Bloqueo Llamadas Salientes 80X plus
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            AireBarrado70X:
+              type: object
+              description: Bloqueo Llamadas Salientes 70X
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            AireBarrado_m2m:
+              type: object
+              description: Bloqueo Llamadas Salientes M2M
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            CW:
+              type: object
+              description: Aviso Llamada Entrante
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            Hold:
+              type: object
+              description: Llamada en Espera
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            ShortMessageMT:
+              type: object
+              description: Permitir SMSs Entrantes
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            ShortMessageMO:
+              type: object
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            Clip:
+              type: object
+              description: 'Ocultar identificación de llamada entrante'
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            Clir:
+              description: 'Ocultar identificación de llamada saliente'
+              type: object
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            MultiPTY:
+              type: object
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            Lca:
+              type: object
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            PS:
+              type: object
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            Telephony:
+              type: object
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            VLR:
+              type: object
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            IPv4EndUserAddress:
+              type: object
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            LTE:
+              type: object
+              properties:
+                active:
+                  type: boolean
+                  default: false
+            # Editable Items
+            'RoamingOutsidePLMN-CountryBarred':
+              type: object
+              description: Roaming Zonas 2 y 3 Voz y SMS (Consultar redes disponibles en roaming por zonas y países)
+              properties:
+                active:
+                  type: boolean
+                  default: false
+                extension:
+                  type: string
+                  enum:
+                    - RoamZ1CS
+                    - RoamZ3CS
+                  example: RoamZ1CS
+            'RoamerAccessToHPLMN-AP-Barred':
+              description: 'Roaming Zonas 2 y 3 Datos (Consultar redes disponibles en roaming por zonas y países)'
+              type: object
+              properties:
+                active:
+                  type: boolean
+                  default: false
+                extension:
+                  default: 'RoamZ1PS'
+                  type: string
+                  enum:
+                    - RoamZ1PS
+            Cfu:
+              description: 'Desviar siempre'
+              type: object
+              properties:
+                active:
+                  type: boolean
+                  default: false
+                extension:
+                  default: '621100440'
+                  type: string
+            Cfb:
+              type: object
+              description: 'Desvío si ocupado'
+              properties:
+                active:
+                  type: boolean
+                  default: false
+                extension:
+                  default: '621100440'
+                  type: string
+            Cfnrc:
+              type: object
+              description: 'Desvío si no hay conexión'
+              properties:
+                active:
+                  type: boolean
+                  default: false
+                extension:
+                  default: '621100440'
+                  type: string
+            Cfnry:
+              type: object
+              description: 'Desvío si no responde'
+              properties:
+                active:
+                  type: boolean
+                  default: false
+                extension:
+                  default: '621100440'
+                  type: string
+                value:
+                  default: '30'
+                  type: string
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfContractDataCell'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: string
+                  minLength: 1
+                status:
+                  type: string
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfContractDataCell'

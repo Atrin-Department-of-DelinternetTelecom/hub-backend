@@ -1,0 +1,44 @@
+/gf-contracts/{id}/needs-factory-reset:
+  get:
+    tags:
+      - 'gf-contracts'
+    operationId: 'needsFactoryReset'
+    security:
+      - Bearer: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+        description: Id of gf-contracts
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+          properties:
+            data:
+              type: 'object'
+              properties:
+                needsFactoryReset:
+                  type: 'boolean'
+              
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfContract'

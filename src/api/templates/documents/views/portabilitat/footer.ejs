@@ -1,0 +1,34 @@
+<div class="d-flex flex-column mt-auto">
+    <div class="d-flex justify-between px-2 pb-1"> 
+
+        <div class="w-1/3 px-1/2 d-flex"> 
+            <div class="signature d-flex flex-column justify-between border rounded p-1 w-100 h-100"> 
+                <label class="uppercase">Signatura de l'usuari</label>
+                <% if(image_signature.split(',')[1]){ %>
+                    <img src="<%- image_signature %>" width="200">
+                <% } %>
+                <p class="down"><%= signature_date %></p> 
+            </div>
+        </div>
+
+        <div class="w-1/3 px-1/2 d-flex"> 
+            <div class="signature d-flex flex-column justify-between border rounded p-1 w-100 h-100">
+                <label class="uppercase">Signatura de l'abonat</label>
+                <%  if(gurbtecSignature.split(',')[1]) { %>
+                <img src="<%- gurbtecSignature %>" width="180">
+                <%  }  %> 
+            </div>
+        </div>    
+
+        <div class="w-1/3 px-1/2 d-flex"> 
+            <div class="signature d-flex flex-column justify-between border rounded p-1 w-100 h-100"> 
+                <label class="uppercase">Signatura de l'operador receptor</label>
+                <% if(aireSignature.split(',')[1]){ %>
+                    <img src="<%- image_signature %>" width="200">
+                <% } %>
+                <p class="down"><%= signature_date %></p> 
+            </div>
+        </div>
+    </div>
+    <%- include('../components/delinternet-info') %>
+</div>

@@ -1,0 +1,69 @@
+definitions:
+  Notification:
+    type: "object"
+    required:
+      - "id"
+      - "concept"
+      - "owner_id"
+      - "app"
+      - "subject"
+      - "text"
+      - "image"
+      - "icon"
+      - "metadata"
+      - "created_at"
+      - "updated_at"
+      - "deleted_at"
+    properties:
+      id:
+        type: "number"
+        example: 12
+      owner_id:
+        type: "number"
+        example: 22
+      read:
+        type: "boolean"
+        example: true
+      concept:
+        type: "string"
+        example: "new doc"
+      app:
+        type: "string"
+        example: "hrms"
+      subject:
+        type: "string"
+        example: "sign new doc"
+      text:
+        type: "string"
+        example: "plz sign new doc"
+      image:
+        type: "string"
+        example: "stringfy image file"  
+      icon:
+        type: "string"
+        example: "stringfy icon file"  
+      metadata:
+        type: "string"
+        example: "{'some_option':'some_value'}"
+        minLength: 1    
+      debug:
+        type: "string"
+        example: "for debug"
+        minLength: 1
+      creator_id:
+        type: "number"
+        example: 23      
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1  
+      created_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      deleted_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "notification"

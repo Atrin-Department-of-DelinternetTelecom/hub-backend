@@ -1,0 +1,87 @@
+definitions:
+  Anviz:
+    type: "object"
+    required:
+      - "creator_id"
+      - "device_id"
+      - "id"
+      - "password"
+      - "username"
+      - "uuid"
+    properties:
+      basic_setting:
+        type: "object"
+        description: "in database this is object\n"
+        properties: {}
+      created_at:
+        type: "string"
+        format: "date-time"
+        example: "2021-04-29 00:29:33.0"
+      creator_id:
+        type: "number"
+        example: 12
+      deleted_at:
+        type: "string"
+        format: "date-time"
+        example: "2021-04-29 00:29:33.0"
+      device_id:
+        type: "number"
+      id:
+        type: "integer"
+        format: "int64"
+        example: 3222
+      ip:
+        type: "string"
+        format: "ipv4"
+      is_enable:
+        type: "boolean"
+        default: true
+      location:
+        type: "string"
+        format: "password"
+      name:
+        type: "string"
+        example: "a device"
+      password:
+        type: "string"
+        format: "password"
+        example: "ali@@@@"
+      port:
+        type: "number"
+        minimum: 0
+        maximum: 9999
+      timeout:
+        type: "number"
+        example: 12
+        minimum: 0
+      updated_at:
+        type: "string"
+        format: "date-time"
+        example: "2021-04-29 00:29:33.0"
+      username:
+        type: "string"
+        example: "ali"
+      uuid:
+        type: "string"
+        format: "uuid"
+        example: "123e4567-e89b-12d3-a456-426614174000"
+    title: "Anviz"
+    description: "hardware device information and setting"
+    x-examples:
+      example-1:
+        basic_setting: {}
+        created_at: "2021-04-29 00:29:33.0"
+        creator_id: 12
+        deleted_at: "2021-04-29 00:29:33.0"
+        device_id: 0
+        id: 3222
+        ip: "string"
+        is_enable: true
+        location: "pa$$word"
+        name: "a device"
+        password: "ali@@@@"
+        port: 0
+        timeout: 12
+        updated_at: "2021-04-29 00:29:33.0"
+        username: "ali"
+        uuid: "some uuid"

@@ -1,0 +1,75 @@
+/gf-contracts/{id}/change-fee-group:
+  put:
+    tags:
+      - "gf-contracts"
+    summary: ""
+    description: "change fee of a gf-contracts by id"
+    operationId: "changeFeeGroup"
+    security:
+      - Bearer: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+        description: Id of gf-contracts table
+      - in: body
+        name: body
+        schema:
+          type: object
+          required:
+            - feeGroupId
+          properties:
+            feeGroupId:
+              type: integer
+              example: 1
+            previsionDate:
+              type: string
+              example: "2022-06-01 00:00:00"
+            executedDate:
+              type: string
+              example: "2022-06-01 00:00:00"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/GfContract"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfContract"

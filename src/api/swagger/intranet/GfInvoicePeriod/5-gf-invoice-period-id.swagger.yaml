@@ -1,0 +1,242 @@
+/gfInvoicePeriods/{id}:
+  get:
+    tags:
+      - "gf-invoice-period"
+    summary: "Your GET endpoint"
+    description: "get gf invoice period by id"
+    operationId: "getGfInvoicePeriodsId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of table gf_invoice_periods"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/GfInvoicePeriod"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                created_at: "2021-04-27T17:20:30.000000Z"
+                id: 2
+                name: "this is another name of skill 2"
+                updated_at: "2021-04-27T17:21:36.000000Z"
+              meta:
+                code: 200
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfInvoicePeriod"
+  put:
+    tags:
+      - "gf-invoice-period"
+    summary: ""
+    description: "update a gf-invoice-period by id"
+    operationId: "putGfInvoicePeriodsId"
+    security:
+      - Bearer: []
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of table  gf-invoice-period"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        schema:
+          type: "object"
+          properties:
+            period:
+              type: "string"
+              example: "2021-04-29 01:47:27.0"
+            aireDesgloseDownloaded:
+              type: "string"
+              example: "pending" 
+            fixCdrExcel:
+              type: "string"
+              example: 'value' 
+            emailSubject:
+              type: "string"
+              example: 'del@delinternet.com' 
+            senderId:
+              type: number
+              example: 22
+            fromName:
+              type: "string"
+              example: "a name"
+            testMail:
+              type: "string"
+              example: "tested"
+            transitUnitPrice:
+              type: "string"
+              example: "12.2"
+            transportUnitPrice:
+              type: "string"
+              example: "12.2"
+            infraIpUnitPrice:
+              type: "string"
+              example: "12.2"
+            opexUnitPrice:
+              type: "string"
+              example: "12.2"
+            supportUnitPrice:
+              type: "string"
+              example: "12.2"
+            guifiRadioStructureUnitPrice:
+              type: "string"
+              example: "12.2"
+            liquidationDateInit:
+              type: "string"
+              example: "2021-04-29 01:47:27.0"
+            liquidationDateEnd:
+              type: "string"
+              example: "2021-04-29 01:47:27.0"
+          description: ""
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/GfInvoicePeriod"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                created_at: "2021-04-29T01:24:13.000000Z"
+                id: 2
+                name: "this is another name of skill 2"
+                updated_at: "2021-04-29T01:24:32.000000Z"
+              meta:
+                code: 200
+                message: "Updated"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfInvoicePeriod"
+  delete:
+    tags:
+      - "gf-invoice-period"
+    summary: ""
+    description: "delete gf-invoice-period info by id"
+    operationId: "deleteGfInvoicePeriodsId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of table gf-invoice-period"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: "Deleted"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfInvoicePeriod"

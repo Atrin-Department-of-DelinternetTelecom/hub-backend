@@ -1,0 +1,87 @@
+/locations/vehicle:
+  get:
+    tags:
+      - "location"
+    summary: "Your GET endpoint"
+    description: "get last location of vehicle"
+    operationId: "getLocationsVehicle"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters: []
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              type: "array"
+              uniqueItems: true
+              items:
+                type: "object"
+                properties:
+                  id:
+                    type: "number"
+                  lat:
+                    type: "number"
+                  lng:
+                    type: "number"
+                required:
+                  - "id"
+                  - "lat"
+                  - "lng"
+              minItems: 1
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                - id: 5
+                  lat: 17.60000000000000142108547152020037174224853515625
+                  lng: 52.7000000000000028421709430404007434844970703125
+                - id: 6
+                  lat: 17.60000000000000142108547152020037174224853515625
+                  lng: 52.7000000000000028421709430404007434844970703125
+                - id: 9
+                  lat: 22.32000000000000028421709430404007434844970703125
+                  lng: 11.7200000000000006394884621840901672840118408203125
+                - id: 10
+                  lat: 11
+                  lng: 3
+                - id: 7
+                  lat: 22.32000000000000028421709430404007434844970703125
+                  lng: 11.7200000000000006394884621840901672840118408203125
+                - id: 2
+                  lat: 9
+                  lng: 4
+                - id: 3
+                  lat: 17.60000000000000142108547152020037174224853515625
+                  lng: 52.7000000000000028421709430404007434844970703125
+                - id: 1
+                  lat: 4
+                  lng: 12
+                - id: 4
+                  lat: 6
+                  lng: 1
+                - id: 8
+                  lat: 17.60000000000000142108547152020037174224853515625
+                  lng: 52.7000000000000028421709430404007434844970703125
+              meta:
+                code: 200
+                status: "success"
+    x-swagger-router-controller: "Location"

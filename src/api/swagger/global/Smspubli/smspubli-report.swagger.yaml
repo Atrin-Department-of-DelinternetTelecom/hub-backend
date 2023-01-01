@@ -1,0 +1,41 @@
+/smspubli/report:
+  post:
+    tags:
+      - "Smspubli"
+    summary: 'Receive SMS reports'
+    description: 'Webhook endpoint for receiving SMS reports in bulk.'    
+    operationId: "insert"
+    consumes:
+      - 'application/json'
+    produces:
+      - 'application/json'
+    parameters:
+      - in: 'body'
+        name: 'body'
+        description: 'The SMS to send'
+        required: true
+        schema:
+          type: 'array'
+          items:
+            type: 'object'
+            # properties:
+            #   sms_id:
+            #    type: 'string'
+            #   from:
+            #     type: 'string'
+            #   to:
+            #     type: 'string'
+            #   custom:
+            #    type: 'string'
+            #   sms_date:
+            #     type: 'string'
+            #   status:
+            #     type: 'string'
+            #   dlr_date:
+            #     type: 'string'
+    responses:
+      '200':
+        description: 'SMS successfully sent'
+      '400':
+        description: 'Invalid input'
+    x-swagger-router-controller: "Smspubli"

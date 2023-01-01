@@ -1,0 +1,234 @@
+/gf-installation-evaluation-forms/{id}:
+  get:
+    tags:
+      - "gf-installation-evaluation-forms"
+    summary: "Your GET endpoint"
+    description: "get a single contract"
+    operationId: "getGfInstallationEvaluationFormsId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of table contract"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/GfInstallationEvaluationForm"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                username: "thisisusername"
+                email: "mostafaebrahimi.me@gmail.com"
+                first_name: "Mostafa"
+                role: "admin"
+                last_name: "Ebrahimi"
+                password: "mostafa$$1"
+              meta:
+                code: 0
+                status: "string"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfInstallationEvaluationForm"
+  put:
+    tags:
+      - "gf-installation-evaluation-forms"
+    summary: ""
+    description: "update a gf-installation-evaluation-forms by id"
+    operationId: "putGfInstallationEvaluationFormsId"
+    security:
+      - Bearer: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters: 
+      - name: id
+        in: path
+        required: true
+        type: integer
+        description: Id of gf-installation-evaluation-forms table
+      - in: body
+        name: body
+        schema:
+          type: object      
+          properties:  
+            uid:
+              type: number
+              example: -1 
+            contractId:
+              type: number
+              example: 1 
+            routerAtPlace:
+              type: integer
+              example: 0
+            inOutCheck:
+              type: integer
+              example: 0
+            velocityTest:
+              type: integer
+              example: 0
+            particularitiesText:
+              type: string
+              example: ""
+            evaluatorName:
+              type: string
+              example: ""
+            evaluatorPhone:
+              type: string
+              example: ""
+            forIncidenceName:
+              type: string
+              example: ""
+            forIncidencePhone:
+              type: string
+              example: ""
+            evaluatorPuntuation:
+              type: integer
+              example: 0
+            evaluatorComments:
+              type: string
+              example: ""
+            cableMeters:
+              type: string
+              example: ""
+            box:
+              type: string
+              example: ""
+            email:
+              type: string
+              example: "zarehesmaiel@gmail.com"
+            signature:
+              type: string
+              example: ""   
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/GfInstallationEvaluationForm"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfInstallationEvaluationForm"
+  delete:
+    tags:
+      - "gf-installation-evaluation-forms"
+    summary: ""
+    description: "delete a gf-installation-evaluation-forms by id"
+    operationId: "deleteGfInstallationEvaluationFormsId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of gf-installation-evaluation-forms table"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: "Deleted"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfInstallationEvaluationForm"

@@ -1,0 +1,266 @@
+/invoice-clients:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - "invoice-clients"
+    summary: "Your GET endpoint"
+    description: "get all invoice-clients"
+    operationId: "getInvoiceClients"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters: []
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "links"
+            - "meta"
+          properties:
+            data:
+              type: "array"
+              uniqueItems: true
+              items:
+                $ref: "#/definitions/InvoiceClient"
+              minItems: 1
+            links:
+              type: "object"
+              properties:
+                first:
+                  type: "string"
+                  minLength: 1
+                last:
+                  type: "string"
+                  minLength: 1
+                next:
+                  type: "string"
+                  x-nullable: true
+                prev:
+                  type: "string"
+                  x-nullable: true
+                self:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "first"
+                - "last"
+                - "next"
+                - "prev"
+                - "self"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                current_page:
+                  type: "number"
+                from:
+                  type: "number"
+                last_page:
+                  type: "number"
+                links:
+                  type: "array"
+                  uniqueItems: true
+                  items:
+                    type: "object"
+                    properties:
+                      active:
+                        type: "boolean"
+                      label:
+                        type: "string"
+                        minLength: 1
+                      url:
+                        type: "string"
+                        x-nullable: true
+                    required:
+                      - "active"
+                      - "label"
+                      - "url"
+                  minItems: 1
+                path:
+                  type: "string"
+                  minLength: 1
+                per_page:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+                to:
+                  type: "number"
+                total:
+                  type: "number"
+              required:
+                - "code"
+                - "current_page"
+                - "from"
+                - "last_page"
+                - "links"
+                - "path"
+                - "per_page"
+                - "status"
+                - "to"
+                - "total"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "InvoiceClient"
+  post:
+    tags:
+      - "invoice-clients"
+    summary: ""
+    description: "add a invoice-client to system"
+    operationId: "postInvoiceClients"
+    security:
+      - Bearer: []
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          type: "object"
+          required: 
+            - "name" 
+          properties:     
+            active:
+              type: "number"
+              example: 1 
+            userId:
+              type: "number"
+              example: 1 
+            alias:
+              type: "string"
+              example: "Mirza Ghasemi"
+            name:
+              type: "string"
+              example: "Mirza"
+            surname1:
+              type: "string"
+              example: "Ghasem"
+            surname2:
+              type: "string"
+              example: "MG"
+            gender:
+              type: "string"
+              example: "male"
+            businessName:
+              type: "string"
+              example: "Kale pazi"
+            isBusiness:
+              type: "number"
+              example: 0
+            logo:
+              type: "string"
+            phone:
+              type: "string"
+              example: "888888888"
+            address:
+              type: "string"
+              example: "Iran. Fars. Shiraz. Moaliabad"
+            number:
+              type: "string"
+              example: "110"
+            email:
+              type: "string"
+              example: "email@oonja.com"
+            countryCode:
+              type: "string"
+              example: "IR"
+            city:
+              type: "string"
+              example: "Shiraz"
+            state:
+              type: "string"
+              example: "Fars"
+            postalCode:
+              type: "string"
+              example: "012345"
+            nif:
+              type: "string"
+              example: "78582263A"
+            defaultCurrencyCode:
+              type: "string"
+              example: "IRR"  
+            defaultPaymentPeriodType:
+              type: "number"
+              example: 10
+            defaultPaymentType:
+              type: "number"
+              example: 12
+            uid:
+              type: "number"
+              example: 90
+            comments:
+              type: "string"
+            excludeFromMailings:
+              type: "number"
+              example: 1
+            users:
+              type: "array"
+              uniqueItems: true
+              items: 
+                type: "number"
+            extraFields:
+              type: "array"
+              uniqueItems: true
+              items: 
+                type: "number"   
+          description: ""
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/InvoiceClient"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "InvoiceClient"

@@ -1,0 +1,203 @@
+/languages/{id}:
+  get:
+    tags:
+      - "language"
+    summary: "Your GET endpoint"
+    description: "get a language record by id"
+    operationId: "getLanguagesId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of table language record"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Language"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                created_at: "2021-04-27T17:29:21.000000Z"
+                employee_id: 2
+                id: 1
+                language: "en"
+                listening: "professional working proficiency"
+                reading: "professional working proficiency"
+                speaking: "professional working proficiency"
+                updated_at: "2021-04-27T17:29:21.000000Z"
+                writing: "professional working proficiency"
+              meta:
+                code: 200
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Language"
+  put:
+    tags:
+      - "language"
+    summary: ""
+    description: "update language record by id"
+    operationId: "putLanguagesId"
+    security:
+      - Bearer: []
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of table language record"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: ""
+        required: false
+        schema:
+          type: "object"
+          required:
+            - "language"
+            - "speaking"
+            - "writing"
+          properties:
+            language:
+              type: "string"
+              minLength: 1
+            speaking:
+              type: "string"
+              minLength: 1
+            writing:
+              type: "string"
+              minLength: 1
+          description: ""
+          x-examples:
+            example-1:
+              language: "fa"
+              speaking: "limited working proficiency"
+              writing: "limited working proficiency"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Language"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                created_at: "2021-04-29T01:45:50.000000Z"
+                employee_id: 4
+                id: 1
+                language: "fa"
+                listening: "professional working proficiency"
+                reading: "professional working proficiency"
+                speaking: "limited working proficiency"
+                updated_at: "2021-04-29T01:46:12.000000Z"
+                writing: "limited working proficiency"
+              meta:
+                code: 200
+                message: "Updated"
+                status: "success"
+    x-swagger-router-controller: "Language"
+  delete:
+    tags:
+      - "language"
+    summary: ""
+    description: "delete language record by id"
+    operationId: "deleteLanguagesId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of table language record"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: "Deleted"
+                status: "success"
+    x-swagger-router-controller: "Language"

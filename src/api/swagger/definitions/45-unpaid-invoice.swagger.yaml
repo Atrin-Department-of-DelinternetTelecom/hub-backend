@@ -1,0 +1,102 @@
+definitions:
+  UnpaidInvoice:
+    type: "object"
+    required:
+      - "id"
+      - "invoice_code"
+      - "invoice_id"
+      - "client_id"
+      - "event_id"
+      - "invoice_date"
+      - "fallback_sms_counter"
+      - "msg_period"
+      - "msgs_per_period"
+      - "msg_hour"
+      - "unpaid_fee"
+      - "xml_id"
+      - "template_id"
+      - "template"
+      - "generated_message"
+      - "invoice_status"
+      - "send_method"
+      - "cut_date"
+      - "user_id"
+      - "uid"
+      - "status"
+      - "created_at"
+      - "updated_at"
+      - "deleted_at"
+    properties:
+      id:
+        type: "number"
+        example: 12
+      invoice_code:
+        type: "string"
+        example: 12
+      invoice_id:
+        type: "number"
+        example: 12
+      client_id:
+        type: "number"
+        example: 13
+      event_id:
+        type: "number"
+        example: 13
+      invoice_date:
+        type: "string"
+      exception:
+        type: "string"
+      fallback_sms_counter:
+        type: "number"
+      msg_period:
+        type: "number"
+      msgs_per_period:
+        type: "number"
+      msg_hour:
+        type: "string"
+      unpaid_fee:
+        type: "number"
+      xml_id:
+        type: "number"
+      template_id:
+        type: "number"
+      template:
+        type: "string"
+        example: "some template"
+      generated_message:
+        type: "string"
+      invoice_status:
+        type: "string"
+        example: "paid"
+      send_method:
+        type: "string"
+        example: "telegram"
+      cut_date:
+        type: "string"
+      pay_date:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+      payment_type_id:
+        type: "number"
+      payment_bank_name:
+        type: "string"
+      user_id:
+        type: "number"
+      uid:
+        type: "number"
+      status:
+        type: "number"
+      updated_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      created_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+      deleted_at:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "unpaid invoice"

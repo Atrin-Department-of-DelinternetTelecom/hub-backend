@@ -1,0 +1,30 @@
+/unpaidXmlsReversal:
+  get:
+    tags:
+      - 'unpaid-xml'
+    summary: 'Generate reversal CSVs from an existing uploaded pain.002 file'
+    description: 'Given the ID of a stored SEPA pain.002 file, process failed payments and generate reversal CSVs'
+    operationId: getUnpaidXmlsReversal
+    produces:
+      - application/zip
+    parameters:
+      - in: query
+        name: id
+        required: true
+        type: integer
+        description: ID of the uploaded pain.002 XML document
+    responses:
+      '200':
+        description: 'A ZIP file containing reversal CSVs'
+        schema:
+          type: string
+          format: binary
+      '400':
+        description: 'Bad Request'
+        schema:
+          $ref: '#/definitions/Response_400'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: UnpaidXml

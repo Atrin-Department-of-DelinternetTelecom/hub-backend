@@ -1,0 +1,43 @@
+/technician/tasks/{id}/steps/{step}/done:
+  post:
+    tags:
+      - 'technician'
+    summary: 'Your GET endpoint'
+    description: 'set step as done'
+    operationId: 'setTaskStepAsDone'
+    parameters:
+      - in: path
+        name: id
+        required: true
+        type: number
+
+      - in: path
+        name: step
+        required: true
+        type: string
+
+      - name: body
+        in: body
+        required: false
+        schema:
+          type: object
+          properties:
+            media:
+              type: array
+              items:
+                type: string
+            coordinates:
+              type: object
+              properties:
+                lat:
+                  type: number
+                lng:
+                  type: number
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+    x-swagger-router-controller: 'Technician'

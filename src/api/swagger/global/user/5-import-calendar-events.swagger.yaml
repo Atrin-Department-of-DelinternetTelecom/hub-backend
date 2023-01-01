@@ -1,0 +1,26 @@
+/users/import-calendar-events:
+  post:
+    tags:
+      - 'user'
+    summary: Schedule action to import user events from google calendar
+    operationId: 'importCalendarEvents'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '204':
+        description: No Content
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'User'

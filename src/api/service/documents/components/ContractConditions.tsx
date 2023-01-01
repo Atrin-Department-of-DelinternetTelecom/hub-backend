@@ -1,0 +1,1382 @@
+import { Fragment, h } from 'nano-jsx';
+
+export const ContractConditions = () => (
+  <div class="page d-flex flex-column px-2 py-1">
+    <div lang="en" class="legal_text">
+      <h5>Primera. Objecte i acceptació</h5>
+      <p>
+        Les següents Condicions Generals de Contractació (en endavant,
+        Condicions Generals) regulen les relacions contractuals entre
+        DEL-INTERNET TELECOM S.L.U (en endavant DELINTERNET o OPERADORA) i
+        l’Usuari del Servei o Serveis (en endavant Usuari), en quant els
+        diferents Serveis de Televisió, Internet, Fix i D'atenció prioritària
+        (en endavant Serveis), que DELINTERNET ofereix a l’Usuari i que consten
+        descrits en les presents Condicions Generals i mencionats en el
+        Contracte.
+      </p>
+      <p>
+        Les presents Condicions Generals de Contractació no són aplicables a la
+        contractació de telefonia mòbil.
+      </p>
+      <p>
+        L’acceptació, sense reserves, de les presents Condicions Generals
+        devenen indispensables per la prestació dels Serveis per Delinternet.
+        L’Usuari manifesta, en tal sentit, haver llegit, entès i acceptat les
+        presents Condicions Generals, posades a la seva disposició en format
+        electrònic i/o en format paper, amb caràcter previ a la contractació.{' '}
+      </p>
+      <p>
+        Les presents Condicions regulen la prestació del Servei, per part de
+        DELINTERNET a l’Usuari, a canvi d’un preu que figura a
+        https://delinternet.com .
+      </p>
+      <h5>Segona. Definició dels serveis</h5>
+      <h6>2.1 El Servei de Televisió: </h6>
+      <p>
+        Prestació per la qual l’Usuari rebrà un paquet de canals de televisió o
+        serveis audiovisuals, segons la programació vigent de DELINTERNET en
+        cada moment que poden ser modificats unilateralment per aquesta respecte
+        al seu nombre i classe, per no estimar-ne cap d'ells part essencial
+        d'aquest. L’Usuari podrà sol·licitar la recepció, juntament amb el
+        paquet de canals, d'altres continguts audiovisuals disponibles en cada
+        moment, segons l'oferta comercial de DELINTERNET.
+      </p>
+      <h6>2.2 El Servei d'Internet (Fibra òptica o Radioenllaç): </h6>
+      <p>
+        {' '}
+        Està format per accés integral a Internet, velocitat d'accés i sota la
+        tecnologia que l’USUARI hagi triat en el Contracte.
+      </p>
+      <h6>2.3 El Servei de Fix:</h6>
+      <p>
+        Servei d'accés telefònic fix en accés directe a xarxa de telefonia
+        primària, Possibilitat de cursar i rebre trucades des del número o
+        números designats en el contracte. El Servei permetrà cursar trucades
+        metropolitanes, provincials, interprovincials, internacionals i de fix a
+        mòbil en la manea d'accés directe i és un servei telefònic fix
+        disponible al públic en accés directe.
+        <br />
+        El Servei Telefònic de DELINTERNET es presta sobre una xarxa de
+        transmissió de dades, de manera que el servei és vulnerable a les
+        caigudes del subministrament elèctric i els fluxos de la xarxa Internet.
+        En el cas que l’USUARI accedeixi a aquest servei a través d'una xarxa
+        sense fils, a les causes de vulnerabilitat anteriors, cal afegir les
+        pròpies d'aquesta tecnologia (inclemències del temps). Les trucades al
+        servei d’emergència seran gratuïtes.
+      </p>
+      <h6>2.4 Servei d'atenció prioritària:</h6>
+      <p>
+        D'atenció prioritària per a persones físiques o jurídiques que
+        necessiten un servei especial, amb una atenció prioritària respecte als
+        contractes convencionals i s’acorda un nivell de servei d’atenció
+        prioritària (SLA) segons el paquet triat per l’USUARI. En cas d’estar
+        interessat, pot enviar un correu electrònic a comercial@delinternet.com
+        o trucar al telèfon gratuït.
+      </p>
+      <h5>TERCERA. Obligacions de les parts</h5>
+      <p>
+        Delinternet, per poder portar a terme una correcta prestació dels
+        Serveis, es compromet a:
+      </p>
+      <ul>
+        <li>
+          Instal·lar un únic punt terminal de xarxa, en el qual l’Usuari rebrà
+          l'accés al servei d'internet. DELINTERNET no podrà garantir la
+          recepció del servei d’internet, de forma correcta, en altres equips ,
+          distribuïts i ubicats dins del domicili de l’Usuari. L’Usuari podrà
+          contractar, a la signatura del present contracte o posteriorment,
+          l’ampliació del servei d’internet a altres equips, essent una
+          instal·lació addicional.{' '}
+        </li>
+        <li>
+          Desactivar els Serveis de tarifes addicionals i les trucades
+          internacionals, sempre i quan ho sol·liciti per qualsevol mitjà per
+          escrit (correu postal o correu electrònic). DELINTERNET procedirà a
+          desactivar-ho en el termini màxim de DEU (10) dies hàbils des de la
+          sol·licitud de l’Usuari.
+        </li>
+        <li>Proveir un nou número de telèfon a l’Usuari.</li>
+        <li>
+          Gestionar la portabilitat davant d’altres operadores, quan l’Usuari
+          manifesti la voluntat de conservar el seu actual número de telèfon.
+          L’Usuari donarà el seu consentiment a través de la signatura de la
+          sol·licitud de portabilitat, en el moment de la contractació,
+          acceptant les condicions legals previstes en la mateixa sol·licitud de
+          portabilitat.
+        </li>
+      </ul>
+      <p>
+        L'Usuari, per poder rebre una correcta prestació dels Serveis, es
+        compromet a:
+      </p>
+      <ul>
+        <li>
+          Fer un ús i gaudir únicament i exclusivament privat del servei,
+          excepte en el cas que es tracti d'un local públic.
+        </li>
+        <li class="yes">
+          Respectar la normativa relativa a la propietat intel·lectual o
+          propietat industrial, intromissió en comunicacions privades o obtenció
+          d'informació confidencial o qualsevol acte il·lícit o que doni lloc a
+          danys per a tercers que es produeixin en relació amb l'ús per part de
+          l'Usuari dels Serveis d'Internet, o de l'ús dels Serveis d'Internet
+          per terceres persones a través de la seva clau personal (per a això es
+          presumeix que aquestes persones han emprat la seva clau amb el seu
+          consentiment).
+          <br /> Es considera que hi ha un incompliment del contracte per part
+          dels Usuaris i terceres persones si a través de la seva clau personal
+          utilitzen els Serveis d'Internet de manera que perjudiqui la imatge de
+          DELINTERNET, o cometi qualsevol de les infraccions esmentades en
+          aquest contracte. L’Usuari ha d'adoptar les precaucions necessàries
+          per a preservar els seus fitxers i sistemes informàtics de possibles
+          accessos no desitjats per part de tercers.
+        </li>
+        <li>
+          Realitzar el pagament dels rebuts emesos per DELINTERNET únicament i
+          mitjançant domiciliació bancària.
+        </li>
+        <li>
+          Cedir a DELINTERNET:
+          <ol>
+            <li>
+              L'ús dels elements comuns de l'edifici on s'ubica el domicili en
+              cas que es tracti d'un habitatge en règim de propietat
+              horitzontal.
+            </li>
+            <li>
+              L'ús de les façanes i altres elements de l'edificació; per a la
+              col·locació i pas de les instal·lacions necessàries per al
+              subministrament dels Serveis, així com per al manteniment,
+              modificació i retirada de la instal·lació i equips a l'interior
+              del domicili.
+            </li>
+          </ol>
+        </li>
+        <li>
+          Autoritzar, consentir i facilitar l’accés al seu domicili a
+          Delinternet, al seu personal degudament identificat o al servei tècnic
+          que DELINTERNET designi a l'efecte, a accedir a les instal·lacions i
+          equips informàtics en què es trobi instal·lada la connexió als Serveis
+          amb la finalitat de procedir a la prestació dels serveis
+          d'instal·lació o de resolució d'incidències i a la realització de les
+          operacions de manteniment que, segons el punt de vista de DELINTERNET,
+          resultin necessàries i, en cas de terminació del Contracte, amb la
+          finalitat de procedir a la retirada de la instal·lació que permet la
+          connexió als Serveis.
+          <br />
+          En el cas d’habitatges de Règim de Propietat Horitzontal, d’acord amb
+          el Reial Decret Llei 1 / 1998 de 27 de febrer sobre Infraestructures
+          comunes en els edificis per a l'accés als serveis de telecomunicació,
+          DELINTERNET podrà accedir els elements comuns.
+        </li>
+        <li>
+          Abstenir-se de modificar, traslladar o manipular de cap manera ELS
+          EQUIPS subministrats per DELINTERNET.
+        </li>
+        <li>
+          No realitzar un ús per compte o benefici de tercers com, per exemple,
+          establiment i manteniment de servidors per a correu electrònic, http,
+          ftp i / o peer to peer, llevat que el servei hagi estat expressament
+          contractat en el contracte. Queda expressament prohibida la
+          realització d'actes de re-venda o comercialització del Servei a
+          tercers aliens a la prestació del servei o, en qualsevol cas, de
+          compartició de recursos fora del domicili per al qual hagi sol·licitat
+          a la provisió del Servei o sent l’Usuari una Comunitat de propietaris,
+          fora de les zones comunes. L’Usuari serà responsable davant de
+          DELINTERNET de l'ús incorrecte dels Serveis contractats.
+        </li>
+      </ul>
+      <h5>Quarta. Responsabilitat pels Serveis</h5>
+      <h6>4.1 Sobre els serveis</h6>
+      <p>
+        DELINTERNET no garanteix de manera absoluta l'absència de virus en els
+        continguts transmesos, difosos, emmagatzemats, rebuts, obtinguts, posats
+        a disposició, o accessibles a través dels serveis, ni l'absència
+        d'altres elements que puguin produir alteracions en l'equip informàtic
+        de l’Usuari o en els documents electrònics i fitxers emmagatzemats en
+        l'equip informàtic de l’Usuari o transmesos des de l'equip informàtic de
+        l’Usuari.
+      </p>
+      <p>
+        DELINTERNET s’exclou qualsevol responsabilitat pels danys i perjudicis
+        de tota naturalesa que puguin donar-se per la presència de virus o a la
+        presència d'altres elements lesius en els continguts transmesos,
+        difosos, emmagatzemats, rebuts, obtinguts, posats a disposició, o
+        accessibles a través dels SERVEIS.
+      </p>
+      <p>
+        DELINTERNET no té obligació de controlar i no controla el contingut i
+        naturalesa dels continguts transmesos, difosos o posats a disposició a
+        tercers per l’Usuari. L'objectiu de disponibilitat mínima mensual del
+        Servei serà del 90%. Si el Servei no estigués disponible per sobre
+        d'aquests percentatges, automàticament l’Usuari tindrà dret a descomptes
+        en el següent rebut emès en funció del temps en què el Servei no hagi
+        estat disponible. Pel que fa a la garantia dels mòduls d'accés, aquesta
+        no ha d'excedir el temps de garantia que apliqui el fabricant d’aquest.
+      </p>
+      <p>
+        És responsabilitat de l’Usuari dotar la instal·lació interna del seu
+        habitatge (Mòdul d'Accés) d'un sistema d'alimentació ininterrompuda en
+        cas que desitgi rebre serveis externs com ara els serveis d'alarma,
+        datàfons, serveis de teleassistència, o serveis de fax, etc.
+      </p>
+      <p>
+        L’Usuari eximeix de responsabilitat a DELINTERNET pels danys i / o
+        perjudicis que la caiguda del servei de subministrament elèctric i / o
+        el flux de la xarxa de dades poguessin produir-li, inclosa la
+        impossibilitat de rebre serveis no prestats per DELINTERNET.
+      </p>
+      <p>
+        En cas que en el transcurs d'una intervenció per solucionar una avaria
+        es demostri que la causa és imputable a l’Usuari a causa d'una
+        manipulació indeguda dels equips de DELINTERNET, l'Usuari no podrà
+        reclamar cap tipus de responsabilitat a DELINTERNET pels SERVEIS
+        contractats. Les interrupcions ocasionals realitzades per DELINTERNET
+        amb motiu de la millora en els SERVEIS no donaran dret a compensació a
+        favor de l'Usuari. Aquestes interrupcions seran el més breu possible i
+        es realitzaran preferentment durant franges horàries de mínim consum de
+        servei. Cap de les parts serà responsable de retards o incompliment
+        ocasionats per força major.
+      </p>
+      <p>
+        En tot cas, la responsabilitat total de DELINTERNET sorgida en relació
+        amb el present contracte no excedirà, en cap circumstància, de les
+        quantitats abonades a DELINTERNET pel Servei en els TRES (3) mesos
+        anteriors a la data d'aquesta reclamació.
+      </p>
+      <h6>4.2. Sobre el Servei de Televisió </h6>
+      <p>
+        DELINTERNET no es responsabilitza dels continguts ni dels canvis de
+        programació dels canals de televisió o serveis audiovisuals objecte del
+        servei del present contracte, sent responsables els operadors de
+        televisió que realitzin les emissions de televisió d'assegurar que la
+        programació compleixi el que estableix la legislació vigent.
+      </p>
+      <p>
+        DELINTERNET es reserva el dret d'incloure publicitat en la seva
+        programació local.
+      </p>
+      <h6>4.3. Sobre el Servei d'Internet </h6>
+      <p>
+        DELINTERNET no serà responsable del contingut accessible a través del
+        servei d'Internet, llevat dels supòsits que estableix la secció segona
+        de la llei 34/2002, d’ 11 de juliol, de serveis de la societat de la
+        informació i de comerç electrònic.
+      </p>
+      <p>
+        La velocitat d'accés a Internet dependrà en cada moment del trànsit a
+        Internet existent, del nombre d'internautes simultanis i d'altres
+        factors tècnics com l'eficiència de protocol IP, ocupació de servidors,
+        ports, etc.
+      </p>
+      <p>
+        En el cas d'accés radioelèctric les condicions meteorològiques poden
+        afectar temporalment a la velocitat del servei.
+      </p>
+      <p>
+        En cas que l’Usuari utilitzi router sense fil en la seva connexió, cal
+        tenir en compte les limitacions pròpies d'aquest i de la xarxa LAN
+        Wi-Fi. La cobertura sol variar si es troba en interiors (cases, pisos,
+        etc.), depenent molt del tipus de construcció de l'edifici, o en
+        exteriors, on depèn de les interferències que es pugui trobar el senyal
+        (com altres xarxes sense fils) i les construccions o obstacles (murs,
+        encofrats, ...) que hi hagi entre l'emissor i receptor del senyal.
+        [Valors orientatius de cobertura en interiors: entre 50 i 70 m; en
+        exteriors: fins a 400 m.].
+      </p>
+      <p>
+        En cas que l’Usuari utilitzi adaptadors PLC Ethernet per connectar el
+        router i l'ordinador aprofitant la xarxa elèctrica, la cobertura
+        d'aquells depèn del model d'adaptador utilitzat, la distància a la xarxa
+        entre adaptadors, el soroll elèctric o interferències introduïdes per
+        altres aparells connectats a la xarxa elèctrica, el nombre d'equips o
+        aparells connectats simultàniament a la base de l'endoll on està
+        connectat l'adaptador, etc.
+      </p>
+      <p>
+        Certs elements de maquinaria i programació de l'equip de l’Usuari poden
+        ocasionar, així mateix, dificultats en el normal funcionament del seu
+        equip en general i fins i tot impedir l'accés al servei. Per exemple:
+      </p>
+      <ul>
+        <li>
+          Programes d'igual a igual executant-se. El programari d'intercanvi de
+          fitxers (P2P) resident al PC genera una quantitat elevada de paquets,
+          provocant lentitud en la navegació i arribant fins i tot a saturar el
+          tràfic cursat. [Entre el programari d'ús més habitual que pot provocar
+          aquesta problemàtica es troben programes com ara eMule i Kazaa,
+          bittorrent, etc.
+        </li>
+        <li>
+          Alguns virus residents al PC de l’Usuari poden generar una quantitat
+          elevada de paquets per tal de contaminar altres equips, provocant
+          lentitud en la navegació i arribant fins i tot a saturar el trànsit
+          cursat (virus o cucs, les seves mutacions i derivats).
+        </li>
+        <li>Programari maliciós executant-se en la LAN.</li>
+        <li>
+          Actualitzacions automàtiques del programari resident en el PC.
+          Determinats programes (de sistema operatiu, antivirus, navegadors,
+          etc.) solen oferir actualitzacions en línia que l’Usuari pot
+          configurar en manera automàtica (normalment ve per defecte
+          seleccionada aquesta opció), de manera que, quan l’Usuari es connecta
+          a Internet, aquests programes busquen i descarreguen les
+          actualitzacions en segon pla: no se l'informa a l’Usuari ni se li
+          interromp durant el procés, però augmenten el tràfic de dades,
+          alentint la navegació.
+        </li>
+        <li>
+          Cablejat o equipament de l’Usuari no es troba en perfectes condicions
+          o no compleix els requisits tècnics i característiques exigides al
+          mateix per a la prestació d'aquest servei per DELINTERNET.
+        </li>
+      </ul>
+      <p>
+        Les adreces IP no són propietat de l’Usuari, per la qual cosa
+        DELINTERNET podrà modificar les mateixes quan es presentin causes que ho
+        justifiquin, comunicant-ho a l’Usuari. Així mateix, DELINTERNET no es fa
+        responsable del mal ús o de l'ús fraudulent per part de l’Usuari o de
+        tercers, de l'adreça IP proporcionada a l’Usuari en cada accés.
+      </p>
+      <h6>
+        4.4. Utilitat i fiabilitat dels serveis i continguts accessibles a
+        través DELS SERVEIS
+      </h6>
+      <p>
+        DELINTERNET no garanteix que els serveis siguin útils per a la
+        realització de cap activitat en particular, ni la infal·libilitat dels
+        serveis i continguts accessibles a través del Servei, i en particular,
+        encara no de manera exclusiva, que els Usuaris puguin efectivament
+        accedir als diferents llocs existents a Internet a través del Servei,
+        transmetre, difondre, emmagatzemar o posar a disposició de tercers
+        continguts a través del Servei, o rebre, obtenir o accedir a continguts
+        a través del mateix.
+      </p>
+      <p>
+        DELINTERNET s’exclou de tota responsabilitat pels danys i perjudicis de
+        tota naturalesa que puguin donar-se per a la defraudació de la utilitat
+        que els Usuaris haguessin pogut atribuir als serveis i a la
+        fal·libilitat dels serveis i continguts i en particular, encara que no
+        de manera exclusiva, a les fallades en l'accés als diferents llocs
+        existents a internet a través dels serveis, en la transmissió, difusió,
+        emmagatzematge o posada a disposició de tercers de continguts a través
+        dels serveis o en la recepció, obtenció o accés a continguts a través
+        dels SERVEIS.
+      </p>
+      <h6>4.5. Privadesa i seguretat en la utilització dels serveis</h6>
+      <p>
+        DELINTERNET no garanteix la privacitat i la seguretat en la utilització
+        dels serveis per part dels Usuaris i, en particular, no garanteix que
+        tercers no autoritzats no puguin tenir coneixement de la classe,
+        condicions, característiques i circumstàncies de l'ús d'Internet que
+        puguin fer els Usuaris o que no puguin accedir i, si escau, interceptar,
+        eliminar, alterar, modificar o manipular de qualsevol manera els
+        continguts i comunicacions de tota classe que elsUsuaris transmetin,
+        difonguin, emmagatzemin, posin a disposició, rebin, obtinguin o
+        accedeixen a través del Servei.
+      </p>
+      <p>
+        DELINTERNET exclou tota responsabilitat amb tota l'extensió que permeti
+        l'ordenament jurídic, pels danys i perjudicis de qualsevol naturalesa
+        que puguin derivar del coneixement que puguin tenir els tercers de la
+        classe, condicions, característiques i circumstàncies de l'ús d'internet
+        que puguin fer els Usuaris o que puguin donar-se per l'accés i, si
+        escau, a la intercepció, eliminació, alteració, modificació o
+        manipulació de qualsevol manera dels continguts i comunicacions de tota
+        classe que els Usuaris transmetin, difonguin, emmagatzemin, posin a
+        disposició, rebin , obtinguin o accedeixin a través dels SERVEIS.
+      </p>
+      <h6>4.6. Licitud, fiabilitat i utilitat </h6>
+      <p>
+        DELINTERNET és completament aliena i no intervé en la creació,
+        transmissió, ni en la posada a disposició dels serveis, ni garanteix la
+        licitud, fiabilitat i utilitat dels continguts transmesos, difosos,
+        emmagatzemats, rebuts, obtinguts, posats a disposició , o accessibles a
+        través dels serveis.
+      </p>
+      <p>
+        DELINTERNET s’exclou de qualsevol responsabilitat pels danys i
+        perjudicis de tota naturalesa que puguin donar-se de la transmissió,
+        difusió, emmagatzematge, posada a disposició, recepció, obtenció o accés
+        als continguts a través dels serveis i, en particular, encara que no de
+        manera exclusiva , pels danys i perjudicis que es puguin donar per:{' '}
+        <br />
+        (a) l'incompliment de la llei, la moral i els bons costums generalment
+        acceptats o l'ordre públic com a conseqüència de la transmissió,
+        difusió, emmagatzematge, posada a disposició, recepció, obtenció o accés
+        als continguts a través dels serveis; <br />
+        (b) la infracció dels drets de propietat intel·lectual i industrial,
+        dels secrets empresarials, de compromisos contractuals de qualsevol
+        classe, dels drets a l'honor, a la intimitat personal i familiar i a la
+        imatge de les persones, dels drets de propietat i de tota altra
+        naturalesa pertanyents a un tercer com a conseqüència de la transmissió,
+        difusió, emmagatzematge, posada a disposició, recepció, obtenció o accés
+        als continguts a través dels serveis; <br />
+        (c) la realització d'actes de competència deslleial i publicitat
+        il·lícita com a conseqüència de la transmissió, difusió, emmagatzematge,
+        posada a disposició, recepció, obtenció o accés als continguts a través
+        dels serveis; <br />
+        (d) la falta de veracitat, exactitud, exhaustivitat, pertinència i / o
+        actualitat dels continguts transmesos, difosos, emmagatzemats, rebuts,
+        obtinguts, posats a disposició o accessibles a través dels serveis;{' '}
+        <br />
+        (e) la inadequació per qualsevol classe de propòsit de i la defraudació
+        de les expectatives generades pels continguts transmesos, difosos,
+        emmagatzemats, rebuts, obtinguts, posats a disposició, o accessibles a
+        través dels serveis; <br />
+        (f) l'incompliment, retard en el compliment, compliment defectuós o
+        finalització per qualsevol causa de les obligacions contretes per
+        tercers i contractes realitzats amb tercers a través de o amb motiu de
+        l'accés als continguts transmesos, difosos, emmagatzemats, rebuts,
+        obtinguts, posats a disposició, o accessibles a través dels serveis;{' '}
+        <br />
+        (g) els vicis i defectes de tota classe dels productes i serveis
+        comercialitzats, adquirits o prestats a través dels serveis de tercers
+        accessibles a través dels SERVEIS.
+      </p>
+      <h6>
+        4.7. Responsabilitat pels serveis prestats per tercers a través dels
+        Serveis{' '}
+      </h6>
+      <ol>
+        <li>
+          Qualitat:
+          <p>
+            DELINTERNET no garanteix, de manera absoluta, l'absència de virus en
+            els serveis prestats per tercers a través dels Serveis.
+          </p>
+          <p>
+            DELINTERNET s’exclou de qualsevol responsabilitat pels danys i
+            perjudicis de tota naturalesa que puguin sorgir per defectes en la
+            qualitat dels serveis prestats per tercers a través dels SERVEIS.
+          </p>
+          <p>
+            DELINTERNET no té obligació de controlar i no controla el contingut
+            i naturalesa dels continguts transmesos, difosos o posats a
+            disposició dels serveis prestats per tercers a través dels Serveis.
+          </p>
+        </li>
+        <li>
+          Licitud, fiabilitat i utilitat:
+          <p>
+            DELINTERNET és completament aliena i no intervé en la configuració i
+            prestació dels serveis prestats per tercers a través dels serveis ni
+            garanteix la licitud, fiabilitat i utilitat dels serveis prestats
+            per tercers a través dels serveis.
+          </p>
+          <p>
+            DELINTERNET s’exclou de qualsevol responsabilitat pels danys i
+            perjudicis de tota naturalesa, que es puguin deure als serveis
+            prestats per tercers a través dels serveis, i en particular, encara
+            que no de manera exclusiva, pels danys i perjudicis que es puguin
+            deure a: (a ) l'incompliment de la llei, la moral i els bons costums
+            generalment acceptats o l'ordre públic com a conseqüència de la
+            prestació de serveis per tercers a través dels serveis; (b) la
+            infracció dels drets de propietat intel·lectual i industrial, dels
+            secrets empresarials, de compromisos contractuals de qualsevol
+            classe, dels drets a l'honor, a la intimitat personal i familiar i a
+            la imatge de les persones, dels drets de propietat i de tota altra
+            naturalesa pertanyents a un tercer com a conseqüència de la
+            prestació de serveis per tercers a través dels serveis; (c) la
+            realització d'actes de competència deslleial i publicitat il·lícita
+            com a conseqüència de la prestació de serveis per tercers a través
+            dels serveis; (d) la falta de veracitat, exactitud, exhaustivitat,
+            pertinència i / o actualitat dels continguts transmesos, difosos,
+            emmagatzemats, rebuts, obtinguts, posats a disposició o accessibles
+            a través dels serveis; (e) la inadequació per qualsevol classe de
+            propòsit de i la defraudació de les expectatives generades pels
+            serveis prestats per tercers a través dels serveis; (f)
+            l'incompliment, retard en el compliment, compliment defectuós o
+            finalització per qualsevol causa de les obligacions contretes per
+            tercers i contractes realitzats amb tercers en relació amb o amb
+            motiu de la prestació de serveis a través dels serveis; (g) els
+            vicis i defectes de tota la classe de serveis prestats per tercers a
+            través dels SERVEIS.
+          </p>
+        </li>
+      </ol>
+      <h6>4.8. Usos no autoritzats </h6>
+      <p>
+        DELINTERNET no controla l'accés ni la utilització que l’Usuari o altres
+        Usuaris fan dels serveis. En particular, DELINTERNET no garanteix que
+        l’Usuari o altres Usuaris accedeixin i / o utilitzin els Serveis de
+        conformitat amb el que disposen aquestes Condicions Generals o, si
+        escau, amb les condicions particulars que puguin resultar d'aplicació.
+      </p>
+      <p>
+        DELINTERNET s’exclou de qualsevol responsabilitat pels danys i
+        perjudicis de tota naturalesa que puguin deure a l'accés i la
+        utilització dels serveis per l’Usuari o per altres Usuaris, en contra
+        del que disposen aquestes Condicions Generals.
+      </p>
+      <h6>
+        4.9. Identitat i informació relativa als Usuaris proporcionada pels
+        mateixos Usuaris
+      </h6>
+      <p>
+        DELINTERNET no controla ni ofereix cap classe de garantia sobre la
+        veracitat, vigència, exhaustivitat i / o autenticitat de les dades que
+        els Usuaris proporcionen sobre si mateixos o fan accessibles a altres
+        Usuaris.
+      </p>
+      <p>
+        DELINTERNET s’exclou de qualsevol responsabilitat pels danys i
+        perjudicis de tota naturalesa que puguin deure a la incorrecta identitat
+        dels Usuaris i a la falta de veracitat, vigència, exhaustivitat i / o
+        autenticitat de la informació que els Usuaris proporcionen sobre si
+        mateixos i proporcionen o fan accessibles a altres Usuaris i, en
+        particular, encara que no de manera exclusiva, pels danys i perjudicis
+        de tota naturalesa que puguin donar per la suplantació de la
+        personalitat d'un tercer efectuada per un Usuari en qualsevol classe de
+        comunicació o transacció realitzada a través d’ELS SERVEIS.
+      </p>
+      <h5>Cinquena. Nivell de Serveis i Resolució d'incidències. </h5>
+      <ol>
+        <li>
+          El Servei d’Atenció a l'Usuari i el Servei de resolució d’incidències
+          variarà en funció dels Serveis que l’ Usuari hagi contractat.
+          <table id="services">
+            <tbody>
+              <tr>
+                <th>Nivell de Serveis</th>
+                <th>Atenció a l'Usuari</th>
+                <th>Resolució d'incidències</th>
+                <th>Termini per resolució d'incidències</th>
+              </tr>
+              <tr>
+                <td>Bàsic</td>
+                <td>
+                  Dilluns a Divendres: 8:00 a 20:00.
+                  <br />
+                  Dissabtes, diumenges i festius: 10 a 14 i de 15 a 19 hores.
+                </td>
+                <td>
+                  Dilluns a Divendres: 8:00 a 20:00.
+                  <br />
+                  No s’inclouen dissabtes, diumenges i festius.
+                </td>
+                <td>16 hores laborables</td>
+              </tr>
+              <tr>
+                <td>Professional i Avançat</td>
+                <td>
+                  Dilluns a Divendres: 8:00 a 20:00. <br />
+                  Dissabtes, diumenges i festius: 10 a 14 i de 15 a 19 hores.{' '}
+                  <br />
+                  *Avançat: Mòbil Directe amb tècnic de guàrdia
+                </td>
+                <td>
+                  Dilluns a Divendres: 8:00 a 20:00. <br />
+                  No s’inclouen dissabtes, diumenges i festius.
+                  <br />
+                  *Avançat: Mòbil Directe amb tècnic de guàrdia
+                </td>
+                <td>8 hores laborables</td>
+              </tr>
+              <tr>
+                <td>Extra</td>
+                <td>24 hores de Dilluns a diumenge i festius.</td>
+                <td>24 hores de Dilluns a diumenge i festius.</td>
+                <td>8 hores laborables</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>
+          {' '}
+          L’Usuari haurà de comunicar a DELINTERNET, a través de qualsevol de
+          les dades de contacte que trobareu a la capçalera d'aquest document,
+          qualsevol queixa, reclamació o qualsevol incidència contractual. A
+          partir de la comunicació DELINTERNET intentarà resoldre aquesta
+          incidència en el termini més breu possible, i seguint el termini
+          previst en el quadre anterior. <br /> En el cas que la reparació dels
+          Serveis es requereixin sense que aquesta petició sigui relacionada amb
+          el servei, l’Usuari haurà d’abonar el cost que se’n derivi per aquest
+          concepte.
+        </li>
+        <li>
+          A petició expressa per part de l’Usuari, DELINTERNET li podrà
+          realitzar un descompte a la factura corresponent quan l’equip tècnic
+          de DELINTERNET superi el termini de resolució de la incidència previst
+          en el quadre anterior. En cas que l'Usuari no hagi sol·licitat de
+          forma expressa el descompte pel termini transcorregut de resolució
+          d’incidència, aquest descompte no podrà sol·licitar-se en una factura
+          posterior ni tindrà caràcter retroactiu ja que s’ha de sol·licitar
+          abans de l’enviament de la factura corresponent en què s’envia la
+          factura del mes corresponent i no posteriorment. Si l’Usuari pateix
+          una interrupció molt greu en el seu servei degut a que s’està
+          resolvent la incidència i ha transcorregut el termini de resolució,
+          anteriorment desglossat, DELINTERNET automàticament podrà realitzar el
+          descompte en la factura del mes que correspongui.
+          <br />
+          No s'aplica el descompte quan la incidència sigui una qüestió no
+          imputable a l’OPERADORA.
+          <br />
+          El descompte s'aplica a partir de l’hora següent a la superació del
+          termini per resoldre la incidència i serà proporcional l a les hores o
+          dies que l'Usuari està sense servei des del moment en què es posa en
+          coneixement de Delinternet.
+          <br />
+          Quan la reclamació es refereixi a una determinada factura, aquesta
+          s'ha de cursar en el termini de DEU (10) dies hàbils des de la
+          recepció per l’Usuari. En aquest cas, l'Usuari queda, però, obligat a
+          saldar al venciment la suma d'aquelles quantitats que no hagin estat
+          reclamades. <br />
+          Si l’Usuari no obté una resposta satisfactòria a la seva reclamació,
+          en el termini d'un mes, pot adreçar la seva reclamació a la Secretaria
+          d'Estat de Telecomunicacions i per a la Societat de la Informació.
+        </li>
+        <li>
+          El transcurs de les hores situades entre des del moment en què es
+          truca a l’Usuari per agendar fins el dia que s’hagi acordat per
+          agendar no es computen dintre del termini per la resolució de la
+          incidència.
+        </li>
+      </ol>
+      <h5>Sisena. Manteniment DELS SERVEIS </h5>
+      <p>
+        L’Usuari té dret a rebre la prestació dels Serveis després de la
+        signatura del present a contracte i, un cop realitzada la instal·lació
+        dels EQUIPS. No formen part del Servei de Manteniment inclòs en les
+        presents Condicions Generals, els Equips (Targetes, Equips informàtics,
+        etc.) que l’Usuari connecti a l' ONT, Cable-mòdem o router, o punt on
+        acaba la xarxa que dóna suport al Servei prestat per DELINTERNET.
+      </p>
+      <p>
+        La instal·lació que serveix per connectar la xarxa troncal i de
+        distribució de l'operadora amb el domicili de l'Usuari, i fins a la
+        col·locació dins d'aquest d'un punt terminal de xarxa, s'anomena
+        instal·lació exterior. La instal·lació col·locada dins el domicili de
+        l'abonat i des del punt terminal de xarxa fins als aparells receptors
+        dels Serveis es denomina instal·lació interior. El manteniment de la
+        instal·lació exterior serà de compte de DELINTERNET durant tota la
+        vigència del contracte, i el de la interior durant el primer any de
+        vigència, excepte, en ambdós casos, si el mal estat o funcionament és
+        degut a una actuació dolosa o negligent de l’Usuari o cas fortuït i / o
+        de força major. El servei de garantia inclou sempre les despeses de
+        desplaçament i mà d'obra del personal qualificat, i els de reposició de
+        material, peces i equips defectuosos quan el mal estat, a més de no ser
+        imputable a l’Usuari, no hagi estat per cas fortuït i / o força major.
+      </p>
+      <p>
+        El manteniment de la instal·lació interior serà de compte de l’Usuari,
+        que haurà de satisfer, de conformitat amb les tarifes vigents en el
+        moment de la seva prestació, les despeses de reposició, desplaçament i
+        mà d'obra que s'originin per causes diferents de l'ús diligent, fins i
+        tot per cas fortuït o força major, un cop transcorregut el període de
+        garantia.
+      </p>
+      <p>
+        Si fos necessari efectuar algun tipus d'instal·lació en l'equip
+        informàtic de l’Usuari, aquesta instal·lació serà efectuada per personal
+        degudament autoritzat per DELINTERNET; en aquest cas l’Usuari autoritza
+        a dur a terme la instal·lació corresponent i exonera DELINTERNET de
+        qualsevol pèrdua de garantia dels seus equips informàtics, de qualsevol
+        dany i / o pèrdua produïda en el programari que l’Usuari tingui
+        instal·lat al seu equip informàtic, així com de qualsevol error
+        accidental produït en l'equip informàtic de l’Usuari i que pugui tenir
+        lloc com a conseqüència de les instal·lacions necessàries per poder
+        rebre el servei d'accés a Internet.
+      </p>
+      <p>
+        En cas que DELINTERNET hagi instal·lat un equip d'accés als Serveis al
+        domicili de l’Usuari, aquest no podrà modificar o traslladar aquesta
+        instal·lació. Únicament podrà utilitzar-lo en el punt en què hagi estat
+        instal·lat per DELINTERNET, en la forma prevista en aquestes Condicions
+        i no podrà transmetre-ho sota cap títol, ni cedir el seu ús a un tercer.
+      </p>
+      <p>
+        No obstant això, l’Usuari podrà sol·licitar a DELINTERNET el trasllat de
+        la instal·lació de l'equip d'accés. Prèvia conformitat d'aquesta, es
+        procedirà a canviar el punt d'instal·lació facturant a l’Usuari l'import
+        corresponent a aquest trasllat, que li serà comunicat quan realitzi la
+        seva sol·licitud.
+      </p>
+      <h5>Setena. ELS EQUIPS </h5>
+      <p>
+        DELINTERNET lliurarà a l’Usuari, en perfectes condicions d'ús, els
+        equips necessaris per a la prestació dels Serveis, segons s'hagin
+        contractat en el contracte. El règim d'utilització serà el de cessió si
+        les parts no acorden expressament un altre.
+      </p>
+      <p>
+        El lliurament i instal·lació dels EQUIPS implica una cessió d'ús a favor
+        de l’Usuari, la durada serà el període de vigència del present
+        contracte. ELS EQUIPS seran propietat de DELINTERNET i l’Usuari no podrà
+        cedir-los o lliurar-los a tercers, havent de mantenir-los en el seu
+        poder durant la vigència del present contracte i utilitzar-los
+        exclusivament en el lloc i per a la fi contractat. L’Usuari queda
+        igualment obligat a conservar ELS EQUIPS en perfectes condicions d'ús,
+        havent d'abonar a DELINTERNET l'import del seu preu de mercat en cas
+        d'un mal ús del mateix que suposi el deteriorament.
+      </p>
+      <p>
+        Si l'Usuari tria l'opció de Compra ELS EQUIPS, aquests seran propietat
+        de l’Usuari, que haurà d'abonar en el primer pagament la quantitat
+        establerta en l'Annex de Tarifes.
+      </p>
+      <p>
+        La garantia dels EQUIPS serà la mateixa que subministri el fabricant a
+        DELINTERNET, sempre que l’Usuari no hagués manipulat indegudament,
+        efectuant modificacions tècniques sobre ells o causant danys
+        negligentment o de forma dolosa.
+      </p>
+      <p>
+        En el cas de Compra dels EQUIPS, DELINTERNET només prestarà el servei
+        d'assistència tècnica al domicili, a sol·licitud de l’Usuari i
+        mitjançant el pagament del preu establert per a les intervencions fora
+        de garantia.
+      </p>
+      <p>
+        En cas que l’Usuari opti per llogar els equips, si hi ha un dany o un
+        mal ús imputable a l’Usuari, aquest haurà d’assumir el cost de reparació
+        o substitució d’un nou equip o equips.
+      </p>
+      <h5>Vuitena. Preu, forma de pagament i facturació</h5>
+      <h6>8.1. Preu </h6>
+      <p>
+        El preu dels Serveis apareix estipulat en en la pàgina web de
+        DELINTERNET.
+      </p>
+      <p>
+        DELINTERNET cobrarà a l'Usuari la prestació dels Serveis d'acord amb les
+        tarifes vigents en cada moment.
+      </p>
+      <p>
+        {' '}
+        Els preus s'actualitzaran anualment, amb efectes al primer de gener de
+        cada any, d'acord amb l'Índex de Preus al Consum establert per a la
+        Comunitat Autònoma de Catalunya per l'Institut Nacional d'Estadística o
+        organisme que assumeixi aquesta funció. Aquesta variació serà
+        repercutida a l'abonat, sense prèvia notificació personal.
+      </p>
+      <p>
+        {' '}
+        Les tarifes seran revisades en funció dels costos del servei contractat.
+        DELINTERNET, a través del mitjà de comunicació triat en el contracte, ha
+        de notificar a l’Usuari la revisió de les tarifes que l'afectin amb una
+        antelació mínima de TRENTA (30) dies a la data d'emissió del rebut
+        corresponent per al seu cobrament, entenent-se la conformitat de
+        l’Usuari amb la revisió proposada si en els QUINZE (15) dies anteriors a
+        aquesta data no manifesta la seva oposició.
+      </p>
+      <p>
+        L’Usuari disconforme amb la revisió de les tarifes podrà ser baixa del
+        servei sense cap penalització per a ell, notificant-ho a DELINTERNET en
+        l'expressat termini. Així mateix, DELINTERNET podrà resoldre
+        unilateralment la prestació del servei quan el preu hagi estat objecte
+        de revisió no acceptada per l’Usuari; I mantenint-se en tots dos casos,
+        si això és tècnicament possible, vigent el contracte respecte de la
+        resta dels Serveis contractats.
+      </p>
+      <h6>8.2 Forma de pagament </h6>
+      <p>
+        L'Usuari ha d'abonar a DELINTERNET la quota de servei, així com, si és
+        el cas, el preu per l'adquisició dels EQUIPS, segons les tarifes vigents
+        en el moment de la signatura del present contracte. La quota
+        d'inscripció no serà reemborsable i de cap manera pot ser conceptuada
+        com a dipòsit, fiança, préstec, pagament a compte, o una altra figura de
+        naturalesa semblant. DELINTERNET emetrà mensualment la factura a abonar
+        per l’Usuari, de conformitat amb les tarifes vigents i aplicant l'IVA i
+        els impostos que resultin aplicables. Les quotes mensuals i els Serveis
+        es meritaran el dia primer de cada mes un cop prestats. A aquests
+        efectes les factures emeses per DELINTERNET contenen el concepte per
+        quotes i el concepte dels Serveis meritats durant el període de consum
+        anterior que, amb caràcter general i llevat d'acord en contrari no serà
+        inferior a un mes.
+      </p>
+      <p>
+        No obstant això, DELINTERNET podrà avançar la facturació i el cobrament
+        dels imports meritats quan es produeixin les circumstàncies.
+      </p>
+      <ol>
+        <li>L’Usuari superi el límit de crèdit fixat per DELINTERNET.</li>
+        <li>Es produeix la suspensió o interrupció del servei.</li>
+        <li>S' extingeixi el contracte per causa imputable a l’Usuari.</li>
+        <li>En casos de frau o riscos d'impagament.</li>
+      </ol>
+      <p>
+        Llevat que en el contracte s'hagi definit una altra forma de pagament,
+        l’Usuari es compromet a realitzar el pagament preferentment mitjançant
+        domiciliació bancària, en una sucursal situada en territori espanyol,
+        mantenint saldo suficient en el compte bancari per atendre el pagament
+        de les quantitats degudes. En cas que la forma de pagament sigui la
+        domiciliació bancària, DELINTERNET queda expressament autoritzat a girar
+        el corresponent rebut contra el compte bancari de l’Usuari especificat
+        en el contracte. Si l'entitat bancària no atengués el pagament dels
+        rebuts girats contra el compte bancari de l’Usuari per aquest es
+        satisfaran totes les despeses que a conseqüència de la seva devolució
+        hagi de suportar DELINTERNET. En tot cas l’Usuari haurà de notificar a
+        DELINTERNET el canvi de compte bancari contra el qual es giren els
+        rebuts per al seu cobrament, autoritzant-se al mateix temps amb aquesta
+        finalitat, i sent responsable a tots els efectes d'aquesta falta de
+        notificació.
+      </p>
+      <p>
+        El retard en el pagament de més de trenta (30) dies naturals des de la
+        presentació al cobrament de la factura, implicarà la meritació
+        d'interessos de demora que serà l'interès legal del diner incrementat en
+        dos punts, tot això sense perjudici de les altres conseqüències que
+        puguin derivar-se . Els interessos de demora es calculen per dies,
+        basats en un any de 365 dies.
+      </p>
+      <p>
+        Durant la prestació del servei a l’Usuari, DELINTERNET podrà enviar
+        missatges recordatoris de la situació de mora a fi d'informar de la seva
+        obligació de pagament, preservant en tot cas el secret de les
+        comunicacions i la intimitat de l'Usuari.
+      </p>
+      <p>
+        L'Usuari tindrà accés als Serveis per ell sol·licitats, els quals seran
+        utilitzables dins el termini comunicat per DELINTERNET en el moment de
+        la sol·licitud d’aquests. Un cop sol·licitada una comanda, l’Usuari
+        podrà anul·lar-la, diferir o modificar-la, sempre que no s'hagi iniciat
+        la seva prestació.
+      </p>
+      <p>
+        En cas d'impagament pels Serveis de pagament per unitat d'ús,
+        DELINTERNET es reserva el dret de suspendre l'accés a aquests Serveis.
+      </p>
+      <p>
+        Tots els treballs realitzats per DELINTERNET d'instal·lació,
+        manteniment, i assistència tècnica, la reposició de materials, peces i
+        equips i els desplaçaments, seran satisfets per l'Usuari en un sol
+        pagament, incloent-hi el seu import en la factura immediatament següent
+        a execució i acceptació.
+      </p>
+      <h6>8.3 Facturació </h6>
+      <p>
+        {' '}
+        L’Usuari podrà sol·licitar a DELINTERNET la facturació desglossada dels
+        Serveis bàsics i, si escau, els addicionals contractats, amb caràcter
+        gratuït, excepte el detall de trucades metropolitanes, el servei s'ha de
+        demanar expressament, sense perjudici que el seu abonament haurà de
+        fer-se efectiu íntegrament en un acte únic, salvat el que disposa en
+        matèria de Serveis de tarifació addicional.
+      </p>
+      <p>
+        En el supòsit de servei de tarifació addicional, o altres Serveis que no
+        es corresponguin amb comunicacions electròniques l'abast de l'esmentada
+        desagregació podrà comportar que, a instàncies de l’Usuari se li lliurin
+        factures independents. Ambdues parts reconeixen expressament que els
+        registres informàtics de DELINTERNET i la seva reproducció constitueixen
+        prova vàlida i suficient dels Serveis sol·licitats i efectivament
+        consumits per l’Usuari. En cas que l'Usuari indiqui en la Sol·licitud
+        l'enviament de factura electrònica, serà aquest l'únic mitjà d'enviament
+        i recepció de les seves factures. L’Usuari podrà revocar aquest
+        consentiment en qualsevol moment, mitjançant sol·licitud al correu
+        electrònic facturacio@delinternet.com. L'Usuari podrà personar-se a una
+        de les botigues més properes de DELINTERNET per sol·licitar la factura
+        en format paper i li serà entregada en el mateix moment.
+      </p>
+      <h5>Novena. Inici i vigència.</h5>
+      <p>
+        El Contracte entrarà en vigor el mateix dia de la seva formalització.
+        L’Usuari no té permanència amb Delinternet. Els Serveis contractats en
+        virtut d'aquest contracte estaran especialment vinculats al domicili
+        notificat a el contracte. En el cas que l’Usuari tingui intenció de
+        rebre els Serveis en un domicili diferent i alternatiu del determinat
+        contractualment, l’Usuari haurà de comunicar-ho a DELINTERNET, que
+        tramitarà la sol·licitud de baixa, aplicant, si és possible, les
+        conseqüències de la mateixa, recollides en la condició 12 l'Usuari podrà
+        realitzar un nou contracte en el nou domicili, que DELINTERNET atendrà
+        sempre que es trobi capacitada per a prestar Serveis en l'esmentat
+        domicili.
+      </p>
+      <h5>Desena. Suspensió i interrupció dels Serveis.</h5>
+      <h6>10.1. Suspensió.</h6>
+      <ol class="yes">
+        <li>
+          Suspensió temporal del servei a instància de l’Usuari
+          <p>
+            L’Usuari podrà sol·licitar a DELINTERNET la suspensió temporal del
+            servei amb una antelació de QUINZE (15) dies hàbils a la data de
+            suspensió desitjada. La durada de l'esmentada suspensió temporal no
+            podrà ser menor a un mes. En cas que es tracti de telèfon fixe,
+            l'Usuari sempre haurà de pagar una quota mínima per conservar el
+            número.
+          </p>
+          <p>
+            L’Usuari davant la suspensió temporal del servei té dues opcions: la
+            primera opció és la de retornar els Equips en perfecte estat, en
+            funció dels Serveis contracts hauria de retornar l’ONT amb
+            transformador i router amb transformador,en cas de GouTv l'Usuari ha
+            de tornar l'aparell, transformador, comandament a distància amb
+            connector USB, el carregador USB del comandament a distància i el
+            cable HDMI) i en cas de Radio Enllaç (antena i router) a la botiga
+            més a prop del seu domicili o residència.
+          </p>
+          <p>
+            En cas que retorni els Equips i aquests no estiguessin en perfecte
+            estat l’Usuari haurà de pagar a DELINTERNET una penalització de 175
+            euros (IVA inclòs) pel que fa els Equips de Fibra òptica i
+            RadioEnllaç i 100 euros ( IVA inclòs) en cas de l'Equip de GouTv,
+            aquestes dues quantitats no podran pagar-se a terminis i la segona
+            opció és que l'Usuari podrà quedar-se amb els equips (anteriorment
+            referits) al seu domicili amb una quota mensual de 15 euros més IVA
+            (total d'18,15 euros amb IVA inclòs).
+          </p>
+        </li>
+        <li>
+          Suspensió temporal del servei a instància de DELINTERNET
+          <p class="yes">
+            DELINTERNET podrà suspendre temporalment el servei per retard
+            ocasional o continuat de l’Usuari en el pagament del Servei per un
+            període superior a UN (1) mes, a comptar de la presentació a aquest
+            per DELINTERNET del document de càrrec corresponent, quan
+            descobreixi que s'ha produït falsedat en les dades personals o
+            bancàries proporcionades per l’Usuari , o quan la prestació del
+            servei estigués condicionada a la no superació d'un límit de crèdit.
+          </p>
+          <p>
+            La suspensió temporal del servei a instància de DELINTERNET per
+            impagament de la factura es produirà als 7 (SET) dies naturals dels
+            següents a la comunicació de l’Usuari de l’impagament corresponent.
+          </p>
+          <p>
+            La comunicació per impagament es realitzarà per correu electrònic i
+            en defecte, via telefònica.
+          </p>
+          <p>
+            L'Usuari seguirà tenint l’obligació de pagar la o las factures amb
+            les despeses incloses, fins i tot quan hi hagi la suspensió del
+            servei. Les despeses tindran un import de 7 € + IVA (8,47€ IVA
+            inclòs) per cada rebut retornat. DELINTERNET informarà a l’Usuari
+            via email el rebut retornat per part de l’entitat bancària o bé per
+            via telefònica. DELINTERNET dona un termini de 7 dies des de la
+            comunicació per correu electrònic o telèfon per tal que l’Usuari
+            faci el pagament en transferència o en efectiu amb les despeses
+            incloses.
+          </p>
+          <p>
+            Un cop transcorregut el termini mencionat, si l’Usuari no ha
+            realitzat el pagament es procedirà a tallar el servei fins rebre
+            notificació al banc de l’ingrés o pagat en efectiu a botiga.
+          </p>
+          <p>
+            En cas que no es pagui tot el deute (inclòs les despeses i/o
+            comissions) no es donarà per liquidat el deute i per tant no es
+            procedirà a reactivar el servei fins nova notificació de liquidació
+            del deute.
+          </p>
+          <p>
+            En cas de suspensió per impagament, es mantindran els Serveis per a
+            trucades entrants, excepte les de cobrament a destinació, i les de
+            sortida per emergència fins a la interrupció del servei o, si
+            s'escau, fins a la nova activació d’aquest.
+          </p>
+          <p>
+            Així mateix, DELINTERNET podrà suspendre temporalment el servei
+            quan, davant d'un consum excessiu, s'estimi que l’Usuari està
+            incorrent en una conducta fraudulenta en infringir la seva obligació
+            d'utilització del servei per a ell.
+          </p>
+          <p>
+            La suspensió del servei no eximeix a l’Usuari de l'obligació de
+            continuar amb el pagament de les quotes periòdiques fixes
+            corresponents.
+          </p>
+          <ol>
+            <li>
+              Requisits. Perquè la suspensió del servei es pugui dur a terme,
+              s'han de complir els requisits següents:
+              <ul>
+                <li>
+                  DELINTERNET requerirà el pagament i notificarà la suspensió
+                  mitjançant una comunicació, que es farà amb almenys SET (7)
+                  dies hàbils d'antelació a la data en què vagi a tenir lloc la
+                  suspensió del servei.
+                </li>
+                <li>
+                  La comunicació indicarà la data en què, en cas de no
+                  efectuar-se el pagament, tindrà lloc la suspensió.
+                </li>
+              </ul>
+            </li>
+            <li>
+              Restabliment del servei. DELINTERNET restablirà el servei suspès
+              dins del dia laborable següent a aquell en què tingui constància
+              que l'import degut ha estat satisfet.
+            </li>
+          </ol>
+        </li>
+        <li>
+          Interrupció del Servei Telefònic.
+          <p>
+            El retard en el pagament del servei telefònic per un període
+            superior a TRES (3) mesos o la suspensió temporal, en dues ocasions,
+            del contracte per demora en el pagament dels Serveis corresponents
+            donarà dret a DELINTERNET, previ avís a l’Usuari, a la interrupció
+            definitiva dels Serveis i a la corresponent resolució del contracte.
+            L'impagament del càrrec pels serveis d'accés a Internet o de serveis
+            de tarifes superiors, especialment del servei de tarifació
+            addicional, només donarà lloc a la interrupció d'aquests Serveis.
+          </p>
+          <p>
+            DELINTERNET indemnitzarà automàticament a l’Usuari en la factura
+            corresponent al període immediat al considerat quan la interrupció
+            del servei suposi el dret a una indemnització per import superior a
+            UN (1) euro. A la factura corresponent es farà constar la data,
+            durada i càlcul de la quantia de la indemnització que correspon a
+            l'abonat.
+          </p>
+          <p>
+            En el cas que l’Usuari hagi triat la modalitat de prepagament, el
+            corresponent ajust en el saldo es realitzarà en un termini no
+            superior al de la resta d'abonats.
+          </p>
+          <p>
+            En interrupcions per causes de força major, DELINTERNET es limitarà
+            a compensar automàticament l'abonat amb la devolució de l'import de
+            la quota d'abonament i altres independents del tràfic, prorratejat
+            pel temps que hagi durat la interrupció.
+          </p>
+          <p>
+            No serà aplicable el que disposa anteriorment quan la interrupció
+            temporal estigui motivada per alguna de les causes següents:
+          </p>
+          <ul>
+            <li>
+              a. Incompliment greu per l’Usuari de les condicions contractuals,
+              en especial en cas de frau o mora en el pagament que donarà lloc a
+              l'aplicació de la suspensió temporal i interrupció. En tot cas, la
+              suspensió temporal o interrupció afectarà únicament al servei en
+              el qual s'hagués produït el frau o mora en el pagament.
+            </li>
+            <li>
+              b. Pels danys produïts a la xarxa a causa de la connexió per
+              l’Usuari d'equips terminals que no hagin avaluat la conformitat,
+              d'acord amb la normativa vigent.
+            </li>
+            <li>
+              c. Absència de subministrament elèctric durant un període superior
+              al suportat pels sistemes d'alimentació ininterrompuda de
+              DELINTERNET.
+            </li>
+          </ul>
+          <p />
+          <p>
+            És aplicable a la interrupció del servei, el que preveu la clàusula
+            Onzena d'aquestes condicions per al supòsit de suspensió en cas de
+            reclamació de la quantitat deguda.
+          </p>
+        </li>
+        <li class="yes">
+          Interrupció del Servei d'Accés a Internet.
+          <p>
+            Quan, durant un període de facturació, l’Usuari pateixi
+            interrupcions temporals del servei d'accés a Internet, DELINTERNET
+            compensarà l'abonat amb la devolució de l'import de la quota
+            d'abonament i altres quotes fixes, prorratejades pel temps que
+            hagués durat la interrupció, sempre que ho hagi manifestat, de forma
+            expressa l’Usuari, dintre del període de facturació que pateixi la
+            interrupció temporal i sigui per causa imputable a DELINTERNET. Si
+            l’Usuari no ho manifesta dintre el període de facturació que
+            pateixi, no podrà, posteriorment, sol·licitar el descompte al no
+            tenir caràcter retroactiu.
+          </p>
+          <p>
+            A aquests efectes, DELINTERNET indemnitzarà automàticament a
+            l’Usuari en la factura corresponent al període immediat al
+            considerat, quan la interrupció del servei, s'hagi produït de manera
+            contínua o discontínua, i sigui superior a vuit (8) hores en horari
+            de 8 a 20. A la factura corresponent es farà constar la data, durada
+            i càlcul de la quantia de la compensació que correspon a l’Usuari.
+          </p>
+          <p>
+            No és aplicable el que disposa l'apartat anterior quan la
+            interrupció temporal estigui motivada per alguna de les causes
+            següents:
+          </p>
+          <ul>
+            <li>
+              a. Incompliment greu per l'Usuari de les condicions contractuals.
+            </li>
+            <li>
+              b. Danys produïts a la xarxa a causa de la connexió per l’Usuari
+              d'equips terminals que no hagin avaluat la conformitat, d'acord
+              amb la normativa vigent.
+            </li>
+            <li>
+              c. Absència de subministrament elèctric durant un període superior
+              al suportat pels sistemes d'alimentació ininterrompuda de
+              DELINTERNET.
+            </li>
+          </ul>
+          <p />
+          <p>
+            És aplicable a la interrupció del servei, el que preveu la clàusula
+            Onzena d'aquestes condicions per al supòsit de suspensió en cas de
+            reclamació de la quantitat deguda.
+          </p>
+        </li>
+      </ol>
+      <h5>Onzena. Extinció del Contracte.</h5>
+      <p>
+        El contracte s'extingirà per les causes generals d'extinció dels
+        contractes i, especialment:
+      </p>
+      <ul>
+        <li>
+          Per voluntat de l’Usuari, comunicant-ho prèviament al Servei d'Atenció
+          a l’Usuari de DELINTERNET amb una antelació mínima de DOS (2) dies
+          hàbils al moment en què ha de tenir efectes. DELINTERNET no facturarà
+          ni cobrarà qualsevol quantitat que s'hagi pogut meritar, per causa no
+          imputable a l’Usuari, amb posterioritat al termini de dos dies en què
+          s'hauria de produir la baixa.
+        </li>
+        <li>
+          Per denúncia de DELINTERNET per incompliment per part de l’Usuari de
+          qualsevol de les condicions del present contracte. Aquesta rescissió
+          es produirà de ple dret en el moment en què sigui advertit l’Usuari,
+          que no tindrà dret a cap compensació pels pagaments realitzats fins
+          aquest moment.
+        </li>
+        <li>
+          Manipulació per l'Usuari, sense autorització prèvia de DELINTERNET, de
+          la infraestructura i equips de DELINTERNET. DELINTERNET es reserva el
+          dret a realitzar les oportunes accions legals en cas que es doni
+          aquesta causa d'extinció.
+        </li>
+        <li>Cessament d'activitat de DELINTERNET.</li>
+      </ul>
+      <p>
+        DELINTERNET notificarà a l’Usuari, amb (1) UN mes d'antelació qualsevol
+        modificació substancial del contracte, informant aquest del seu dret a
+        rescindir sense penalització el contracte en cas de no acceptació de les
+        noves condicions.
+      </p>
+      <p>
+        Un cop resolt el present contracte, l’Usuari haurà de retornar a
+        DELINTERNET la totalitat dels EQUIPS que li haguessin estat cedits. Amb
+        aquesta finalitat, el personal autoritzat de DELINTERNET, degudament
+        identificat, ha de recollir aquests Equips en el domicili de l’Usuari,
+        sense càrrec per a aquest, llevat que la causa de resolució del
+        contracte sigui la manca de pagament, en aquest cas l’Usuari ha d'abonar
+        als DELINTERNET les despeses que s'ocasionen. Pel que els Equips de
+        Radio Enllaç, l’Usuari els haurà de retornar a la botiga, oficial, més
+        propera del seu domicili.
+      </p>
+      <p>
+        Si l’USUARI no facilités la retirada dels equips en un termini màxim de
+        TRENTA (30) dies naturals des de la resolució del contracte, DELINTERNET
+        passarà al cobrament en el compte corrent o targeta de crèdit notificada
+        l'import corresponent al preu de mercat d'uns equips nous d'iguals o
+        similars característiques que els equips retinguts. En cas que l’Usuari
+        no atengui els pagaments deguts, DELINTERNET podrà comunicar la seva
+        morositat als fitxers d'impagats gestionats pels Establiments Financers
+        de Crèdit, sense perjudici d'una possible reclamació en via judicial.
+      </p>
+      <h5>Dotzena. Cessió del contracte i del Servei.</h5>
+      <p>
+        Els serveis prestats per DELINTERNET són personals pel que no podran ser
+        objecte de cessió per part de l’Usuari sense consentiment exprés de
+        DELINTERNET. L’Usuari no podrà re-vendre o transferir de cap manera els
+        Serveis a tercers persones.
+      </p>
+      <h5>Tretzena. Secret de les comunicacions.</h5>
+      <ol>
+        <li>
+          DELINTERNET adoptarà les mesures necessàries, exigibles per la
+          legislació en cada moment, per garantir el secret de les comunicacions
+          en el seu trànsit a través de la xarxa de DELINTERNET, així com per
+          complir amb l’establert a la normativa legal i vigent sobre
+          telecomunicacions.
+        </li>
+        <li>
+          L'Usuari atorgar el consentiment a DELINTERNET per gravar les trucades
+          que l’Usuari pugui fer o rebre del servei d’atenció a l’Usuari.
+          Aquesta gravació es realitza amb la finalitat de millorar la qualitat
+          de prestació dels Serveis objecte del contracte, per verificar la
+          satisfacció dels Usuaris així com d’acreditar la contractació.
+        </li>
+      </ol>
+      <h5>Catorzena. Protecció de dades.</h5>
+      <ol>
+        <li class="yes">
+          Als efectes del que disposa la normativa vigent sobre protecció de
+          dades, DELINTERNET informa l’Usuari que amb les dades contingudes en
+          el present contracte es realitzaran, sota la responsabilitat de
+          DELINTERNET, els tractaments necessaris amb la finalitat de garantir
+          el manteniment i la gestió de la relació contractual amb l’Usuari,
+          així com tasques d'informació del servei telefònic i d'activitats
+          relacionades amb el mateix.
+          <br />
+          L’ Usuari té la possibilitat d'exercir, d'acord amb el que estableix
+          aquesta normativa i la nostra política de privacitat i protecció de
+          dades, els drets d'accés, rectificació, cancel·lació i oposició,
+          supressió, limitació, portabilitat i revocació del consentiment,
+          dirigint un escrit , aportant fotocòpia del DNI o documentació
+          alternativa que acrediti la seva identitat, a l'adreça electrònica
+          info@delinternet.com, Delinternet Telecom SLU (Protecció Dades) -
+          Plaça del mercat la cava SN, 43580 Deltebre (Tarragona) o mitjançant
+          el telèfon gratuït 877 990 500. Les dades que seran objecte de
+          tractament seran els derivats de la relació contractual amb l’Usuari
+          (dades de caràcter identificatiu, dades econòmiques, els de trànsit i
+          facturació, així com els relatius a l'adquisició de productes i
+          Serveis per l’Usuari). Als efectes del que indica el paràgraf
+          anterior, es consideren com a dades de trànsit els següents:
+          <p>a) El número d'identificació de l'abonat; </p>
+          <p>b) El nombre d'abonat que rep la trucada;</p>
+          <p>
+            c) El tipus, l'hora de començament i la durada de les trucades
+            realitzades;
+          </p>
+          <p>d) La data de la trucada.</p>
+          <p>
+            {' '}
+            Les esmentades dades de trànsit seran tractades durant el termini en
+            què pugui impugnar la factura o exigir el pagament de conformitat
+            amb la legislació vigent. L'Usuari consent expressament que les
+            seves dades siguin conservades per DELINTERNET per un termini de 5
+            anys un cop finalitzada la relació contractual.
+          </p>
+        </li>
+        <li>
+          DELINTERNET informa l’Usuari de la possibilitat d'enviar-li
+          informacions relatives als Serveis, a més de per mitjà postal o
+          telefònic, per mitjà de l'enviament de SMS o correu electrònic, sempre
+          que l’Usuari li hagi facilitat un número mòbil o adreça de correu
+          electrònic de contacte.
+        </li>
+        <li>
+          DELINTERNET es compromet al compliment de l'obligació de secret
+          respecte a les dades de caràcter personal i del seu deure de
+          guardar-lo, adoptant les mesures de seguretat que imposa la legislació
+          vigent per evitar la seva alteració, pèrdua, tractament o accés no
+          autoritzat. Conclosa la relació contractual les dades seran
+          conservades per un termini de 5 anys, després dels quals es procedirà
+          a la seva completa eliminació. No obstant això, aquesta informació
+          estarà disponible a sol·licitud de les autoritats judicials, el
+          Ministeri Fiscal o de les administracions públiques competents, durant
+          el termini de prescripció de les accions que es puguin derivar.
+          Transcorregut aquest últim termini, les dades seran completament
+          eliminades.
+        </li>
+        <li>
+          {' '}
+          L’Usuari podrà retirar en qualsevol moment el consentiment prestat ¡,
+          comunicant-ho a la direcció de correu electrònic indicada a l’apartat
+          1 de la present clàusula. No obstant, s'informa que la retirada del
+          consentiment no afectarà la licitud del tractament basat en el
+          consentiment previ.
+        </li>
+        <li>
+          L’Usuari disposa de tota la informació addicional necessària respecte
+          de les polítiques de privacitat i protecció de dades de DELINTERNET a
+          la pàgina web, a la qual podrà accedir a través del següent enllaç:
+          https://delinternet.com/proteccio-dades
+        </li>
+      </ol>
+      <h5>El Servei de Televisió</h5>
+      <p>
+        Amb independència del servei que s’ hagués contractat, l’Usuari podrà
+        canviar d'un servei o tarifa a un altre de DELINTERNET, sempre d'acord
+        amb les condicions establertes en l'oferta comercial i respectant, si
+        s'escau, la quota de canvi de tarifa vigent en cada moment.
+      </p>
+      <p>
+        Quan es realitzin els canvis de servei o tarifa, l’Usuari mai es quedarà
+        sense servei i DELINTERNET en tot moment li subministrarà servei. Un cop
+        s'hagin realitzat els canvis de servei o tarifa, DELINTERNET donarà de
+        baixa el servei anterior i d'alta el servei nou i contractat amb
+        l’Usuari.
+      </p>
+      <p>
+        Els canvis s’hauran de realitzar per l’Usuari titular o per una tercera
+        persona que la representi degudament.
+      </p>
+      <h5>Setzena. Modificacions de les condicions de servei.</h5>
+      <p>
+        Quan una norma així ho exigeix-hi el contracte podrà ser modificat. En
+        aquest cas, DELINTERNET, l'informarà prèviament d'aquesta modificació.
+      </p>
+      <p>
+        Aquestes condicions generals, incloses les condicions econòmiques, de
+        conformitat amb la legislació vigent, podran ser modificades per
+        DELINTERNET, en qualsevol moment, per motius legals, tècnics, operatius,
+        econòmics, de servei o de mercat o per l'organització o necessitats del
+        Servei.
+      </p>
+      <p>
+        Aquestes modificacions contractuals hauran de ser comunicades als
+        Usuaris afectats amb un (1) mes d'antelació a la seva entrada en vigor.
+      </p>
+      <p>
+        Si l’Usuari no està d’acord amb les modificacions proposades, podrà
+        resoldre el contracte sense cap penalització per aquest motiu,
+        comunicant a DELINTERNET, abans de l'entrada en vigor de les
+        modificacions, o en cas contrari s'entendrà que s'accepten les
+        modificacions.
+      </p>
+      <p>
+        La versió actualitzada de les condicions generals s’enviarà per correu
+        electrònic de l’Usuari, es podran consultar a les botigues de
+        DELINTERNET i/o sol·licitar una versió en format digital a la direcció
+        del correu electrònic info@delinternet.com
+      </p>
+      <p>
+        La declaració de qualsevol d'aquestes condicions generals, com a nul·la,
+        invàlida o ineficaç no afectarà la validesa o eficàcia de les altres
+        condicions generals, les quals continuaran sent vinculades per a les
+        parts.
+      </p>
+      <h5>Dissetena. Interpretació del contracte i legislació aplicable.</h5>
+      <p>
+        La formació, execució, validesa i interpretació del present contracte es
+        regirà per la legislació d'Espanya. En tot cas, l’Usuari podrà dirigir
+        la seva reclamació a la Secretaria d'Estat de Telecomunicacions i per a
+        la Societat de la Informació.
+      </p>
+      <p>
+        Tant l’Usuari com DELINTERNET accepten que, excepte pel que disposa la
+        legislació aplicable, mantindran la confidencialitat respecte a
+        l'existència i resultats del procediment arbitral, així com el contingut
+        del mateix, i sol·licitaran als àrbitres que mantinguin la mateixa
+        obligació de confidencialitat.
+      </p>
+      <h5>Divuitena. Dret de desistiment en contractació a distància</h5>
+      <p>
+        En el supòsit en què l’Usuari hagi contractat a distància, tindrà dret a
+        desistir de la contractació efectuada en el termini de 14 dies naturals
+        des de la data de la sol·licitud de contractació.{' '}
+      </p>
+      <p>
+        Per a l'exercici del dret de desistiment, l’Usuari haurà de remetre
+        degudament emplenat, en el termini indicat, al Departament de Processos
+        a la direcció electrònica baixa@delinternet.com el document de
+        Sol·licitud de Desistiment que poden sol·licitar a qualsevol botiga de
+        Delinternet o per correu electrònic a info@delinternet.com.
+      </p>
+      <p>
+        En cas que l’Usuari hagi sol·licitat expressament que comenci la
+        prestació del servei durant el període de desistiment, l’Usuari haurà de
+        fer front a les despeses derivades de la instal·lació dels Serveis.{' '}
+      </p>
+      <p>
+        En cas de desistiment, l’Usuari haurà de tornar ELS EQUIPS a les
+        oficines de DELINTERNET en el termini de trenta (30) dies naturals des
+        de la data efectiva de comunicació del desistiment. En cas que l’Usuari
+        no retorni ELS EQUIPS en perfecte estat, haurà d'abonar a DELINTERNET la
+        quantitat corresponent al 100% del valor d’ELS EQUIPS, indicat en el
+        contracte.{' '}
+      </p>
+      <p>
+        En cas que l’Usuari hagi contractat el servei telefònic, un cop
+        realitzada la portabilitat de la numeració sol·licitada, l’Usuari és
+        informat i accepta que, a partir d'aquest moment perdrà el seu dret de
+        desistiment, en virtut del que estableix l'article 103 de la Llei
+        General per a la Defensa dels Consumidors i Usuaris.
+      </p>
+      <h5>Darrera. Totalitat del contracte.</h5>
+      <p>
+        Les presents condicions, inclos el contracte o contractes de prestació
+        de serveis firmats per l’Usuari, així com altres documents,
+        constitueixen l’acord complet i exclusiu entre les parts, substituint a
+        totes les manifestacions o acords anteriors o simultanis pel que fa a la
+        matèria que en ell s'inclou.
+      </p>
+      <br />
+    </div>
+  </div>
+);

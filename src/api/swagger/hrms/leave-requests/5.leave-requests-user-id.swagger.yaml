@@ -1,0 +1,72 @@
+/leave-requests/user/{id}:
+  put:
+    tags:
+      - 'leave-requests'
+    summary: ''
+    description: 'update leave request record by id'
+    operationId: 'updateUserLeaveRequest'
+    security:
+      - Bearer: []
+    consumes:
+      - 'application/json'
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of leave request record'
+        required: true
+        type: 'string'
+      - name: 'body'
+        in: 'body'
+        description: ''
+        required: false
+        schema:
+          type: 'object'
+          required:
+            - 'description'
+            - 'start_date'
+            - 'end_date'
+          properties:
+            description:
+              type: 'string'
+              minLength: 1
+            end_date:
+              type: 'string'
+              minLength: 1
+            start_date:
+              type: 'string'
+              minLength: 1
+          description: ''
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+          description: ''
+          x-examples:
+            example-1:
+              data:
+                created_at: '2021-04-29T01:45:50.000000Z'
+                id: 1
+                updated_at: '2021-04-29T01:46:12.000000Z'
+              meta:
+                code: 200
+                message: 'Updated'
+                status: 'success'
+    x-swagger-router-controller: 'LeaveRequests'

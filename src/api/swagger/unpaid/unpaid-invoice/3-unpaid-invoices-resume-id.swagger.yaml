@@ -1,0 +1,190 @@
+/unpaidInvoices/resume/{id}:
+  post:
+    tags:
+      - 'unpaid-invoice'
+    summary: 'update invoice status end point'
+    description: 'update status of unpaid invoice'
+    operationId: 'postResumeUnpaidInvoiceId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table unpaid invoice'
+        required: true
+        type: 'string'
+      - in: 'body'
+        name: 'body'
+        description: 'id of shop'
+        required: false
+        schema:
+          type: 'object'
+          properties:
+            shopId:
+              type: 'number'
+              example: 12
+            paymentType:
+              type: 'string'
+              example: 'MOOZAICTPV'
+            includeCommission:
+              type: 'boolean'
+              example: true
+          description: ''
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'code'
+          properties:
+            code:
+              type: 'number'
+            data:
+              type: object
+              properties:
+                message:
+                  type: string
+                has_other_unpaid_invoices:
+                  type: boolean
+              required:
+                - 'message'
+                - 'has_other_unpaid_invoices'
+
+      '400':
+        description: 'Bad Request'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            message:
+              type: string
+            meta:
+              type: object
+              properties:
+                success:
+                  type: boolean
+                code:
+                  type: string
+                message:
+                  type: string
+                related_invoices:
+                  type: array
+                  items:
+                    $ref: '#/definitions/UnpaidInvoice'
+              required:
+                - 'success'
+                - 'message'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'UnpaidInvoice'
+/unpaidInvoices/resume/{id}/hub:
+  post:
+    tags:
+      - 'unpaid-invoice'
+    summary: 'update invoice status end point'
+    description: 'update status of unpaid invoice'
+    operationId: 'postResumeUnpaidInvoiceIdHub'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table unpaid invoice'
+        required: true
+        type: 'string'
+      - in: 'body'
+        name: 'body'
+        description: 'id of shop'
+        required: false
+        schema:
+          type: 'object'
+          properties:
+            shopId:
+              type: 'number'
+              example: 12
+            paymentType:
+              type: 'number'
+              example: 12
+            includeCommission:
+              type: 'boolean'
+              example: true
+          description: ''
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'code'
+          properties:
+            code:
+              type: 'number'
+            data:
+              type: object
+              properties:
+                message:
+                  type: string
+                has_other_unpaid_invoices:
+                  type: boolean
+              required:
+                - 'message'
+                - 'has_other_unpaid_invoices'
+
+      '400':
+        description: 'Bad Request'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            message:
+              type: string
+            meta:
+              type: object
+              properties:
+                success:
+                  type: boolean
+                code:
+                  type: string
+                message:
+                  type: string
+                related_invoices:
+                  type: array
+                  items:
+                    $ref: '#/definitions/UnpaidInvoice'
+              required:
+                - 'success'
+                - 'message'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'UnpaidInvoice'

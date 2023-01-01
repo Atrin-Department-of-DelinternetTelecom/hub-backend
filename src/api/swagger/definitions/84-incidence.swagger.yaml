@@ -1,0 +1,89 @@
+definitions:
+  GfIncidence:
+    type: "object"
+    required:
+      - id
+      - uid
+      - contractId
+      - clientId
+      - description
+      - date
+      - closed
+      - sectionCode
+      - executedDate       
+      - userId       
+      - file1       
+      - file2     
+      - file3      
+      - file4      
+      - file5      
+      - file6      
+      - motherEventId       
+      - status
+      - creationDate
+      - updateDate
+    properties:
+      id:
+        type: number
+        example: 12
+      uid:
+        type: number
+        example: 0
+      contractId:
+        type: number
+        example: 0 
+      clientId:
+        type: number
+        example: 0 
+      description:
+        type: string
+        example: "scheduled,applied,edited,deleted,partialApplied"
+      date:
+        type: string
+        example: '2021-04-29 01:47:27.0'
+      closed:
+        type: boolean
+        example: 0
+      sectionCode:
+        type: string
+        example: 'code'
+      executedDate:
+        type: string
+        example: '2021-04-29 01:47:27.0'
+      userId:
+        type: number
+        example: 3
+      file1:
+        type: string
+        example: "name of file"
+      file2:
+        type: string
+        example: "name of file"
+      file3:
+        type: string
+        example: "name of file"
+      file4:
+        type: string
+        example: "name of file"
+      file5:
+        type: string
+        example: "name of file"
+      file6:
+        type: string
+        example: "name of file"
+      motherEventId:
+        type: number
+        example: 2
+      status:
+        type: number
+        example: 1
+      updateDate:
+        type: string
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1  
+      creationDate:
+        type: string
+        example: "2021-04-29 01:47:27.0"
+        minLength: 1
+    description: ""
+    title: "gf-incidence"

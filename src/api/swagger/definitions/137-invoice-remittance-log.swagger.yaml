@@ -1,0 +1,37 @@
+definitions:
+  InvoiceRemittanceLog:
+    type: object
+    required:
+      - remitanceId
+      - paymentId
+      - type
+      - reason
+      - metadata
+    properties:
+      id:
+        type: number
+        example: 12
+      uid:
+        type: number
+        example: 12
+      remitanceId:
+        type: number
+        example: 12
+      paymentId:
+        type: number
+        example: 12
+      type:
+        type: string
+        example: 'error'
+      reason:
+        type: string
+        example: 'some IBAN has a problem'
+      metadata:
+        type: string
+        example: '{a:5,testss}'
+      status:
+        type: number
+        example: 1
+
+    description: ''
+    title: InvoiceRemittanceLog

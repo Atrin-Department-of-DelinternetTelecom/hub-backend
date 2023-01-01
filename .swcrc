@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/swcrc",
+  "module": {
+    "type": "commonjs"
+  },
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "tsx": true
+    },
+    "transform": {
+      "react": {
+        "pragma": "h",
+        "pragmaFrag": "Fragment"
+      }
+    },
+
+    "target": "es2022"
+  },
+  "minify": false,
+  "sourceMaps": true
+}

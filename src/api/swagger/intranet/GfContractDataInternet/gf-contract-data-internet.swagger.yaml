@@ -1,0 +1,50 @@
+/gf-contract-data-internet/{dataInternetId}/cpe/status:
+  get:
+    tags:
+      - 'gf-contract-data-internet'
+    summary: 'Get cpe status by dataInternet id'
+    description: 'get cpe status by dataInternet id'
+    operationId: 'cpeStatusByDataInternetId'
+    parameters:
+      - in: path
+        name: dataInternetId
+        required: true
+        type: number
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: object
+          properties:
+            connected:
+              type: boolean
+            reason:
+              type: string
+    x-swagger-router-controller: 'GfContractDataInternet'
+
+/gf-contract-data-internet/{dataInternetId}/connect-router:
+  post:
+    tags:
+      - 'gf-contract-data-internet'
+    summary: 'Connect router by dataInternet id'
+    description: 'Connect router by dataInternet id'
+    operationId: 'connectRouterByDataInternetId'
+    parameters:
+      - in: path
+        name: dataInternetId
+        required: true
+        type: number
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: object
+    x-swagger-router-controller: 'GfContractDataInternet'

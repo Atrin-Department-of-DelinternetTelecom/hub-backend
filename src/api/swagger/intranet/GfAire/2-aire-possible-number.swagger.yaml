@@ -1,0 +1,225 @@
+/aire/possible-number:
+  get:
+    tags:
+      - 'aire'
+    summary: 'Get possible number from aire'
+    description: 'Get possible number from aire'
+    operationId: 'getPossibleNumber'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters: []
+    responses:
+      '200':
+        description: 'OK'
+        headers: {}
+        schema:
+          type: 'object'
+          required:
+            - meta
+          properties:
+            data:
+              type: object
+              properties:
+                number:
+                  type: string
+                code:
+                  type: string
+            meta:
+              type: object
+              properties:
+                code:
+                  type: number
+          description: ''
+          x-examples:
+            example-1:
+              data:
+                - createDate: '2019-08-24'
+                  dateOfBirth: '1997-10-31'
+                  email: 'user@example.com'
+                  emailVerified: true
+                  firstName: 'string'
+                  id: 0
+                  lastName: 'string'
+              links:
+                first: 'string'
+                last: 'string'
+                next: 'string'
+                prev: 'string'
+                self: 'string'
+              meta:
+                code: 0
+                current_page: 0
+                from: 0
+                last_page: 0
+                links:
+                  - active: true
+                    label: 'string'
+                    url: 'string'
+                path: 'string'
+                per_page: 0
+                status: 'string'
+                to: 0
+                total: 0
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'Aire'
+
+/aire/pool-esim:
+  get:
+    tags:
+      - 'aire'
+    summary: 'Get pool esim from aire.'
+    description: 'Get pool esim from aire'
+    operationId: 'getPoolEsim'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters: []
+    responses:
+      '200':
+        description: 'OK'
+        headers: {}
+        schema:
+          type: 'object'
+          required:
+            - meta
+          properties:
+            data:
+              type: object
+              properties:
+                numbers:
+                  type: array
+                  items:
+                    type: string
+            meta:
+              type: object
+              properties:
+                code:
+                  type: number
+          description: ''
+          x-examples:
+            example-1:
+              data:
+                - createDate: '2019-08-24'
+                  dateOfBirth: '1997-10-31'
+                  email: 'user@example.com'
+                  emailVerified: true
+                  firstName: 'string'
+                  id: 0
+                  lastName: 'string'
+              links:
+                first: 'string'
+                last: 'string'
+                next: 'string'
+                prev: 'string'
+                self: 'string'
+              meta:
+                code: 0
+                current_page: 0
+                from: 0
+                last_page: 0
+                links:
+                  - active: true
+                    label: 'string'
+                    url: 'string'
+                path: 'string'
+                per_page: 0
+                status: 'string'
+                to: 0
+                total: 0
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'Aire'
+
+/aire/roaming-bonuses:
+  get:
+    tags:
+      - 'aire'
+    summary: 'Get roaming bonuses from aire. the only avaialbe filter is like `filter[name]=aa`'
+    description: 'Get roaming bonuses from aire. the only avaialbe filter is like `filter[name]=aa`'
+    operationId: 'roamingBonuses'
+    x-pagination: true
+    x-filter: true
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters: []
+    responses:
+      '200':
+        description: 'OK'
+        headers: {}
+        schema:
+          type: 'object'
+          required:
+            - meta
+          properties:
+            data:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: '3'
+                  nombre:
+                    type: string
+                    example: 'Albania'
+                  capacidad:
+                    type: string
+                    example: '1'
+                  descripcion:
+                    type: string
+                    example: '7'
+                  pvp:
+                    type: string
+                    example: '8.22'
+                  iso_pais:
+                    type: string
+                    example: 'AL'
+                  renovaciones:
+                    type: string
+                    example: '10'
+
+            meta:
+              type: object
+              properties:
+                code:
+                  type: number
+
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'Aire'

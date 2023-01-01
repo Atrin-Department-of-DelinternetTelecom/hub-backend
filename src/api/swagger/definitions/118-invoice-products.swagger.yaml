@@ -1,0 +1,48 @@
+definitions:
+  InvoiceProducts1:
+    type: object
+    required:
+      - name
+    properties:
+      name:
+        type: 'string'
+        example: ''
+      noBillable:
+        type: 'integer'
+        example: 0
+      price:
+        type:
+          - 'string'
+          - 'null'
+        example: '0.00'
+      code:
+        type:
+          - 'string'
+          - 'null'
+        example: ''
+      description:
+        type: 'string'
+        example: ''
+      lineDescriptions:
+        type: 'string'
+        example: ''
+      costPrice:
+        type:
+          - 'string'
+          - 'null'
+        example: '0.00'
+      unitTypeId:
+        type: 
+          - 'number'
+          - 'null'
+        example: 0
+      taxId:
+        type: 
+          - 'number'
+          - 'null'        
+        example: 0
+      includedTaxs:
+        type: 'integer'
+        example: 0
+    description: ''
+    title: 'invoice-product-1'

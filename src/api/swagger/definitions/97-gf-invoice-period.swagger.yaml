@@ -1,0 +1,78 @@
+definitions:
+  GfInvoicePeriod:
+    type: object         
+    properties: 
+      period:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+      state:
+        type: "string"
+        example: "pending" 
+      aireResumenDownloaded:
+        type: "string"
+        example: "pending" 
+      aireDesgloseDownloaded:
+        type: "string"
+        example: "pending" 
+      lemonResumenDownloaded:
+        type: "string"
+        example: "pending" 
+      fixCdrEdgesDone:
+        type: "string"
+        example: "pending" 
+      controlRows:
+        type: "string"
+        example: "pending" 
+      invoicesState:
+        type: "string"
+        example: "pending" 
+      issuedState:
+        type: "string"
+        example: "pending" 
+      emailsState:
+        type: "string"
+        example: "pending" 
+      fixCdrExcel:
+        type: "string"
+        example: 'value' 
+      emailSubject:
+        type: "string"
+        example: 'del@delinternet.com' 
+      senderId:
+        type: "number"
+        example: 12
+      fromName:
+        type: "string"
+        example: "a name"
+      testMail:
+        type: "string"
+        example: "tested"
+      transitUnitPrice:
+        type: "number"
+        example: 12.2
+      transportUnitPrice:
+        type: "number"
+        example: 12.2
+      infraIpUnitPrice:
+        type: "number"
+        example: 12.2
+      opexUnitPrice:
+        type: "number"
+        example: 12.2
+      supportUnitPrice:
+        type: "number"
+        example: 12.2
+      guifiRadioStructureUnitPrice:
+        type: "number"
+        example: 12.2
+      liquidationDateInit:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+      liquidationDateEnd:
+        type: "string"
+        example: "2021-04-29 01:47:27.0"
+      totals:
+        type: "string"
+        example: "test"    
+    description: ""
+    title: "gf-invoice-period"

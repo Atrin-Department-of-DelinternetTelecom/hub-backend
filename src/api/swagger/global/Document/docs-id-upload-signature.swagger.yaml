@@ -1,0 +1,95 @@
+/docs/{id}/upload-signature:
+  post:
+    tags:
+      - "docs"
+    summary: "Your POST endpoint"
+    description: "Set gf-docs as signed"
+    operationId: "uploadSignature"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: id
+        in: path
+        description: id of gf-doc table
+        required: true
+        type: string
+      
+      - in: formData
+        name: signature
+        type: file
+        description: signature image
+      
+      - in: formData
+        name: uploadToAire
+        type: boolean
+        description: upload the document to aire after signing
+        required: false
+
+      - in: formData
+        name: name
+        type: string
+        description: name of the signature you want to upload. use "default" if the document only has one signature
+        required: false
+
+
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Document"
+
+/docs/{id}/upload-signatures:
+  post:
+    tags:
+      - "docs"
+    summary: "Your POST endpoint"
+    description: "Set gf-docs as signed"
+    operationId: "uploadSignatures"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: id
+        in: path
+        description: id of gf-doc table
+        required: true
+        type: string
+      - in: body
+        name: body
+        schema:
+          type: "object"
+
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Document"

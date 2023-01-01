@@ -1,0 +1,34 @@
+/assists/{id}/report:
+  get:
+    tags:
+      - "gf-assists"
+    summary: ""
+    description: "get report for assistance"
+    operationId: "getReport"
+    security:
+      - Bearer: []
+    produces:
+      - application/json
+    parameters: 
+      - name: id
+        in: path
+        required: true
+        type: integer
+        description: if of assist
+    responses:
+      "200":
+        description: "OK"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "GfAssist"
+

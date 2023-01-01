@@ -1,0 +1,247 @@
+/gf-contracts/{id}:
+  get:
+    tags:
+      - 'gf-contracts'
+    summary: 'Your GET endpoint'
+    description: 'get a single contract'
+    operationId: 'getGfContractsId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table contract'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfContract'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'status'
+          description: ''
+          x-examples:
+            example-1:
+              data:
+                username: 'thisisusername'
+                email: 'mostafaebrahimi.me@gmail.com'
+                first_name: 'Mostafa'
+                role: 'admin'
+                last_name: 'Ebrahimi'
+                password: 'mostafa$$1'
+              meta:
+                code: 0
+                status: 'string'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfContract'
+  put:
+    tags:
+      - 'gf-contracts'
+    summary: ''
+    description: 'update a gf-contracts by id'
+    operationId: 'putGfContractsId'
+    security:
+      - Bearer: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+        description: Id of gf-contracts table
+      - in: body
+        name: body
+        schema:
+          type: object
+          properties:
+            alias:
+              type: string
+            payDay:
+              type: number
+              default: 1
+            invoiceMonths:
+              type: number
+              default: 1001
+            percentageDiscount:
+              type: number
+              format: double
+              default: 0
+            invoiceProfileId:
+              type: number
+              default: 0
+            dateActivation:
+              type: string
+              default: '2022-02-22'
+            dateDeactivation:
+              type: string
+              default: '2022-02-22'
+            comments:
+              type: string
+              default: Enter small description
+            sellerId:
+              type: number
+            permanence:
+              type: number
+            permanenceEnd:
+              type: string
+              default: '2022-02-22'
+            permanencePvp:
+              type: number
+              format: double
+            tags:
+              type: array
+              default:
+                - { id: 1, comment: '' }
+              items:
+                type: object
+                properties:
+                  id:
+                    type: number
+                  comment:
+                    type: string
+            initialFee:
+              type: object
+              properties:
+                initial_fee_id:
+                  type: number
+                  example: 1
+                start_date:
+                  type: string
+                end_date:
+                  type: string
+                installments:
+                  type: number
+                  example: 1
+                discount:
+                  type: number
+                  format: decimal
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              $ref: '#/definitions/GfContract'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfContract'
+  delete:
+    tags:
+      - 'gf-contracts'
+    summary: ''
+    description: 'delete a gf-contracts by id'
+    operationId: 'deleteGfContractsId'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of gf-contracts table'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'Example response'
+        schema:
+          type: 'object'
+          required:
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: 'Deleted'
+                status: 'success'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfContract'

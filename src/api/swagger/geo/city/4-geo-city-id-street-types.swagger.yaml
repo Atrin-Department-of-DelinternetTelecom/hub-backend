@@ -1,0 +1,56 @@
+/geo/city/types:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - 'geo-city'
+    summary: ''
+    description: 'get street types by city id'
+    operationId: 'getStreetTypesOfCity'
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'query'
+        description: 'street types belongs to witch city | empty to get all'
+        required: false
+        type: 'string'
+      - name: 'code'
+        in: 'query'
+        description: 'street types belongs to witch city code | empty to get all'
+        required: false
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GeoStreet'

@@ -1,0 +1,433 @@
+/stats/technicians:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - 'stats'
+    summary: 'Your GET endpoint'
+    description: 'get installation stats for all users in a period'
+    operationId: 'getTechnicians'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: startDate
+        in: 'query'
+        required: true
+        type: string
+        default: '2022-01-01'
+
+      - name: endDate
+        in: 'query'
+        type: string
+    responses:
+      '200':
+        description: 'OK'
+
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'StatsTechnician'
+
+/stats/technicians/tasks-deprecated:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - 'stats'
+    summary: 'Your GET endpoint'
+    description: 'get installation stats for a user in a period'
+    operationId: 'getTechnicianDeprecated'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: include-soft-deletes
+        in: 'query'
+        type: string
+    responses:
+      '200':
+        description: 'OK'
+
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'StatsTechnician'
+
+/stats/technicians/{id}/tasks/totals-deprecated:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - 'stats'
+    summary: 'Your GET endpoint'
+    description: 'get installation stats for a user in a period'
+    operationId: 'getTechniciansTotalsDeprecated'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: id
+        in: 'path'
+        required: true
+        type: number
+      - name: startDate
+        in: 'query'
+        required: true
+        type: string
+        default: '2022-01-01'
+      - name: endDate
+        in: 'query'
+        type: string
+    responses:
+      '200':
+        description: 'OK'
+
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'StatsTechnician'
+
+/stats/technicians/tasks:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - 'stats'
+    summary: 'Your GET endpoint'
+    description: 'get installation stats for a user in a period'
+    operationId: 'getTechnician'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: include-soft-deletes
+        in: 'query'
+        type: string
+    responses:
+      '200':
+        description: 'OK'
+
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'StatsTechnician'
+
+/stats/technicians/scheduled-tasks:
+  get:
+    # x-pagination: true
+    # x-filter: true
+    tags:
+      - 'stats'
+    summary: 'Your GET endpoint'
+    description: 'get installation stats for a user in a period'
+    operationId: 'getScheduledTasks'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: include-soft-deletes
+        in: 'query'
+        type: string
+        default: 'true'
+      - name: startDate
+        in: 'query'
+        type: string
+        required: true
+      - name: endDate
+        in: 'query'
+        type: string
+        required: true
+    responses:
+      '200':
+        schema:
+          type: object
+          properties:
+            code:
+              type: integer
+              example: 200
+            data:
+              type: object
+              additionalProperties:
+                type: array
+                items:
+                  $ref: '#/definitions/TechnicianTaskItem'
+        description: 'OK'
+
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'StatsTechnician'
+
+/stats/technicians/{id}/tasks/totals:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - 'stats'
+    summary: 'Your GET endpoint'
+    description: 'get installation stats for a user in a period'
+    operationId: 'getTechniciansTotals'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: id
+        in: 'path'
+        required: true
+        type: number
+      - name: startDate
+        in: 'query'
+        required: true
+        type: string
+        default: '2022-01-01'
+      - name: endDate
+        in: 'query'
+        type: string
+    responses:
+      '200':
+        description: 'OK'
+
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'StatsTechnician'
+
+/stats/technicians/tasks/totals:
+  get:
+    x-pagination: true
+    x-filter: true
+    tags:
+      - 'stats'
+    summary: 'Your GET endpoint'
+    description: 'get installation stats for a user in a period'
+    operationId: 'getAllTechniciansTotals'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: startDate
+        in: 'query'
+        required: true
+        type: string
+        default: '2022-01-01'
+      - name: endDate
+        in: 'query'
+        type: string
+      - name: includeSoftDeletes
+        in: 'query'
+        type: boolean
+    responses:
+      '200':
+        description: 'OK'
+
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'StatsTechnician'
+
+definitions:
+  TechnicianTaskItem:
+    type: object
+    properties:
+      clientName:
+        type: string
+        example: Juan Sanchez Oriola
+      typeId:
+        type: integer
+        example: 31954
+      clientId:
+        type: integer
+        example: 8700
+      type:
+        type: string
+        example: incidence/assistance
+      duoDate:
+        type: string
+        format: date-time
+        example: 2025-06-11T06:00:00.000Z
+      contractId:
+        type: integer
+        example: 29698
+      isDone:
+        type: integer
+        enum: [0, 1]
+        example: 0
+      duration:
+        type: integer
+        example: 60
+      technicianTaskId:
+        type: integer
+      startedAt:
+        type: string
+        format: date-time
+      finishedAt:
+        type: string
+        format: date-time
+      autoCloseAt:
+        type: string
+        format: date-time
+      technicianState:
+        type: string
+        example: pending
+      technicianId:
+        type: integer
+        example: 25
+      technician:
+        type: object
+        properties:
+          id:
+            type: integer
+            example: 25
+          first_name:
+            type: string
+            example: Carlos
+          last_name:
+            type: string
+            example: Bahillo
+      cancelledById:
+        type: integer
+      cancelledByUser:
+        type: string
+      contract:
+        type: object
+        properties:
+          id:
+            type: integer
+            example: 29698
+          reference:
+            type: string
+            example: C029698-0046-008700
+      technicianTask:
+        type: object
+        $ref: '#/definitions/TechnicianTask'
+
+  TechnicianTask:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 14579
+      startedAt:
+        type: string
+        format: date-time
+        example: '2025-06-11T05:38:41.000Z'
+      finishedAt:
+        type: string
+        format: date-time
+        example: '2025-06-11T06:20:01.000Z'
+      cancelleAt:
+        type: string
+        format: date-time
+      autoCloseAt:
+        type: string
+        format: date-time
+      cancelledBy:
+        type: string
+      cancelReasonDescription:
+        type: string
+      cancelReason:
+        type: string
+      steps:
+        type: array
+        items:
+          $ref: '#/definitions/TechnicianTask'
+
+  TechnicianTaskStep:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 77007
+      taskId:
+        type: integer
+        example: 14579
+      name:
+        type: string
+        example: reaching-to-the-destination
+      index:
+        type: integer
+        example: 0
+      state:
+        type: string
+        example: done
+      error:
+        type: string
+      updatedAt:
+        type: string
+        format: date-time
+        example: '2025-06-11T06:00:09.000Z'
+      createdAt:
+        type: string
+        format: date-time
+        example: '2025-06-11T05:38:41.000Z'

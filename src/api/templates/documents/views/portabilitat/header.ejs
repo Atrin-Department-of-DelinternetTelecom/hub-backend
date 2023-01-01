@@ -1,0 +1,15 @@
+<%- include('../components/header') %> 
+<div class="d-flex flex-wrap justify-around bg-primary px-2 text-white align-center"> 
+    <div class="d-flex flex-wrap">
+        <small class="px-1/2 lowercase smaller">Núm del document:</small>
+        <small class="px-1/2 lowercase smaller"><%= document_num %></small>
+    </div>
+    <div class="d-flex flex-wrap">
+        <small class="px-1/2 lowercase smaller">Codi Client:</small>
+        <small class="px-1/2 lowercase smaller"><%= client_id %></small>
+    </div>
+    <div class="d-flex flex-wrap">
+        <small class="px-1/2 lowercase smaller">Data document:</small>
+        <small class="px-1/2 lowercase smaller"><%= signature_date %></small>
+    </div>
+</div>  

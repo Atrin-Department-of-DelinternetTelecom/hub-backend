@@ -1,0 +1,32 @@
+definitions:
+  AireCdrStatus:
+    type: object
+    properties:
+      id: 
+        type: integer
+        format: int32
+        example: 12
+      uid: 
+        type: integer
+        format: int32
+        example: 12
+      date:
+        type: 'string'
+        example: '2021-04-29 01:47:27.0'
+      state:
+        type: 'string'
+        example: 'pending'
+      lastMessage:
+        type: 'string'
+        example: 'bye'
+      totals:
+        type: 'string'
+        example: '{total:200}'
+      countedAireRecords:
+        type: 'number'
+        example: 12
+      status:
+        type: 'number'
+        example: 0
+    description: ''
+    title: 'gf-aire-cdr-status'

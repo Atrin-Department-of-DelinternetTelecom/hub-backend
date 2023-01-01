@@ -1,0 +1,193 @@
+/gf-contracts/{id}/sim-delivery:
+  put:
+    tags:
+      - 'gf-contracts'
+    summary: 'set sim delivery for a gf contract'
+    operationId: putSimDelivery
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table contract'
+        required: true
+        type: 'integer'
+
+      - in: 'body'
+        name: 'body'
+        required: true
+        schema:
+          $ref: '#/definitions/GfSimDeliveryInput'
+
+    responses:
+      '200':
+        description: 'OK'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfContract'
+
+  get:
+    tags:
+      - 'gf-contracts'
+    summary: 'get sim delivery for a gf contract'
+    operationId: getSimDelivery
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of table contract'
+        required: true
+        type: 'integer'
+
+    responses:
+      '200':
+        description: 'OK'
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GfContract'
+
+
+
+definitions:
+  GfSimDeliveryInput:
+    type: object
+    properties:
+      closed:
+        type: boolean
+        description: Indicates if the delivery is closed
+        example: false
+
+      technicianUserId:
+        type: integer
+        description: Technician user id
+        example: 1
+        
+      date:
+        type: string
+        format: date-time
+        description: Date of the GfSimDelivery
+        example: '2023-05-22T10:30:00Z'
+      addressRegion:
+        type: string
+        description: Region of the address
+      addressRegionCode:
+        type: string
+        description: Region code of the address
+      addressRegionCodeName:
+        type: string
+        description: Region code name of the address
+      addressProvince:
+        type: string
+        description: Province of the address
+      addressProvinceCode:
+        type: string
+        description: Province code of the address
+      addressProvinceCodeName:
+        type: string
+        description: Province code name of the address
+      addressCity:
+        type: string
+        description: City of the address
+      addressCityCode:
+        type: string
+        description: City code of the address
+      addressCityCodeName:
+        type: string
+        description: City code name of the address
+      addressPostalCode:
+        type: string
+        description: Postal code of the address
+      addressPostalCodeCode:
+        type: string
+        description: Postal code code of the address
+      addressPostalCodeCodeName:
+        type: string
+        description: Postal code code name of the address
+      addressStreet:
+        type: string
+        description: Street of the address
+      addressStreetCode:
+        type: string
+        description: Street code of the address
+      addressStreetCodeName:
+        type: string
+        description: Street code name of the address
+      addressStreetTypeCode:
+        type: string
+        description: Street type code of the address
+      addressStreetTypeCodeName:
+        type: string
+        description: Street type code name of the address
+      addressNumber:
+        type: string
+        description: Number of the address
+      addressNumberCode:
+        type: string
+        description: Number code of the address
+      addressNumberCodeName:
+        type: string
+        description: Number code name of the address
+      addressFloor:
+        type: string
+        description: Floor of the address
+      addressFloorCode:
+        type: string
+        description: Floor code of the address
+      addressBuilding:
+        type: string
+        description: Building of the address
+      addressBuildingCode:
+        type: string
+        description: Building code of the address
+      addressBuildingCodeName:
+        type: string
+        description: Building code name of the address
+      addressDoor:
+        type: string
+        description: Door of the address
+      addressDoorCode:
+        type: string
+        description: Door code of the address
+      addressDoorCodeName:
+        type: string
+        description: Door code name of the address
+      addressStairway:
+        type: string
+        description: Stairway of the address
+      addressStairwayCode:
+        type: string
+        description: Stairway code of the address
+      addressStairwayCodeName:
+        type: string
+        description: Stairway code name of the address
+      addressLat:
+        type: string
+        description: Latitude coordinate of the address
+      addressLng:
+        type: string
+        description: Longitude coordinate of the address

@@ -1,0 +1,367 @@
+/payrolls/{id}:
+  get:
+    tags:
+      - "payroll"
+    summary: "Your GET endpoint"
+    description: "get a payroll by id"
+    operationId: "getPayrollsId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of table payroll"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Payroll"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                created_at: "2021-04-27T18:03:17.000000Z"
+                creator:
+                  created_at: "2021-04-27T11:00:53.000000Z"
+                  email: "conn.itzel@example.net"
+                  id: 2
+                  name: "Dr. Kayley Homenick MD"
+                  updated_at: "2021-04-27T11:00:53.000000Z"
+                details: "nothing"
+                employee:
+                  created_at: "2021-04-27T11:00:54.000000Z"
+                  email: "imorar@example.org"
+                  id: 6
+                  name: "Anastacio Ratke"
+                  updated_at: "2021-04-27T11:00:54.000000Z"
+                id: 1
+                salary: 4.230000000000000426325641456060111522674560546875
+                status: "pending"
+                updated_at: "2021-04-27T18:03:17.000000Z"
+              meta:
+                code: 200
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Payroll"
+  post:
+    tags:
+      - "payroll"
+    summary: ""
+    description: "update should upload new signature or change some details"
+    operationId: "postPayrollsId"
+    security:
+      - Bearer: []
+    parameters:
+      - in: path
+        name: "id"
+        type: "string"
+        required: true
+        description: Numeric ID of the user to get.
+      - in: formData
+        type: file
+        required: false
+        name: employeeSignature
+        description: employee signature
+      - in: formData
+        type: file
+        required: false
+        name: companySignature
+        description: company signature
+      - in: formData
+        type: file
+        required: false
+        name: signedDoc
+        description: payment pdf
+      - in: formData
+        type: string
+        required: false
+        name: details
+        description: details about salary
+      - in: formData
+        type: string
+        required: false
+        name: reject_payment
+        description: reject reason of payament
+      - in: formData
+        type: string
+        required: false
+        name: status
+        description: status of payment
+      - in: formData
+        type: number
+        required: false
+        name: salary
+        description: total salary
+      - in: formData
+        type: number
+        required: false
+        name: template_id
+        description: id of template related to this user  
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Payroll"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                company_signature_date: "1998-10-08 00:00:00"
+                created_at: "2021-04-21T12:28:48.000000Z"
+                creator:
+                  created_at: "2021-04-01T06:53:16.000000Z"
+                  email: "marilie83@example.com"
+                  id: 2
+                  name: "Tess Franecki"
+                  updated_at: "2021-04-01T06:53:16.000000Z"
+                details: "nothing"
+                employee:
+                  created_at: "2021-04-01T06:53:16.000000Z"
+                  email: "boyer.hoyt@example.net"
+                  id: 6
+                  name: "Prof. Orval Rutherford DDS"
+                  updated_at: "2021-04-01T06:53:16.000000Z"
+                employee_signature_date: "1998-10-08 00:00:00"
+                id: 6
+                salary: 4.230
+                status: "pending"
+                updated_at: "2021-04-21T12:28:48.000000Z"
+              meta:
+                code: 200
+                message: "Updated"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Payroll"
+  delete:
+    tags:
+      - "payroll"
+    summary: ""
+    description: "delete payroll by id"
+    operationId: "deletePayrollsId"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "id"
+        in: "path"
+        description: "id of table payroll"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "Example response"
+        schema:
+          type: "object"
+          required:
+            - "meta"
+          properties:
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              meta:
+                code: 200
+                message: "Deleted"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Payroll"
+  put:
+    tags:
+      - "payroll"
+    summary: ""
+    description: "update should upload new signature or change some details"
+    operationId: "putPayrollsId"
+    security:
+      - Bearer: []
+    parameters:
+      - in: path
+        name: "id"
+        type: "string"
+        required: true
+        description: Numeric ID of the user to get.
+      - in: "body"
+        name: "body"
+        description: ""
+        schema:
+          type: "object"       
+          properties:
+            employee_signature_id:
+              type: "integer"
+              example: 12
+            template_id:
+              type: "integer"
+              example: 12
+            company_signature_id:
+              type: "integer"
+              example: 13
+            salary:
+              type: "number"
+              example: 12.3
+            status:
+              type: "string"
+              example: "pending"
+            details:
+              type: "string"
+              example: "some details about payroll"
+            reject_payment:
+              type: "string"
+              example: "we don't have money :)"      
+          description: ""
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "object"
+          required:
+            - "data"
+            - "meta"
+          properties:
+            data:
+              $ref: "#/definitions/Payroll"
+            meta:
+              type: "object"
+              properties:
+                code:
+                  type: "number"
+                message:
+                  type: "string"
+                  minLength: 1
+                status:
+                  type: "string"
+                  minLength: 1
+              required:
+                - "code"
+                - "message"
+                - "status"
+          description: ""
+          x-examples:
+            example-1:
+              data:
+                company_signature_date: "1998-10-08 00:00:00"
+                created_at: "2021-04-21T12:28:48.000000Z"
+                creator:
+                  created_at: "2021-04-01T06:53:16.000000Z"
+                  email: "marilie83@example.com"
+                  id: 2
+                  name: "Tess Franecki"
+                  updated_at: "2021-04-01T06:53:16.000000Z"
+                details: "nothing"
+                employee:
+                  created_at: "2021-04-01T06:53:16.000000Z"
+                  email: "boyer.hoyt@example.net"
+                  id: 6
+                  name: "Prof. Orval Rutherford DDS"
+                  updated_at: "2021-04-01T06:53:16.000000Z"
+                employee_signature_date: "1998-10-08 00:00:00"
+                id: 6
+                salary: 4.23
+                status: "pending"
+                updated_at: "2021-04-21T12:28:48.000000Z"
+              meta:
+                code: 200
+                message: "Updated"
+                status: "success"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"
+    x-swagger-router-controller: "Payroll"
+  

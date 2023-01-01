@@ -1,0 +1,28 @@
+/locations/pointinpolygon:
+  get:
+    tags:
+      - "location"
+    summary: "Your GET endpoint"
+    description: "check that the point is in polygon or no"
+    operationId: "getLocationsPointinpolygon"
+    security:
+      - Bearer: []
+    produces:
+      - "application/json"
+    parameters:
+      - name: "geofence_id"
+        in: "query"
+        description: "id of area"
+        required: true
+        type: "number"
+      - name: "point"
+        in: "query"
+        description: "lat and lng"
+        required: true
+        type: "string"
+    responses:
+      "200":
+        description: "OK"
+        schema:
+          type: "boolean"
+    x-swagger-router-controller: "Location"

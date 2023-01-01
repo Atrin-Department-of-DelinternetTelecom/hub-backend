@@ -1,0 +1,203 @@
+definitions:
+  GfDiscountMatrix1:
+    type: object
+    required:
+      - feeGroupLabelId
+      - alias
+      - numberOfMonths
+      - stay
+      - discountType
+    properties:
+      uid:
+        type: number
+        example: -1
+      active:
+        type: number
+        example: 0
+      feeGroupId:
+        type: number
+        example: 1
+      feeGroupLabelId:
+        type: number
+        example: 1
+      bonoId:
+        type: number
+        example: 0
+      alias:
+        type: string
+        example: ''
+      numberOfMonths:
+        type: number
+        example: 1
+      stay:
+        type: number
+        example: 1
+      discountType:
+        type: string
+        enum: ['percentage', 'fix', 'bono']
+        example: 'fix'
+      discount:
+        type:
+          - 'string'
+          - 'null'
+        example: '1'
+      appliedToSectionId:
+        type: number
+        example: 1
+      accumulation:
+        type: number
+        example: 1
+      order:
+        type: number
+        example: 1
+      idTpv:
+        type: string
+        example: ''
+      forceExecutionTargetActivation:
+        type: number
+        example: 1
+      proportionalNonPermanent:
+        type: number
+        example: 1
+      status:
+        type: integer
+        example: 0
+      extraFields:
+        type: 'array'
+        items:
+          type: number
+      combinations:
+        type: array
+        items:
+          type: object
+          required:
+            - matrixIds
+          properties:
+            matrixIds:
+              type: array
+              items:
+                type: number
+            combinationSetId:
+              type: number
+
+    description: ''
+    title: 'gf-discount-matrix-1'
+  GfDiscountMatrix3:
+    type: object
+    properties:
+      active:
+        type: number
+        example: 0
+      feeGroupId:
+        type: number
+        example: 1
+      bonoId:
+        type: number
+        example: 0
+      alias:
+        type: string
+        example: ''
+      numberOfMonths:
+        type: number
+        example: 1
+      stay:
+        type: number
+        example: 1
+      discountType:
+        type: string
+        enum: ['percentage', 'fix', 'bono']
+        example: 'fix'
+      discount:
+        type:
+          - 'string'
+          - 'null'
+        example: '1'
+      appliedToSectionId:
+        type: number
+        example: 1
+      accumulation:
+        type: number
+        example: 1
+      order:
+        type: number
+        example: 1
+      idTpv:
+        type: string
+        example: ''
+      forceExecutionTargetActivation:
+        type: number
+        example: 1
+      proportionalNonPermanent:
+        type: number
+        example: 1
+      extraFields:
+        type: 'array'
+        items:
+          type: number
+    description: ''
+    title: 'gf-discount-matrix-1'
+  GfDiscountMatrix2:
+    type: object
+    properties:
+      uid:
+        type: number
+        example: -1
+      active:
+        type: number
+        example: 0
+      feeGroupId:
+        type: number
+        example: 1
+      feeGroupLabelId:
+        type: number
+        example: 1
+      bonoId:
+        type: number
+        example: 0
+      alias:
+        type: string
+        example: ''
+      numberOfMonths:
+        type: number
+        example: 1
+      stay:
+        type: number
+        example: 1
+      discountType:
+        type: string
+        enum: ['percentage', 'fix', 'bono']
+        example: 'fix| percentage| bono'
+      discount:
+        type: string
+        example: '1'
+      appliedToSectionId:
+        type: number
+        example: 1
+      accumulation:
+        type: number
+        example: 1
+      order:
+        type: number
+        example: 1
+      idTpv:
+        type: string
+        example: ''
+      forceExecutionTargetActivation:
+        type: number
+        example: 1
+      proportionalNonPermanent:
+        type: number
+        example: 1
+      status:
+        type: integer
+        example: 0
+      creationDate:
+        type: 'string'
+        example: '2021-04-29 01:47:27.0'
+        minLength: 1
+      updateDate:
+        type: 'string'
+        example: '2021-04-29 01:47:27.0'
+        minLength: 1
+    description: ''
+    title: 'gf-discount-matrix-2'

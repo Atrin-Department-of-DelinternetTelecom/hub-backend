@@ -1,0 +1,210 @@
+/geo/number/{id}:
+  get:
+    tags:
+      - 'geo-number'
+    summary: 'Your GET endpoint'
+    description: 'get a geo-number by id'
+    operationId: 'getGeoNumberId'
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of geo number'
+        required: true
+        type: 'number'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GeoNumber'
+  put:
+    tags:
+      - 'geo-number'
+    summary: ''
+    description: 'update a geo-number record by id'
+    operationId: 'putGeoNumberId'
+    security:
+      - Bearer: []
+    consumes:
+      - 'application/json'
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of category table'
+        required: true
+        type: 'string'
+      - in: 'body'
+        name: 'body'
+        description: 'update a geo-number record'
+        required: false
+        schema:
+          type: 'object'
+          properties:
+            name:
+              type: 'string'
+            phone_number:
+              type: 'string'
+            email:
+              type: 'string'
+            processed_by_user_id:
+              type: 'number'
+            metadate:
+              type: 'string'
+            description:
+              type: 'string'
+            status:
+              type: 'string'
+          description: ''
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            data:
+              type: 'object'
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                message:
+                  type: 'string'
+                  minLength: 1
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'message'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GeoNumber'
+  patch:
+    tags:
+      - 'geo-number'
+    summary: 'update numbers per street'
+    parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'id of street'
+        required: true
+        type: 'number'
+    description: 'update Geo-Number'
+    operationId: 'updateNumbersPerStreet'
+    security:
+      - Bearer: []
+    produces:
+      - 'application/json'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+    x-swagger-router-controller: 'GeoNumber'
+
+/geo/numbers/codes/{code}:
+  get:
+    tags:
+      - 'geo-number'
+    summary: 'Your GET endpoint'
+    description: 'get a geo-number by code'
+    operationId: 'getGeoNumberByCode'
+    produces:
+      - 'application/json'
+    parameters:
+      - name: 'code'
+        in: 'path'
+        description: 'code of geo number'
+        required: true
+        type: 'string'
+    responses:
+      '200':
+        description: 'OK'
+        schema:
+          type: 'object'
+          required:
+            - 'data'
+            - 'meta'
+          properties:
+            meta:
+              type: 'object'
+              properties:
+                code:
+                  type: 'number'
+                status:
+                  type: 'string'
+                  minLength: 1
+              required:
+                - 'code'
+                - 'status'
+          description: ''
+      '401':
+        description: 'Unauthorized'
+        schema:
+          $ref: '#/definitions/Response_401'
+      '403':
+        description: 'Forbidden'
+        schema:
+          $ref: '#/definitions/Response_403'
+      '500':
+        description: 'InternalServerError'
+        schema:
+          $ref: '#/definitions/Response_500'
+    x-swagger-router-controller: 'GeoNumber'

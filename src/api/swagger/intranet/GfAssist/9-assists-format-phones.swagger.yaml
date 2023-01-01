@@ -1,0 +1,23 @@
+/assists/format-contact-phones:
+  post:
+    tags:
+      - "gf-assists"
+    operationId: "formatContactPhones"
+    security:
+      - Bearer: []
+    responses:
+      "200":
+        description: "OK"
+      "401":
+        description: "Unauthorized"
+        schema:
+          $ref: "#/definitions/Response_401"
+      "403":
+        description: "Forbidden"
+        schema:
+          $ref: "#/definitions/Response_403"
+      "500":
+        description: "InternalServerError"
+        schema:
+          $ref: "#/definitions/Response_500"    
+    x-swagger-router-controller: "GfAssist"
